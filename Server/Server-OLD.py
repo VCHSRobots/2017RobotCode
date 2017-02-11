@@ -181,7 +181,7 @@ def CommMan():
 					data = sock.recv(RECV_BUFFER)
 					if data != "":
 						if data.rstrip() == "C0":
-							log("[INFO] Client (%s, %s) has requested that no camera data be transmitted." %addr)							broadcast_data("AAAAAY LMAO")
+							log("[INFO] Client (%s, %s) has requested that no camera data be transmitted." %addr)
 						elif data.rstrip() == "C1":
 							log("[INFO] Client (%s, %s) has requested that data for camera 1 be transmitted." %addr)
 							broadcast_stream(1)
