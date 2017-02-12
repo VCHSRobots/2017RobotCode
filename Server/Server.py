@@ -35,7 +35,7 @@ class BroadcastStream(threading.Thread):
 		self.Conn = Conn
 		self.Addr = Addr
 	def run(self):
-		Log("[INFO] BroadcastStream thread started.")
+		Log("[INFO] BroadcastThread started.")
 		try:
 			Log("[INFO] Setting up camera 1...")
 			Cam1 = cv2.VideoCapture(0)
@@ -213,6 +213,21 @@ class ClientManager(threading.Thread):
 					elif Data == "C4":
 						Camera = 4
 						Log("[INFO] Client (%s, %s) has requested that the video stream for camera 4 be broadcasted." %Addr)
+					elif Data == "T":
+						Log("[INFO] Client (%s, %s) has requested that targeting start up." %Addr)
+						Target = TargetingManager(Conn, Addr)
+						Target.daemon = True
+						Target.name = "TargetingThread"
+						Target.start()
+					elif Data == "T0":
+						Target = 0
+						Log("[INFO] Client (%s, %s) has requested that no alignment be made toward any target." %Addr)
+					elif Data == "T1":
+						Target = 1
+						Log("[INFO] Client (%s, %s) has requested that alignment be made toward the high boiler opening." %Addr)
+					elif Data == "T2":
+						Target = 2
+						Log("[INFO] Client (%s, %s) has requested that alignment be made toward the gear delivery peg." %Addr)
 					else:
 						Log("[EROR] Error parsing data recieved from client (%s, %s): \"" %Addr + Data + "\": valid messages are: \"C0\", \"C1\", \"C2\", \"C3\", \"C4\".")
 				else:
@@ -224,12 +239,40 @@ class ClientManager(threading.Thread):
 				Conn.close()
 				return
 
+class TargetingManager(threading.Thread):
+	def __init__(self, Conn, Addr):
+		threading.Thread.__init__(self)
+		self.Conn = Conn
+		self.Addr = Addr
+	def run(self):
+		Log("[INFO] TargetingManager thread started.")
+		while True:
+			while Target == 0:
+				pass
+			while Target == 1:
+				StartTime = time.time()
+				try:
+					Ret, Frame = Cam1.read()
+				except:
+					Log("[EROR] Unable to take image from camera 1 (shooter):")
+					traceback.print_exc()
+				try:
+					Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
+				except:
+					Log("[EROR] Unable to convert image to grayscale:")
+					traceback.print_exc()
+				cv2.imshow("Processed image output:", Gray)
+				cv2.waitKey(10)
+			while Target == 2:
+				pass #WORK IN PROGRESS FOR 
+
 #
 #Begin mainline code
 #
 
 Log("[INFO] VisionSystem Server initiated! | Running on Python version: " + str(sys.version_info[0]) + "." + str(sys.version_info[1]) + "." + str(sys.version_info[2]) + ". Running on OpenCV version: " + cv2.__version__ + ".")
 Camera = 0
+Target = 0
 ServerManager = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 time.sleep(0.1)
 ServerManager.bind((Host, Port))
