@@ -24788,3 +24788,2039 @@
 2017-02-14/04:25:08 (TargetingThread) [(115, 194), (543, 268)]
 2017-02-14/04:25:08 (TargetingThread) [(562, 349), (485, 418)]
 2017-02-14/04:25:09 (TargetingThread) [(616, 84), (409, 420)]
+2017-02-14/04:34:07 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-14/04:34:07 (MainThread) [INFO] Setting up camera 1...
+2017-02-14/04:34:07 (MainThread) [INFO] Setting up camera 2...
+2017-02-14/04:34:07 (MainThread) [INFO] Setting up camera 3...
+2017-02-14/04:34:07 (MainThread) [INFO] Setting up camera 4...
+2017-02-14/04:34:10 (ClientThread:1) [INFO] Client (10.44.15.8, 62300) connected and situated.
+2017-02-14/04:34:10 (ClientThread:1) [INFO] Client (10.44.15.8, 62300) has declared itself as the VisionSystem client.
+2017-02-14/04:34:10 (BroadcastThread) [INFO] BroadcastThread started.
+2017-02-14/04:34:11 (ClientThread:1) [INFO] Client (10.44.15.8, 62300) has requested that targeting start up.
+2017-02-14/04:34:11 (TargetingThread) [INFO] TargetingManager thread started.
+2017-02-14/04:34:16 (ClientThread:1) [INFO] Client (10.44.15.8, 62300) has requested that the video stream for camera 1 be broadcasted.
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:16 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:17 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:18 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:19 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:20 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:21 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:22 (ClientThread:1) [INFO] Client (10.44.15.8, 62300) has requested that no video stream be broadcasted.
+2017-02-14/04:34:22 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62300):
+2017-02-14/04:34:41 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-14/04:34:41 (MainThread) [INFO] Setting up camera 1...
+2017-02-14/04:34:41 (MainThread) [INFO] Setting up camera 2...
+2017-02-14/04:34:41 (MainThread) [INFO] Setting up camera 3...
+2017-02-14/04:34:41 (MainThread) [INFO] Setting up camera 4...
+2017-02-14/04:34:52 (ClientThread:1) [INFO] Client (10.44.15.8, 62417) connected and situated.
+2017-02-14/04:34:52 (ClientThread:1) [INFO] Client (10.44.15.8, 62417) has declared itself as the VisionSystem client.
+2017-02-14/04:34:52 (BroadcastThread) [INFO] BroadcastThread started.
+2017-02-14/04:34:53 (ClientThread:1) [INFO] Client (10.44.15.8, 62417) has requested that targeting start up.
+2017-02-14/04:34:53 (TargetingThread) [INFO] TargetingManager thread started.
+2017-02-14/04:34:54 (ClientThread:1) [INFO] Client (10.44.15.8, 62417) has requested that the video stream for camera 1 be broadcasted.
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:54 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:55 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:56 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:57 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to convert image to Base 64 data string:
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to send image to client (10.44.15.8, 62417):
+2017-02-14/04:34:58 (BroadcastThread) [EROR] Unable to convert image to grayscale:
+2017-02-14/04:36:55 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-14/04:36:55 (MainThread) [INFO] Setting up camera 1...
+2017-02-14/04:36:55 (MainThread) [INFO] Setting up camera 2...
+2017-02-14/04:36:55 (MainThread) [INFO] Setting up camera 3...
+2017-02-14/04:36:55 (MainThread) [INFO] Setting up camera 4...
+2017-02-14/04:37:02 (ClientThread:1) [INFO] Client (10.44.15.8, 62579) connected and situated.
+2017-02-14/04:37:02 (ClientThread:1) [INFO] Client (10.44.15.8, 62579) has declared itself as the VisionSystem client.
+2017-02-14/04:37:02 (BroadcastThread) [INFO] BroadcastThread started.
+2017-02-14/04:37:03 (ClientThread:1) [INFO] Client (10.44.15.8, 62579) has requested that targeting start up.
+2017-02-14/04:37:03 (TargetingThread) [INFO] TargetingManager thread started.
+2017-02-14/04:37:04 (ClientThread:1) [INFO] Client (10.44.15.8, 62579) has requested that the video stream for camera 1 be broadcasted.
+2017-02-14/04:37:08 (ClientThread:1) [INFO] Client (10.44.15.8, 62579) has requested that the video stream for camera 2 be broadcasted.
+2017-02-14/04:37:11 (ClientThread:1) [INFO] Client (10.44.15.8, 62579) has requested that the video stream for camera 1 be broadcasted.
+2017-02-14/04:37:16 (ClientThread:1) [INFO] Client (10.44.15.8, 62579) has disconnected.
