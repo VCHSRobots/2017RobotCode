@@ -10,10 +10,33 @@ import ds_pi_communication, rio_pi_communication #, field_coordinates
 #Global variables
 #
 
+#Internet
+
 Host = "0.0.0.0"
 Port = 5800
 RecvBuffer = 1024
 ClientBuffer = 16
+
+#Targeting
+
+Hue = [0.0, 180.0]
+Saturation = [0.0, 255.0]
+Luminance = [183.36894500961878, 252.62254213192088]
+MinArea = 0.0
+MinPerimeter = 0.0
+MinWidth = 40.0
+MaxWidth = 100.0
+MinHeight = 0.0
+MaxHeight = 100.0
+Solidity = [32.9531854207994, 83.60631479443363]
+MaxVertices = 1000000.0
+MinVertices = 0.0
+MinRatio = 0.0
+MaxRatio = 1000.0
+MaxVerticalOffset = 45
+MinVerticalOffset = 10
+MaxHorizontalOffset = 25
+MinHorizontalOffset = 0
 
 #
 #Functions, classes, et cetera
@@ -35,31 +58,11 @@ class BroadcastStream(threading.Thread):
 		self.Conn = Conn
 		self.Addr = Addr
 	def run(self):
+		global Cam1
+		global Cam2
+		global Cam3
+		global Cam4
 		Log("[INFO] BroadcastThread started.")
-		try:
-			Log("[INFO] Setting up camera 1...")
-			Cam1 = cv2.VideoCapture(0)
-		except:
-			Log("[EROR] Unable to set up camera 1:")
-			traceback.print_exc()
-		try:
-			Log("[INFO] Setting up camera 2...")
-			Cam2 = cv2.VideoCapture(1)
-		except:
-			Log("[EROR] Unable to set up camera 2:")
-			traceback.print_exc()
-		try:
-			Log("[INFO] Setting up camera 3...")
-			Cam3 = cv2.VideoCapture(2)
-		except:
-			Log("[EROR] Unable to set up camera 3:")
-			traceback.print_exc()
-		try:
-			Log("[INFO] Setting up camera 4...")
-			Cam4 = cv2.VideoCapture(3)
-		except:
-			Log("[EROR] Unable to set up camera 4:")
-			traceback.print_exc()
 		while True:
 			while Camera == 0:
 				pass
@@ -179,6 +182,7 @@ class ClientManager(threading.Thread):
 		self.Addr = Addr
 	def run(self):
 		global Camera
+		global Target
 		Log("[INFO] Client (%s, %s) connected and situated." %Addr)
 		while True:
 			try:
@@ -215,10 +219,10 @@ class ClientManager(threading.Thread):
 						Log("[INFO] Client (%s, %s) has requested that the video stream for camera 4 be broadcasted." %Addr)
 					elif Data == "T":
 						Log("[INFO] Client (%s, %s) has requested that targeting start up." %Addr)
-						Target = TargetingManager(Conn, Addr)
-						Target.daemon = True
-						Target.name = "TargetingThread"
-						Target.start()
+						Targeter = TargetingManager(Conn, Addr)
+						Targeter.daemon = True
+						Targeter.name = "TargetingThread"
+						Targeter.start()
 					elif Data == "T0":
 						Target = 0
 						Log("[INFO] Client (%s, %s) has requested that no alignment be made toward any target." %Addr)
@@ -229,14 +233,18 @@ class ClientManager(threading.Thread):
 						Target = 2
 						Log("[INFO] Client (%s, %s) has requested that alignment be made toward the gear delivery peg." %Addr)
 					else:
-						Log("[EROR] Error parsing data recieved from client (%s, %s): \"" %Addr + Data + "\": valid messages are: \"C0\", \"C1\", \"C2\", \"C3\", \"C4\".")
+						Log("[EROR] Error parsing data recieved from client (%s, %s): \"" %Addr + Data + "\": valid messages are: \"C\", \"C0\", \"C1\", \"C2\", \"C3\", \"C4\", \"T\", \"T1\", \"T2\".")
 				else:
 					Log("[INFO] Client (%s, %s) has disconnected." %Addr)
+					Camera = 0
+					Target = 0
 					return
 			except:
 				Log("[EROR] Error receiving data from client (%s, %s): Client considered disconnected:" %Addr)
 				traceback.print_exc()
 				Conn.close()
+				Camera = 0
+				Target = 0
 				return
 
 class TargetingManager(threading.Thread):
@@ -245,6 +253,11 @@ class TargetingManager(threading.Thread):
 		self.Conn = Conn
 		self.Addr = Addr
 	def run(self):
+		global Target
+		global Cam1
+		global Cam2
+		global Cam3
+		global Cam4
 		Log("[INFO] TargetingManager thread started.")
 		while True:
 			while Target == 0:
@@ -257,14 +270,58 @@ class TargetingManager(threading.Thread):
 					Log("[EROR] Unable to take image from camera 1 (shooter):")
 					traceback.print_exc()
 				try:
-					Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
+					ImHLS = cv2.cvtColor(Frame, cv2.COLOR_BGR2HLS)
+					Out = cv2.inRange(ImHLS, (Hue[0], Luminance[0], Saturation[0]), (Hue[1], Luminance[1], Saturation[1]))
+					OkContours, Hierarchy = cv2.findContours(Out, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_SIMPLE)
+					BetterContours = []
+					for Contour in OkContours:
+						x, y, w, h = cv2.boundingRect(Contour)
+						if w < MinWidth or w > MaxWidth:
+							continue
+						if h < MinHeight or h > MaxHeight:
+							continue
+						Area = cv2.contourArea(Contour)
+						if Area < MinArea:
+							continue
+						if cv2.arcLength(Contour, True) < MinPerimeter:
+							continue
+						Hull = cv2.convexHull(Contour)
+						Solid = 100 * Area / cv2.contourArea(Hull)
+						if Solid < Solidity[0] or Solid > Solidity[1]:
+							continue
+						if len(Contour) < MinVertices or len(Contour) > MaxVertices:
+							continue
+						Ratio = (float)(w) / h
+						if Ratio < MinRatio or Ratio > MaxRatio:
+							continue
+						BetterContours.append(Contour)
+					cv2.drawContours(Frame, BetterContours, -1, (178, 178, 178), 2) #Drawing BetterContours - temporary
+					BetterContours = sorted(BetterContours, key=cv2.contourArea, reverse=True)[:2] #Keep 2 largest
+					cv2.drawContours(Frame, BetterContours, -1, (0, 0, 255), 2)
+					Centers = []
+					if len(BetterContours) == 2:
+						for Contour in BetterContours:
+							M = cv2.moments(Contour)
+							cX = int(M["m10"] / M["m00"])
+							cY = int(M["m01"] / M["m00"])
+							Centers.append((cX, cY))
+						Log(str(Centers))
+						XDistance = abs(Centers[0][0] - Centers[1][0])
+						YDistance = abs(Centers[0][1] - Centers[1][1])
+						if XDistance < MaxHorizontalOffset and XDistance > MinHorizontalOffset and YDistance < MaxVerticalOffset and YDistance > MinVerticalOffset:
+							BetterCenters = [(Centers[0][0], Centers[0][1]), (Centers[1][0], Centers[1][1])]
+							cv2.line(Frame, BetterCenters[0], BetterCenters[1], (255, 255, 255), 1)
 				except:
-					Log("[EROR] Unable to convert image to grayscale:")
+					Log("[EROR] Unable to process image:")
 					traceback.print_exc()
-				cv2.imshow("Processed image output:", Gray)
-				cv2.waitKey(10)
+				try:
+					pass
+				except:
+					pass
+				cv2.imshow("Processed image output:", Frame)
+				cv2.waitKey(1)
 			while Target == 2:
-				pass #WORK IN PROGRESS FOR 
+				pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
 
 #
 #Begin mainline code
@@ -275,8 +332,35 @@ Camera = 0
 Target = 0
 ServerManager = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 time.sleep(0.1)
+ServerManager.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 ServerManager.bind((Host, Port))
 NumberOfClientThreads = 1
+
+try:
+	Log("[INFO] Setting up camera 1...")
+	Cam1 = cv2.VideoCapture(0)
+except:
+	Log("[EROR] Unable to set up camera 1:")
+	traceback.print_exc()
+try:
+	Log("[INFO] Setting up camera 2...")
+	Cam2 = cv2.VideoCapture(1)
+except:
+	Log("[EROR] Unable to set up camera 2:")
+	traceback.print_exc()
+try:
+	Log("[INFO] Setting up camera 3...")
+	Cam3 = cv2.VideoCapture(2)
+except:
+	Log("[EROR] Unable to set up camera 3:")
+	traceback.print_exc()
+try:
+	Log("[INFO] Setting up camera 4...")
+	Cam4 = cv2.VideoCapture(3)
+except:
+	Log("[EROR] Unable to set up camera 4:")
+	traceback.print_exc()
+
 while True:
 	ServerManager.listen(ClientBuffer)
 	Conn, Addr = ServerManager.accept()
