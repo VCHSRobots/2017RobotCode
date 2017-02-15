@@ -21,18 +21,18 @@ ClientBuffer = 16
 
 Hue = [0.0, 180.0]
 Saturation = [0.0, 255.0]
-Luminance = [183.36894500961878, 252.62254213192088]
-MinArea = 0.0
-MinPerimeter = 0.0
-MinWidth = 40.0
-MaxWidth = 100.0
+Luminance = [105.40131911033819, 198.22834417970248]
+MinArea = 150.0
+MinPerimeter = 10.0
+MinWidth = 0.0
+MaxWidth = 400.0
 MinHeight = 0.0
 MaxHeight = 100.0
-Solidity = [32.9531854207994, 83.60631479443363]
-MaxVertices = 1000000.0
-MinVertices = 0.0
-MinRatio = 0.0
-MaxRatio = 1000.0
+Solidity = [53.956834523274096, 100]
+MaxVertices = 100.0
+MinVertices = 30.0
+MinRatio = 1.85
+MaxRatio = 2.45
 MaxVerticalOffset = 45
 MinVerticalOffset = 10
 MaxHorizontalOffset = 25
@@ -273,6 +273,7 @@ class TargetingManager(threading.Thread):
 					ImHLS = cv2.cvtColor(Frame, cv2.COLOR_BGR2HLS)
 					Out = cv2.inRange(ImHLS, (Hue[0], Luminance[0], Saturation[0]), (Hue[1], Luminance[1], Saturation[1]))
 					OkContours, Hierarchy = cv2.findContours(Out, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_SIMPLE)
+					cv2.drawContours(Frame, OkContours, -1, (100, 100, 100), 2) #TEMPORARY
 					BetterContours = []
 					for Contour in OkContours:
 						x, y, w, h = cv2.boundingRect(Contour)
@@ -295,9 +296,9 @@ class TargetingManager(threading.Thread):
 						if Ratio < MinRatio or Ratio > MaxRatio:
 							continue
 						BetterContours.append(Contour)
-					cv2.drawContours(Frame, BetterContours, -1, (178, 178, 178), 2) #Drawing BetterContours - temporary
+					cv2.drawContours(Out, BetterContours, -1, (180, 180, 180), 2) #TEMPORARY
 					BetterContours = sorted(BetterContours, key=cv2.contourArea, reverse=True)[:2] #Keep 2 largest
-					cv2.drawContours(Frame, BetterContours, -1, (0, 0, 255), 2)
+					cv2.drawContours(Out, BetterContours, -1, (0, 255, 0), 2)
 					Centers = []
 					if len(BetterContours) == 2:
 						for Contour in BetterContours:
@@ -305,7 +306,6 @@ class TargetingManager(threading.Thread):
 							cX = int(M["m10"] / M["m00"])
 							cY = int(M["m01"] / M["m00"])
 							Centers.append((cX, cY))
-						Log(str(Centers))
 						XDistance = abs(Centers[0][0] - Centers[1][0])
 						YDistance = abs(Centers[0][1] - Centers[1][1])
 						if XDistance < MaxHorizontalOffset and XDistance > MinHorizontalOffset and YDistance < MaxVerticalOffset and YDistance > MinVerticalOffset:
@@ -318,7 +318,7 @@ class TargetingManager(threading.Thread):
 					pass
 				except:
 					pass
-				cv2.imshow("Processed image output:", Frame)
+				cv2.imshow("Processed image output:", Out)
 				cv2.waitKey(1)
 			while Target == 2:
 				pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
