@@ -3,6 +3,7 @@
 #
 
 from __future__ import print_function
+from subprocess import call
 import base64, cv2, socket, sys, threading, time, traceback
 import ds_pi_communication, rio_pi_communication #, field_coordinates
 
@@ -19,22 +20,22 @@ ClientBuffer = 16
 
 #Targeting
 
-Hue = [0.0, 180.0]
-Saturation = [0.0, 255.0]
-Luminance = [105.40131911033819, 198.22834417970248]
+Hue = [100.0, 125.0]
+Saturation = [90.0, 255.0]
+Luminance = [20.0, 125.0]
 MinArea = 150.0
-MinPerimeter = 10.0
+MinPerimeter = 30.0
 MinWidth = 0.0
-MaxWidth = 400.0
-MinHeight = 0.0
-MaxHeight = 100.0
-Solidity = [53.956834523274096, 100]
-MaxVertices = 100.0
-MinVertices = 30.0
-MinRatio = 1.85
-MaxRatio = 2.45
-MaxVerticalOffset = 45
-MinVerticalOffset = 10
+MaxWidth = 500.0
+MinHeight = 10.0
+MaxHeight = 1000.0
+Solidity = [35.07194244604317, 100.0]
+MaxVertices = 150.0
+MinVertices = 4.0
+MinRatio = 1.00
+MaxRatio = 4.00
+MaxVerticalOffset = 50
+MinVerticalOffset = 5
 MaxHorizontalOffset = 25
 MinHorizontalOffset = 0
 
@@ -258,6 +259,24 @@ class TargetingManager(threading.Thread):
 		global Cam2
 		global Cam3
 		global Cam4
+		global Hue
+		global Saturation
+		global Luminance
+		global MinArea
+		global MinPerimeter
+		global MinWidth
+		global MaxWidth
+		global MinHeight
+		global MaxHeight
+		global Solidity
+		global MaxVertices
+		global MinVertices
+		global MinRatio
+		global MaxRatio
+		global MaxVerticalOffset
+		global MinVerticalOffset
+		global MaxHorizontalOffset
+		global MinHorizontalOffset
 		Log("[INFO] TargetingManager thread started.")
 		while True:
 			while Target == 0:
@@ -273,32 +292,23 @@ class TargetingManager(threading.Thread):
 					ImHLS = cv2.cvtColor(Frame, cv2.COLOR_BGR2HLS)
 					Out = cv2.inRange(ImHLS, (Hue[0], Luminance[0], Saturation[0]), (Hue[1], Luminance[1], Saturation[1]))
 					OkContours, Hierarchy = cv2.findContours(Out, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_SIMPLE)
-					cv2.drawContours(Frame, OkContours, -1, (100, 100, 100), 2) #TEMPORARY
 					BetterContours = []
 					for Contour in OkContours:
 						x, y, w, h = cv2.boundingRect(Contour)
-						if w < MinWidth or w > MaxWidth:
-							continue
-						if h < MinHeight or h > MaxHeight:
-							continue
-						Area = cv2.contourArea(Contour)
-						if Area < MinArea:
-							continue
-						if cv2.arcLength(Contour, True) < MinPerimeter:
-							continue
-						Hull = cv2.convexHull(Contour)
-						Solid = 100 * Area / cv2.contourArea(Hull)
-						if Solid < Solidity[0] or Solid > Solidity[1]:
-							continue
-						if len(Contour) < MinVertices or len(Contour) > MaxVertices:
-							continue
-						Ratio = (float)(w) / h
-						if Ratio < MinRatio or Ratio > MaxRatio:
-							continue
-						BetterContours.append(Contour)
-					cv2.drawContours(Out, BetterContours, -1, (180, 180, 180), 2) #TEMPORARY
+						if w > MinWidth and w < MaxWidth:
+							if h > MinHeight and h < MaxHeight:
+								Area = cv2.contourArea(Contour)
+								if Area > MinArea:
+									if cv2.arcLength(Contour, True) > MinPerimeter:
+										Hull = cv2.convexHull(Contour)
+										Solid = 100 * Area / cv2.contourArea(Hull)
+										if Solid > Solidity[0] and Solid < Solidity[1]:
+											if len(Contour) > MinVertices and len(Contour) < MaxVertices:
+												Ratio = (float)(w) / h
+												if Ratio > MinRatio and Ratio < MaxRatio:
+													BetterContours.append(Contour)
 					BetterContours = sorted(BetterContours, key=cv2.contourArea, reverse=True)[:2] #Keep 2 largest
-					cv2.drawContours(Out, BetterContours, -1, (0, 255, 0), 2)
+					cv2.drawContours(Frame, BetterContours, -1, (0, 200, 0), 2)
 					Centers = []
 					if len(BetterContours) == 2:
 						for Contour in BetterContours:
@@ -309,7 +319,8 @@ class TargetingManager(threading.Thread):
 						XDistance = abs(Centers[0][0] - Centers[1][0])
 						YDistance = abs(Centers[0][1] - Centers[1][1])
 						if XDistance < MaxHorizontalOffset and XDistance > MinHorizontalOffset and YDistance < MaxVerticalOffset and YDistance > MinVerticalOffset:
-							BetterCenters = [(Centers[0][0], Centers[0][1]), (Centers[1][0], Centers[1][1])]
+							Height, Width, Channels = Frame.shape
+							BetterCenters = [(Centers[0][0], 0), (Centers[1][0], Height)]
 							cv2.line(Frame, BetterCenters[0], BetterCenters[1], (255, 255, 255), 1)
 				except:
 					Log("[EROR] Unable to process image:")
@@ -318,7 +329,7 @@ class TargetingManager(threading.Thread):
 					pass
 				except:
 					pass
-				cv2.imshow("Processed image output:", Out)
+				cv2.imshow("Processed image output:", Frame)
 				cv2.waitKey(1)
 			while Target == 2:
 				pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
@@ -338,6 +349,9 @@ NumberOfClientThreads = 1
 
 try:
 	Log("[INFO] Setting up camera 1...")
+	call(["v4l2-ctl", "-c", "exposure_auto=1"])
+	call(["v4l2-ctl", "-c", "exposure_absolute=5"])
+	call(["v4l2-ctl", "-c", "brightness=30"])
 	Cam1 = cv2.VideoCapture(0)
 except:
 	Log("[EROR] Unable to set up camera 1:")
