@@ -54,7 +54,7 @@ class ClientManager(threading.Thread):
 			threadMessage("Error in request.  Thread closing.")
 			return
 
-host = '10.44.15.36'	# IP Address of the server-side processor
+host = '10.44.15.16'	# IP Address of the server-side processor
 port = 5800				# Port Address of server-side processor
 
 server_manager = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

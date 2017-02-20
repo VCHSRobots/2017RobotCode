@@ -1,0 +1,3 @@
+timestamp=1487292752.29
+shooter=12356.0
+blender=0.6

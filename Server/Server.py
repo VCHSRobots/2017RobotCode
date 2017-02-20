@@ -50,7 +50,7 @@ def Log(Message):
 		with open ("outlog.txt", "a+") as file:
 			file.write(Message + "\r\n")
 	except:
-		print (time.strftime("%Y-%m-%d/%H:%M:%S") + " (" + threading.current_thread().name + ") " + "[EROR] Error with logging system:")
+		print (time.strftime("%Y-%m-%d/%H:%M:%S") + " (" + threading.current_thread().name + ") " + "[ERROR] Error with logging system:")
 		traceback.print_exc()
 
 class BroadcastStream(threading.Thread):
@@ -69,111 +69,152 @@ class BroadcastStream(threading.Thread):
 				pass
 			while Camera == 1:
 				try:
-					StartTime = time.time()
-					try:
-						Ret, Frame = Cam1.read()
-					except:
-						Log("[EROR] Unable to take image from camera 1:")
-						traceback.print_exc()
-					try:
-						Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
-					except:
-						Log("[EROR] Unable to convert image to grayscale:")
-						traceback.print_exc()
-					try:
-						Enc = cv2.imencode(".png", Gray)[1]
-						Bin64Data = base64.b64encode(Enc)
-					except:
-						Log("[EROR] Unable to convert image to Base 64 data string:")
-						traceback.print_exc()
-					try:
-						Conn.sendall(Bin64Data + "\r\n")
-					except:
-						Log("[EROR] Unable to send image to client (%s, %s):" %Addr)
-						traceback.print_exc()
+					Cam2.release()
+					Cam3.release()
+					Cam4.release()
 				except:
-					Log("[EROR] Unable to send video stream for camera 1 to client (%s, %s):" %Addr)
+					Log("[INFO] Not releasing camera(s) in the range of Cam2 - Cam4.")
+				try:
+					Log("[INFO] Setting up camera 1...")
+					call(["v4l2-ctl", "-c", "exposure_auto=1"])
+					call(["v4l2-ctl", "-c", "exposure_absolute=5"])
+					call(["v4l2-ctl", "-c", "brightness=30"])
+					Cam1 = cv2.VideoCapture(0)
+					while Camera == 1:
+						StartTime = time.time()
+						try:
+							Ret, Frame = Cam1.read()
+						except:
+							Log("[ERROR] Unable to take image from camera 1:")
+							traceback.print_exc()
+						try:
+							Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
+						except:
+							Log("[ERROR] Unable to convert image to grayscale:")
+							traceback.print_exc()
+						try:
+							Enc = cv2.imencode(".png", Gray)[1]
+							Bin64Data = base64.b64encode(Enc)
+						except:
+							Log("[ERROR] Unable to convert image to Base 64 data string:")
+							traceback.print_exc()
+						try:
+							Conn.sendall(Bin64Data + "\r\n")
+						except:
+							Log("[ERROR] Unable to send image to client (%s, %s):" %Addr)
+							traceback.print_exc()
+						while time.time() - StartTime < 0.1:
+							time.sleep(0.01)
+				except:
+					Log("[ERROR] Unable to set up camera 1:")
 					traceback.print_exc()
 			while Camera == 2:
 				try:
-					StartTime = time.time()
-					try:
-						Ret, Frame = Cam2.read()
-					except:
-						Log("[EROR] Unable to take image from camera 2:")
-						traceback.print_exc()
-					try:
-						Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
-					except:
-						Log("[EROR] Unable to convert image to grayscale:")
-						traceback.print_exc()
-					try:
-						Enc = cv2.imencode(".png", Gray)[1]
-						Bin64Data = base64.b64encode(Enc)
-					except:
-						Log("[EROR] Unable to convert image to Base 64 data string:")
-						traceback.print_exc()
-					try:
-						Conn.sendall(Bin64Data + "\r\n")
-					except:
-						Log("[EROR] Unable to send image to client (%s, %s):" %Addr)
-						traceback.print_exc()
+					Cam1.release()
+					Cam3.release()
+					Cam4.release()
 				except:
-					Log("[EROR] Unable to send video stream for camera 2 to client (%s, %s):" %Addr)
+					Log("[INFO] Not releasing camera(s) in the range of Cam1, Cam3 - Cam4.")
+				try:
+					Log("[INFO] Setting up camera 2...")
+					Cam2 = cv2.VideoCapture(1)
+					while Camera == 2:
+						StartTime = time.time()
+						try:
+							Ret, Frame = Cam2.read()
+						except:
+							Log("[ERROR] Unable to take image from camera 2:")
+							traceback.print_exc()
+						try:
+							Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
+						except:
+							Log("[ERROR] Unable to convert image to grayscale:")
+							traceback.print_exc()
+						try:
+							Enc = cv2.imencode(".png", Gray)[1]
+							Bin64Data = base64.b64encode(Enc)
+						except:
+							Log("[ERROR] Unable to convert image to Base 64 data string:")
+							traceback.print_exc()
+						try:
+							Conn.sendall(Bin64Data + "\r\n")
+						except:
+							Log("[ERROR] Unable to send image to client (%s, %s):" %Addr)
+							traceback.print_exc()
+				except:
+					Log("[ERROR] Unable to set up camera 2:")
 					traceback.print_exc()
 			while Camera == 3:
 				try:
-					StartTime = time.time()
-					try:
-						Ret, Frame = Cam3.read()
-					except:
-						Log("[EROR] Unable to take image from camera 3:")
-						traceback.print_exc()
-					try:
-						Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
-					except:
-						Log("[EROR] Unable to convert image to grayscale:")
-						traceback.print_exc()
-					try:
-						Enc = cv2.imencode(".png", Gray)[1]
-						Bin64Data = base64.b64encode(Enc)
-					except:
-						Log("[EROR] Unable to convert image to Base 64 data string:")
-						traceback.print_exc()
-					try:
-						Conn.sendall(Bin64Data + "\r\n")
-					except:
-						Log("[EROR] Unable to send image to client (%s, %s):" %Addr)
-						traceback.print_exc()
+					Cam1.release()
+					Cam2.release()
+					Cam4.release()
 				except:
-					Log("[EROR] Unable to send video stream for camera 3 to client (%s, %s):" %Addr)
+					Log("[INFO] Not releasing camera(s) in the range of Cam1 - Cam2, Cam4")
+				try:
+					Log("[INFO] Setting up camera 3...")
+					Cam3 = cv2.VideoCapture(2)
+					while Camera == 3:
+						StartTime = time.time()
+						try:
+							Ret, Frame = Cam3.read()
+						except:
+							Log("[ERROR] Unable to take image from camera 3:")
+							traceback.print_exc()
+						try:
+							Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
+						except:
+							Log("[ERROR] Unable to convert image to grayscale:")
+							traceback.print_exc()
+						try:
+							Enc = cv2.imencode(".png", Gray)[1]
+							Bin64Data = base64.b64encode(Enc)
+						except:
+							Log("[ERROR] Unable to convert image to Base 64 data string:")
+							traceback.print_exc()
+						try:
+							Conn.sendall(Bin64Data + "\r\n")
+						except:
+							Log("[ERROR] Unable to send image to client (%s, %s):" %Addr)
+							traceback.print_exc()
+				except:
+					Log("[ERROR] Unable to set up camera 3:")
 					traceback.print_exc()
 			while Camera == 4:
 				try:
-					StartTime = time.time()
-					try:
-						Ret, Frame = Cam4.read()
-					except:
-						Log("[EROR] Unable to take image from camera 4:")
-						traceback.print_exc()
-					try:
-						Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
-					except:
-						Log("[EROR] Unable to convert image to grayscale:")
-						traceback.print_exc()
-					try:
-						Enc = cv2.imencode(".png", Gray)[1]
-						Bin64Data = base64.b64encode(Enc)
-					except:
-						Log("[EROR] Unable to convert image to Base 64 data string:")
-						traceback.print_exc()
-					try:
-						Conn.sendall(Bin64Data + "\r\n")
-					except:
-						Log("[EROR] Unable to send image to client (%s, %s):" %Addr)
-						traceback.print_exc()
+					Cam1.release()
+					Cam2.release()
+					Cam3.release()
 				except:
-					Log("[EROR] Unable to send video stream for camera 4 to client (%s, %s):" %Addr)
+					Log("[INFO] Not releasing camera(s) in the range of Cam1 - Cam3")
+				try:
+					Log("[INFO] Setting up camera 4...")
+					Cam4 = cv2.VideoCapture(3)
+					while Camera == 4:
+						StartTime = time.time()
+						try:
+							Ret, Frame = Cam4.read()
+						except:
+							Log("[ERROR] Unable to take image from camera 4:")
+							traceback.print_exc()
+						try:
+							Gray = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
+						except:
+							Log("[ERROR] Unable to convert image to grayscale:")
+							traceback.print_exc()
+						try:
+							Enc = cv2.imencode(".png", Gray)[1]
+							Bin64Data = base64.b64encode(Enc)
+						except:
+							Log("[ERROR] Unable to convert image to Base 64 data string:")
+							traceback.print_exc()
+						try:
+							Conn.sendall(Bin64Data + "\r\n")
+						except:
+							Log("[ERROR] Unable to send image to client (%s, %s):" %Addr)
+							traceback.print_exc()
+				except:
+					Log("[ERROR] Unable to set up camera 4:")
 					traceback.print_exc()
 
 class ClientManager(threading.Thread):
@@ -310,6 +351,10 @@ class TargetingManager(threading.Thread):
 					BetterContours = sorted(BetterContours, key=cv2.contourArea, reverse=True)[:2] #Keep 2 largest
 					cv2.drawContours(Frame, BetterContours, -1, (0, 200, 0), 2)
 					Centers = []
+					Height, Width, Channels = Frame.shape
+					cv2.line(Frame, (Width / 2, (Height / 2) - 10), (Width / 2, (Height / 2) + 10), (255, 255, 255), 1) #Crosshair Y
+					cv2.line(Frame, ((Width / 2) - 10, Height / 2), ((Width / 2) + 10, Height / 2), (255, 255, 255), 1) #Crosshair X
+					CenterImage = ((Width / 2, Height / 2))
 					if len(BetterContours) == 2:
 						for Contour in BetterContours:
 							M = cv2.moments(Contour)
@@ -319,16 +364,14 @@ class TargetingManager(threading.Thread):
 						XDistance = abs(Centers[0][0] - Centers[1][0])
 						YDistance = abs(Centers[0][1] - Centers[1][1])
 						if XDistance < MaxHorizontalOffset and XDistance > MinHorizontalOffset and YDistance < MaxVerticalOffset and YDistance > MinVerticalOffset:
-							Height, Width, Channels = Frame.shape
-							BetterCenters = [(Centers[0][0], 0), (Centers[1][0], Height)]
-							cv2.line(Frame, BetterCenters[0], BetterCenters[1], (255, 255, 255), 1)
+							LinePoints = [(Centers[0][0], 0), (Centers[1][0], Height)]
+							cv2.line(Frame, (Centers[0][0], 0), (Centers[1][0], Height), (255, 255, 255), 1) #Line through center of target Y
+							cv2.line(Frame, (0, (Centers[0][1] + Centers[1][1]) / 2), (Width, (Centers[0][1] + Centers[1][1]) / 2), (255, 255, 255), 1) #Line through center of target X
+							CenterTarget = (((Centers[0][0] + Centers[1][0]) / 2), (Centers[0][1] + Centers[1][1]) / 2)
+							cv2.line(Frame, CenterTarget, (255, 255, 255), 1) #Line connecting center of target and center of image
 				except:
 					Log("[EROR] Unable to process image:")
 					traceback.print_exc()
-				try:
-					pass
-				except:
-					pass
 				cv2.imshow("Processed image output:", Frame)
 				cv2.waitKey(1)
 			while Target == 2:
@@ -346,34 +389,6 @@ time.sleep(0.1)
 ServerManager.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 ServerManager.bind((Host, Port))
 NumberOfClientThreads = 1
-
-try:
-	Log("[INFO] Setting up camera 1...")
-	call(["v4l2-ctl", "-c", "exposure_auto=1"])
-	call(["v4l2-ctl", "-c", "exposure_absolute=5"])
-	call(["v4l2-ctl", "-c", "brightness=30"])
-	Cam1 = cv2.VideoCapture(0)
-except:
-	Log("[EROR] Unable to set up camera 1:")
-	traceback.print_exc()
-try:
-	Log("[INFO] Setting up camera 2...")
-	Cam2 = cv2.VideoCapture(1)
-except:
-	Log("[EROR] Unable to set up camera 2:")
-	traceback.print_exc()
-try:
-	Log("[INFO] Setting up camera 3...")
-	Cam3 = cv2.VideoCapture(2)
-except:
-	Log("[EROR] Unable to set up camera 3:")
-	traceback.print_exc()
-try:
-	Log("[INFO] Setting up camera 4...")
-	Cam4 = cv2.VideoCapture(3)
-except:
-	Log("[EROR] Unable to set up camera 4:")
-	traceback.print_exc()
 
 while True:
 	ServerManager.listen(ClientBuffer)
