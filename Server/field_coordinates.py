@@ -15,24 +15,33 @@ yf1 = 0.0
 
 # need to update run
 def run(conn, addr):
+	mouse_reader.initMouseTrack()
+	xm1 = 0.0
+	ym1 = 0.0
+	xf0 = 0.0
+	yf0 = 0.0
+	xf1 = 0.0
+	yf1 = 0.0
 	while 1:
-		serverConnected = False
+		serverConnected = True
 		if serverConnected == False:
+			conn.close()
 			#server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			#print ("Socket created")
 			#time.sleep(.1)
 			#server_socket.bind((host, port))
-			server_socket.listen(1)
-			print ('Listening in socket')
-			conn, addr = server_socket.accept()
-			print ('Connected with ' + addr[0] + ':' + str(addr[1]))
-			serverConnected = True
-			conn.settimeout(1)
+			#server_socket.listen(1)
+			#print ('Listening in socket')
+			#conn, addr = server_socket.accept()
+			#print ('Connected with ' + addr[0] + ':' + str(addr[1]))
+			#serverConnected = True
+			#conn.settimeout(1)
 		while serverConnected == True:
 			xm0 = xm1
 			ym0 = ym1
 			xf0 = xf1
 			yf0 = yf1
+			conn.settimeout(1)
 			try:
 				data = conn.recv(1024)
 			except socket.timeout:

@@ -18,7 +18,7 @@ def readTable(filename):
 	return table
 
 def writeTableToFile(table, filename):
-	f=open('table_parameters.txt', 'wt')
+	f=open(filename, 'wt')
 	for k, v in table.items():
 		f.write(k + "=" + str(v) + '\n')
 	f.close()
@@ -44,7 +44,6 @@ def sendTable(conn, table):
 		byteLine = bytearray(line, 'utf-8')
 		conn.send(byteLine)
 	endLine = 'End of file\n'
-	byteEndLine = bytearray(endLine, 'utf-8')
 	byteEndLine = bytearray(endLine, 'utf-8')
 	conn.send(byteEndLine)
 	print("End of file sent.")

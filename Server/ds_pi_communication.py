@@ -3,7 +3,7 @@ import time
 import table_manners
 
 def run(conn, addr):
-	table = table_manners.readTable('table_parameters.txt')
+	table = table_manners.readTable('/home/pi/Desktop/2.7 Robot Communication/table_parameters.txt')
 	table_manners.sendTable(conn, table)
 	while 1:
 		data = conn.recv(1024)
@@ -19,7 +19,7 @@ def run(conn, addr):
 		
 		table[key] = value
 		table['timestamp'] = time.time()
-		table_manners.writeTableToFile(table, 'table_parameters.txt')
+		table_manners.writeTableToFile(table, '/home/pi/Desktop/2.7 Robot Communication/table_parameters.txt')
 		print(table)
 		table_manners.sendTable(conn, table)
 

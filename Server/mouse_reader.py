@@ -7,7 +7,7 @@ import threading
 
 xloc = 0.0          #  X location in inches
 yloc = 0.0          #  Y location in inches
-fmsefile = 0        #  file handle for the mouse device
+#fmsefile = 0        #  file handle for the mouse device
 msescale = 1000.0   #  pixels per inch
 
 def sumMovement(x, y):
@@ -42,7 +42,7 @@ def initMouseTrack():
     global fmsefile, locx, locy
     xloc = 0
     yloc = 0
-    fmsefile = open("/dev/input/event0", "rb", buffering=0)
+    fmsefile = open("/dev/input/mouse0", "rb", buffering=0)
     t = threading.Thread(target=runmseread)
     t.start()
 

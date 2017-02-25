@@ -14,12 +14,12 @@ def run(conn, addr):
 			print ('RoboRIO Connection timed out.')
 			return
 		if data == (b'Requesting table\n' or b'Requesting table\r\n'):
-			table = table_manners.readTable('table_parameters.txt')
+			table = table_manners.readTable('/home/pi/Desktop/2.7 Robot Communication/table_parameters.txt')
 			table['timestamp'] = time.time()
-			table_manners.writeTableToFile(table, 'table_parameters.txt')
+			table_manners.writeTableToFile(table, '/home/pi/Desktop/2.7 Robot Communication/table_parameters.txt')
 			table_manners.sendTable(conn, table)
 		if data == (b'Requesting timestamp\n'):
-			table = table_manners.readTable('table_parameters.txt')
+			table = table_manners.readTable('/home/pi/Desktop/2.7 Robot Communication/table_parameters.txt')
 			timestamp = table['timestamp']
 			stringtimestamp = str(timestamp) + '\n'
 			bytetimestamp = bytearray(stringtimestamp, 'utf-8')
