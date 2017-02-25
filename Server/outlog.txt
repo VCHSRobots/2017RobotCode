@@ -1900,3 +1900,583 @@
 2017-02-20/20:39:32 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
 2017-02-20/20:34:04 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
 2017-02-20/20:35:00 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-20/20:03:33 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-20/20:04:11 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) connected and situated.
+2017-02-20/20:04:11 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has declared itself as the VisionSystem client.
+2017-02-20/20:04:11 (BroadcastThread) [INFO] BroadcastThread started.
+2017-02-20/20:04:12 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has requested that targeting start up.
+2017-02-20/20:04:12 (TargetingThread) [INFO] TargetingManager thread started.
+2017-02-20/20:04:14 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has requested that the video stream for camera 1 be broadcasted.
+2017-02-20/20:04:14 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam2 - Cam4.
+2017-02-20/20:04:14 (BroadcastThread) [INFO] Setting up camera 1...
+2017-02-20/20:04:33 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has requested that the video stream for camera 2 be broadcasted.
+2017-02-20/20:04:33 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam1, Cam3 - Cam4.
+2017-02-20/20:04:33 (BroadcastThread) [INFO] Setting up camera 2...
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:33 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:34 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has requested that the video stream for camera 3 be broadcasted.
+2017-02-20/20:04:34 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam1 - Cam2, Cam4
+2017-02-20/20:04:34 (BroadcastThread) [INFO] Setting up camera 3...
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:35 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has requested that the video stream for camera 4 be broadcasted.
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [INFO] Setting up camera 4...
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:36 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:37 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has requested that the video stream for camera 1 be broadcasted.
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [INFO] Setting up camera 1...
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:40 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:40 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:40 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:40 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:40 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:04:40 (ClientThread:1) [INFO] Client (10.44.15.26, 61846) has requested that no video stream be broadcasted.
+2017-02-20/20:09:51 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-20/20:09:57 (ClientThread:1) [INFO] Client (10.44.15.26, 62040) connected and situated.
+2017-02-20/20:09:57 (ClientThread:1) [INFO] Client (10.44.15.26, 62040) has declared itself as the VisionSystem client.
+2017-02-20/20:09:57 (BroadcastThread) [INFO] BroadcastThread started.
+2017-02-20/20:09:58 (ClientThread:1) [INFO] Client (10.44.15.26, 62040) has requested that targeting start up.
+2017-02-20/20:09:58 (TargetingThread) [INFO] TargetingManager thread started.
+2017-02-20/20:10:11 (ClientThread:1) [INFO] Client (10.44.15.26, 62040) has requested that the video stream for camera 1 be broadcasted.
+2017-02-20/20:10:11 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam2 - Cam4.
+2017-02-20/20:10:11 (BroadcastThread) [INFO] Setting up camera 1...
+2017-02-20/20:10:21 (ClientThread:1) [INFO] Client (10.44.15.26, 62040) has requested that the video stream for camera 2 be broadcasted.
+2017-02-20/20:10:21 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam1, Cam3 - Cam4.
+2017-02-20/20:10:21 (BroadcastThread) [INFO] Setting up camera 2...
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:21 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:10:22 (ClientThread:1) [INFO] Client (10.44.15.26, 62040) has requested that no video stream be broadcasted.
+2017-02-20/20:10:22 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:27 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-20/20:11:34 (ClientThread:1) [INFO] Client (10.44.15.26, 62142) connected and situated.
+2017-02-20/20:11:34 (ClientThread:1) [INFO] Client (10.44.15.26, 62142) has declared itself as the VisionSystem client.
+2017-02-20/20:11:34 (BroadcastThread) [INFO] BroadcastThread started.
+2017-02-20/20:11:35 (ClientThread:1) [INFO] Client (10.44.15.26, 62142) has requested that targeting start up.
+2017-02-20/20:11:35 (TargetingThread) [INFO] TargetingManager thread started.
+2017-02-20/20:11:36 (ClientThread:1) [INFO] Client (10.44.15.26, 62142) has requested that the video stream for camera 2 be broadcasted.
+2017-02-20/20:11:36 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam1, Cam3 - Cam4.
+2017-02-20/20:11:36 (BroadcastThread) [INFO] Setting up camera 2...
+2017-02-20/20:11:55 (ClientThread:1) [INFO] Client (10.44.15.26, 62142) has requested that the video stream for camera 1 be broadcasted.
+2017-02-20/20:11:55 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam2 - Cam4.
+2017-02-20/20:11:55 (BroadcastThread) [INFO] Setting up camera 1...
+2017-02-20/20:11:55 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:55 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:55 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:55 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:56 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:56 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:56 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:56 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:56 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:56 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:11:56 (ClientThread:1) [INFO] Client (10.44.15.26, 62142) has requested that no video stream be broadcasted.
+2017-02-20/20:12:00 (ClientThread:1) [INFO] Client (10.44.15.26, 62142) has disconnected.
+2017-02-20/20:12:05 (MainThread) [INFO] VisionSystem Server initiated! | Running on Python version: 2.7.12. Running on OpenCV version: 2.4.13.
+2017-02-20/20:12:07 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) connected and situated.
+2017-02-20/20:12:07 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has declared itself as the VisionSystem client.
+2017-02-20/20:12:07 (BroadcastThread) [INFO] BroadcastThread started.
+2017-02-20/20:12:08 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has requested that targeting start up.
+2017-02-20/20:12:08 (TargetingThread) [INFO] TargetingManager thread started.
+2017-02-20/20:15:18 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam1 - Cam2, Cam4
+2017-02-20/20:15:18 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has requested that the video stream for camera 3 be broadcasted.
+2017-02-20/20:15:18 (BroadcastThread) [INFO] Setting up camera 3...
+2017-02-20/20:15:38 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has requested that the video stream for camera 4 be broadcasted.
+2017-02-20/20:15:38 (BroadcastThread) [INFO] Not releasing camera(s) in the range of Cam1 - Cam3
+2017-02-20/20:15:38 (BroadcastThread) [INFO] Setting up camera 4...
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:38 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (BroadcastThread) [ERROR] Unable to convert image to grayscale:
+2017-02-20/20:15:39 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has requested that no video stream be broadcasted.
+2017-02-20/20:15:53 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has requested that no video stream be broadcasted.
+2017-02-20/20:15:53 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has requested that no video stream be broadcasted.
+2017-02-20/20:15:55 (ClientThread:1) [INFO] Client (10.44.15.26, 62235) has disconnected.

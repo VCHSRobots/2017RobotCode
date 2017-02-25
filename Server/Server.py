@@ -70,10 +70,16 @@ class BroadcastStream(threading.Thread):
 			while Camera == 1:
 				try:
 					Cam2.release()
+				except:
+					Log("[INFO] Not releasing Cam2.")
+				try:
 					Cam3.release()
+				except:
+					Log("[INFO] Not releasing Cam3.")
+				try:
 					Cam4.release()
 				except:
-					Log("[INFO] Not releasing camera(s) in the range of Cam2 - Cam4.")
+					Log("[INFO] Not releasing Cam4.")
 				try:
 					Log("[INFO] Setting up camera 1...")
 					call(["v4l2-ctl", "-c", "exposure_auto=1"])
@@ -111,10 +117,16 @@ class BroadcastStream(threading.Thread):
 			while Camera == 2:
 				try:
 					Cam1.release()
+				except:
+					Log("[INFO] Not releasing Cam1.")
+				try:
 					Cam3.release()
+				except:
+					Log("[INFO] Not releasing Cam3.")
+				try:
 					Cam4.release()
 				except:
-					Log("[INFO] Not releasing camera(s) in the range of Cam1, Cam3 - Cam4.")
+					Log("[INFO] Not releasing Cam4.")
 				try:
 					Log("[INFO] Setting up camera 2...")
 					Cam2 = cv2.VideoCapture(1)
@@ -147,10 +159,16 @@ class BroadcastStream(threading.Thread):
 			while Camera == 3:
 				try:
 					Cam1.release()
+				except:
+					Log("[INFO] Not releasing Cam1.")
+				try:
 					Cam2.release()
+				except:
+					Log("[INFO] Not releasing Cam2.")
+				try:
 					Cam4.release()
 				except:
-					Log("[INFO] Not releasing camera(s) in the range of Cam1 - Cam2, Cam4")
+					Log("[INFO] Not releasing Cam2.")
 				try:
 					Log("[INFO] Setting up camera 3...")
 					Cam3 = cv2.VideoCapture(2)
@@ -183,10 +201,16 @@ class BroadcastStream(threading.Thread):
 			while Camera == 4:
 				try:
 					Cam1.release()
+				except:
+					Log("[INFO] Not releasing Cam1.")
+				try:
 					Cam2.release()
+				except:
+					Log("[INFO] Not releasing Cam2.")
+				try:
 					Cam3.release()
 				except:
-					Log("[INFO] Not releasing camera(s) in the range of Cam1 - Cam3")
+					Log("[INFO] Not releasing Cam3.")
 				try:
 					Log("[INFO] Setting up camera 4...")
 					Cam4 = cv2.VideoCapture(3)
