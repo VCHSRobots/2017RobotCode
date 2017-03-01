@@ -1,0 +1,14 @@
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\bin\Release\VisionClient.exe.config
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\Interop.WMPLib.dll
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\AxInterop.WMPLib.dll
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\VisionClient.csproj.ResolveComReference.cache
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\bin\Release\VisionClient.exe
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\bin\Release\VisionClient.pdb
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\bin\Release\Interop.WMPLib.dll
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\bin\Release\AxInterop.WMPLib.dll
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\VisionClient.csprojResolveAssemblyReference.cache
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\VisionClient.FormMain.resources
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\VisionClient.Properties.Resources.resources
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\VisionClient.csproj.GenerateResource.Cache
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\VisionClient.exe
+C:\Users\Patrick\Documents\Visual Studio 2015\Projects\VisionClient\VisionClient\obj\Release\VisionClient.pdb
