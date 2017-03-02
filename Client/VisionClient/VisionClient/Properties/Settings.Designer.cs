@@ -25,7 +25,7 @@ namespace VisionClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.44.15.16")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10.44.15.19")]
         public string IP {
             get {
                 return ((string)(this["IP"]));
