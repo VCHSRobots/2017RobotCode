@@ -81,9 +81,10 @@ class BroadcastStream(threading.Thread):
 				frame = np.zeros((480,640,3), np.uint8)
 			gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 			font = cv2.FONT_HERSHEY_SIMPLEX
-			height, width, channels = gray.shape
+			height, width = gray.shape
 			CurrentCam = self.CamIndex + 1
-			cv2.putText(gray, "Camera " + CurrentCam + " @ " + height + "x" + width, (10,40), font, 1, (255,255,255), 2, cv2.LINE_AA)
+			text = "Cam %d @ %dx%d" % (CurrentCam, height, width)
+			cv2.putText(gray, text, (10,40), font, 1, (255,255,255), 2, cv2.LINE_AA)
 			if err != "":
 				cv2.putText(gray, err, (10, 80), font, 1, (255,255,255), 2, cv2.LINE_AA)
 			enc = cv2.imencode(".png", gray)[1]

@@ -56,6 +56,7 @@ class ClientManager(threading.Thread):
 		threading.Thread.__init__(self)
 		self.Conn = Conn
 		self.Addr = Addr
+		self.Stream = None
 
 	def run(self):
 		global Camera
@@ -73,30 +74,25 @@ class ClientManager(threading.Thread):
 						rio_pi_communication.run(Conn, Addr)
 					elif Data == ("Requesting field_coordinates"):
 						field_coordinates.run(Conn, Addr)
-					elif Data == "C":
-						logger.info("Client (%s, %s) has declared itself as the VisionSystem client." %Addr)
-						self.Stream = camerastream.BroadcastStream(self.Conn, self.Addr)
-						self.Stream.daemon = True
-						self.Stream.name = "BroadcastThread"
-						self.Stream.start()
-					elif Data == "C0":
+					elif Data == "C" or Data == "C0" or Data == "C1" or Data == "C2" or Data == "C3" or Data == "C4":
 						if self.Stream is None:
-							logger.warn("Client (%s, %s) video request out of order." % Addr)
-							continue
-						self.Stream.setCam(-1)
-						Camera = 0
-						logger.info("Client (%s, %s) has requested that no video stream be broadcasted." %Addr)
-					elif Data == "C1" or Data == "C2" or Data == "C3" or Data == "C4":
-						if self.Stream is None:
-							logger.warn("Client (%s, %s) video request out of order." % Addr)
-							continue
-						indx = int(Data[1:2])
-						if indx <= 0 or indx > 4:
-							logger.error("Programming ERROR!")
-							sys.exit()
-						self.Stream.setCam(indx - 1)
-						Camera = indx
-						logger.info("Client (%s, %s)" % Addr + " has requested that the video stream for camera %d be broadcasted." % Camera)
+							logger.info("Client (%s, %s) has declared itself as the VisionSystem client." %Addr)
+							self.Stream = camerastream.BroadcastStream(self.Conn, self.Addr)
+							self.Stream.daemon = True
+							self.Stream.name = "BroadcastThread"
+							self.Stream.start()
+						if Data == "C0":
+							self.Stream.setCam(-1)
+							Camera = 0
+							logger.info("Client (%s, %s) has requested that no video stream be broadcasted." %Addr)
+						else:
+							indx = int(Data[1:2])
+							if indx <= 0 or indx > 4:
+								logger.error("Programming ERROR!")
+								sys.exit()
+							self.Stream.setCam(indx - 1)
+							Camera = indx
+							logger.info("Client (%s, %s)" % Addr + " has requested that the video stream for camera %d be broadcasted." % Camera)
 					elif Data == "T":
 						logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
 #						Targeter = TargetingManager(Conn, Addr)
