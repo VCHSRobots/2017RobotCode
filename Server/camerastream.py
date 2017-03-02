@@ -7,6 +7,7 @@
 
 from subprocess import call
 import base64, cv2, socket, sys, threading, time, traceback
+import numpy as np
 import evsslogger
 
 logger = evsslogger.getLogger()
@@ -18,7 +19,7 @@ class BroadcastStream(threading.Thread):
 		self.Addr = Addr
 		self.Cam = None
 		self.CamIndex = -1
-		self.CamNewIndex = -1
+		self.CamNewIndex = 0
 		self.CamSwitchLock = threading.Lock()
 
 	def setCam(self, camindex):
@@ -26,29 +27,38 @@ class BroadcastStream(threading.Thread):
 		self.CamNewIndex = camindex
 		self.CamSwitchLock.release()
 
-	def setCamForReal(self, camindex):
-		logger.info("Cam %d Selected" % camindex) 
+	def killCam(self):
 		if self.Cam is not None:
-			try: 
+			try:
 				self.Cam.release()
 			except:
 				logger.info("Unable to release Cam %d" % self.CamIndex)
 		self.Cam = None
+		self.CamIndex = -1
+
+	def setCamForReal(self, camindex):
+		logger.info("Cam %d Selected" % camindex)
+		self.killCam()
 		self.CamIndex = camindex
 		if self.CamIndex >= 0:
 			try:
-				#call(["v4l2-ctl", "-c", "exposure_auto=1"])
-				#call(["v4l2-ctl", "-c", "exposure_absolute=5"])
-				#call(["v4l2-ctl", "-c", "brightness=30"])qqqqqqqqwdwadsadswsswssadwwwswswsaa
 				self.Cam = cv2.VideoCapture(self.CamIndex)
 			except:
 				logger.warn("Unable to setup Cam %d for capture" % self.CamIndex)
 				self.Cam = None
+			if self.CamIndex == 0:
+				call(["v4l2-ctl", "-c", "exposure_auto=1"])
+				call(["v4l2-ctl", "-c", "exposure_absolute=5"])
+				call(["v4l2-ctl", "-c", "brightness=30"])
 
 	def run(self):
-		logger.info("BroadcastThread started.")
+		self.setCamForReal(self.CamNewIndex)
+		logger.info("BroadcastThread started")
 		haveErr = False
-		while True:			
+		FramesGrabbed = 0
+		FPS = 0
+		while True:
+			err = ""
 			StartTime = time.time()
 			self.CamSwitchLock.acquire()
 			newindex = self.CamNewIndex
@@ -59,36 +69,32 @@ class BroadcastStream(threading.Thread):
 			if self.Cam is not None:
 				try:
 					ret, frame = self.Cam.read()
-					haveFrame = true
-					haveErr = False				
+					haveFrame = True
+					haveErr = False
 				except:
 					if not haveErr:
 						logger.error("Unable to take image from Cam %d" % self.CamIndex)
+						err = "Cam Error at Jetson"
 					haveErr = True
-					#traceback.print_exc()
-			else:
-				logger.warn("Camera is none.")
-			if haveFrame:
+					haveFrame = False
+			if not haveFrame:
+				frame = np.zeros((480,640,3), np.uint8)
+			gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+			font = cv2.FONT_HERSHEY_SIMPLEX
+			height, width, channels = gray.shape
+			CurrentCam = self.CamIndex + 1
+			cv2.putText(gray, "Camera " + CurrentCam + " @ " + height + "x" + width, (10,40), font, 1, (255,255,255), 2, cv2.LINE_AA)
+			if err != "":
+				cv2.putText(gray, err, (10, 80), font, 1, (255,255,255), 2, cv2.LINE_AA)
+			enc = cv2.imencode(".png", gray)[1]
+			bin64data = base64.b64encode(enc)
+			if self.CamIndex >= 0:
 				try:
-					gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
-				except:
-					logger.error("Unable to convert image to grayscale:")
-					#traceback.print_exc()
-				try:
-					enc = cv2.imencode(".png", gray)[1]
-					bin64data = base64.b64encode(enc)
-				except:
-					logger.error("Unable to convert image to Base 64 data string:")
-					#traceback.print_exc()
-				try:
-					logger.info("sending data (%d)" % len(bin64data))
 					self.Conn.sendall(bin64data + "\r\n")
 				except:
 					logger.error("Unable to send image to client (%s, %s):" % self.Addr)
-					#traceback.print_exc()
+					logger.error("Shutting down comm port.")
+					self.killCam()
+					return
 			while time.time() - StartTime < 0.1:
 				time.sleep(0.01)
-
-
-
-

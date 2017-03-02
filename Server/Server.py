@@ -56,6 +56,7 @@ class ClientManager(threading.Thread):
 		threading.Thread.__init__(self)
 		self.Conn = Conn
 		self.Addr = Addr
+
 	def run(self):
 		global Camera
 		global Target
@@ -74,10 +75,10 @@ class ClientManager(threading.Thread):
 						field_coordinates.run(Conn, Addr)
 					elif Data == "C":
 						logger.info("Client (%s, %s) has declared itself as the VisionSystem client." %Addr)
-						self.Stream = camerastream.BroadcastStream(Conn, Addr)
+						self.Stream = camerastream.BroadcastStream(self.Conn, self.Addr)
 						self.Stream.daemon = True
 						self.Stream.name = "BroadcastThread"
-						self.Stream.start()            
+						self.Stream.start()
 					elif Data == "C0":
 						if self.Stream is None:
 							logger.warn("Client (%s, %s) video request out of order." % Addr)
@@ -89,19 +90,19 @@ class ClientManager(threading.Thread):
 						if self.Stream is None:
 							logger.warn("Client (%s, %s) video request out of order." % Addr)
 							continue
-						indx = ord(Data[1:2]) - ord('0')
+						indx = int(Data[1:2])
 						if indx <= 0 or indx > 4:
 							logger.error("Programming ERROR!")
-							sys.exit() 
+							sys.exit()
 						self.Stream.setCam(indx - 1)
 						Camera = indx
 						logger.info("Client (%s, %s)" % Addr + " has requested that the video stream for camera %d be broadcasted." % Camera)
 					elif Data == "T":
 						logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
-						Targeter = TargetingManager(Conn, Addr)
-						Targeter.daemon = True
-						Targeter.name = "TargetingThread"
-						Targeter.start()
+#						Targeter = TargetingManager(Conn, Addr)
+#						Targeter.daemon = True
+#						Targeter.name = "TargetingThread"
+#						Targeter.start()
 					elif Data == "T0":
 						Target = 0
 						logger.info("Client (%s, %s) has requested that no alignment be made toward any target." %Addr)
@@ -125,104 +126,6 @@ class ClientManager(threading.Thread):
 				Camera = 0
 				Target = 0
 				return
-
-class TargetingManager(threading.Thread):
-	def __init__(self, Conn, Addr):
-		threading.Thread.__init__(self)
-		self.Conn = Conn
-		self.Addr = Addr
-	def run(self):
-		global Target
-		global Cam1
-		global Cam2
-		global Cam3
-		global Cam4
-		global Hue
-		global Saturation
-		global Luminance
-		global MinArea
-		global MinPerimeter
-		global MinWidth
-		global MaxWidth
-		global MinHeight
-		global MaxHeight
-		global Solidity
-		global MaxVertices
-		global MinVertices
-		global MinRatio
-		global MaxRatio
-		global MaxVerticalOffset
-		global MinVerticalOffset
-		global MaxHorizontalOffset
-		global MinHorizontalOffset
-		Log("[INFO] TargetingManager thread started.")
-		while True:
-			while Target == 0:
-				pass
-			while Target == 1:
-				StartTime = time.time()
-				try:
-					Ret, Frame = Cam1.read()
-				except:
-					Log("[EROR] Unable to take image from camera 1 (shooter):")
-					traceback.print_exc()
-				try:
-					ImHLS = cv2.cvtColor(Frame, cv2.COLOR_BGR2HLS)
-					Out = cv2.inRange(ImHLS, (Hue[0], Luminance[0], Saturation[0]), (Hue[1], Luminance[1], Saturation[1]))
-					OkContours, Hierarchy = cv2.findContours(Out, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_SIMPLE)
-					BetterContours = []
-					for Contour in OkContours:
-						x, y, w, h = cv2.boundingRect(Contour)
-						if w > MinWidth and w < MaxWidth:
-							if h > MinHeight and h < MaxHeight:
-								Area = cv2.contourArea(Contour)
-								if Area > MinArea:
-									if cv2.arcLength(Contour, True) > MinPerimeter:
-										Hull = cv2.convexHull(Contour)
-										Solid = 100 * Area / cv2.contourArea(Hull)
-										if Solid > Solidity[0] and Solid < Solidity[1]:
-											if len(Contour) > MinVertices and len(Contour) < MaxVertices:
-												Ratio = (float)(w) / h
-												if Ratio > MinRatio and Ratio < MaxRatio:
-													BetterContours.append(Contour)
-					BetterContours = sorted(BetterContours, key=cv2.contourArea, reverse=True)[:2] #Keep 2 largest
-					cv2.drawContours(Frame, BetterContours, -1, (0, 200, 0), 2)
-					Centers = []
-					Height, Width, Channels = Frame.shape
-					cv2.line(Frame, (Width / 2, (Height / 2) - 10), (Width / 2, (Height / 2) + 10), (255, 255, 255), 1) #Crosshair Y
-					cv2.line(Frame, ((Width / 2) - 10, Height / 2), ((Width / 2) + 10, Height / 2), (255, 255, 255), 1) #Crosshair X
-					CenterImage = ((Width / 2, Height / 2))
-					if len(BetterContours) == 2:
-						for Contour in BetterContours:
-							M = cv2.moments(Contour)
-							cX = int(M["m10"] / M["m00"])
-							cY = int(M["m01"] / M["m00"])
-							Centers.append((cX, cY))
-						XDistance = abs(Centers[0][0] - Centers[1][0])
-						YDistance = abs(Centers[0][1] - Centers[1][1])
-						if XDistance < MaxHorizontalOffset and XDistance > MinHorizontalOffset and YDistance < MaxVerticalOffset and YDistance > MinVerticalOffset:
-							LinePoints = [(Centers[0][0], 0), (Centers[1][0], Height)]
-							cv2.line(Frame, (Centers[0][0], 0), (Centers[1][0], Height), (255, 255, 255), 1) #Line through center of target Y
-							cv2.line(Frame, (0, (Centers[0][1] + Centers[1][1]) / 2), (Width, (Centers[0][1] + Centers[1][1]) / 2), (255, 255, 255), 1) #Line through center of target X
-							CenterTarget = (((Centers[0][0] + Centers[1][0]) / 2), (Centers[0][1] + Centers[1][1]) / 2)
-							cv2.line(Frame, CenterTarget, ((Width / 2), (Height / 2)), (255, 255, 255), 1) #Line connecting center of target and center of image
-							OffsetX = CenterTarget[0] - (Width / 2)
-							OffsetY = CenterTarget[1] - (Height / 2)
-							Offset = "<" + str(OffsetX) + "," + str(OffsetY) + ">"
-						else:
-							Offset = "<?,?>"
-					else:
-						Offset = "<?,?>"
-				except:
-					Log("[EROR] Unable to process image:")
-					traceback.print_exc()
-				cv2.putText(Frame, Offset, 30, 30, cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255))
-				cv2.imshow("Processed image output:", Frame)
-				cv2.waitKey(1)
-			while Target == 2:
-				pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
-
-
 
 #
 #Begin mainline code
