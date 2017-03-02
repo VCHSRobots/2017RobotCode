@@ -40,6 +40,9 @@
             this.ButtonC0 = new System.Windows.Forms.Button();
             this.ButtonC4 = new System.Windows.Forms.Button();
             this.PictureBox = new System.Windows.Forms.PictureBox();
+            this.labelErrorInfo = new System.Windows.Forms.Label();
+            this.labelConnectionStatus = new System.Windows.Forms.Label();
+            this.PictureBoxFieldOverview = new System.Windows.Forms.PictureBox();
             this.ButtonAimBoiler = new System.Windows.Forms.Button();
             this.ButtonAimPeg = new System.Windows.Forms.Button();
             this.ButtonAimStop = new System.Windows.Forms.Button();
@@ -55,7 +58,6 @@
             this.LabelStatus = new System.Windows.Forms.Label();
             this.RefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.ConnectionTimer = new System.Windows.Forms.Timer(this.components);
-            this.PictureBoxFieldOverview = new System.Windows.Forms.PictureBox();
             this.TabControl.SuspendLayout();
             this.TabPageDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
@@ -63,10 +65,10 @@
             this.SplitContainer.Panel2.SuspendLayout();
             this.SplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFieldOverview)).BeginInit();
             this.TabPageTerminal.SuspendLayout();
             this.TabPageSettings.SuspendLayout();
             this.TabPageAbout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFieldOverview)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
@@ -79,7 +81,7 @@
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(1264, 761);
+            this.TabControl.Size = new System.Drawing.Size(1274, 778);
             this.TabControl.TabIndex = 0;
             this.TabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             // 
@@ -89,7 +91,7 @@
             this.TabPageDisplay.Location = new System.Drawing.Point(4, 22);
             this.TabPageDisplay.Name = "TabPageDisplay";
             this.TabPageDisplay.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageDisplay.Size = new System.Drawing.Size(1256, 735);
+            this.TabPageDisplay.Size = new System.Drawing.Size(1266, 752);
             this.TabPageDisplay.TabIndex = 0;
             this.TabPageDisplay.Text = "Display";
             this.TabPageDisplay.UseVisualStyleBackColor = true;
@@ -116,13 +118,15 @@
             // SplitContainer.Panel2
             // 
             this.SplitContainer.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SplitContainer.Panel2.Controls.Add(this.labelErrorInfo);
+            this.SplitContainer.Panel2.Controls.Add(this.labelConnectionStatus);
             this.SplitContainer.Panel2.Controls.Add(this.PictureBoxFieldOverview);
             this.SplitContainer.Panel2.Controls.Add(this.ButtonAimBoiler);
             this.SplitContainer.Panel2.Controls.Add(this.ButtonAimPeg);
             this.SplitContainer.Panel2.Controls.Add(this.ButtonAimStop);
             this.SplitContainer.Panel2MinSize = 8;
-            this.SplitContainer.Size = new System.Drawing.Size(1250, 729);
-            this.SplitContainer.SplitterDistance = 625;
+            this.SplitContainer.Size = new System.Drawing.Size(1260, 746);
+            this.SplitContainer.SplitterDistance = 630;
             this.SplitContainer.SplitterWidth = 8;
             this.SplitContainer.TabIndex = 0;
             // 
@@ -141,7 +145,7 @@
             // 
             this.ButtonC1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonC1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonC1.Location = new System.Drawing.Point(131, 632);
+            this.ButtonC1.Location = new System.Drawing.Point(134, 649);
             this.ButtonC1.Name = "ButtonC1";
             this.ButtonC1.Size = new System.Drawing.Size(105, 90);
             this.ButtonC1.TabIndex = 5;
@@ -153,7 +157,7 @@
             // 
             this.ButtonC2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonC2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonC2.Location = new System.Drawing.Point(260, 632);
+            this.ButtonC2.Location = new System.Drawing.Point(263, 649);
             this.ButtonC2.Name = "ButtonC2";
             this.ButtonC2.Size = new System.Drawing.Size(105, 90);
             this.ButtonC2.TabIndex = 4;
@@ -165,7 +169,7 @@
             // 
             this.ButtonC3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonC3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonC3.Location = new System.Drawing.Point(389, 632);
+            this.ButtonC3.Location = new System.Drawing.Point(392, 649);
             this.ButtonC3.Name = "ButtonC3";
             this.ButtonC3.Size = new System.Drawing.Size(105, 90);
             this.ButtonC3.TabIndex = 3;
@@ -177,7 +181,7 @@
             // 
             this.ButtonC0.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonC0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonC0.Location = new System.Drawing.Point(2, 632);
+            this.ButtonC0.Location = new System.Drawing.Point(5, 649);
             this.ButtonC0.Name = "ButtonC0";
             this.ButtonC0.Size = new System.Drawing.Size(105, 90);
             this.ButtonC0.TabIndex = 2;
@@ -189,7 +193,7 @@
             // 
             this.ButtonC4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonC4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonC4.Location = new System.Drawing.Point(518, 632);
+            this.ButtonC4.Location = new System.Drawing.Point(521, 649);
             this.ButtonC4.Name = "ButtonC4";
             this.ButtonC4.Size = new System.Drawing.Size(105, 90);
             this.ButtonC4.TabIndex = 1;
@@ -208,16 +212,47 @@
             this.PictureBox.InitialImage = global::VisionClient.Properties.Resources.E;
             this.PictureBox.Location = new System.Drawing.Point(3, 3);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(619, 623);
+            this.PictureBox.Size = new System.Drawing.Size(624, 640);
             this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
+            // 
+            // labelErrorInfo
+            // 
+            this.labelErrorInfo.AutoSize = true;
+            this.labelErrorInfo.Location = new System.Drawing.Point(42, 50);
+            this.labelErrorInfo.Name = "labelErrorInfo";
+            this.labelErrorInfo.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorInfo.TabIndex = 12;
+            this.labelErrorInfo.Text = "label1";
+            // 
+            // labelConnectionStatus
+            // 
+            this.labelConnectionStatus.AutoSize = true;
+            this.labelConnectionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConnectionStatus.ForeColor = System.Drawing.Color.Red;
+            this.labelConnectionStatus.Location = new System.Drawing.Point(29, 13);
+            this.labelConnectionStatus.Name = "labelConnectionStatus";
+            this.labelConnectionStatus.Size = new System.Drawing.Size(162, 37);
+            this.labelConnectionStatus.TabIndex = 11;
+            this.labelConnectionStatus.Text = "OFF LINE";
+            // 
+            // PictureBoxFieldOverview
+            // 
+            this.PictureBoxFieldOverview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureBoxFieldOverview.BackColor = System.Drawing.SystemColors.Control;
+            this.PictureBoxFieldOverview.Location = new System.Drawing.Point(29, 95);
+            this.PictureBoxFieldOverview.Name = "PictureBoxFieldOverview";
+            this.PictureBoxFieldOverview.Size = new System.Drawing.Size(533, 270);
+            this.PictureBoxFieldOverview.TabIndex = 10;
+            this.PictureBoxFieldOverview.TabStop = false;
             // 
             // ButtonAimBoiler
             // 
             this.ButtonAimBoiler.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonAimBoiler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonAimBoiler.Location = new System.Drawing.Point(4, 632);
+            this.ButtonAimBoiler.Location = new System.Drawing.Point(1, 649);
             this.ButtonAimBoiler.Name = "ButtonAimBoiler";
             this.ButtonAimBoiler.Size = new System.Drawing.Size(190, 90);
             this.ButtonAimBoiler.TabIndex = 9;
@@ -229,7 +264,7 @@
             // 
             this.ButtonAimPeg.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonAimPeg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonAimPeg.Location = new System.Drawing.Point(211, 632);
+            this.ButtonAimPeg.Location = new System.Drawing.Point(208, 649);
             this.ButtonAimPeg.Name = "ButtonAimPeg";
             this.ButtonAimPeg.Size = new System.Drawing.Size(190, 90);
             this.ButtonAimPeg.TabIndex = 8;
@@ -241,7 +276,7 @@
             // 
             this.ButtonAimStop.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ButtonAimStop.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonAimStop.Location = new System.Drawing.Point(418, 632);
+            this.ButtonAimStop.Location = new System.Drawing.Point(415, 649);
             this.ButtonAimStop.Name = "ButtonAimStop";
             this.ButtonAimStop.Size = new System.Drawing.Size(190, 90);
             this.ButtonAimStop.TabIndex = 7;
@@ -257,7 +292,7 @@
             this.TabPageTerminal.Location = new System.Drawing.Point(4, 22);
             this.TabPageTerminal.Name = "TabPageTerminal";
             this.TabPageTerminal.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageTerminal.Size = new System.Drawing.Size(1256, 735);
+            this.TabPageTerminal.Size = new System.Drawing.Size(1264, 747);
             this.TabPageTerminal.TabIndex = 1;
             this.TabPageTerminal.Text = "Terminal";
             // 
@@ -269,10 +304,10 @@
             this.TextBoxTerminalInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBoxTerminalInput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxTerminalInput.ForeColor = System.Drawing.Color.White;
-            this.TextBoxTerminalInput.Location = new System.Drawing.Point(0, 722);
+            this.TextBoxTerminalInput.Location = new System.Drawing.Point(0, 734);
             this.TextBoxTerminalInput.Name = "TextBoxTerminalInput";
             this.TextBoxTerminalInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextBoxTerminalInput.Size = new System.Drawing.Size(1256, 13);
+            this.TextBoxTerminalInput.Size = new System.Drawing.Size(1264, 13);
             this.TextBoxTerminalInput.TabIndex = 1;
             this.TextBoxTerminalInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxTerminalInput_KeyDown);
             // 
@@ -290,7 +325,7 @@
             this.TextBoxTerminal.Name = "TextBoxTerminal";
             this.TextBoxTerminal.ReadOnly = true;
             this.TextBoxTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextBoxTerminal.Size = new System.Drawing.Size(1256, 720);
+            this.TextBoxTerminal.Size = new System.Drawing.Size(1264, 732);
             this.TextBoxTerminal.TabIndex = 0;
             this.TextBoxTerminal.Enter += new System.EventHandler(this.TextBoxTerminal_Enter);
             // 
@@ -301,7 +336,7 @@
             this.TabPageSettings.Controls.Add(this.LabelServerIP);
             this.TabPageSettings.Location = new System.Drawing.Point(4, 22);
             this.TabPageSettings.Name = "TabPageSettings";
-            this.TabPageSettings.Size = new System.Drawing.Size(1256, 735);
+            this.TabPageSettings.Size = new System.Drawing.Size(1264, 747);
             this.TabPageSettings.TabIndex = 2;
             this.TabPageSettings.Text = "Settings";
             this.TabPageSettings.UseVisualStyleBackColor = true;
@@ -339,7 +374,7 @@
             this.TabPageAbout.Controls.Add(this.LabelStatus);
             this.TabPageAbout.Location = new System.Drawing.Point(4, 22);
             this.TabPageAbout.Name = "TabPageAbout";
-            this.TabPageAbout.Size = new System.Drawing.Size(1256, 735);
+            this.TabPageAbout.Size = new System.Drawing.Size(1264, 747);
             this.TabPageAbout.TabIndex = 3;
             this.TabPageAbout.Text = "About";
             this.TabPageAbout.UseVisualStyleBackColor = true;
@@ -371,28 +406,21 @@
             // 
             this.ConnectionTimer.Interval = 10000;
             // 
-            // PictureBoxFieldOverview
-            // 
-            this.PictureBoxFieldOverview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PictureBoxFieldOverview.BackColor = System.Drawing.SystemColors.Control;
-            this.PictureBoxFieldOverview.Location = new System.Drawing.Point(42, 25);
-            this.PictureBoxFieldOverview.Name = "PictureBoxFieldOverview";
-            this.PictureBoxFieldOverview.Size = new System.Drawing.Size(540, 270);
-            this.PictureBoxFieldOverview.TabIndex = 10;
-            this.PictureBoxFieldOverview.TabStop = false;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1264, 761);
+            this.ClientSize = new System.Drawing.Size(1272, 776);
             this.Controls.Add(this.TabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1280, 800);
             this.Name = "FormMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "VisionSystem Client";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Shown += new System.EventHandler(this.FormMain_Shown);
@@ -401,16 +429,17 @@
             this.SplitContainer.Panel1.ResumeLayout(false);
             this.SplitContainer.Panel1.PerformLayout();
             this.SplitContainer.Panel2.ResumeLayout(false);
+            this.SplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).EndInit();
             this.SplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFieldOverview)).EndInit();
             this.TabPageTerminal.ResumeLayout(false);
             this.TabPageTerminal.PerformLayout();
             this.TabPageSettings.ResumeLayout(false);
             this.TabPageSettings.PerformLayout();
             this.TabPageAbout.ResumeLayout(false);
             this.TabPageAbout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFieldOverview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,6 +472,8 @@
         private System.Windows.Forms.Button ButtonAimPeg;
         private System.Windows.Forms.Button ButtonAimStop;
         private System.Windows.Forms.PictureBox PictureBoxFieldOverview;
+        private System.Windows.Forms.Label labelConnectionStatus;
+        private System.Windows.Forms.Label labelErrorInfo;
     }
 }
 
