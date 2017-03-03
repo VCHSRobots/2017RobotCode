@@ -7,7 +7,7 @@ import threading
 
 xloc = 0.0          #  X location in inches
 yloc = 0.0          #  Y location in inches
-#fmsefile = 0        #  file handle for the mouse device
+fmsefile = 0        #  file handle for the mouse device
 msescale = 1000.0   #  pixels per inch
 
 def sumMovement(x, y):
@@ -27,26 +27,29 @@ def readMsePosition():
     n = len(c)
     if n != 3:
         print('Mouse Read Error! Missed Bytes.')
-        return locx, locy
-    #print(c[0], c[1], c[2])
-    if ord(c[0]) & 0x08 == 0:
-        print('Mouse Read Error! Bad Data.')
-        return locx, locy
+	xloc, yloc = -1, -1
+        return xloc, yloc
     sumMovement(c[1], c[2])
+    return xloc, yloc
 
 def runmseread():
     while True:
         readMsePosition()
 
 def initMouseTrack():
-    global fmsefile, locx, locy
+    global fmsefile, xloc, yloc
     xloc = 0
     yloc = 0
-    fmsefile = open("/dev/input/mouse0", "rb", buffering=0)
+    fmsefile = open("/dev/input/by-path/platform-tegra-xhci-usb-0:3.4.3:1.0-event-mouse", "rb")
     t = threading.Thread(target=runmseread)
     t.start()
 
 def getMousePosition():
     global xloc, yloc
     return xloc, yloc
-   
+
+if __name__ == "__main__":
+	initMouseTrack()
+	while True:
+		x, y = readMsePosition()
+		print ("x, y = %d, %d" % (x, y))

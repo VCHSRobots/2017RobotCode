@@ -95,10 +95,10 @@ class ClientManager(threading.Thread):
 							logger.info("Client (%s, %s)" % Addr + " has requested that the video stream for camera %d be broadcasted." % Camera)
 					elif Data == "T":
 						logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
-#						Targeter = TargetingManager(Conn, Addr)
-#						Targeter.daemon = True
-#						Targeter.name = "TargetingThread"
-#						Targeter.start()
+						Targeter = TargetingManager(Conn, Addr)
+						Targeter.daemon = True
+						Targeter.name = "TargetingThread"
+						Targeter.start()
 					elif Data == "T0":
 						Target = 0
 						logger.info("Client (%s, %s) has requested that no alignment be made toward any target." %Addr)

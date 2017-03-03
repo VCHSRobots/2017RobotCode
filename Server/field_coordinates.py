@@ -12,7 +12,6 @@ yf0 = 0.0
 xf1 = 0.0
 yf1 = 0.0
 
-
 # need to update run
 def run(conn, addr):
 	mouse_reader.initMouseTrack()
