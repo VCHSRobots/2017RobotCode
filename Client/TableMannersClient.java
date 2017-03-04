@@ -13,8 +13,8 @@ public class TableMannersClient {
 
 	public static void main(String args[]){
 		
-		String hostName = "10.44.15.35";
-		int portNumber = 5800;
+		String hostName = args[0];
+		int portNumber = Integer.parseInt(args[1]);
 		
 		try (
             Socket clientSocket = new Socket(hostName, portNumber);
