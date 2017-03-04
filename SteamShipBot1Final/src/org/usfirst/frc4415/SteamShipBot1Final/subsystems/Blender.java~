@@ -50,8 +50,15 @@ public class Blender extends Subsystem {
     }
     
     public void shootBlend() {
-    	double fireRate = Robot.oi.getShooterJoystick().getRawAxis(3) * -1;
+    	double fireRate = Robot.oi.getShooterJoystick().getRawAxis(3) * -.7;
     	blenderMotor.set(fireRate);
     }
+    
+    // Autonomous Code
+    
+    public void autoShootBlend() {
+    	blenderMotor.set(-.5);
+    }
+    
 }
 

@@ -11,6 +11,8 @@
 
 package org.usfirst.frc4415.SteamShipBot1Final.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
 
 /**
@@ -44,6 +46,8 @@ public class ClimberBackward extends Command {
     	
     	Robot.climber.driveBackward();
     	
+    	SmartDashboard.putNumber("Climber Encoder", Robot.climber.getEncoder());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -55,6 +59,8 @@ public class ClimberBackward extends Command {
     protected void end() {
     	
     	Robot.climber.motorOff();
+    	
+        Robot.climber.resetEncoder();
     	
     }
 

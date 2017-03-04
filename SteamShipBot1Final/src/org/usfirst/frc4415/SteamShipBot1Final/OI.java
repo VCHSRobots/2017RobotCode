@@ -96,17 +96,17 @@ public class OI {
         
         toggleGearGripButton = new JoystickButton(driverJoystick, 4);
         toggleGearGripButton.whenPressed(new GearHandlerToggleGearGrip());
-        strafeRightButton = new JoystickButton(driverJoystick, 8);
+        strafeRightButton = new JoystickButton(driverJoystick, 10);
         strafeRightButton.whileHeld(new DriveTrainStrafeRight());
-        strafeLeftButton = new JoystickButton(driverJoystick, 7);
+        strafeLeftButton = new JoystickButton(driverJoystick, 9);
         strafeLeftButton.whileHeld(new DriveTrainStrafeLeft());
-        toggleGyroButton = new JoystickButton(driverJoystick, 3);
+        toggleGyroButton = new JoystickButton(driverJoystick, 2);
         toggleGyroButton.whenPressed(new DriveTrainToggleGyro());
-        toggleGearHandlerButton = new JoystickButton(driverJoystick, 1);
+        toggleGearHandlerButton = new JoystickButton(driverJoystick, 3);
         toggleGearHandlerButton.whenPressed(new GearHandlerToggleGearHandler());
-        toggleDirectionButton = new JoystickButton(driverJoystick, 2);
+        toggleDirectionButton = new JoystickButton(driverJoystick, 1);
         toggleDirectionButton.whenPressed(new DriveTrainToggleDirection());
-        toggleDriveButton = new JoystickButton(driverJoystick, 9);
+        toggleDriveButton = new JoystickButton(driverJoystick, 7);
         toggleDriveButton.whenPressed(new DriveTrainToggleDrive());
         backwardButton = new JoystickButton(driverJoystick, 5);
         backwardButton.whileHeld(new ClimberBackward());
