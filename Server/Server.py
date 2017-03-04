@@ -8,6 +8,7 @@ import base64, cv2, socket, sys, threading, time, traceback
 import ds_pi_communication, rio_pi_communication #, field_coordinates
 import evsslogger
 import camerastream
+import targetingmanager
 
 #
 #Global variables
@@ -23,27 +24,6 @@ Port = 5800
 RecvBuffer = 1024
 ClientBuffer = 16
 
-#Targeting
-
-Hue = [90.0, 125.0]
-Saturation = [80.0, 255.0]
-Luminance = [10.0, 125.0]
-MinArea = 150.0
-MinPerimeter = 30.0
-MinWidth = 0.0
-MaxWidth = 500.0
-MinHeight = 10.0
-MaxHeight = 1000.0
-Solidity = [35.07194244604317, 100.0]
-MaxVertices = 150.0
-MinVertices = 4.0
-MinRatio = 1.00
-MaxRatio = 4.00
-MaxVerticalOffset = 50
-MinVerticalOffset = 5
-MaxHorizontalOffset = 25
-MinHorizontalOffset = 0
-
 #
 #Functions, classes, et cetera
 #
@@ -57,6 +37,7 @@ class ClientManager(threading.Thread):
 		self.Conn = Conn
 		self.Addr = Addr
 		self.Stream = None
+		self.Targeter = None
 
 	def run(self):
 		global Camera
@@ -93,21 +74,21 @@ class ClientManager(threading.Thread):
 							self.Stream.setCam(indx - 1)
 							Camera = indx
 							logger.info("Client (%s, %s)" % Addr + " has requested that the video stream for camera %d be broadcasted." % Camera)
-					elif Data == "T":
+					elif Data == "T" or Data == "T0" or Data == "T1" or Data == "T2":
 						logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
-						Targeter = TargetingManager(Conn, Addr)
-						Targeter.daemon = True
-						Targeter.name = "TargetingThread"
-						Targeter.start()
-					elif Data == "T0":
-						Target = 0
-						logger.info("Client (%s, %s) has requested that no alignment be made toward any target." %Addr)
-					elif Data == "T1":
-						Target = 1
-						logger.info("Client (%s, %s) has requested that alignment be made toward the high boiler opening." %Addr)
-					elif Data == "T2":
-						Target = 2
-						logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." %Addr)
+						self.Targeter = targetingmanager.TargetingManager(self.Conn, self.Addr)
+						self.Targeter.daemon = True
+						self.Targeter.name = "TargetingThread"
+						self.Targeter.start()
+						if Data == "T0":
+							self.Targeter.setTarget(0)
+							logger.info("Client (%s, %s) has requested that no alignment be made toward any target." %Addr)
+						elif Data == "T1":
+							self.Targeter.setTarget(1)
+							logger.info("Client (%s, %s) has requested that alignment be made toward the high boiler opening." %Addr)
+						elif Data == "T2":
+							self.Targeter.setTarget(2)
+							logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." %Addr)
 					else:
 						logger.error("Error parsing data recieved from client (%s, %s): \"" %Addr + Data + "\": valid messages are: \"C\", \"C0\", \"C1\", \"C2\", \"C3\", \"C4\", \"T\", \"T1\", \"T2\".")
 				else:

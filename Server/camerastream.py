@@ -12,6 +12,7 @@ import evsslogger
 
 logger = evsslogger.getLogger()
 
+
 class BroadcastStream(threading.Thread):
 	def __init__(self, Conn, Addr):
 		threading.Thread.__init__(self)
@@ -58,7 +59,7 @@ class BroadcastStream(threading.Thread):
 		FramesGrabbed = 0
 		FPS = 0
 		BenchmarkTimes = [] #StartGrabTime, StartColorTime, StartEncodeTime, StartSendTime, EndTime
-		AverageTimes = [] #Array containing 10 copies of BenchmarkTime (s)
+		AverageTimes = [] #Array containing several copies of BenchmarkTime (s)
 		while True:
 			StartTime = time.time()
 			err = ""
@@ -106,7 +107,7 @@ class BroadcastStream(threading.Thread):
 			BenchmarkTimes.append(time.time())
 			AverageTimes.append(BenchmarkTimes)
 			BenchmarkTimes = []
-			if len(AverageTimes) == 60:
+			if len(AverageTimes) == 10:
 				GrabTimes = []
 				ColorTimes = []
 				EncodeTimes = []

@@ -22,15 +22,15 @@ def writeTableToFile(table, filename):
 	for k, v in table.items():
 		f.write(k + "=" + str(v) + '\n')
 	f.close()
-	
+
 def getKey(line):
 	# write this
 	string = ''
 	key = line[:line.find('=')].strip().lower()
 	return key
-	
+
 def getValue(line):
-	# write this 
+	# write this
 	value = 0.0
 	try: value = float(line[(line.find('=')+1):].strip())
 	except Exception as e:
@@ -47,4 +47,3 @@ def sendTable(conn, table):
 	byteEndLine = bytearray(endLine, 'utf-8')
 	conn.send(byteEndLine)
 	print("End of file sent.")
-	
