@@ -39,7 +39,7 @@ public class DriveTrain extends Subsystem {
 	public int invertDrive = 1;
 	double strafe = .75;
 	public int gyro0 = 1;
-	AHRS ahrs;
+	//public AHRS ahrs;
 
 	long startTime = System.currentTimeMillis();
 
@@ -68,7 +68,7 @@ public class DriveTrain extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
-    public void initGryo(){
+/*   public void initGryo(){
 		try {
 			/***********************************************************************
 			 * navX-MXP:
@@ -82,12 +82,13 @@ public class DriveTrain extends Subsystem {
 			 * 
 			 * Multiple navX-model devices on a single robot are supported.
 			 ************************************************************************/
-			ahrs = new AHRS(SPI.Port.kMXP); 
+/*			ahrs = new AHRS(SPI.Port.kMXP); 
 		} catch (RuntimeException ex ) {
 			DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
 		}
 
 	}
+*/
 
 	public void changeGyro0() {
 		if ( gyro0 == 0) {
@@ -108,7 +109,7 @@ public class DriveTrain extends Subsystem {
 			/* Y axis for forward movement, and Z axis for rotation.    */
 			/* Use navX MXP yaw angle to define Field-centric transform */
 			robotDrive4.mecanumDrive_Cartesian(Robot.oi.getDriverJoystick().getRawAxis(0) * invertDrive, Robot.oi.getDriverJoystick().getRawAxis(1) * invertDrive, 
-					Robot.oi.getDriverJoystick().getRawAxis(2), ahrs.getAngle() * gyro0);
+					Robot.oi.getDriverJoystick().getRawAxis(2), Robot.navX.getAngle() * gyro0);
 			//ahrs.getAngle()
 		} catch( RuntimeException ex ) {
 			DriverStation.reportError("Error communicating with drive system:  " + ex.getMessage(), true);
@@ -164,9 +165,10 @@ public class DriveTrain extends Subsystem {
 		return invertDrive;
 	}
 
-	public AHRS getNavX() {
+/*	public AHRS getNavX() {
 		return ahrs;
 	}
+*/
 
 	public void strafeLeft() {
 		frontLeft.set(-1 * strafe * invertDrive);

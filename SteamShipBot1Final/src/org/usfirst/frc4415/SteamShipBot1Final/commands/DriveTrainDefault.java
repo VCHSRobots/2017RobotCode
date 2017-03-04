@@ -39,15 +39,14 @@ public class DriveTrainDefault extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
-    	Robot.driveTrain.initGryo();
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
     	if ( Robot.oi.getDriverJoystick().getRawButton(10)) {
-			Robot.driveTrain.getNavX().reset();
+			Robot.navX.reset();
 		}
 
 		if (Robot.driveTrain.getChangeDrive() == true) {
@@ -60,7 +59,6 @@ public class DriveTrainDefault extends Command {
 			Robot.driveTrain.invertMotorsArcade();
 			Robot.driveTrain.setArcade();
 			Robot.driveTrain.steamArcadeDrive();
-
 		}
 
 		SmartDashboard.putNumber("Invert Drive?", Robot.driveTrain.getInvertDrive());
@@ -70,7 +68,7 @@ public class DriveTrainDefault extends Command {
 		SmartDashboard.putNumber("Turret Value", Robot.oi.getShooterJoystick().getRawAxis(4));
 		SmartDashboard.putNumber("Gyro On ? ", Robot.driveTrain.getGyro0());
 		SmartDashboard.putBoolean("Mecanum", Robot.driveTrain.getChangeDrive());
-		SmartDashboard.putNumber("Gyro Angle: ", Robot.driveTrain.getNavX().getAngle());
+		SmartDashboard.putNumber("Gyro Angle: ", Robot.navX.getAngle());
 		
 	}
 
