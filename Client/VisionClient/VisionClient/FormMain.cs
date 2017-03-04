@@ -14,9 +14,6 @@ namespace VisionClient
         private delegate void VoidFunc();
         private delegate void EventFunc(object sender, EventArgs e);
         Comm m_Comm = null;
-        //TcpClient Client = new TcpClient();
-        //bool IsOnline = false;
-        //string ServerIP = Properties.Settings.Default.IP;
         #endregion
 
         #region FormMain()
@@ -34,15 +31,28 @@ namespace VisionClient
         }
         #endregion
 
+        #region OnResize()
+        /// <summary>
+        /// OnResize Override.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
         }
+        #endregion
 
+        #region OnClosing()
+        /// <summary>
+        /// OnClosing override.  Close down Comm, save parameters.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnClosing(CancelEventArgs e)
         {
+            m_Comm.Stop();
             base.OnClosing(e);
         }
+        #endregion
 
         #region CommDataReady()
         /// <summary>
@@ -58,7 +68,7 @@ namespace VisionClient
                 object[] args = new object[2];
                 args[0] = sender;
                 args[1] = e;
-                this.Invoke(new EventFunc(CommDataReady), args);
+                this.BeginInvoke(new EventFunc(CommDataReady), args);
                 return;
             }
             byte[] data = m_Comm.GetData();
@@ -85,7 +95,7 @@ namespace VisionClient
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(new VoidFunc(SetConnectionStatusUI));
+                this.BeginInvoke(new VoidFunc(SetConnectionStatusUI));
                 return;
             }
             bool bConnected = m_Comm.IsConnected();
