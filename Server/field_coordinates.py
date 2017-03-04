@@ -1,10 +1,20 @@
+# ---------------------------------------------------------------------
+# field_coordinates.py -- Field Coordinates Reader for EPIC Robot 2017
+#
+# Created by: KJF, NG, TastyDucks, DLB
+# ---------------------------------------------------------------------
+
 import socket
 import math
-import mouse_reader
+import mouse_reader_jetson
 import time
 import sys
+import evsslogger
 
-mouse_reader.initMouseTrack()
+# Logging
+logger = evsslogger.getLogger()
+
+mouse_reader_jetson.initMouseTrack()
 xm1 = 0.0
 ym1 = 0.0
 xf0 = 0.0
@@ -34,11 +44,11 @@ def run(conn, addr):
 			if not data: 
 				break
 		except socket.timeout:
-			print ('Socket timed out at gyro angle read operation')
+			logger.error('Socket timed out at gyro angle read operation')
 			break
 		else:
 			theta = float(data)
-		xm1, ym1 = mouse_reader.getMousePosition()
+		xm1, ym1 = mouse_reader_jetson.getMousePosition()
 		deltaXm = xm1 - xm0
 		deltaYm = ym1 - ym0
 		if (deltaYm < 0):
@@ -65,10 +75,10 @@ def run(conn, addr):
 		try:
 			print(conn.recv(1024))
 		except socket.timeout:
-			print ('Socket timed out at X field recv operation')
+			logger.error('Socket timed out at X field recv operation')
 			break
 		conn.send(byf1)
 
-		print ('alpha = ' + str(alpha) + '   xf1 = ' + str(xf1) + '   yf1 = ' + str(yf1))
+		logger.debug('alpha = ' + str(alpha) + '   xf1 = ' + str(xf1) + '   yf1 = ' + str(yf1))
 	conn.close()
-	print ('Loop exited.')		
+	logger.debug('Field Coordinate Loop Exited.')		
