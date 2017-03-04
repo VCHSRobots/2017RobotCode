@@ -19,23 +19,24 @@ logger = evsslogger.getLogger()
 
 def run(Conn, Addr, Data):
 	logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
-	Targeter = targetingmanager.TargetingManager(self.Conn, self.Addr)
+	Targeter = targetingmanager.TargetingManager(Conn, Addr)
 	Targeter.daemon = True
 	Targeter.name = "TargetingThread"
 	Targeter.start()
-	if Data == "T0":
-		Targeter.setTarget(0)
-		logger.info("Client (%s, %s) has requested that no alignment be made toward any target." % Addr)
-	elif Data == "T1":
-		Targeter.setTarget(1)
-		logger.info("Client (%s, %s) has requested that alignment be made toward the high boiler opening." % Addr)
-	elif Data == "T2":
-		Targeter.setTarget(2)
-		logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." % Addr)
-		try:
-			Data = Conn.recv(RecvBuffer)
-		except:
-			logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" % Addr)
-			Conn.close()
-			return
+	while True:
+		if Data == "T0":
+			Targeter.setTarget(-1)
+			logger.info("Client (%s, %s) has requested that no alignment be made toward any target." % Addr)
+		elif Data == "T1":
+			Targeter.setTarget(0)
+			logger.info("Client (%s, %s) has requested that alignment be made toward the high boiler opening." % Addr)
+		elif Data == "T2":
+			Targeter.setTarget(1)
+			logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." % Addr)
+			try:
+				Data = Conn.recv(RecvBuffer)
+			except:
+				logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" % Addr)
+				Conn.close()
+				return
 

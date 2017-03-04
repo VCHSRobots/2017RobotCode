@@ -18,7 +18,7 @@ RecvBuffer = 1024
 logger = evsslogger.getLogger()
 
 def run(Conn, Addr, Data):
-	logger.info("Client (%s, %s) has declared itself as the VisionSystem client." % Addr)
+	logger.info("Client (%s, %s) has requested that the vision system be started up." % Addr)
 	Stream = camerastream.BroadcastStream(Conn, Addr)
 	Stream.daemon = True
 	Stream.name = "BroadcastThread"

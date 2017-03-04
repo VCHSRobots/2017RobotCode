@@ -35,18 +35,18 @@ def run(conn, addr):
 		yf0 = yf1
 		conn.settimeout(1)
 		try:
-			data = conn.recv(1024)				# waiting for gyro angle	
-			logger.debug("gyro angle recieved: " + data)
+			data = conn.recv(1024)				# waiting for gyro angle
+#			logger.debug("gyro angle recieved: " + data)
 		except socket.timeout:
 			logger.error('Socket timed out at gyro angle read operation')
 			break
-		if not data: 
-				break		
+		if not data:
+			break
 		else:
 			theta = float(data)
 		try:
 			xm1, ym1, okay = mouse_reader_jetson.getMousePosition()
-			logger.debug("Mouse positions = %7.3f %7.3f " % (xm1, ym1) + str(okay))
+#			logger.debug("Mouse positions = %7.3f %7.3f " % (xm1, ym1) + str(okay))
 		except:
 			logger.error("Get Mouse Position function failed")
 		deltaXm = xm1 - xm0
@@ -70,16 +70,16 @@ def run(conn, addr):
 		syf1 = "%15.6f\n" % yf1
 		bxf1 = bytearray(sxf1, 'utf-8')
 		byf1 = bytearray(syf1, 'utf-8')
-		logger.debug("sending x data")
+#		logger.debug("sending x data")
 		conn.send(bxf1)
 		try:
 			print(conn.recv(1024))
 		except socket.timeout:
 			logger.error('Socket timed out at X field recv operation')
 			break
-		logger.debug("sending y data")
+#		logger.debug("sending y data")
 		conn.send(byf1)
 
-		logger.debug('alpha = ' + str(alpha) + '   xf1 = ' + str(xf1) + '   yf1 = ' + str(yf1))
+#		logger.debug('alpha = ' + str(alpha) + '   xf1 = ' + str(xf1) + '   yf1 = ' + str(yf1))
 	conn.close()
-	logger.debug('Field Coordinate Loop Exited.')		
+	logger.debug('Field Coordinate Loop Exited.')

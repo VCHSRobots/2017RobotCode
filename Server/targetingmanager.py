@@ -66,7 +66,7 @@ class TargetingManager(threading.Thread):
 
 	def run(self):
 		self.setTargetForReal(self.TargetNewIndex)
-		logger.info("BroadcastThread started")
+		logger.info("TargetingThread started")
 		haveErr = False
 		FramesGrabbed = 0
 		FPS = 0
@@ -97,7 +97,7 @@ class TargetingManager(threading.Thread):
 				Frame = np.zeros((480,640,3), np.uint8)
 			try:
 				ImHLS = cv2.cvtColor(Frame, cv2.COLOR_BGR2HLS)
-				if self.TargetIndex == 1:
+				if self.TargetIndex == 0:
 					Out = cv2.inRange(ImHLS, (Hue[0], Luminance[0], Saturation[0]), (Hue[1], Luminance[1], Saturation[1]))
 					_, OkContours, _ = cv2.findContours(Out, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_SIMPLE)
 					BetterContours = []
@@ -148,7 +148,7 @@ class TargetingManager(threading.Thread):
 					cv2.putText(Frame, Offset, (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 					cv2.imshow("Processed image output:", Frame)
 					cv2.waitKey(1)
-				elif self.TargetIndex == 2:
+				elif self.TargetIndex == 1:
 					pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
 			except Exception as e:
 				logger.error("Error autoaiming! " + str(e))

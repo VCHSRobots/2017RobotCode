@@ -41,6 +41,7 @@ class ClientManager(threading.Thread):
 		while True:
 			try:
 				Data = Conn.recv(RecvBuffer)
+				logger.debug("Recv'd data \"" + Data + "\" from client (%s, %s)." % Addr)
 			except:
 				logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" %Addr)
 				Conn.close()
@@ -59,17 +60,16 @@ class ClientManager(threading.Thread):
 					elif Data == "T" or Data == "T0" or Data == "T1" or Data == "T2":
 						targetsystem.run(Conn, Addr, Data)
 					else:
-						logger.error("Error parsing command recieved from client (%s, %s): \"" % Addr + Data)
+						logger.error("Error parsing command recieved from client (%s, %s) \"" % Addr + Data + "\".")
 				else:
 					logger.info("Client (%s, %s) has disconnected." %Addr)
 					Conn.close()
 					return
 			except:
 				logger.error("Unexpected Exception from low level code! -- Closing Connection...")
+				traceback.print_exc()
 				Conn.close()
 				return
-				
-
 
 #
 #Begin mainline code

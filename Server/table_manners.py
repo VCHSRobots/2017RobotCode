@@ -53,4 +53,4 @@ def sendTable(conn, table):
 	endLine = 'End of file\n'
 	byteEndLine = bytearray(endLine, 'utf-8')
 	conn.send(byteEndLine)
-	logger.debug("End of file sent from sendTable.")
+#	logger.debug("End of file sent from sendTable.")
