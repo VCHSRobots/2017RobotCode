@@ -36,7 +36,7 @@ def run(conn, addr):
 		conn.settimeout(1)
 		try:
 			data = conn.recv(1024)				# waiting for gyro angle	
-			logger.debug("gyro angle recieved.")
+			logger.debug("gyro angle recieved: " + data)
 		except socket.timeout:
 			logger.error('Socket timed out at gyro angle read operation')
 			break

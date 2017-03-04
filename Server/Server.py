@@ -41,6 +41,11 @@ class ClientManager(threading.Thread):
 		while True:
 			try:
 				Data = Conn.recv(RecvBuffer)
+			except:
+				logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" %Addr)
+				Conn.close()
+				return
+			try:
 				if Data:
 					Data = Data.rstrip()
 					if Data == ("Requesting ds_pi_communication"):
@@ -60,9 +65,11 @@ class ClientManager(threading.Thread):
 					Conn.close()
 					return
 			except:
-				logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" %Addr)
+				logger.error("Unexpected Exception from low level code! -- Closing Connection...")
 				Conn.close()
 				return
+				
+
 
 #
 #Begin mainline code
