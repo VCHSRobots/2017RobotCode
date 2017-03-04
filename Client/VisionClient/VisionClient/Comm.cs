@@ -43,6 +43,7 @@ namespace VisionClient
         object m_OutputLock = new object();
         byte[] m_OutputData = null;
         bool m_OutputReady = false;
+        int m_nBadFrames = 0;
         #endregion
 
         #region TriggerDataReady()
@@ -248,8 +249,15 @@ namespace VisionClient
                 }
                 lock (m_OutputLock)
                 {
-                    m_OutputData = Convert.FromBase64String(InputData);
-                    m_OutputReady = true;
+                    try
+                    {
+                        m_OutputData = Convert.FromBase64String(InputData);
+                        m_OutputReady = true;
+                    }
+                    catch (FormatException ee)
+                    {
+                        m_nBadFrames++;
+                    }
                 }
                 TriggerDataReady();
                 WaitHandle[] evnts = new WaitHandle[2];
