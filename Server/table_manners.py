@@ -7,6 +7,13 @@
 
 import socket, threading, time
 
+import evsslogger
+
+# Logging
+logger = evsslogger.getLogger()
+
+# define function to check input format called checkInput(String)
+
 def readTable(filename):
 	f = open(filename, 'r')
 	table = dict()
@@ -34,7 +41,7 @@ def getValue(line):
 	value = 0.0
 	try: value = float(line[(line.find('=')+1):].strip())
 	except Exception as e:
-		print("Invalid Value")
+		logger.debug("Invalid Value in getValue in table-manners.")
 		value = 0
 	return value
 
@@ -46,4 +53,4 @@ def sendTable(conn, table):
 	endLine = 'End of file\n'
 	byteEndLine = bytearray(endLine, 'utf-8')
 	conn.send(byteEndLine)
-	print("End of file sent.")
+	logger.debug("End of file sent from sendTable.")

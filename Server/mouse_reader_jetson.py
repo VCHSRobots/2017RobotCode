@@ -3,9 +3,14 @@
 #
 # 01/27/17 DLB Created
 # -------------------------------------------------------
+
 import threading
 import findRazerMouse
 import time
+import evsslogger
+
+# Logging
+logger = evsslogger.getLogger()
 
 xloc = 0.0          #  X location in inches
 yloc = 0.0          #  Y location in inches
@@ -33,7 +38,7 @@ def readMsePosition():
 	c = fmsefile.read(8)
 	n = len(c)
 	if n != 8:
-		print('Mouse Read Error! Missed Bytes.')
+		logger.error('Mouse Read Error! Missed Bytes.')
 		return xloc, yloc, False
 	sumMovement(c[1], c[2])
 	return xloc, yloc, True
@@ -73,4 +78,4 @@ if __name__ == "__main__":
 		if not okay:
 			print("Mouse Read Error!")
 		else:
-			print ("x, y = %8.3f, %8.3f" % (x, y))
+			print("x, y = %8.3f, %8.3f" % (x, y))

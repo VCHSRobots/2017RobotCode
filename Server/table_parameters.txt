@@ -1,6 +1,4 @@
-nathan=10000.0
 fdsafs=654.0
-dal=6543.0
 timestamp=1487233460.41
 shooter=500.0
 kyle=9000.0
