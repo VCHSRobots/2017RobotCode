@@ -13,13 +13,13 @@ import evsslogger
 logger = evsslogger.getLogger()
 
 def run(Conn, Addr):
-	Conn.settimeout(1)
+	#Conn.settimeout(1)
 	table = table_manners.readTable('/home/ubuntu/epic/VisionSystem2017/Server/table_parameters.txt')
 	table_manners.sendTable(Conn, table)
 	while 1:
 		data = Conn.recv(1024)
 		if data == (b'\r\n' or b'null\r\n'):
-			logger.debug ('in ds_pi_communication: ' + str(data))
+			logger.debug ('in ds_pi_communication: ' + str(data))   # accidentally deleted this line
 			logger.debug ('null recieved in ds_pi_communication...')
 			return
 		data_str = str(data)

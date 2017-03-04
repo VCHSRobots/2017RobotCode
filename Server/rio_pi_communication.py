@@ -8,12 +8,16 @@ import socket
 import time
 import table_manners
 import datetime
+import evsslogger
+
+# Logging
+logger = evsslogger.getLogger()
 
 def run(conn, addr):
 	conn.settimeout(1)
-	print ('sending response...')
+	logger.info('sending table request response...')
 	conn.send(bytearray('Request granted\n','utf-8'))
-	print ('response sent...')
+	logger.info('table request response sent...')
 	while 1:
 		try:
 			data = conn.recv(1024)

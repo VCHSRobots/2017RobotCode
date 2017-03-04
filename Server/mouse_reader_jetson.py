@@ -4,6 +4,11 @@
 # 01/27/17 DLB Created
 # -------------------------------------------------------
 
+# Note:  The Y axis is negated in this routine to make the
+# conceptal understanding of the forward motion of the robot
+# mean postive Y values.
+
+import sys
 import threading
 import findRazerMouse
 import time
@@ -29,11 +34,12 @@ def sumMovement(x, y):
 	if y_ord >= 128:
 		y_ord = y_ord - 256
 	xloc += float(x_ord) / msescale
-	yloc += float(y_ord) / msescale
+	yloc -= float(y_ord) / msescale  # Y axis negated here
 
 def readMsePosition():
 	global fmsefile, xloc, yloc
-	if MouseOpen is None:
+	if not MouseOpen:
+		logger.debug('Mouse device not open')
 		return 0, 0, False
 	c = fmsefile.read(8)
 	n = len(c)
@@ -50,17 +56,19 @@ def runmseread():
 
 def initMouseTrack():
 	global fmsefile, xloc, yloc
+	global MouseOpen
 	xloc = 0
 	yloc = 0
 	DeviceName = findRazerMouse.findRazer()
 	if DeviceName is None:
 		MouseOpen = False
-		return
+		return False
 	fmsefile = open(DeviceName, "rb")
 	MouseOpen = True
 	t = threading.Thread(target=runmseread)
 	t.daemon = True
 	t.start()
+	return True
 
 def getMousePosition():
 	global xloc, yloc
@@ -72,7 +80,11 @@ def getMouseDeviceName():
 	return DeviceName
 
 if __name__ == "__main__":
-	initMouseTrack()
+	evsslogger.initLogging()
+	okay = initMouseTrack()
+	if not okay:
+		logger.debug("Mouse failed to init.")
+		sys.exit(0)
 	while True:
 		x, y, okay = readMsePosition()
 		if not okay:
