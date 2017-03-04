@@ -1,8 +1,10 @@
 fdsafs=654.0
-timestamp=1487233460.41
+dal=10000.0
+timestamp=1488618221.51
 shooter=500.0
-kyle=9000.0
-hi=3000.0
+kyle=-990.0
+hi=90.0
 gail=5678.0
 hello=26536.12
+endofworld=4.0
 blender=0.6
