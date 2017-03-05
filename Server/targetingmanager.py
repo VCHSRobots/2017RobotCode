@@ -1,5 +1,6 @@
 import cv2, socket, threading, time, traceback
 from subprocess import call
+import numpy as np
 import evsslogger
 
 logger = evsslogger.getLogger()

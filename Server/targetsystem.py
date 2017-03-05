@@ -33,10 +33,10 @@ def run(Conn, Addr, Data):
 		elif Data == "T2":
 			Targeter.setTarget(1)
 			logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." % Addr)
-			try:
-				Data = Conn.recv(RecvBuffer)
-			except:
-				logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" % Addr)
-				Conn.close()
-				return
+		try:
+			Data = Conn.recv(RecvBuffer)
+		except:
+			logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" % Addr)
+			Conn.close()
+			return
 
