@@ -38,38 +38,55 @@ class ClientManager(threading.Thread):
 		global Camera
 		global Target
 		logger.info("Client (%s, %s) connected and situated." %Addr)
-		while True:
-			try:
-				Data = Conn.recv(RecvBuffer)
-				logger.debug("Recv'd data \"" + Data + "\" from client (%s, %s)." % Addr)
-			except:
-				logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" %Addr)
-				Conn.close()
-				return
-			try:
-				if Data:
-					Data = Data.rstrip()
-					if Data == ("Requesting ds_pi_communication"):
-						ds_pi_communication.run(Conn, Addr)
-					elif Data == ("Requesting rio_pi_communication"):
-						rio_pi_communication.run(Conn, Addr)
-					elif Data == ("Requesting field_coordinates"):
-						field_coordinates.run(Conn, Addr)
-					elif Data == "C" or Data == "C0" or Data == "C1" or Data == "C2" or Data == "C3" or Data == "C4":
-						visionsystem.run(Conn, Addr, Data)
-					elif Data == "T" or Data == "T0" or Data == "T1" or Data == "T2":
-						targetsystem.run(Conn, Addr, Data)
-					else:
-						logger.error("Error parsing command recieved from client (%s, %s) \"" % Addr + Data + "\".")
+
+		try:
+			Data = Conn.recv(RecvBuffer)
+			logger.debug("Recv'd data \"" + Data + "\" from client (%s, %s)." % Addr)
+		except:
+			logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" %Addr)
+			Conn.close()
+			return
+		try:
+			if Data:
+				Data = Data.rstrip()
+				if Data == ("Requesting ds_pi_communication"):
+					ds_pi_communication.run(Conn, Addr)
+					Conn.close()
+					logger.info("DS-To-Jetson comm closed.")
+					return
+				elif Data == ("Requesting rio_pi_communication"):
+					rio_pi_communication.run(Conn, Addr)
+					Conn.close()
+					logger.info("RIO-To-Jetson communition closed.")
+					return
+				elif Data == ("Requesting field_coordinates"):
+					field_coordinates.run(Conn, Addr)
+					Conn.close()
+					logger.info("RIO-To-Jetson field coordinates closed.")
+					return
+				elif Data == "C" or Data == "C0" or Data == "C1" or Data == "C2" or Data == "C3" or Data == "C4":
+					visionsystem.run(Conn, Addr, Data)
+					Conn.close()
+					logger.info("Vision System closed.")
+					return
+				elif Data == "T" or Data == "T0" or Data == "T1" or Data == "T2":
+					targetsystem.run(Conn, Addr, Data)
+					Conn.close()
+					logger.info("Target System closed.")
+					return
 				else:
-					logger.info("Client (%s, %s) has disconnected." %Addr)
+					logger.error("Error parsing command recieved from client (%s, %s) \"" % Addr + Data + "\".")
 					Conn.close()
 					return
-			except:
-				logger.error("Unexpected Exception from low level code! -- Closing Connection...")
-				traceback.print_exc()
+			else:
+				logger.info("Client (%s, %s) has disconnected." %Addr)
 				Conn.close()
 				return
+		except:
+			logger.error("Unexpected Exception from low level code! -- Closing Connection...")
+			traceback.print_exc()
+			Conn.close()
+			return
 
 #
 #Begin mainline code

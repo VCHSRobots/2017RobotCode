@@ -16,11 +16,11 @@ def run(Conn, Addr):
 	#Conn.settimeout(1)
 	table = table_manners.readTable('/home/ubuntu/epic/VisionSystem2017/Server/table_parameters.txt')
 	table_manners.sendTable(Conn, table)
-	while 1:
+	while True:
 		data = Conn.recv(1024)
 		if data == (b'\r\n' or b'null\r\n'):
-			logger.debug ('in ds_pi_communication: ' + str(data))   # accidentally deleted this line
-			logger.debug ('null recieved in ds_pi_communication...')
+			#logger.debug ('in ds_pi_communication: ' + str(data))   # accidentally deleted this line
+			logger.info('Null recieved in ds_pi_communication.  Quitting...')
 			return
 		data_str = str(data)
 
@@ -32,6 +32,8 @@ def run(Conn, Addr):
 		table[key] = value
 		table['timestamp'] = time.time()
 		table_manners.writeTableToFile(table, '/home/ubuntu/epic/VisionSystem2017/Server/table_parameters.txt')
+		logger.info("Table Data changed (Key/Val: %s = %20.7f). " % (key, value))		
 		print(table)
 		table_manners.sendTable(Conn, table)
+		
 

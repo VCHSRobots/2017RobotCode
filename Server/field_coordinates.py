@@ -28,6 +28,7 @@ def run(conn, addr):
 	xf1 = 0.0
 	yf1 = 0.0
 	conn.send("field_coordinates request recv'd\n")
+	ireport = 0
 	while True:
 		xm0 = xm1
 		ym0 = ym1
@@ -73,13 +74,15 @@ def run(conn, addr):
 #		logger.debug("sending x data")
 		conn.send(bxf1)
 		try:
-			print(conn.recv(1024))
+			conn.recv(1024)
 		except socket.timeout:
 			logger.error('Socket timed out at X field recv operation')
 			break
 #		logger.debug("sending y data")
 		conn.send(byf1)
-
+		ireport += 1
+		if ireport % 250 == 0:
+			logger.info("Field Coordinates Sent... %d Reports. " % ireport)
 #		logger.debug('alpha = ' + str(alpha) + '   xf1 = ' + str(xf1) + '   yf1 = ' + str(yf1))
 	conn.close()
 	logger.debug('Field Coordinate Loop Exited.')
