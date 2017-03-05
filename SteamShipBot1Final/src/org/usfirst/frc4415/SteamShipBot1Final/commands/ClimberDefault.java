@@ -48,8 +48,7 @@ public class ClimberDefault extends Command {
     	
     	Robot.climber.set(stillConstant * Robot.climber.getEncoder());
 
-    	
-    	SmartDashboard.putNumber("Encoder Postition", Robot.climber.getEncoder());
+    	SmartDashboard.putNumber("Climber Encoder", Robot.climber.getEncoder());
     	    	
     }
 

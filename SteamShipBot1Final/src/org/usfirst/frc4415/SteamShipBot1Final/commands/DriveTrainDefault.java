@@ -41,6 +41,7 @@ public class DriveTrainDefault extends Command {
     protected void initialize() {
     	
     	Robot.driveTrain.initGryo();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run

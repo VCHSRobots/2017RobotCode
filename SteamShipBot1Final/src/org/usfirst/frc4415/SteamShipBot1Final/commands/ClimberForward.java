@@ -58,6 +58,7 @@ public class ClimberForward extends Command {
     protected void end() {
     	
     	Robot.climber.motorOff();
+    	
     	Robot.climber.resetEncoder();
     	
     }

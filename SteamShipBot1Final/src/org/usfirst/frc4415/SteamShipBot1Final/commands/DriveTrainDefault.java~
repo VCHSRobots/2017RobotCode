@@ -75,7 +75,8 @@ public class DriveTrainDefault extends Command {
 		SmartDashboard.putBoolean("Mecanum", Robot.driveTrain.getChangeDrive());
 		SmartDashboard.putNumber("Gyro Angle: ", Robot.driveTrain.getNavX().getAngle());
 		SmartDashboard.putNumber("Drive Encoder", Robot.driveTrain.getEncoder());
-		
+		SmartDashboard.putNumber("Drive RangeFinder", Robot.driveTrain.getRangeFinder());
+		System.out.println(Robot.driveTrain.getRangeFinder());
 	}
 
 	/*if(  Robot.oi.getSteam1Joystick().getRawAxis(0) <= .05 && Robot.oi.getSteam1Joystick().getRawAxis(0) >= -.05 
