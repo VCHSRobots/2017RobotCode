@@ -42,11 +42,9 @@ public class TurretReset extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	Robot.turret.reset();
-    	
-    	/*if(Robot.turret.getMiddleLimit() == false){
+    	if(Robot.turret.getMiddleLimit() == false){
 			while(Robot.turret.getMiddleLimit() == false){
-				Robot.turret.turretRight();
+				Robot.turret.turretLeft();
 			}
 		}
 		
@@ -56,7 +54,7 @@ public class TurretReset extends Command {
 
 		if (Robot.turret.getMiddleLimit() == false) {
 			long startTime = System.currentTimeMillis();
-			while(System.currentTimeMillis() - startTime < 165){
+			while(System.currentTimeMillis() - startTime < 100){
 				Robot.turret.turretLeft();
 				try {
 					Thread.sleep(10);
@@ -72,7 +70,7 @@ public class TurretReset extends Command {
 				Robot.turret.turretRight();
 			}
 			long startTime = System.currentTimeMillis();
-			while(System.currentTimeMillis() - startTime < 95){
+			while(System.currentTimeMillis() - startTime < 50){
 				Robot.turret.turretRight();
 				try {
 					Thread.sleep(10);
@@ -84,7 +82,7 @@ public class TurretReset extends Command {
 
 			Robot.turret.turretOff();
 
-		}*/
+		}
 		
     }
 

@@ -83,23 +83,5 @@ public class GearHandler extends Subsystem {
     	return toggleGear;
     }
     
-    // Autonomous Commands
-    
-    public void autoGearGrab() {
-    	gearGrabSolenoid.set(DoubleSolenoid.Value.kForward);
-    }
-    
-    public void autoGearRelease() {
-    	gearGrabSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
-    
-    public void autoHandlerIn() {
-    	gearHandlerSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
-    
-    public void autoHandlerOut() {
-    	gearHandlerSolenoid.set(DoubleSolenoid.Value.kForward);
-    }
-    
 }
 

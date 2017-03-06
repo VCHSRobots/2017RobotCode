@@ -17,10 +17,8 @@ public class MouseReader extends Thread {
 	private String hostName;
 	private int portNumber;
 	private AHRS navX;
-	private static String xFieldString = "";
-	private static String yFieldString = "";
-	private static double xField = 0;
-	private static double yField = 0;
+	private String xFieldString = "";
+	private String yFieldString = "";
 	
 	public MouseReader(String hostName, int portNumber, AHRS navX){
 		this.hostName = hostName;
@@ -30,78 +28,91 @@ public class MouseReader extends Thread {
 	}
 	
 	public void run(){			
-
 		while(true){
-			try (
-				Socket clientSocket = new Socket(hostName, portNumber);
-				PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-			    BufferedReader in = new BufferedReader(
-			    		new InputStreamReader(clientSocket.getInputStream()));
-			    BufferedReader stdIn = new BufferedReader(
-			                    new InputStreamReader(System.in))
-			){
-				clientSocket.setSoTimeout(1000);
-				out.println("Requesting field_coordinates");
-				try{
-					threadMessage(in.readLine());
-				} catch (SocketException e){
-					System.out.println("Socket Timed Out at request recv'd Read Operation");
-					return;
-				}
-				while(true){
+			restart:
+			while(true){
+				try (
+					Socket clientSocket = new Socket(hostName, portNumber);
+					PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+				    BufferedReader in = new BufferedReader(
+				    		new InputStreamReader(clientSocket.getInputStream()));
+				    BufferedReader stdIn = new BufferedReader(
+				                    new InputStreamReader(System.in))
+				){
+					clientSocket.setSoTimeout(1000);
+					out.println("Requesting field_coordinates");
 					try{
-						String gyroAngle = new Double(navX.getAngle()).toString();
-						//String gyroAngle = "45.0";
-						out.println(gyroAngle);
-					//	out.println(new Double(ahrs.getAngle()).toString());
-					} catch (RuntimeException e){
-						System.out.println("Gyro Read Fail: " + e.getMessage());
-					}
-					try{
-						xFieldString = in.readLine();					// KEEPS READING UNTIL LINE BREAK "\n"
+						threadMessage(in.readLine());
 					} catch (SocketException e){
-						System.out.println("Socket Timed Out at xFieldString Read Operation" + e.getMessage());
+						System.out.println("Socket Timed Out at request recv'd Read Operation");
+						return;
 					}
-					
-					
-					//threadMessage("xField: " + xFieldString);
-					out.println("xFieldString Recieved!");
-					try{
-						yFieldString = in.readLine();					// KEEPS READING UNTIL LINE BREAK "\n"
-					} catch (SocketException e){
-						System.out.println("Socket Timed Out at yFieldString)Read Operation" + e.getMessage());
-					}
-					
-					//threadMessage("Field Location:   X = " + xFieldString + "   Y = " + yFieldString);
-					
-					SmartDashboard.putString("xField", xFieldString);
-					SmartDashboard.putString("yField", yFieldString);
-					try{
-						Thread.sleep(20);
-					} catch (InterruptedException e){
-						threadMessage(e.getMessage());
-						break;
-					}
-	/*					try{
-							Thread.sleep(50);
-						} catch (InterruptedException e){
-							threadMessage("Interrupted exception caught at sleep method. " + e.getMessage());
-							break;		// if you do a return here: out, in and stdIn never get closed,
-										// and therefore you get a resource leak
+					while(true){
+						try{
+							String gyroAngle = "-999999";
+							if (navX != null) {
+								gyroAngle = new Double(navX.getAngle()).toString();
+							}
+							out.println(gyroAngle);
+						//	out.println(new Double(ahrs.getAngle()).toString());
+						} catch (RuntimeException e){
+							System.out.println("Gyro Read Fail: " + e.getMessage());
 						}
-	*/
+						try{
+							xFieldString = in.readLine();					// KEEPS READING UNTIL LINE BREAK "\n"
+							if(xFieldString==null){
+								threadMessage("xField is null. Reconnecting.");
+								break restart;
+							}
+						} catch (SocketException e){
+							System.out.println("Socket Timed Out at xFieldString Read Operation" + e.getMessage());
+						}
+						
+						
+						//threadMessage("xField: " + xFieldString);
+						out.println("xFieldString Recieved!");
+						try{
+							yFieldString = in.readLine();					// KEEPS READING UNTIL LINE BREAK "\n"
+							if(yFieldString==null){
+								threadMessage("yField is null. Reconnecting.");
+								break restart;
+							}
+						} catch (SocketException e){
+							System.out.println("Socket Timed Out at yFieldString)Read Operation" + e.getMessage());
+						}
+						
+						//threadMessage("Field Location:   X = " + xFieldString + "   Y = " + yFieldString);
+						
+						//SmartDashboard.putString("xField", xFieldString);
+						//SmartDashboard.putString("yField", yFieldString);
+						
+						try{
+							Thread.sleep(20);
+						} catch (InterruptedException e){
+							threadMessage(e.getMessage());
+							break;
+						}
+		/*					try{
+								Thread.sleep(50);
+							} catch (InterruptedException e){
+								threadMessage("Interrupted exception caught at sleep method. " + e.getMessage());
+								break;		// if you do a return here: out, in and stdIn never get closed,
+											// and therefore you get a resource leak
+							}
+		*/
+					}
+					
+				} catch (UnknownHostException e) {
+		            System.err.println("Don't know about host " + hostName);
+		            return;
+		        } catch (IOException e) {
+		            threadMessage("Couldn't get IO connection to " + hostName);
+		        } 	
+				try{
+					Thread.sleep(100);
+				} catch (InterruptedException e){
+					threadMessage("Interrupted exception caught at sleep during reconnect");
 				}
-				
-			} catch (UnknownHostException e) {
-	            System.err.println("Don't know about host " + hostName);
-	            return;
-	        } catch (IOException e) {
-	            threadMessage("Couldn't get IO connection to " + hostName);
-	        } 	
-			try{
-				Thread.sleep(100);
-			} catch (InterruptedException e){
-				threadMessage("Interrupted exception caught at sleep during reconnect");
 			}
 		}
 	}
@@ -115,12 +126,30 @@ public class MouseReader extends Thread {
 	}
 	
 	public double getXField(){
-		xField = Double.parseDouble(xFieldString);
+		double xField = -999999;
+		try{
+			xField = Double.parseDouble(xFieldString);
+		} catch(NumberFormatException e){
+			//threadMessage("xField string does not contain a parsable double.");
+			//throw e;
+		} catch(NullPointerException e){
+			//threadMessage("xField string is null");
+			//throw e;
+		}
 		return xField;
 	}
 	
 	public double getYField(){
-		yField = Double.parseDouble(yFieldString);
+		double yField = -999999;
+		try{
+			yField = Double.parseDouble(yFieldString);
+		} catch(NumberFormatException e){
+			//threadMessage("yField string does not contain a parsable double.");
+			//throw e;
+		} catch(NullPointerException e){
+			//threadMessage("yField string is null");
+			//throw e;
+		}
 		return yField;
 	}
 }
