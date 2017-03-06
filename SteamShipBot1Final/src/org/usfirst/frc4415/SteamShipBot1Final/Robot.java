@@ -113,6 +113,8 @@ public class Robot extends IterativeRobot {
         
         tableReader.start();
         mouseReader.start(); 
+        
+        Robot.cameraSystem.ledOff();
     }
 
     /**
@@ -120,6 +122,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
+    	Robot.cameraSystem.ledOff();
 
     }
 
@@ -152,11 +155,14 @@ public class Robot extends IterativeRobot {
         Robot.driveTrain.changeDrive = false;
         Robot.driveTrain.setMecanum();
     	Robot.driveTrain.invertDrive = -1;
-    	Robot.driveTrain.gyro0 = 0;				// Gyro is on
+    	Robot.driveTrain.gyroEnable = 0;				// Gyro is off
     	Robot.shooter.toggleShooter = false;
     	Robot.shooter.speed = -.75;
     	Robot.gearHandler.toggleHandler = false;
     	Robot.gearHandler.toggleGear = false;
+    	
+    	SmartDashboard.putNumber("Mouse X", mouseReader.getXField());
+    	SmartDashboard.putNumber("Mouse Y", mouseReader.getYField());
     	
     }
 

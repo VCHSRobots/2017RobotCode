@@ -51,21 +51,16 @@ public class Climber extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
-    public void driveForward(){
-    	climberMotor.set(-1);
-    }
-    
-    public void driveBackward() {
-    	climberMotor.set(1);
-    }
-    
     public void motorOff() {
     	climberMotor.set(0);
     }
     
-    public int getPostition() {
+    public int getEncoder() {
     	return quadratureEncoder1.get();
     }
     
+    public void set(double power){
+    	climberMotor.set(power);    	
+    }
 }
 

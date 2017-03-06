@@ -42,7 +42,7 @@ public class ClimberBackward extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	Robot.climber.driveBackward();
+    	Robot.climber.set(1);
     	
     }
 

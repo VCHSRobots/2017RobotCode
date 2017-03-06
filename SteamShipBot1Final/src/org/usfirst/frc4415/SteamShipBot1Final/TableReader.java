@@ -196,7 +196,9 @@ public class TableReader extends Thread{
 			if (indx >= 0 && indx < valueList.size()) {
 				v = valueList.get(indx);
 			}
-		} 
+		} else {
+			System.out.println("Table not available");
+		}
 		datalock.unlock();  // Release other parts of the program to continue...
 		return v;
 	}

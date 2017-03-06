@@ -55,10 +55,10 @@ public class DriveTrainDefault extends Command {
 			Robot.driveTrain.gyroMecanumDrive();
 
 		} else {
-			Robot.driveTrain.gyro0 = 1;
+			Robot.driveTrain.gyroEnable = 1;
 			Robot.driveTrain.invertMotorsArcade();
 			Robot.driveTrain.setArcade();
-			Robot.driveTrain.steamArcadeDrive();
+			Robot.driveTrain.arcadeDrive();
 		}
 
 		SmartDashboard.putNumber("Invert Drive?", Robot.driveTrain.getInvertDrive());
@@ -69,6 +69,7 @@ public class DriveTrainDefault extends Command {
 		SmartDashboard.putNumber("Gyro On ? ", Robot.driveTrain.getGyro0());
 		SmartDashboard.putBoolean("Mecanum", Robot.driveTrain.getChangeDrive());
 		SmartDashboard.putNumber("Gyro Angle: ", Robot.navX.getAngle());
+		SmartDashboard.putNumber("Drive Encoder", Robot.driveTrain.getEncoder());
 		
 	}
 
