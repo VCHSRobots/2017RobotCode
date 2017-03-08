@@ -159,7 +159,9 @@ public class Robot extends IterativeRobot {
     	Robot.shooter.toggleShooter = false;
     	Robot.shooter.speed = -.75;
     	Robot.gearHandler.toggleHandler = false;
-    	Robot.gearHandler.toggleGear = false;
+    	Robot.gearHandler.toggleGear = true;
+    	
+    	
     	
     	SmartDashboard.putNumber("Mouse X", mouseReader.getXField());
     	SmartDashboard.putNumber("Mouse Y", mouseReader.getYField());

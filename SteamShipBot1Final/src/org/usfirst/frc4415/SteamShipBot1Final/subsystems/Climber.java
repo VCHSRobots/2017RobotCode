@@ -51,6 +51,14 @@ public class Climber extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
+    public void driveForward(){
+    	climberMotor.set(-1);
+    }
+    
+    public void driveBackward() {
+    	climberMotor.set(1);
+    }
+    
     public void motorOff() {
     	climberMotor.set(0);
     }
@@ -59,8 +67,13 @@ public class Climber extends Subsystem {
     	return quadratureEncoder1.get();
     }
     
-    public void set(double power){
-    	climberMotor.set(power);    	
+    public void resetEncoder() {
+    	quadratureEncoder1.reset();
     }
+    
+    public void set(double power) {
+    	climberMotor.set(power);
+    }
+    
 }
 

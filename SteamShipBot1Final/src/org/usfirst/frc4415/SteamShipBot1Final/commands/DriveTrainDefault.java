@@ -45,7 +45,7 @@ public class DriveTrainDefault extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	if ( Robot.oi.getDriverJoystick().getRawButton(10)) {
+    	if ( Robot.oi.getDriverJoystick().getRawButton(8)) {
 			Robot.navX.reset();
 		}
 
@@ -70,16 +70,9 @@ public class DriveTrainDefault extends Command {
 		SmartDashboard.putBoolean("Mecanum", Robot.driveTrain.getChangeDrive());
 		SmartDashboard.putNumber("Gyro Angle: ", Robot.navX.getAngle());
 		SmartDashboard.putNumber("Drive Encoder", Robot.driveTrain.getEncoder());
+		//SmartDashboard.putNumber("Drive RangeFinder", Robot.driveTrain.getRangeFinder());
 		
 	}
-
-	/*if(  Robot.oi.getSteam1Joystick().getRawAxis(0) <= .05 && Robot.oi.getSteam1Joystick().getRawAxis(0) >= -.05 
-	&& Robot.oi.getSteam1Joystick().getRawAxis(1) <= .05 && Robot.oi.getSteam1Joystick().getRawAxis(1) >= -.05
-	&& Robot.oi.getSteam1Joystick().getRawAxis(4) <= .05 && Robot.oi.getSteam1Joystick().getRawAxis(4) >= -.05) {
-
-	} else {
-	
-	}*/
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
