@@ -71,15 +71,23 @@ def run(conn, addr):
 		syf1 = "%15.6f\n" % yf1
 		bxf1 = bytearray(sxf1, 'utf-8')
 		byf1 = bytearray(syf1, 'utf-8')
-#		logger.debug("sending x data")
-		conn.send(bxf1)
+		try:
+			#logger.debug("sending x data")
+			conn.send(bxf1)
+		except:
+			logger.error("Socket error on send of x data in field_coordinates. Closing Connection.")
+			break
 		try:
 			conn.recv(1024)
 		except socket.timeout:
-			logger.error('Socket timed out at X field recv operation')
+			logger.error('Socket timed out at X field recv operation. Closing Connection.')
 			break
-#		logger.debug("sending y data")
-		conn.send(byf1)
+		try:
+			#logger.debug("sending y data")
+			conn.send(byf1)
+		except:
+			logger.error("Socket error on send of y data in field_coordinates. Closing Connection.")
+			break
 		ireport += 1
 		if ireport % 250 == 0:
 			logger.info("Field Coordinates Sent... %d Reports. " % ireport)

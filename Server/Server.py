@@ -41,7 +41,7 @@ class ClientManager(threading.Thread):
 
 		try:
 			Data = Conn.recv(RecvBuffer)
-			logger.debug("Recv'd data \"" + Data + "\" from client (%s, %s)." % Addr)
+#			logger.debug("Recv'd data \"" + Data + "\" from client (%s, %s)." % Addr)
 		except:
 			logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" %Addr)
 			Conn.close()
@@ -109,4 +109,4 @@ if __name__ == "__main__":
 		NewClient.name = "ClientThread:" + str(NumberOfClientThreads)
 		NewClient.daemon = True
 		NewClient.start()
-		logger.info("Client Added")
+		logger.info("New Client Connection Started: (%s, %s)" % Addr)

@@ -5,6 +5,10 @@ import evsslogger
 
 logger = evsslogger.getLogger()
 
+#Demonstation variable
+
+Demo = False
+
 #Targeting variables
 
 Hue = [90.0, 125.0]
@@ -136,7 +140,6 @@ class TargetingManager(threading.Thread):
 							cv2.line(Frame, (Centers[0][0], 0), (Centers[1][0], Height), (255, 255, 255), 1) #Line through center of target Y
 							cv2.line(Frame, (0, (Centers[0][1] + Centers[1][1]) / 2), (Width, (Centers[0][1] + Centers[1][1]) / 2), (255, 255, 255), 1) #Line through center of target X
 							CenterTarget = (((Centers[0][0] + Centers[1][0]) / 2), (Centers[0][1] + Centers[1][1]) / 2)
-							print("Len's: Frame = " + str(len(Frame)) + ", CenterTarget = " + str(len(CenterTarget)))
 							cv2.line(Frame, CenterTarget, (255, 255, 255), 1) #Line connecting center of target and center of image
 							cv2.line(Frame, CenterTarget, ((Width / 2), (Height / 2)), (255, 255, 255), 1) #Line connecting center of target and center of image
 							OffsetX = CenterTarget[0] - (Width / 2)
@@ -147,8 +150,13 @@ class TargetingManager(threading.Thread):
 					else:
 						Offset = "?,?"
 					cv2.putText(Frame, Offset, (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
-					cv2.imshow("Processed image output:", Frame)
-					cv2.waitKey(1)
+					if Demo == True:
+						cv2.imshow("Processed image output:", Frame)
+						cv2.waitKey(1)
+					try:
+						self.Conn.sendall(Offset)
+					except:
+						logger.error("Unable to send offset to client.")
 				elif self.TargetIndex == 1:
 					pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
 			except Exception as e:

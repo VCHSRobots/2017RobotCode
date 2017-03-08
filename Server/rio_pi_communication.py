@@ -14,17 +14,25 @@ import evsslogger
 logger = evsslogger.getLogger()
 
 def run(conn, addr):
-	conn.settimeout(1)
-	logger.info('Sending table request response...')
-	conn.send(bytearray('Request granted\n','utf-8'))
-	logger.info('Table request response sent...')
-	itsreports = 0
-	ittabreports = 0
+	try:
+		conn.settimeout(1)
+		logger.info('Sending table request response...')
+		conn.send(bytearray('Request granted\n','utf-8'))
+		logger.info('Table request response sent...')
+		itsreports = 0
+		ittabreports = 0
+	except:
+		logger.error("RoboRIO IO error on initial requests... Restarting")
+		return
 	while 1:
 		try:
 			data = conn.recv(1024)
 		except socket.timeout:
-			logger.info('RoboRIO Connection timed out.')
+			logger.info('RoboRIO Connection timed out in Table Request. Restarting')
+			conn.close()
+			return
+		except socket.error:
+			logger.info("RoboRIO Connection error in Table Request. Restarting.")
 			conn.close()
 			return
 		if data == (b'Requesting table\n' or b'Requesting table\r\n'):
@@ -42,7 +50,7 @@ def run(conn, addr):
 			bytetimestamp = bytearray(stringtimestamp, 'utf-8')
 			conn.send(bytetimestamp)
 			itsreports += 1
-			if itsreports % 250 == 0:
+			if itsreports % 50 == 0:
 				logger.info("Table Data Timestamp reports = %d", itsreports)
 		if data == (b'\r\n' or b'null\r\n'):
 				logger.info("Illegal cmd from RoboRio in rio_pi_communcaiton.  Null received.")

@@ -17,26 +17,48 @@ RecvBuffer = 1024
 # Logging
 logger = evsslogger.getLogger()
 
+class TarSysDummy:
+	def __init__(self):
+		self.targetindex = 0
+		self.iDumCount = 0
+	def start(self):
+		return 0
+	def setTarget(self, targetindex):
+		self.targetindex = targetindex
+	def GetResults(self):
+		time.sleep(0.04)
+		self.iDumCount += 1
+		return "%2d, Valid, %d, %d" % (self.targetindex, self.iDumCount, self.iDumCount*5)
+
+
 def run(Conn, Addr, Data):
 	logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
-	Targeter = targetingmanager.TargetingManager(Conn, Addr)
+	#Targeter = targetingmanager.TargetingManager(Conn, Addr)
+	Targeter = TarSysDummy();
 	Targeter.daemon = True
 	Targeter.name = "TargetingThread"
 	Targeter.start()
+	iCount = 0
+	if Data == "T0":
+		Targeter.setTarget(-1)
+		logger.info("Client (%s, %s) has requested that no alignment be made toward any target." % Addr)
+	elif Data == "T1":
+		Targeter.setTarget(0)
+		logger.info("Client (%s, %s) has requested that alignment be made toward the high boiler opening." % Addr)
+	elif Data == "T2":
+		Targeter.setTarget(1)
+		logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." % Addr)
 	while True:
-		if Data == "T0":
-			Targeter.setTarget(-1)
-			logger.info("Client (%s, %s) has requested that no alignment be made toward any target." % Addr)
-		elif Data == "T1":
-			Targeter.setTarget(0)
-			logger.info("Client (%s, %s) has requested that alignment be made toward the high boiler opening." % Addr)
-		elif Data == "T2":
-			Targeter.setTarget(1)
-			logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." % Addr)
+		sout = Targeter.GetResults();
+		sout += '\n';
 		try:
-			Data = Conn.recv(RecvBuffer)
+			byteout = bytearray(sout, 'utf-8')
+			Conn.send(byteout)
 		except:
-			logger.error("Error receiving data from client (%s, %s): Client considered disconnected:" % Addr)
+			logger.error("Error sending Target data to client (%s, %s): Client considered disconnected:" % Addr)
 			Conn.close()
 			return
+		iCount += 1
+		if iCount % 250 == 0:
+			logger.info("Number of target reports sent: %d (type=%s)" % (iCount, Data))
 
