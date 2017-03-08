@@ -59,6 +59,10 @@ public class CameraSystem extends Subsystem {
     	}
     }
     
+    public boolean getLED(){
+    	return lED.get();
+    }
+    
     public void ledOff(){
     	lED.set(false);
     }
@@ -66,5 +70,6 @@ public class CameraSystem extends Subsystem {
     public void ledToggle(){
     	lED.set(!lED.get());
     }
+    
 }
 

@@ -45,6 +45,8 @@ public class DriveTrainDefault extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
+    	System.out.println("LED: " + Robot.cameraSystem.getLED());
+    	
     	if ( Robot.oi.getDriverJoystick().getRawButton(8)) {
 			Robot.navX.reset();
 		}

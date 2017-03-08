@@ -11,6 +11,8 @@
 
 package org.usfirst.frc4415.SteamShipBot1Final.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
 
 /**
@@ -42,6 +44,9 @@ public class CameraSystemDefault extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	SmartDashboard.putBoolean("CamLed", Robot.cameraSystem.getLED());
+    	System.out.println("LED: " + Robot.cameraSystem.getLED());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
