@@ -197,12 +197,13 @@ public class DriveTrain extends Subsystem {
 		double iGain = -0.01;
 		double pIDClipping = 0.5;
 		double threshold = 0.5;
+		double deadband = 0.25;
 
 		int encoderStart = quadratureEncoder1.get();
 		int encoderCurrent = encoderStart;
 		int encoderLast = encoderStart;
 		double currentPosition = 0;
-		double setpoint = Robot.tableReader.get("pidmove", 12.0);
+		double setpoint = distance;
 		
 		boolean done = false;
 		int loopCounter = 0;
@@ -226,7 +227,11 @@ public class DriveTrain extends Subsystem {
 			}
 			
 			// pTerm is negative when driving "forward" or towards gear
-			double pTerm = Robot.tableReader.get("pgain", pGain) * (setpoint - currentPosition);
+			double deadbandSign = 0;
+			if(setpoint > currentPosition) deadbandSign = 1;
+			else deadbandSign = -1;
+			double pTerm = Robot.tableReader.get("pgain", pGain) * (setpoint - currentPosition) + 
+					(deadbandSign * Robot.tableReader.get("deadband", deadband));
 			
 			double iTerm = 0;
 			if((movingForward && currentPosition >= setpoint) 
