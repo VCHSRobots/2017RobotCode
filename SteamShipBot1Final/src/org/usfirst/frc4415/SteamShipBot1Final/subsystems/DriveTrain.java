@@ -206,6 +206,7 @@ public class DriveTrain extends Subsystem {
 		
 		boolean done = false;
 		int loopCounter = 0;
+		int thresholdCounter = 20;
 		boolean accumulatorEnable = false;
 		double accumulator = 0;
 		boolean movingForward = false;
@@ -242,13 +243,13 @@ public class DriveTrain extends Subsystem {
 					Math.min(Robot.tableReader.get("pidclipping", pIDClipping), pTerm+iTerm));
 			robotDrive4.arcadeDrive(yValue, 0);
 			
-			if(Math.abs(setpoint - currentPosition) < threshold) {
+			if(Math.abs(setpoint - currentPosition) < Robot.tableReader.get("threshold", threshold)) {
 				loopCounter++;
 			} else {
 				loopCounter = 0;
 			}
 			
-			if(loopCounter > 20 || (System.currentTimeMillis()-timeoutStart>Robot.tableReader.get("pidtimeout", pIDTimeout))) {
+			if(loopCounter > Robot.tableReader.get("thresholdcounter", thresholdCounter) || (System.currentTimeMillis()-timeoutStart>Robot.tableReader.get("pidtimeout", pIDTimeout))) {
 				done = true;
 			}
 			
