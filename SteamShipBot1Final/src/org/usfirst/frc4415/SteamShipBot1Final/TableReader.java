@@ -43,6 +43,18 @@ public class TableReader extends Thread{
 		}
 	}
 	
+	public int getNumUpdates() {
+		return m_nTableUpdates;
+	}
+	
+	public int getNumRestarts() {
+		return m_nTableRestarts;
+	}
+	
+	public int getNumTimeStampChecks() {
+		return m_nTableTimeStamps;
+	}
+	
 	// Required to overrun the run() method defined in Thread
 	// run() is called by TableReader.start() in main thread
 	public void run(){

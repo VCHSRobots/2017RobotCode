@@ -22,7 +22,7 @@ public class TargetReader extends Thread {
 	private AHRS m_navX;
 	private String m_CurrentRequest = "Nothing";
 	private String m_PendingRequest = null;
-	private int m_restarts = 0;
+	private int m_nRestarts = 0;
 	private int m_nReceived = 0;
 	private static Lock m_RequestLock = new ReentrantLock();
 	
@@ -39,6 +39,14 @@ public class TargetReader extends Thread {
 		m_RequestLock.unlock();
 	}
 	
+	public int getNumRestarts() {
+		return m_nRestarts;
+	}
+	
+	public int getNumReports() {
+		return m_nReceived;
+	}
+	
 	private void sleep(int ms) {
 		try{
 			Thread.sleep(ms);
@@ -49,8 +57,8 @@ public class TargetReader extends Thread {
 	
 	public void run(){			
 		while(true){
-			m_restarts++;
-			System.out.printf("Target Reader: Restarting TargetReader Comm Loop.  Restart number: %d\n", m_restarts);
+			m_nRestarts++;
+			System.out.printf("Target Reader: Restarting TargetReader Comm Loop.  Restart number: %d\n", m_nRestarts);
 			restart:
 			while(true){
 				// wait here till we have a valid request... 

@@ -37,6 +37,14 @@ public class MouseReader extends Thread {
 		}
 	}
 	
+	public int getNumRestarts() {
+		return m_nRestarts;
+	}
+	
+	public int getNumReports() {
+		return m_nReports;
+	}
+	
 	public void run(){			
 		while(true){
 			restart:
