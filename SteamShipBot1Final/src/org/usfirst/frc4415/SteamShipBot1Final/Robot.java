@@ -60,6 +60,7 @@ public class Robot extends IterativeRobot {
     public static AHRS navX;
     public static TableReader tableReader;
     public static MouseReader mouseReader;
+    public static TargetReader targetReader;
     
     /**
      * This function is run when the robot is first started up and should be
@@ -110,9 +111,13 @@ public class Robot extends IterativeRobot {
         
         tableReader = new TableReader(hostName, port);
         mouseReader = new MouseReader(hostName, port, navX);
+        targetReader = new TargetReader(hostName, port, navX);
+        
+        targetReader.SetTargetRequest("T1");
         
         tableReader.start();
         mouseReader.start(); 
+        targetReader.start();
         
         Robot.cameraSystem.ledOff();
     }

@@ -23,6 +23,9 @@ public class TableReader extends Thread{
 	private static String newLine = "";
 	private boolean ready = false;							   // Shoudn't this be static too?
 	private static Lock datalock = new ReentrantLock();
+	private int m_nTableUpdates = 0;
+	private int m_nTableRestarts = 0;
+	private int m_nTableTimeStamps = 0;
 	
 	public TableReader(String hostName, int portNumber){
 		this.hostName = hostName;
@@ -32,13 +35,22 @@ public class TableReader extends Thread{
 		valueList = new ArrayList<Double>();
 	}
 	
-// Required to overrun the run() method defined in Thread
+	private void sleep(int ms){
+		try{
+			Thread.sleep(ms);
+		} 	catch (InterruptedException e){
+			threadMessage("Table Reader: Thread interrupted at connection attempt.");
+		}
+	}
+	
+	// Required to overrun the run() method defined in Thread
 	// run() is called by TableReader.start() in main thread
 	public void run(){
 		while(true){
 			restart:
 			while(true){
-				threadMessage("New thread running.");
+				m_nTableRestarts++;
+				threadMessage(String.format("Table Reader: New thread running.  Number Restarts = %d", m_nTableRestarts));
 				// open a client socket with host
 				try (
 			            Socket clientSocket = new Socket(hostName, portNumber);
@@ -51,34 +63,35 @@ public class TableReader extends Thread{
 			                new BufferedReader(
 			                    new InputStreamReader(System.in))
 			        ) {
-	// RIO-Server Communication Initialization
+					// RIO-Server Communication Initialization
 					clientSocket.setSoTimeout(1000);
-					out.println("Requesting rio_pi_communication");	
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e1) {
-						e1.printStackTrace();
-					}
+					out.println("Requesting rio_pi_communication");	   // Do not Change this!!! This is actual command being sent to Jetson!
+					sleep(100);
 					newLine = in.readLine();
-					threadMessage(newLine);
-					if(!newLine.equals("Request granted")){
-						threadMessage("Request denied");
+					if (newLine == null ) {
+						threadMessage("Table Reader: Null received on initial request.  Restarting after small wait.");
+						sleep(400);
 						break restart;
 					}
-	// Request Table
+					threadMessage(newLine);
+					if(!newLine.equals("Request granted")){
+						threadMessage("Table Reader: Request denied");
+						break restart;
+					}
+					threadMessage("Table Reader: Request granted");
+					// Request Table
 					while(true){
-						try {
-							Thread.sleep(100);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						out.println("Requesting table");
+						sleep(100);
+						out.println("Requesting table");	// Do not goof this up: This is an actual command being sent to Jetson!
 						do{
 							try{
 								newLine = in.readLine();					// getting a null here instead of the first line of the table
 							} catch (SocketException e){
 								System.out.println("Server connection timed out.");
+								break restart;
+							}
+							if (newLine == null) {
+								threadMessage("Table Reader: Illegal response from Jetson.  Null recevied after requesting the table.  Restarting.");
 								break restart;
 							}
 							if(!newLine.equals("End of file")){	
@@ -87,59 +100,61 @@ public class TableReader extends Thread{
 									Double newValue = extractValue(newLine);
 									updateTable(newKey, newValue);	
 								} 	catch(NullPointerException e){
-									threadMessage("Null Pointer Exception caught");
+									threadMessage("Table Reader: Null Pointer Exception caught.  Key/Value not updated.");
+								}	catch(java.lang.StringIndexOutOfBoundsException ee) {
+									threadMessage("Table Reader: Something wrong with a line in the table (" + newLine + ")"); 
 								}
 							}
 						}	while(!newLine.equals("End of file"));
-	// Check the incoming table for a time stamp
+						m_nTableUpdates++;
+						threadMessage(String.format("Table Reader: New table update.  Number of updates = %d", m_nTableUpdates));
+						// Check the incoming table for a time stamp
 						if(!keyList.contains("timestamp")){
-							threadMessage("No timestamp included, exiting thread");
+							threadMessage("Table Reader: No timestamp included, exiting thread.  NO TABLE READER WILL BE ACTIVE FROM THIS POINT FORWARD.");
 							return;
 						}
 						ready = true;
+						threadMessage("Table Reader: End of file received.");
 						printTable();
-						threadMessage("End of file received.");
 						while(true){
-	// sleep for 100ms
-							try{
-								Thread.sleep(100);
-							}	catch(InterruptedException e){
-								threadMessage("TableReader thread interrupted.");
-								return;
-							}
-	// check if timestamp changed					
-							out.println("Requesting timestamp");
+							sleep(100);
+							// check if timestamp changed					
+							out.println("Requesting timestamp");  // Do not change this!  Actual command to Jetson being sent!
 							try{
 								newLine = in.readLine();
+								int iDoNullAgain = 0;
+								while (newLine == null && iDoNullAgain < 20) {
+									newLine = in.readLine();
+									iDoNullAgain++;
+									sleep(10);
+								}
 								if(newLine == null){
-									threadMessage("Recieved null timestamp.  Reconnecting.");
+									threadMessage("Table Reader: Recieved null timestamp Many Times.  Reconnecting.");
 									break restart;
 								}
 							} catch (SocketException e){
-								System.out.println("Server connection timed out.");
+								threadMessage("Table Reader: Server connection timed out. Reconnecting");
 								break restart;
 							}
-	// if timestamp changed, update table
+							m_nTableTimeStamps++;
+							if (m_nTableTimeStamps % 100 == 0) {
+								threadMessage(String.format("Table Reader: Number of Timestamps received = %d", m_nTableTimeStamps));
+							}
+							// if timestamp changed, update table
 							if (Double.parseDouble(newLine) != valueList.get(keyList.indexOf("timestamp"))){
 								break;
 							}
 						}
 					}						
 				}	catch (UnknownHostException e) {
-		            	System.err.println("Don't know about host " + hostName);
-		            	// DLB: what should be done here?  I suggest break restart.
+					threadMessage("Table Reader: Don't know about host " + hostName);
+					// At this point, we will fall through, wait 100 ms (below), and start a new connection.
 		        }	catch (IOException e) {
-		            	System.err.println("Couldn't get I/O for the connection to " +
-		            			hostName);
-		            	// DLB: what should be done here?  I suggest break restart.
+		        	threadMessage("Table Reader: Couldn't get I/O for the connection to " + hostName);
+		        	// At this point, we will fall through, wait 100 ms (below), and start a new connection.
 		        }
-	// if failing to make a connection, sleep 100ms and try again
-				try{
-					Thread.sleep(100);
-				} 	catch (InterruptedException e){
-					threadMessage("Thread interrupted at connection attempt.");
-					return;  // DLB: How does this "try again"
-				}
+				// if failing to make a connection, sleep 100ms and try again
+				sleep(100);
 			}
 		}
 	}

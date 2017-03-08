@@ -19,6 +19,8 @@ public class MouseReader extends Thread {
 	private AHRS navX;
 	private String xFieldString = "";
 	private String yFieldString = "";
+	private int m_nRestarts = 0;
+	private int m_nReports = 0;
 	
 	public MouseReader(String hostName, int portNumber, AHRS navX){
 		this.hostName = hostName;
@@ -27,10 +29,20 @@ public class MouseReader extends Thread {
 		this.setName("Mouse Thread");
 	}
 	
+	private void sleep(int ms) {
+		try{
+			Thread.sleep(ms);
+		} catch (InterruptedException e){
+			threadMessage("Mouse Reader.  Sleep was interrupted: " + e.getMessage());
+		}
+	}
+	
 	public void run(){			
 		while(true){
 			restart:
 			while(true){
+				m_nRestarts++;
+				threadMessage(String.format("Mouse Reader: Number of full restarts = %d", m_nRestarts));
 				try (
 					Socket clientSocket = new Socket(hostName, portNumber);
 					PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -40,12 +52,14 @@ public class MouseReader extends Thread {
 				                    new InputStreamReader(System.in))
 				){
 					clientSocket.setSoTimeout(1000);
-					out.println("Requesting field_coordinates");
+					out.println("Requesting field_coordinates");  // Dont change this.  This is an actual command for the Jetson.
 					try{
-						threadMessage(in.readLine());
+						String response = in.readLine();
+						threadMessage("Mouse Reader: Response to request of field_coordinates: " + response);
 					} catch (SocketException e){
-						System.out.println("Socket Timed Out at request recv'd Read Operation");
-						return;
+						System.out.println("Mouse Reader: Socket Timed Out at request recv'd Read Operation.  Reconnecting.");
+						sleep(200);
+						break restart;
 					}
 					while(true){
 						try{
@@ -56,44 +70,45 @@ public class MouseReader extends Thread {
 							out.println(gyroAngle);
 						//	out.println(new Double(ahrs.getAngle()).toString());
 						} catch (RuntimeException e){
-							System.out.println("Gyro Read Fail: " + e.getMessage());
+							threadMessage("Mouse Reader: Gyro Read Fail: " + e.getMessage());
 						}
 						try{
 							xFieldString = in.readLine();					// KEEPS READING UNTIL LINE BREAK "\n"
 							if(xFieldString==null){
-								threadMessage("xField is null. Reconnecting.");
+								threadMessage("Mouse Reader: xField is null. Reconnecting.");
+								sleep(200);
 								break restart;
 							}
 						} catch (SocketException e){
-							System.out.println("Socket Timed Out at xFieldString Read Operation" + e.getMessage());
+							threadMessage("Mouse Reader: Socket Timed Out at xFieldString Read Operation.  Reconnecting." + e.getMessage());
+							sleep(200);
 							break restart;
 						}
 						
-						
-						//threadMessage("xField: " + xFieldString);
-						out.println("xFieldString Recieved!");
+						out.println("xFieldString Recieved!");  // This is an actual command to the Jetson!
 						try{
 							yFieldString = in.readLine();					// KEEPS READING UNTIL LINE BREAK "\n"
 							if(yFieldString==null){
-								threadMessage("yField is null. Reconnecting.");
+								threadMessage("Mouse Reader: yField is null. Reconnecting.");
+								sleep(200);
 								break restart;
 							}
 						} catch (SocketException e){
-							System.out.println("Socket Timed Out at yFieldString)Read Operation" + e.getMessage());
+							threadMessage("Mouse Reader: Socket Timed Out at yFieldString)Read Operation. Reconnecting. " + e.getMessage());
+							sleep(200);
 							break restart;
 						}
 						
-						//threadMessage("Field Location:   X = " + xFieldString + "   Y = " + yFieldString);
+						m_nReports++;
+						if(m_nReports % 250 == 0) {
+							threadMessage(String.format("Mouse Reader:  Number of reports received: %d",  m_nReports));
+						}
+						//threadMessage("Mouse Reader: Field Location:   X = " + xFieldString + "   Y = " + yFieldString);
 						
 						//SmartDashboard.putString("xField", xFieldString);
 						//SmartDashboard.putString("yField", yFieldString);
 						
-						try{
-							Thread.sleep(20);
-						} catch (InterruptedException e){
-							threadMessage(e.getMessage());
-							break;
-						}
+						sleep(20);
 		/*					try{
 								Thread.sleep(50);
 							} catch (InterruptedException e){
@@ -105,16 +120,12 @@ public class MouseReader extends Thread {
 					}
 					
 				} catch (UnknownHostException e) {
-		            System.err.println("Don't know about host " + hostName);
+					threadMessage("Mouse Reader: Don't know about host " + hostName + ".  Exiting -- NO MOUSE READER WILL BE ACTIVE!");
 		            return;
 		        } catch (IOException e) {
-		            threadMessage("Couldn't get IO connection to " + hostName);
+		            threadMessage("Mouse Reader: Couldn't get IO connection to " + hostName + ". Reconnecting.");
 		        } 	
-				try{
-					Thread.sleep(100);
-				} catch (InterruptedException e){
-					threadMessage("Interrupted exception caught at sleep during reconnect");
-				}
+				sleep(100);
 			}
 		}
 	}
