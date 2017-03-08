@@ -66,6 +66,7 @@ public class MouseReader extends Thread {
 							}
 						} catch (SocketException e){
 							System.out.println("Socket Timed Out at xFieldString Read Operation" + e.getMessage());
+							break restart;
 						}
 						
 						
@@ -79,6 +80,7 @@ public class MouseReader extends Thread {
 							}
 						} catch (SocketException e){
 							System.out.println("Socket Timed Out at yFieldString)Read Operation" + e.getMessage());
+							break restart;
 						}
 						
 						//threadMessage("Field Location:   X = " + xFieldString + "   Y = " + yFieldString);
