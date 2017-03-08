@@ -171,7 +171,7 @@ public class DriveTrain extends Subsystem {
 		return quadratureEncoder1.get();
 	}
 	
-	// yValue positive = encoder value increase = drive toward shooter
+	// yValue positive = encoder value increase = drive toward shooter = "Backwards" = "negative setpoint"
 	public void arcadePIDMove(double distance) {
 		
 		// gear forward 'equivalent' wheel size = 4.35", or 13.66666" per rev
@@ -185,42 +185,64 @@ public class DriveTrain extends Subsystem {
 		invertMotorsArcade();
 		setArcade();
 		
-		double inchToTicks = 10.19108;
-		double ticksToInch = 0.098125;
+		double inchToTicksLoadingStation = 9.36585;
+		double ticksToInchLoadingStation = 0.10677;
+		double inchToTicksBoiler = 9.75238;
+		double ticksToInchBoiler = 0.10254;
+		double inchToTicksHopper = 9.60000;
+		double ticksToInchHopper = 0.10417;
+		double inchToTicksComputers = 9.45231;
+		double ticksToInchComputers = 0.10579;
 		double pGain = -0.03;
 		double iGain = -0.01;
 		double pIDClipping = 0.5;
-		double threshold = 0.5 * inchToTicks;  // how close we need to be to our setpoint to move on
-		
+		double threshold = 0.5;
+
 		int encoderStart = quadratureEncoder1.get();
-		int setpoint = (int) Math.round(distance * Robot.tableReader.get("inchtoticks", inchToTicks)) + encoderStart;
+		int encoderCurrent = encoderStart;
+		int encoderLast = encoderStart;
+		double currentPosition = 0;
+		double setpoint = Robot.tableReader.get("pidmove", 12.0);
+		
 		boolean done = false;
 		int loopCounter = 0;
 		boolean accumulatorEnable = false;
-		int accumulator = 0;
+		double accumulator = 0;
 		boolean movingForward = false;
-		if (setpoint >= encoderStart){
+		if(setpoint>0){
 			movingForward = true;
 		}
+		
 		while(!done){
-			int encoderCurrent = quadratureEncoder1.get();
+			encoderLast = encoderCurrent;
+			encoderCurrent = quadratureEncoder1.get();
 			
-			double pTerm = Robot.tableReader.get("pgain", pGain) * (setpoint - encoderCurrent);
+			if(encoderCurrent>encoderLast){
+				currentPosition -= (encoderCurrent - encoderLast) * ticksToInchBoiler;
+				
+			} else {
+				currentPosition -= (encoderCurrent - encoderLast) * ticksToInchLoadingStation;
+			}
+			
+			// pTerm is negative when driving "forward" or towards gear
+			double pTerm = Robot.tableReader.get("pgain", pGain) * (setpoint - currentPosition);
 			
 			double iTerm = 0;
-			if((movingForward && encoderCurrent >= setpoint) || (!movingForward && encoderCurrent <= setpoint)){
-				accumulatorEnable = true;
+			if((movingForward && currentPosition >= setpoint) 
+					|| (!movingForward && currentPosition <= setpoint)){
+				accumulatorEnable = true;				
 			}
 			if(accumulatorEnable){
-				accumulator += setpoint - encoderCurrent;
-				iTerm = Robot.tableReader.get("igain", iGain) * accumulator;
+				accumulator += setpoint - currentPosition;
+				// iTerm is negative when driving "forward" or towards gear
+				iTerm = Robot.tableReader.get("igain", iGain)* accumulator;
 			}
 			
 			double yValue = Math.max(Robot.tableReader.get("pidclipping", pIDClipping) * -1,  
 					Math.min(Robot.tableReader.get("pidclipping", pIDClipping), pTerm+iTerm));
 			robotDrive4.arcadeDrive(yValue, 0);
 			
-			if(Math.abs(setpoint - encoderCurrent) < threshold) {
+			if(Math.abs(setpoint - currentPosition) < threshold) {
 				loopCounter++;
 			} else {
 				loopCounter = 0;
@@ -231,17 +253,21 @@ public class DriveTrain extends Subsystem {
 			}
 			
 			try {
-				Thread.sleep(20);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			SmartDashboard.putNumber("Drive Encoder", encoderCurrent);
-			System.out.println("Setpoint: " + setpoint + "   Encoder: " + encoderCurrent 
-					+ "   yValue: " + yValue + "   iTerm: " + iTerm);
+			System.out.print("Set: " + setpoint);
+			System.out.printf("  Pos: %4.3f", currentPosition);
+			System.out.print("  Dir: ");
+			if(currentPosition<setpoint) System.out.print("Gear");
+			else System.out.print("Shooter");
+			System.out.printf("  pTerm: %3.3f  iTerm: %3.3f", pTerm, iTerm);
+			System.out.println("  Done: " + done);
+			
 		}
-		
 	}
 	
 }
