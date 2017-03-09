@@ -180,7 +180,7 @@ public class DriveTrain extends Subsystem {
 		quadratureEncoder1.reset(); // REMOVE THIS LINE AFTER DEBUGGING
 		
 		long timeoutStart = System.currentTimeMillis();
-		int pIDTimeout = 10000;
+		double pIDTimeout = Robot.tableReader.get("pidtimeout", 10000);
 		
 		invertMotorsArcade();
 		setArcade();
@@ -193,11 +193,11 @@ public class DriveTrain extends Subsystem {
 		double ticksToInchHopper = 0.10417;
 		double inchToTicksComputers = 9.45231;
 		double ticksToInchComputers = 0.10579;
-		double pGain = -0.03;
-		double iGain = -0.01;
-		double pIDClipping = 0.5;
-		double threshold = 0.5;
-		double deadband = 0.25;
+		double pGain = Robot.tableReader.get("pgain", -0.03);
+		double iGain = Robot.tableReader.get("igain", -0.01);
+		double pIDClipping = Robot.tableReader.get("pidclipping", 0.5);
+		double threshold = Robot.tableReader.get("threshold", 0.5);
+		double deadband = Robot.tableReader.get("deadband", 0.25);
 
 		int encoderStart = quadratureEncoder1.get();
 		int encoderCurrent = encoderStart;
@@ -207,7 +207,7 @@ public class DriveTrain extends Subsystem {
 		
 		boolean done = false;
 		int loopCounter = 0;
-		int thresholdCounter = 20;
+		double thresholdCounter = Robot.tableReader.get("thresholdcounter", 20);
 		boolean accumulatorEnable = false;
 		double accumulator = 0;
 		boolean movingForward = false;
@@ -230,8 +230,8 @@ public class DriveTrain extends Subsystem {
 			double deadbandSign = 0;
 			if(setpoint > currentPosition) deadbandSign = 1;
 			else deadbandSign = -1;
-			double pTerm = Robot.tableReader.get("pgain", pGain) * (setpoint - currentPosition) + 
-					(deadbandSign * Robot.tableReader.get("deadband", deadband));
+			double pTerm = pGain * (setpoint - currentPosition) + 
+					(deadbandSign * deadband);
 			
 			double iTerm = 0;
 			if((movingForward && currentPosition >= setpoint) 
@@ -241,29 +241,25 @@ public class DriveTrain extends Subsystem {
 			if(accumulatorEnable){
 				accumulator += setpoint - currentPosition;
 				// iTerm is negative when driving "forward" or towards gear
-				iTerm = Robot.tableReader.get("igain", iGain)* accumulator;
+				iTerm = iGain * accumulator;
 			}
 			
-			double yValue = Math.max(Robot.tableReader.get("pidclipping", pIDClipping) * -1,  
-					Math.min(Robot.tableReader.get("pidclipping", pIDClipping), pTerm+iTerm));
+			double yValue = Math.max(pIDClipping * -1,  
+					Math.min(pIDClipping, pTerm+iTerm));
 			robotDrive4.arcadeDrive(yValue, 0);
 			
-			if(Math.abs(setpoint - currentPosition) < Robot.tableReader.get("threshold", threshold)) {
+			if(Math.abs(setpoint - currentPosition) < threshold) {
 				loopCounter++;
 			} else {
 				loopCounter = 0;
 			}
 			
-			if(loopCounter > Robot.tableReader.get("thresholdcounter", thresholdCounter) || (System.currentTimeMillis()-timeoutStart>Robot.tableReader.get("pidtimeout", pIDTimeout))) {
+			if(loopCounter > thresholdCounter || 
+					(System.currentTimeMillis() - timeoutStart) > pIDTimeout) {
 				done = true;
 			}
 			
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			sleep(10);
 			
 			System.out.print("Set: " + setpoint);
 			System.out.printf("  Pos: %4.3f", currentPosition);
@@ -276,5 +272,93 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 	
-}
+	public void arcadePIDrotate(double angle){
+		
+		// moving clockwise = positive gyro = ASSUMING positive rotate value
+		
+		long timeoutStart = System.currentTimeMillis();
+		double pIDTimeout = Robot.tableReader.get("pidtimeout", 10000);
+		
+		invertMotorsArcade();
+		setArcade();
+		
+		// expecting positive gains
+		double pGain = Robot.tableReader.get("pgaindrivetrainrotate", 0.03);
+		double iGain = Robot.tableReader.get("igaindrivetrainrotate", 0.01);
+		double pIDClipping = Robot.tableReader.get("pidclipping", 0.5);
+		double threshold = Robot.tableReader.get("thresholddrivetrainrotate", 2);
+		double deadband = Robot.tableReader.get("deadbanddrivetrainrotate", 0.25);
 
+		double gyroStart = Robot.navX.getAngle();
+		double gyroCurrent = gyroStart;
+		double setpoint = angle;
+		
+		boolean done = false;
+		int loopCounter = 0;
+		double thresholdCounter = Robot.tableReader.get("thresholdcounter", 20);
+		boolean accumulatorEnable = false;
+		double accumulator = 0;
+		boolean movingClockwise = false;
+		if(setpoint>0){
+			movingClockwise = true;
+		}
+		
+		while(!done){
+			gyroCurrent = Robot.navX.getAngle();
+			
+			// ASSUMING pTerm is positive when moving clockwise
+			double deadbandSign = 0;
+			if(setpoint > gyroCurrent) deadbandSign = 1;
+			else deadbandSign = -1;
+			double pTerm = pGain * (setpoint - gyroCurrent) + 
+					(deadbandSign * deadband);
+			
+			double iTerm = 0;
+			
+			// this checks if current position has crossed the setpoint yet
+			if((movingClockwise && gyroCurrent >= setpoint) 
+					|| (!movingClockwise && gyroCurrent <= setpoint)){
+				accumulatorEnable = true;		// once set true, can never go false		
+			}
+			if(accumulatorEnable){
+				accumulator += setpoint - gyroCurrent;
+				// ASSUMING iTerm is positive when moving clockwise
+				iTerm = iGain * accumulator;
+			}
+			
+			double rotateValue = Math.max(pIDClipping * -1,  
+					Math.min(pIDClipping, pTerm+iTerm));
+			robotDrive4.arcadeDrive(0, rotateValue);
+			
+			if(Math.abs(setpoint - gyroCurrent) < threshold) {
+				loopCounter++;
+			} else {
+				loopCounter = 0;
+			}
+			
+			if(loopCounter > thresholdCounter || 
+					(System.currentTimeMillis() - timeoutStart) > pIDTimeout) {
+				done = true;
+			}
+			
+			sleep(10);
+			
+			System.out.printf("Set: %5.3f" + setpoint);
+			System.out.printf("  Angle: %5.3f", gyroCurrent);
+			System.out.print("  Dir: ");
+			if(gyroCurrent < setpoint) System.out.print("CW ");
+			else System.out.print("CCW");
+			System.out.printf("  pTerm: %3.3f  iTerm: %3.3f", pTerm, iTerm);
+			System.out.println("  Done: " + done);
+		}
+	}
+	
+	public void sleep(int millis){
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
