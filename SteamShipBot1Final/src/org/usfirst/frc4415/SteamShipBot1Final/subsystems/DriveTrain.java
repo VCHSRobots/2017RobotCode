@@ -278,7 +278,7 @@ public class DriveTrain extends Subsystem {
 	
 	
 	public void arcadePIDrotate(double angle){
-		
+		System.out.println("arcadePIDRotate is coming soon to a robot near you.");
 	}
 	
 }
