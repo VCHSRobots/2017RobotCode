@@ -30,10 +30,11 @@ MinVerticalOffset = 5
 MaxHorizontalOffset = 25
 MinHorizontalOffset = 0
 
-# FindTarget() -- Given an image (frame) and a type (1=boiler, 2=peg), returns
-# the following tuple: (Frame, Flag, px, py), where Frame is the processed
+# FindTarget() -- Given an image (frame) and a type (0=boiler, 1=peg), returns
+# the following tuple: (Frame, Type, Flag, px, py), where Frame is the processed
 # image with calibration marks, Flag is a bool which indicates if the target was 
-# found at all, and px,py are offsets from the center of the image. The offsets
+# found at all, Type is the type of target being processes, and px,py are offsets 
+# from the center of the image. The offsets
 # are in 1/1000 of the width or height of the frame.  For
 # example 0,0 is the center of the frame, -500,-500 would be the upper left
 # corner, and 500,500 would be the lower right corner.
@@ -99,20 +100,19 @@ def FindTarget(Frame, Type):
 					OffsetY = CenterTarget[1] - (Height / 2)
 					Offset1000X = 1000 * (float(OffsetX)/float(Width))
 					Offset1000Y = 1000 * (float(OffsetY)/float(Width))
-					Value = True
 				else:
 					# ToDo: write a note in the image on why it failed...
-					return Frame, False, 0, 0
+					return Frame, Type, False, 0, 0
 			else:
 				# ToDo: write a note in the image on why it failed...
-				return Frame, False, 0, 0
+				return Frame, Type, False, 0, 0
 			Offset = str(Offset1000X) + ", " + str(Offset1000Y)
 			cv2.putText(Frame, Offset, (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
-			return Frame, Value, Offset1000X, Offset1000Y
+			return Frame, Type, True, Offset1000X, Offset1000Y
 		elif Type == 1:
 			#WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
-			return Frame, False, 0, 0
+			return Frame, Type, False, 0, 0
 	except Exception as e:
 		logger.error("Error autoaiming! " + str(e))
 		#ToDo: write something in the frame to say what the exception was.
-		return (Frame, False, 0, 0)
+		return (Frame, Type, False, 0, 0)
