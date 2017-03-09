@@ -45,7 +45,7 @@ public class CameraSystemDefault extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	SmartDashboard.putBoolean("CamLed", Robot.cameraSystem.getLED());
-    	System.out.println("LED: " + Robot.cameraSystem.getLED());
+    	//System.out.println("LED: " + Robot.cameraSystem.getLED());
     	
     }
 

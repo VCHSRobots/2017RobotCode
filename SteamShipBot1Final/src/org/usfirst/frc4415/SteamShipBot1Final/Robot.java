@@ -60,6 +60,7 @@ public class Robot extends IterativeRobot {
     public static AHRS navX;
     public static TableReader tableReader;
     public static MouseReader mouseReader;
+    public static TargetReader targetReader;
     
     /**
      * This function is run when the robot is first started up and should be
@@ -110,32 +111,51 @@ public class Robot extends IterativeRobot {
         
         tableReader = new TableReader(hostName, port);
         mouseReader = new MouseReader(hostName, port, navX);
+        targetReader = new TargetReader(hostName, port, navX);
+        
+        targetReader.SetTargetRequest("T1");
         
         tableReader.start();
         mouseReader.start(); 
+        targetReader.start();
         
         Robot.cameraSystem.ledOff();
     }
 
+    private void CommonDashboardReport(){
+        SmartDashboard.putNumber("X Field Number", mouseReader.getXField());
+        SmartDashboard.putNumber("Y Field Number", mouseReader.getYField());
+        
+        SmartDashboard.putNumber("TargetComm Restarts", targetReader.getNumRestarts());
+        SmartDashboard.putNumber("TargetComm Reports",  targetReader.getNumReports());
+        
+        SmartDashboard.putNumber("TableComm Restarts",  tableReader.getNumRestarts());
+        SmartDashboard.putNumber("TableComm Updates",    tableReader.getNumUpdates());      
+        SmartDashboard.putNumber("TableComm TimeChecks",  tableReader.getNumTimeStampChecks()); 
+        
+        SmartDashboard.putNumber("MouseComm  Restarts", mouseReader.getNumRestarts());
+        SmartDashboard.putNumber("MouseComm. Reports",  mouseReader.getNumReports());
+    }
+    
+    
     /**
      * This function is called when the disabled button is hit.
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
     	Robot.cameraSystem.ledOff();
-
+        CommonDashboardReport();
     }
 
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
-        
-        SmartDashboard.putNumber("X Field Number", mouseReader.getXField());
-        SmartDashboard.putNumber("Y Field Number", mouseReader.getYField());
+        CommonDashboardReport();
     }
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+        CommonDashboardReport();
     }
 
     /**
@@ -143,6 +163,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        CommonDashboardReport();
     }
 
     public void teleopInit() {
@@ -161,11 +182,7 @@ public class Robot extends IterativeRobot {
     	Robot.gearHandler.toggleHandler = false;
     	Robot.gearHandler.toggleGear = true;
     	
-    	
-    	
-    	SmartDashboard.putNumber("Mouse X", mouseReader.getXField());
-    	SmartDashboard.putNumber("Mouse Y", mouseReader.getYField());
-    	
+    	CommonDashboardReport();
     }
 
     /**
@@ -173,6 +190,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+    	CommonDashboardReport();
     }
 
     /**
@@ -180,5 +198,6 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    	CommonDashboardReport();
     }
 }
