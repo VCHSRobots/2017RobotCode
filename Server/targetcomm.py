@@ -17,6 +17,7 @@ RecvBuffer = 1024
 # Logging
 logger = evsslogger.getLogger()
 
+"""
 class TarSysDummy:
 	def __init__(self):
 		self.targetindex = 0
@@ -29,6 +30,7 @@ class TarSysDummy:
 		time.sleep(0.04)
 		self.iDumCount += 1
 		return "%2d, Valid, %d, %d" % (self.targetindex, self.iDumCount, self.iDumCount*5)
+"""
 
 def run(Conn, Addr, Data, Targeter):
 	logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
@@ -43,8 +45,8 @@ def run(Conn, Addr, Data, Targeter):
 		Targeter.setTarget(1)
 		logger.info("Client (%s, %s) has requested that alignment be made toward the gear delivery peg." % Addr)
 	while True:
-		sout = Targeter.GetResults();
-		sout += '\n';
+		out = Targeter.getAnswer()
+		sout = (str(out) + '\n')
 		try:
 			byteout = bytearray(sout, 'utf-8')
 			Conn.send(byteout)
