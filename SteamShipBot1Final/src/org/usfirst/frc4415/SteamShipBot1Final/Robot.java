@@ -63,6 +63,8 @@ public class Robot extends IterativeRobot {
     public static MouseReader mouseReader;
     public static TargetReader targetReader;
     
+    public static ShooterThread shooterThread;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -122,6 +124,9 @@ public class Robot extends IterativeRobot {
         tableReader.start();
         mouseReader.start(); 
         targetReader.start();
+        
+        shooterThread = new ShooterThread();
+        shooterThread.start();
         
         Robot.cameraSystem.ledOff();
         Robot.cameraSystem.ledToggle();
@@ -195,7 +200,7 @@ public class Robot extends IterativeRobot {
         driveTrain.setArcade();
     	driveTrain.invertDrive = -1;
     	driveTrain.gyroEnable = 0;			// Gyro is off
-    	shooter.toggleShooter = false;
+    	shooter.shooterToggle = false;
     	shooter.speed = -.75;
     	gearHandler.toggleHandler = false;
     	gearHandler.toggleGear = true;
