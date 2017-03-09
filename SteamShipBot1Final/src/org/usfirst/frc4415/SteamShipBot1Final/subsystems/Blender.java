@@ -53,5 +53,9 @@ public class Blender extends Subsystem {
     	double fireRate = Robot.oi.getShooterJoystick().getRawAxis(3) * -1;
     	blenderMotor.set(fireRate);
     }
+    
+    public void set(double power){
+    	blenderMotor.set(power);
+    }
 }
 

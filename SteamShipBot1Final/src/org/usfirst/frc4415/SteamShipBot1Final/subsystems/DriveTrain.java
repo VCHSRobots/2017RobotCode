@@ -186,9 +186,9 @@ public class DriveTrain extends Subsystem {
 		setArcade();
 		
 		double inchToTicksLoadingStation = 9.36585;
-		double ticksToInchLoadingStation = 0.10677;
+		double ticksToInchLoadingStation = 0.10343;
 		double inchToTicksBoiler = 9.75238;
-		double ticksToInchBoiler = 0.10254;
+		double ticksToInchBoiler = .097555;
 		double inchToTicksHopper = 9.60000;
 		double ticksToInchHopper = 0.10417;
 		double inchToTicksComputers = 9.45231;
@@ -272,7 +272,7 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 	
-	public void arcadePIDrotate(double angle){
+	public void arcadePIDRotate(double angle){
 		
 		// moving clockwise = positive gyro = ASSUMING positive rotate value
 		
@@ -284,8 +284,8 @@ public class DriveTrain extends Subsystem {
 		
 		// expecting positive gains
 		double pGain = Robot.tableReader.get("pgaindrivetrainrotate", 0.03);
-		double iGain = Robot.tableReader.get("igaindrivetrainrotate", 0.01);
-		double pIDClipping = Robot.tableReader.get("pidclipping", 0.5);
+		double iGain = Robot.tableReader.get("igaindrivetrainrotate", 0.0);
+		double pIDClipping = Robot.tableReader.get("pidclippingdrivetrainrotate", 1.0);
 		double threshold = Robot.tableReader.get("thresholddrivetrainrotate", 2);
 		double deadband = Robot.tableReader.get("deadbanddrivetrainrotate", 0.25);
 
@@ -343,12 +343,13 @@ public class DriveTrain extends Subsystem {
 			
 			sleep(10);
 			
-			System.out.printf("Set: %5.3f" + setpoint);
+			System.out.printf("Set: %5.3f", setpoint);
 			System.out.printf("  Angle: %5.3f", gyroCurrent);
 			System.out.print("  Dir: ");
 			if(gyroCurrent < setpoint) System.out.print("CW ");
 			else System.out.print("CCW");
-			System.out.printf("  pTerm: %3.3f  iTerm: %3.3f", pTerm, iTerm);
+			System.out.printf("  pTerm: %3.3f  iTerm: %3.3f final: %3.3f", 
+					pTerm, iTerm, rotateValue);
 			System.out.println("  Done: " + done);
 		}
 	}

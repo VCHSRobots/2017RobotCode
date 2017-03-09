@@ -134,9 +134,6 @@ public class Turret extends Subsystem {
 		double threshold = Robot.tableReader.get("thresholdturret", 20);
 		double deadband = Robot.tableReader.get("deadbandturret", 0.25);
 
-		double gyroStart = Robot.navX.getAngle();
-		double gyroCurrent = gyroStart;
-		
 		boolean done = false;
 		int loopCounter = 0;
 		double thresholdCounter = Robot.tableReader.get("thresholdcounter", 20);

@@ -62,6 +62,10 @@ public class Shooter extends Subsystem {
     	shooterMotor.set(speed);
     }
     
+    public void set(double power){
+    	shooterMotor.set(power);
+    }
+    
     public void setOff() {
     	shooterMotor.set(0);
     }

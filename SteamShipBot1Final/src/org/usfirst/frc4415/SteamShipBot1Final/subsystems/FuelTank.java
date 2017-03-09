@@ -50,12 +50,12 @@ public class FuelTank extends Subsystem {
     }
     
     public void deploy(){
-    	doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+    	doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
     	m_deployState = true;
     }
  
     public void retract(){
-    	doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	doubleSolenoid.set(DoubleSolenoid.Value.kForward);
     	m_deployState = false;
     }
     
