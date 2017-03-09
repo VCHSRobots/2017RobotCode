@@ -70,9 +70,10 @@ class Targeter(threading.Thread):
 				logger.warn("Unable to setup Cam %d for capture" % self.TargetIndex)
 				self.Cam = None
 			if self.TargetIndex == 0:
-				call(["v4l2-ctl", "-c", "exposure_auto=1"])
-				call(["v4l2-ctl", "-c", "exposure_absolute=5"])
-				call(["v4l2-ctl", "-c", "brightness=30"])
+#				call(["v4l2-ctl", "-c", "exposure_auto=1"])
+#				call(["v4l2-ctl", "-c", "exposure_absolute=5"])
+#				call(["v4l2-ctl", "-c", "brightness=30"])
+				pass
 			#TODO: Set up exposure for second camera!
 
 	def getAnswer(self):
@@ -178,15 +179,20 @@ class Targeter(threading.Thread):
 						OffsetX = CenterTarget[0] - (Width / 2)
 						OffsetY = CenterTarget[1] - (Height / 2)
 						Offset = str(OffsetX) + "," + str(OffsetY)
+						Value = True
 					else:
-						Offset = "?,?"
+						Offset = "0, 0"
+						Value = False
+						return Frame, Value, Offset
 				else:
-					Offset = "?,?"
+					Offset = "0, 0"
+					Value = False
+					return Frame, Value, Offset
 				cv2.putText(Frame, Offset, (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 				if Demo == True:
 					cv2.imshow("Processed image output:", Frame)
 					cv2.waitKey(1)
-				return Frame, Value, 
+				return Frame, Value, Offset
 			elif Type == 1:
 				pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
 		except Exception as e:
