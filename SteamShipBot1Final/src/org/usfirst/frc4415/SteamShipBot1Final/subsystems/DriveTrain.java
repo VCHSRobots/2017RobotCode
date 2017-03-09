@@ -272,8 +272,9 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 	
-	
 	public void arcadePIDrotate(double angle){
+		
+		// moving clockwise = positive gyro = ASSUMING positive rotate value
 		
 		long timeoutStart = System.currentTimeMillis();
 		double pIDTimeout = Robot.tableReader.get("pidtimeout", 10000);
@@ -281,70 +282,55 @@ public class DriveTrain extends Subsystem {
 		invertMotorsArcade();
 		setArcade();
 		
-		double inchToTicksLoadingStation = 9.36585;
-		double ticksToInchLoadingStation = 0.10677;
-		double inchToTicksBoiler = 9.75238;
-		double ticksToInchBoiler = 0.10254;
-		double inchToTicksHopper = 9.60000;
-		double ticksToInchHopper = 0.10417;
-		double inchToTicksComputers = 9.45231;
-		double ticksToInchComputers = 0.10579;
-		double pGain = Robot.tableReader.get("pgain", -0.03);
-		double iGain = Robot.tableReader.get("igain", -0.01);
+		// expecting positive gains
+		double pGain = Robot.tableReader.get("pgaindrivetrainrotate", 0.03);
+		double iGain = Robot.tableReader.get("igaindrivetrainrotate", 0.01);
 		double pIDClipping = Robot.tableReader.get("pidclipping", 0.5);
-		double threshold = Robot.tableReader.get("threshold", 0.5);
-		double deadband = Robot.tableReader.get("deadband", 0.25);
+		double threshold = Robot.tableReader.get("thresholddrivetrainrotate", 2);
+		double deadband = Robot.tableReader.get("deadbanddrivetrainrotate", 0.25);
 
-		int encoderStart = quadratureEncoder1.get();
-		int encoderCurrent = encoderStart;
-		int encoderLast = encoderStart;
-		double currentPosition = 0;
-		double setpoint = distance;
+		double gyroStart = Robot.navX.getAngle();
+		double gyroCurrent = gyroStart;
+		double setpoint = angle;
 		
 		boolean done = false;
 		int loopCounter = 0;
 		double thresholdCounter = Robot.tableReader.get("thresholdcounter", 20);
 		boolean accumulatorEnable = false;
 		double accumulator = 0;
-		boolean movingForward = false;
+		boolean movingClockwise = false;
 		if(setpoint>0){
-			movingForward = true;
+			movingClockwise = true;
 		}
 		
 		while(!done){
-			encoderLast = encoderCurrent;
-			encoderCurrent = quadratureEncoder1.get();
+			gyroCurrent = Robot.navX.getAngle();
 			
-			if(encoderCurrent>encoderLast){
-				currentPosition -= (encoderCurrent - encoderLast) * ticksToInchBoiler;
-				
-			} else {
-				currentPosition -= (encoderCurrent - encoderLast) * ticksToInchLoadingStation;
-			}
-			
-			// pTerm is negative when driving "forward" or towards gear
+			// ASSUMING pTerm is positive when moving clockwise
 			double deadbandSign = 0;
-			if(setpoint > currentPosition) deadbandSign = 1;
+			if(setpoint > gyroCurrent) deadbandSign = 1;
 			else deadbandSign = -1;
-			double pTerm = pGain * (setpoint - currentPosition) + 
+			double pTerm = pGain * (setpoint - gyroCurrent) + 
 					(deadbandSign * deadband);
 			
 			double iTerm = 0;
-			if((movingForward && currentPosition >= setpoint) 
-					|| (!movingForward && currentPosition <= setpoint)){
-				accumulatorEnable = true;				
+			
+			// this checks if current position has crossed the setpoint yet
+			if((movingClockwise && gyroCurrent >= setpoint) 
+					|| (!movingClockwise && gyroCurrent <= setpoint)){
+				accumulatorEnable = true;		// once set true, can never go false		
 			}
 			if(accumulatorEnable){
-				accumulator += setpoint - currentPosition;
-				// iTerm is negative when driving "forward" or towards gear
+				accumulator += setpoint - gyroCurrent;
+				// ASSUMING iTerm is positive when moving clockwise
 				iTerm = iGain * accumulator;
 			}
 			
-			double yValue = Math.max(pIDClipping * -1,  
+			double rotateValue = Math.max(pIDClipping * -1,  
 					Math.min(pIDClipping, pTerm+iTerm));
-			robotDrive4.arcadeDrive(yValue, 0);
+			robotDrive4.arcadeDrive(0, rotateValue);
 			
-			if(Math.abs(setpoint - currentPosition) < threshold) {
+			if(Math.abs(setpoint - gyroCurrent) < threshold) {
 				loopCounter++;
 			} else {
 				loopCounter = 0;
@@ -357,14 +343,13 @@ public class DriveTrain extends Subsystem {
 			
 			sleep(10);
 			
-			System.out.print("Set: " + setpoint);
-			System.out.printf("  Pos: %4.3f", currentPosition);
+			System.out.printf("Set: %5.3f" + setpoint);
+			System.out.printf("  Angle: %5.3f", gyroCurrent);
 			System.out.print("  Dir: ");
-			if(currentPosition<setpoint) System.out.print("Gear");
-			else System.out.print("Shooter");
+			if(gyroCurrent < setpoint) System.out.print("CW ");
+			else System.out.print("CCW");
 			System.out.printf("  pTerm: %3.3f  iTerm: %3.3f", pTerm, iTerm);
 			System.out.println("  Done: " + done);
-			
 		}
 	}
 	
@@ -377,4 +362,3 @@ public class DriveTrain extends Subsystem {
 	}
 	
 }
-

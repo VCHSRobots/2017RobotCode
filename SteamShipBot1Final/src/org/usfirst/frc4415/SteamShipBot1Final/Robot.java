@@ -122,7 +122,7 @@ public class Robot extends IterativeRobot {
         Robot.cameraSystem.ledOff();
     }
 
-    private void CommonDashboardReport(){
+    private void commonDashboardReport(){
         SmartDashboard.putNumber("X Field Number", mouseReader.getXField());
         SmartDashboard.putNumber("Y Field Number", mouseReader.getYField());
         
@@ -144,18 +144,18 @@ public class Robot extends IterativeRobot {
      */
     public void disabledInit(){
     	Robot.cameraSystem.ledOff();
-        CommonDashboardReport();
+        commonDashboardReport();
     }
 
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
-        CommonDashboardReport();
+        commonDashboardReport();
     }
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
-        CommonDashboardReport();
+        commonDashboardReport();
     }
 
     /**
@@ -163,7 +163,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        CommonDashboardReport();
+        commonDashboardReport();
     }
 
     public void teleopInit() {
@@ -182,7 +182,7 @@ public class Robot extends IterativeRobot {
     	Robot.gearHandler.toggleHandler = false;
     	Robot.gearHandler.toggleGear = true;
     	
-    	CommonDashboardReport();
+    	commonDashboardReport();
     }
 
     /**
@@ -190,7 +190,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-    	CommonDashboardReport();
+    	commonDashboardReport();
     }
 
     /**
@@ -198,6 +198,6 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
-    	CommonDashboardReport();
+    	commonDashboardReport();
     }
 }
