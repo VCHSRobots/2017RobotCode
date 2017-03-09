@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------
-# targetsystem.py -- Target system for epic 2017 robot
+# targetcomm.py -- Target communication system for epic 2017 robot
 #
 # Created 03/03/2017 TastyDucks, DLB
 # ---------------------------------------------------------------------
@@ -10,8 +10,8 @@ import base64, cv2, socket, sys, threading, time, traceback
 
 #Below writen by epic team members:
 import evsslogger
-import targetingmanager
-
+import targeter
+Targeter = None
 RecvBuffer = 1024
 
 # Logging
@@ -30,14 +30,8 @@ class TarSysDummy:
 		self.iDumCount += 1
 		return "%2d, Valid, %d, %d" % (self.targetindex, self.iDumCount, self.iDumCount*5)
 
-
-def run(Conn, Addr, Data):
+def run(Conn, Addr, Data, Targeter):
 	logger.info("Client (%s, %s) has requested that targeting start up." % Addr)
-	#Targeter = targetingmanager.TargetingManager(Conn, Addr)
-	Targeter = TarSysDummy();
-	Targeter.daemon = True
-	Targeter.name = "TargetingThread"
-	Targeter.start()
 	iCount = 0
 	if Data == "T0":
 		Targeter.setTarget(-1)
@@ -56,6 +50,7 @@ def run(Conn, Addr, Data):
 			Conn.send(byteout)
 		except:
 			logger.error("Error sending Target data to client (%s, %s): Client considered disconnected:" % Addr)
+			#Close targeting thread here
 			Conn.close()
 			return
 		iCount += 1

@@ -13,7 +13,8 @@ import ds_pi_communication
 import rio_pi_communication
 import field_coordinates
 import visionsystem
-import targetsystem
+import targetcomm
+import targeter
 import evsslogger
 
 # Logging
@@ -25,6 +26,10 @@ Host = "0.0.0.0"
 Port = 5800
 RecvBuffer = 1024
 ClientBuffer = 16
+
+#Misc
+
+Targeter = None
 
 class ClientManager(threading.Thread):
 	def __init__(self, Conn, Addr):
@@ -70,7 +75,7 @@ class ClientManager(threading.Thread):
 					logger.info("Vision System closed.")
 					return
 				elif Data == "T" or Data == "T0" or Data == "T1" or Data == "T2":
-					targetsystem.run(Conn, Addr, Data)
+					targetcomm.run(Conn, Addr, Data, Targeter)
 					Conn.close()
 					logger.info("Target System closed.")
 					return
@@ -93,6 +98,7 @@ class ClientManager(threading.Thread):
 #
 
 if __name__ == "__main__":
+	global Targeter
 	evsslogger.initLogging()
 	ServerManager = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	time.sleep(0.1)
@@ -100,6 +106,10 @@ if __name__ == "__main__":
 	ServerManager.bind((Host, Port))
 	NumberOfClientThreads = 0
 	logger.info("Starting Main EPIC Robot Server for the Jetson")
+	Targeter = targetingmanager.TargetingManager()
+	Targeter.daemon = True
+	Targeter.name = "TargetingManager"
+	Targeter.start()
 
 	while True:
 		ServerManager.listen(ClientBuffer)
