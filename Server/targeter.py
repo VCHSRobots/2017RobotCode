@@ -69,11 +69,11 @@ class Targeter(threading.Thread):
 		if Ans is None:
 			Frame = np.zeros((480,640,3), np.uint8)
 			Ans = (Frame, -1, False, 0, 0)
-		try:
-			cv2.imshow("Image", Ans[0])
-			cv2.waitKey(10)
-		except:
-			logger.error("Unable to display image!!!")
+#		try:
+#			cv2.imshow("Image", Ans[0])
+#			cv2.waitKey(10)
+#		except:
+#			logger.error("Unable to display image!!!")
 		return Ans
 
 	#This function finds the target given a camera and a type of target to look for.
