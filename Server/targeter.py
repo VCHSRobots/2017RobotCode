@@ -3,6 +3,7 @@
 #
 # Created by: TastyDucks, DLB 02/17
 # ---------------------------------------------------------------------
+
 import cv2, socket, threading, time, traceback
 from subprocess import call
 import numpy as np
@@ -14,26 +15,7 @@ logger = evsslogger.getLogger()
 
 Demo = False
 
-#Targeting variables
 
-Hue = [90.0, 125.0]
-Saturation = [80.0, 255.0]
-Luminance = [10.0, 125.0]
-MinArea = 150.0
-MinPerimeter = 30.0
-MinWidth = 0.0
-MaxWidth = 500.0
-MinHeight = 10.0
-MaxHeight = 1000.0
-Solidity = [35.07194244604317, 100.0]
-MaxVertices = 150.0
-MinVertices = 4.0
-MinRatio = 1.00
-MaxRatio = 4.00
-MaxVerticalOffset = 50
-MinVerticalOffset = 5
-MaxHorizontalOffset = 25
-MinHorizontalOffset = 0
 
 class Targeter(threading.Thread):
 	def __init__(self):
@@ -45,6 +27,8 @@ class Targeter(threading.Thread):
 		self.AnswerLock = threading.Lock()
 		self.Answer = None
 
+	# setTarget(indx) -- Switch targets.
+	# 0=none, 1=boiler, 2=peg
 	def setTarget(self, targetindex):
 		self.TargetSwitchLock.acquire()
 		self.TargetNewIndex = targetindex
@@ -93,17 +77,21 @@ class Targeter(threading.Thread):
 	#This function finds the target given a camera and a type of target to look for.
 	#Type is defined as follows: 0 = High Boiler Target; 1 = Gear Delivery Target.
 	#Returns a tuple with the following objects: Image containing the view of the target,
-	# a boolean flag indicating wheather a target was detected, and the X and Y offset of the target from the center of the image.
-	def FindTargetSim(self, Cam, Type):
-		time.sleep(0.05)
+	# a boolean flag indicating wheather a target was detected, and the X and Y offset
+	# of the target from the center of the image.
+	def FindTarget(self, Cam, Type):
 		try:
 			ret, Frame = Cam.read()
 		except Exception as e:
 			ret = None
 			Frame = None
-			logger.error("Unable to take image from cam %s: " % self.TargetIndex + str(e))
-		if not ret or Frame is None:
-			return (None, False, 0, 0)
+			logger.error("Unable to take image from cam %d (%s): " % (self.TargetIndex, str(e)))
+		if not ret or (Frame is None):
+			Frame = np.zeros((480,640,3), np.uint8)
+			# ToDo: Write something on the frame to indicate the frame was not from the camera.
+			return (Frame, False, 0, 0)
+		return findtarget.FindTarget(Frame, Type)
+
 		return (Frame, True, 10, 15)
 
 	def FindTarget(self, Cam, Type):

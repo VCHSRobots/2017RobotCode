@@ -103,7 +103,8 @@ if __name__ == "__main__":
 	logger.info("Starting Main EPIC Robot Server for the Jetson")
 	Targeter = targeter.Targeter()
 	Targeter.daemon = True
-	Targeter.name = "TargetingManager"
+	Targeter.name = "Targeter"
+	Targeter.setTarget(1)   # Start with the boiler
 	Targeter.start()
 
 	while True:
