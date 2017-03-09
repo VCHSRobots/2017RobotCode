@@ -1,3 +1,8 @@
+# ---------------------------------------------------------------------
+# targeter.py -- Main targeting system for targeting for Jeston on 2017 EPIC Robot
+#
+# Created by: TastyDucks, DLB 02/17
+# ---------------------------------------------------------------------
 import cv2, socket, threading, time, traceback
 from subprocess import call
 import numpy as np
@@ -30,11 +35,9 @@ MinVerticalOffset = 5
 MaxHorizontalOffset = 25
 MinHorizontalOffset = 0
 
-class TargetingManager(threading.Thread):
-	def __init__(self, Conn, Addr):
+class Targeter(threading.Thread):
+	def __init__(self):
 		threading.Thread.__init__(self)
-		self.Conn = Conn
-		self.Addr = Addr
 		self.Cam = None
 		self.TargetIndex = -1
 		self.TargetNewIndex = 0

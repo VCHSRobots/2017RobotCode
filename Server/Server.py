@@ -21,15 +21,10 @@ import evsslogger
 logger = evsslogger.getLogger()
 
 #Internet
-
 Host = "0.0.0.0"
 Port = 5800
 RecvBuffer = 1024
 ClientBuffer = 16
-
-#Misc
-
-Targeter = None
 
 class ClientManager(threading.Thread):
 	def __init__(self, Conn, Addr):
@@ -106,7 +101,7 @@ if __name__ == "__main__":
 	ServerManager.bind((Host, Port))
 	NumberOfClientThreads = 0
 	logger.info("Starting Main EPIC Robot Server for the Jetson")
-	Targeter = targetingmanager.TargetingManager()
+	Targeter = targeter.Targeter()
 	Targeter.daemon = True
 	Targeter.name = "TargetingManager"
 	Targeter.start()
