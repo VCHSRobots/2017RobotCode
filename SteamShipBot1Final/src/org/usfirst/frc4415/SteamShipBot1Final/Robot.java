@@ -119,11 +119,11 @@ public class Robot extends IterativeRobot {
         mouseReader = new MouseReader(hostName, port, navX);
         targetReader = new TargetReader(hostName, port, navX);
         
-        targetReader.SetTargetRequest("T1");
+        //targetReader.SetTargetRequest("T1");
         
         tableReader.start();
-        mouseReader.start(); 
-        targetReader.start();
+        //mouseReader.start(); 
+        //targetReader.start();
         
         shooterThread = new ShooterThread();
         shooterThread.start();
