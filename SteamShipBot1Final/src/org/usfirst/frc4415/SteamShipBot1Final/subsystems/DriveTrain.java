@@ -276,5 +276,10 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 	
+	
+	public void arcadePIDrotate(double angle){
+		
+	}
+	
 }
 
