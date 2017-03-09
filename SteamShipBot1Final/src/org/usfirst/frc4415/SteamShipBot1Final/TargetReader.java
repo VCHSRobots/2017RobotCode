@@ -104,7 +104,7 @@ public class TargetReader extends Thread {
 							sleep(100);  // We don't need the data, cycle slow.
 						}
 						else {
-							sleep(5);  // We NEED the data, cycle faster than they can send it.
+							sleep(50);  // We NEED the data, cycle faster than they can send it.
 						}
 					}
 				}
