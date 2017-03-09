@@ -8,6 +8,9 @@ import cv2
 import numpy as np
 import time
 import evsslogger
+import traceback
+
+logger = evsslogger.getLogger()
 
 #Targeting variables
 
@@ -114,5 +117,6 @@ def FindTarget(Frame, Type):
 			return Frame, Type, False, 0, 0
 	except Exception as e:
 		logger.error("Error autoaiming! " + str(e))
+		traceback.print_exc()
 		#ToDo: write something in the frame to say what the exception was.
 		return (Frame, Type, False, 0, 0)

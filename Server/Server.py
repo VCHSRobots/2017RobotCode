@@ -105,7 +105,7 @@ if __name__ == "__main__":
 	Targeter.daemon = True
 	Targeter.name = "Targeter"
 	Targeter.setTarget(1)   # Start with the boiler
-	Targeter.start()
+	#Targeter.start()
 
 	while True:
 		ServerManager.listen(ClientBuffer)

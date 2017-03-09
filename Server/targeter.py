@@ -93,15 +93,17 @@ class Targeter(threading.Thread):
 			Frame = np.zeros((480,640,3), np.uint8)
 			# ToDo: Write something on the frame to indicate the frame was not from the camera.
 			return (Frame, Type, False, 0, 0)
-		FrameCount += 1
-		if FrameCount % 250 == 0:
-			logger.info("Targeter: %d targeting images processed!" % FrameCount)
+		self.FrameCount += 1
+		if self.FrameCount % 250 == 0:
+			logger.info("Targeter: %d targeting images processed!" % self.FrameCount)
 		Answer = findtarget.FindTarget(Frame, Type)
 		DiffFrame = Answer[0]
 		Height, Width, Channels = DiffFrame.shape
-		cv2.putText(DiffFrame, str(FrameCount), (30, Height - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
-		Answer[0] = DiffFrame
-		return Answer
+		cv2.putText(DiffFrame, str(self.FrameCount), (30, Height - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+		DiffAnswer = []
+		DiffAnswer.append(DiffFrame)
+		DiffAnswer.append(Answer[1:])
+		return DiffAnswer
 
 	def run(self):
 		logger.info("TargetingThread started!")
