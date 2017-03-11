@@ -11,6 +11,13 @@ public class ShooterThread extends Thread {
 			double defaultRPM = 1000;
 			double setpoint = Robot.shooter.getSetpoint();
 			//double setpoint = Robot.tableReader.get("shooter", defaultRPM);
+
+	
+	/*public void run(){
+		while(true){
+			double defaultRPM = 1000;
+			double setpoint = Robot.tableReader.get("shooter", defaultRPM);*/
+
 			double minThreshold = 0.95*setpoint;
 			double maxThreshold = 0.98*setpoint;
 			boolean isArmed = Robot.shooter.getIsArmed();

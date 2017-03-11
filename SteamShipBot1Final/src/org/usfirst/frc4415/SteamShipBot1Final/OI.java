@@ -84,6 +84,11 @@ public class OI {
         autoAimButton.whenPressed(new TurretAutoAim());
         cam4Button = new JoystickButton(shooterJoystick, 3);
         cam4Button.whenPressed(new FuelTankToggleWing());
+
+
+        cam2Button = new JoystickButton(shooterJoystick, 2);
+        cam2Button.whenPressed(new CameraSystemCam2());
+
         cam3Button = new JoystickButton(shooterJoystick, 1);
         cam3Button.whenPressed(new CameraSystemCam3());
         cam2Button = new JoystickButton(shooterJoystick, 2);

@@ -489,13 +489,21 @@ Children:
           default: '0'
           name: Reverse Channel (Solenoid)
           validators: *id017
+<<<<<<< HEAD
           value: '5'
+=======
+          value: '7'
+>>>>>>> 15fba3940bb245b0321835e3474212a72c34d59d
         Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id018
           default: '0'
           name: Forward Channel (Solenoid)
           validators: *id019
+<<<<<<< HEAD
           value: '4'
+=======
+          value: '6'
+>>>>>>> 15fba3940bb245b0321835e3474212a72c34d59d
       Base: Double Solenoid
       Name: Double Solenoid
     Properties:
@@ -926,7 +934,11 @@ Children:
           default: None
           name: Command
           type: Command
+<<<<<<< HEAD
           validators: *id023
+=======
+          validators: *id021
+>>>>>>> 15fba3940bb245b0321835e3474212a72c34d59d
           value: Fuel Tank Toggle Wing
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id024
@@ -1479,8 +1491,13 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
+<<<<<<< HEAD
   Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\rvree\workspace',
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\rvree\workspace\RobotCode2017'}
+=======
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Kyle\workspace',
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Kyle\workspace\RobotCode2017'}
+>>>>>>> 15fba3940bb245b0321835e3474212a72c34d59d
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1498,8 +1515,13 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
+<<<<<<< HEAD
   Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\rvree\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\rvree\workspace\RobotCode2017'}
+=======
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Kyle\',
+    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Kyle\workspace\RobotCode2017'}
+>>>>>>> 15fba3940bb245b0321835e3474212a72c34d59d
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot

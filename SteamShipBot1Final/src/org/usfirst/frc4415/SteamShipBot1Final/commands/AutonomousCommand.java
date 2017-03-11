@@ -38,12 +38,14 @@ public class AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+
     	//Robot.fuelTank.retract();
     	//Robot.shooter.set(-.95);
     	//Robot.driveTrain.arcadePIDMove(108);
     	//Robot.driveTrain.arcadePIDRotate(25);
     	//Robot.blender.set(-1);
     	//Timer.delay(10);
+
     }
     
     // Called repeatedly when this Command is scheduled to run

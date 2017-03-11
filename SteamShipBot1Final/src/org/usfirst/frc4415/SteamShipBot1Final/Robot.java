@@ -155,6 +155,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("Mecanum", Robot.driveTrain.getChangeDrive());
 		SmartDashboard.putNumber("Gyro Angle: ", Robot.navX.getAngle());
 		SmartDashboard.putNumber("Drive Encoder", Robot.driveTrain.getEncoder());
+
 		SmartDashboard.putNumber("IR Sensor", Robot.driveTrain.getIR());
 		
 		SmartDashboard.putNumber("Camera X Value" , Robot.cameraSystem.getX());
@@ -165,6 +166,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Shooter Encoder", Robot.shooter.getEncoderSpeed());
 		SmartDashboard.putNumber("Shooter Output Voltage", Robot.shooter.getOutputVoltage());
 		
+
+
         
     }
     
@@ -214,7 +217,9 @@ public class Robot extends IterativeRobot {
     	shooter.shooterToggle = false;
     	shooter.speed = -.75;
     	gearHandler.toggleHandler = false;
-    	gearHandler.toggleGear = false;
+
+    	gearHandler.toggleGear = true;
+
     	fuelTank.retract();
     	
     	commonDashboardReport();
