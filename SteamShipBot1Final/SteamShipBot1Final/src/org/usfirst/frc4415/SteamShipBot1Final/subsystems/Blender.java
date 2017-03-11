@@ -13,8 +13,6 @@ package org.usfirst.frc4415.SteamShipBot1Final.subsystems;
 
 import org.usfirst.frc4415.SteamShipBot1Final.RobotMap;
 import org.usfirst.frc4415.SteamShipBot1Final.commands.*;
-import org.usfirst.frc4415.SteamShipBot1Final.Robot;
-
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -47,15 +45,6 @@ public class Blender extends Subsystem {
 
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
-    }
-    
-    public void shootBlend() {
-    	double fireRate = Robot.oi.getShooterJoystick().getRawAxis(3) * -1;
-    	blenderMotor.set(fireRate);
-    }
-    
-    public void set(double power){
-    	blenderMotor.set(power);
     }
 }
 

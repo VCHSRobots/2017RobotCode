@@ -44,9 +44,7 @@ public class DriveTrainDefault extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	System.out.println("LED: " + Robot.cameraSystem.getLED());
-    	
+    	   	
     	if ( Robot.oi.getDriverJoystick().getRawButton(8)) {
 			Robot.navX.reset();
 		}
@@ -63,15 +61,7 @@ public class DriveTrainDefault extends Command {
 			Robot.driveTrain.arcadeDrive();
 		}
 
-		SmartDashboard.putNumber("Invert Drive?", Robot.driveTrain.getInvertDrive());
-		SmartDashboard.putNumber("X Value", Robot.oi.getDriverJoystick().getRawAxis(0));
-		SmartDashboard.putNumber("Y Value", Robot.oi.getDriverJoystick().getRawAxis(1));
-		SmartDashboard.putNumber("Z Value", Robot.oi.getDriverJoystick().getRawAxis(2));
-		SmartDashboard.putNumber("Turret Value", Robot.oi.getShooterJoystick().getRawAxis(4));
-		SmartDashboard.putNumber("Gyro On ? ", Robot.driveTrain.getGyro0());
-		SmartDashboard.putBoolean("Mecanum", Robot.driveTrain.getChangeDrive());
-		SmartDashboard.putNumber("Gyro Angle: ", Robot.navX.getAngle());
-		SmartDashboard.putNumber("Drive Encoder", Robot.driveTrain.getEncoder());
+
 		//SmartDashboard.putNumber("Drive RangeFinder", Robot.driveTrain.getRangeFinder());
 		
 	}

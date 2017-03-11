@@ -16,8 +16,8 @@ import org.usfirst.frc4415.SteamShipBot1Final.commands.*;
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
 
 import com.ctre.CANTalon;
-import edu.wpi.first.wpilibj.DigitalInput;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -59,14 +59,6 @@ public class Turret extends Subsystem {
 		// setDefaultCommand(new MySpecialCommand());
 	}
 
-	public void turretRight() {
-		turretMotor.set(RIGHT);
-	}
-
-	public void turretLeft() {
-		turretMotor.set(LEFT);
-	}
-
 	public void turretOff() {
 		turretMotor.set(OFF);
 	}
@@ -84,7 +76,8 @@ public class Turret extends Subsystem {
 	}
 
 	public void turn(double power) {
-		if ((power > (RIGHT / 8) && rightLimit.get() == true) || (power < (LEFT / 8) && leftLimit.get() == true)) {
+		if ((power > (RIGHT / 8) && rightLimit.get() == true) || 
+				(power < (LEFT / 8) && leftLimit.get() == true)) {
 			turretMotor.set(power);
 
 		} else {
@@ -96,43 +89,118 @@ public class Turret extends Subsystem {
 	public void reset() {
 		if(middleLimit.get() == false){
 			while(middleLimit.get() == false){
-				turretMotor.set(RIGHT);			}
+				turn(RIGHT);
+			}
 		}
 		
 		while(middleLimit.get() == true && leftLimit.get() == true) {
-			turretMotor.set(LEFT);
+			turn(LEFT);
 		}
 
 		if (middleLimit.get() == false) {
 			long startTime = System.currentTimeMillis();
 			while(System.currentTimeMillis() - startTime < 175){
-				turretMotor.set(LEFT);
-				try {
-					Thread.sleep(10);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				turn(LEFT);
+				sleep(10);
 			}
 		}	
 		
 		if (leftLimit.get() == false) {
 			while(middleLimit.get() == true) {
-				turretMotor.set(RIGHT);
+				turn(RIGHT);
 			}
 			long startTime = System.currentTimeMillis();
 			while(System.currentTimeMillis() - startTime < 95){
-				turretMotor.set(RIGHT);
-				try {
-					Thread.sleep(10);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				turn(RIGHT);
+				sleep(10);
 			}
 
 			turretMotor.set(OFF);
 
+		}
+	}
+	
+	public void autoAim(){
+		
+		// moving CCW (topview) (left) = error increases (positive direction) 
+		// if error is positive, we want to move CW
+		
+		long timeoutStart = System.currentTimeMillis();
+		double pIDTimeout = Robot.tableReader.get("pidtimeout", 10000);
+		
+		double pGain = Robot.tableReader.get("pgainturret", 0.03);
+		double iGain = Robot.tableReader.get("igainturret", 0.0);
+		double pIDClipping = Robot.tableReader.get("pidclippingturret", 0.8);
+		double threshold = Robot.tableReader.get("thresholdturret", 20);
+		double deadband = Robot.tableReader.get("deadbandturret", 0.25);
+
+		boolean done = false;
+		int loopCounter = 0;
+		double thresholdCounter = Robot.tableReader.get("thresholdcounter", 20);
+		boolean accumulatorEnable = false;
+		double accumulator = 0;
+		boolean movingClockwise = false;
+		
+		// if error > 0, need to move clockwise to get to target
+		double error = 0; 		//Robot.targetReader.getX();
+		if(error > 0){
+			movingClockwise = true;
+		}
+		
+		while(!done){
+			error = 0; // Robot.targetReader.getX();
+			
+			// ASSUMING pTerm is positive when moving clockwise
+			double deadbandSign = 0;
+			if(error > 0) deadbandSign = 1;
+			else deadbandSign = -1;
+			double pTerm = pGain * (error) + 
+					(deadbandSign * deadband);
+			
+			double iTerm = 0;
+			
+			// this checks if current position has crossed the setpoint yet
+			if((movingClockwise && error <= 0) 
+					|| (!movingClockwise && error >= 0)){
+				accumulatorEnable = true;		// once set true, can never go false		
+			}
+			if(accumulatorEnable){
+				accumulator += error;
+				// ASSUMING iTerm is positive when moving clockwise
+				iTerm = iGain * accumulator;
+			}
+			
+			double rotateValue = Math.max(pIDClipping * -1,  
+					Math.min(pIDClipping, pTerm+iTerm));
+			turn(rotateValue);
+			
+			if(Math.abs(error) < threshold) {
+				loopCounter++;
+			} else {
+				loopCounter = 0;
+			}
+			
+			if(loopCounter > thresholdCounter || 
+					(System.currentTimeMillis() - timeoutStart) > pIDTimeout) {
+				done = true;
+			}
+			
+			sleep(10);
+			
+			System.out.printf("  Error: %5.3f", error);
+			System.out.print("  Dir: ");
+			if(error>0) System.out.print("CW ");
+			else System.out.print("CCW");
+			System.out.printf("  pTerm: %3.3f  iTerm: %3.3f", pTerm, iTerm);
+			System.out.println("  Done: " + done);
+		}
+	}
+	
+	public void sleep(int millis){
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e){
+			e.printStackTrace();
 		}
 	}
 

@@ -10,9 +10,7 @@
 
 
 package org.usfirst.frc4415.SteamShipBot1Final.commands;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
 
 /**
@@ -38,21 +36,15 @@ public class AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//Robot.fuelTank.retract();
-    	//Robot.shooter.set(-.95);
-    	//Robot.driveTrain.arcadePIDMove(108);
-    	//Robot.driveTrain.arcadePIDRotate(25);
-    	//Robot.blender.set(-1);
-    	//Timer.delay(10);
     }
-    
+
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

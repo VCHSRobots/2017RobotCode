@@ -39,13 +39,29 @@ public class CameraSystemDefault extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.cameraSystem.ledOff();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     	SmartDashboard.putBoolean("CamLed", Robot.cameraSystem.getLED());
     	//System.out.println("LED: " + Robot.cameraSystem.getLED());
+    	
+    	if (Robot.oi.getShooterJoystick().getPOV(0) == 0) {
+    		Robot.cameraSystem.incServo2();
+    	}
+    	
+    	if (Robot.oi.getShooterJoystick().getPOV(0) == 180) {
+    		Robot.cameraSystem.decServo2();
+    	}
+    	
+    	if (Robot.oi.getShooterJoystick().getPOV(0) == 90) {
+    		Robot.cameraSystem.incServo1();
+    	}
+    	
+    	if (Robot.oi.getShooterJoystick().getPOV(0) == 270) {
+    		Robot.cameraSystem.decServo1();
+    	}
     	
     }
 

@@ -55,11 +55,11 @@ public class TargetReader extends Thread {
 		}
 	}
 	
-	public void run(){			
+	public void run(){		
+		restart:
 		while(true){
 			m_nRestarts++;
 			System.out.printf("Target Reader: Restarting TargetReader Comm Loop.  Restart number: %d\n", m_nRestarts);
-			restart:
 			while(true){
 				// wait here till we have a valid request... 
 				while (true) {
@@ -95,7 +95,7 @@ public class TargetReader extends Thread {
 							break restart;
 						}
 						m_nReceived++;
-						if (m_nReceived % 500 == 0) {
+						if (m_nReceived % 250 == 0) {
 							System.out.printf("Target Reader: Number of Target Reports Received = %d\n",  m_nReceived);
 							System.out.printf("Target Reader: Sample Target Report = %s\n",  result);
 						}
@@ -104,7 +104,7 @@ public class TargetReader extends Thread {
 							sleep(100);  // We don't need the data, cycle slow.
 						}
 						else {
-							sleep(5);  // We NEED the data, cycle faster than they can send it.
+							sleep(50);  // We NEED the data, cycle faster than they can send it.
 						}
 					}
 				}
