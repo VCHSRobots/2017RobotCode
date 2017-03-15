@@ -45,18 +45,18 @@ public class GearHandlerDefault extends Command {
     protected void execute() {
     	
     	if ( Robot.gearHandler.getToggleHandler() == true) {
-    		Robot.gearHandler.handlerOut();
+    		Robot.gearHandler.handlerIn();
     		
     	} else {
-    		Robot.gearHandler.handlerIn();
+    		Robot.gearHandler.handlerOut();
     		
     	}
     	
     	if ( Robot.gearHandler.getToggleGear() == true) {
-    		Robot.gearHandler.gearGrab();
+    		Robot.gearHandler.gearRelease();
     		
     	} else {
-    		Robot.gearHandler.gearRelease();
+    		Robot.gearHandler.gearGrab();
     		
     	}
     	
