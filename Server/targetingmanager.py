@@ -157,6 +157,7 @@ class TargetingManager(threading.Thread):
 						self.Conn.sendall(Offset)
 					except:
 						logger.error("Unable to send offset to client.")
+						traceback.print_exc()
 				elif self.TargetIndex == 1:
 					pass #WORK IN PROGRESS FOR PEG DELIVERY AUTOAIM TARGETING
 			except Exception as e:
