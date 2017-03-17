@@ -1,13 +1,13 @@
-import cv2, socket, threading, time, traceback
+import cv2, socket, sys, threading, time, traceback
 from subprocess import call
 import numpy as np
-import evsslogger
+#import evsslogger
 
-logger = evsslogger.getLogger()
+#logger = evsslogger.getLogger()
 
 #Demonstation variable
 
-Demo = False
+Demo = True
 
 #Targeting variables
 
@@ -26,34 +26,34 @@ MinVertices = 4.0
 MinRatio = 1.00
 MaxRatio = 4.00
 MaxVerticalOffset = 50
-MinVerticalOffset = 5
+MinVerticalOffset = 0
 MaxHorizontalOffset = 25
 MinHorizontalOffset = 0
 
-PegHue = [90.0, 125.0]
-PegSaturation = [80.0, 255.0]
-PegLuminance = [10.0, 125.0]
-PegMinArea = 150.0
-PegMinPerimeter = 30.0
+PegHue = [90.0, 175.0]
+PegSaturation = [90.0, 255.0]
+PegLuminance = [20.0, 125.0]
+PegMinArea = 550.0
+PegMinPerimeter = 0.0
 PegMinWidth = 0.0
-PegMaxWidth = 500.0
-PegMinHeight = 10.0
-PegMaxHeight = 1000.0
-PegSolidity = [35.07194244604317, 100.0]
-PegMaxVertices = 150.0
-PegMinVertices = 4.0
-PegMinRatio = 1.00
-PegMaxRatio = 4.00
-PegMaxVerticalOffset = 50
-PegMinVerticalOffset = 5
-PegMaxHorizontalOffset = 25
+PegMaxWidth = 1000.0
+PegMinHeight = 25.0
+PegMaxHeight = 50.0
+PegSolidity = [0.0, 100.0]
+PegMaxVertices = 40.0
+PegMinVertices = 0.0
+PegMinRatio = 0.4
+PegMaxRatio = 0.7
+PegMaxVerticalOffset = 5000
+PegMinVerticalOffset = 0
+PegMaxHorizontalOffset = 2500
 PegMinHorizontalOffset = 0
 
 class TargetingManager(threading.Thread):
-	def __init__(self, Conn, Addr):
+	def __init__(self):
 		threading.Thread.__init__(self)
-		self.Conn = Conn
-		self.Addr = Addr
+#		self.Conn = Conn
+#		self.Addr = Addr
 		self.Cam = None
 		self.TargetIndex = -1
 		self.TargetNewIndex = 0
@@ -69,19 +69,19 @@ class TargetingManager(threading.Thread):
 			try:
 				self.Cam.release()
 			except:
-				logger.info("Unable to release Cam %d" % self.TargetIndex)
+				print("Unable to release Cam %d" % self.TargetIndex)
 		self.Cam = None
 		self.TargetIndex = -1
 
 	def setTargetForReal(self, targetindex):
-		logger.info("Target %d Selected" % targetindex)
+		print("Target %d Selected" % targetindex)
 		self.killTarget()
 		self.TargetIndex = targetindex
 		if self.TargetIndex >= 0:
 			try:
-				self.Cam = cv2.VideoCapture(self.TargetIndex)
+				self.Cam = cv2.VideoCapture(0)
 			except:
-				logger.warn("Unable to setup Cam %d for capture" % self.TargetIndex)
+				print("Unable to setup Cam %d for capture" % self.TargetIndex)
 				self.Cam = None
 			if self.TargetIndex == 0:
 				call(["v4l2-ctl", "-c", "exposure_auto=1"])
@@ -89,8 +89,10 @@ class TargetingManager(threading.Thread):
 				call(["v4l2-ctl", "-c", "brightness=30"])
 
 	def run(self):
-		self.setTargetForReal(self.TargetNewIndex)
-		logger.info("TargetingThread started")
+		print("TargetingThread started!")
+		self.TargetIndex = int(sys.argv[1])
+		print("User requested target \"" + sys.argv[1] + "\".")
+		self.setTargetForReal(int(sys.argv[1]))
 		haveErr = False
 		FramesGrabbed = 0
 		FPS = 0
@@ -101,7 +103,7 @@ class TargetingManager(threading.Thread):
 			err = ""
 			BenchmarkTimes.append(time.time())
 			self.TargetSwitchLock.acquire()
-			newindex = self.TargetNewIndex
+			newindex = int(sys.argv[1])
 			self.TargetSwitchLock.release()
 			if newindex != self.TargetIndex:
 				self.setTargetForReal(newindex)
@@ -113,7 +115,7 @@ class TargetingManager(threading.Thread):
 					haveErr = False
 				except:
 					if not haveErr:
-						logger.error("Unable to take image from Cam %d" % self.TargetIndex)
+						print("Unable to take image from Cam %d" % self.TargetIndex)
 						err = "Cam Error at Jetson"
 					haveErr = True
 					haveFrame = False
@@ -159,8 +161,8 @@ class TargetingManager(threading.Thread):
 							cv2.line(Frame, (Centers[0][0], 0), (Centers[1][0], Height), (255, 255, 255), 1) #Line through center of target Y
 							cv2.line(Frame, (0, (Centers[0][1] + Centers[1][1]) / 2), (Width, (Centers[0][1] + Centers[1][1]) / 2), (255, 255, 255), 1) #Line through center of target X
 							CenterTarget = (((Centers[0][0] + Centers[1][0]) / 2), (Centers[0][1] + Centers[1][1]) / 2)
-							cv2.line(Frame, CenterTarget, (255, 255, 255), 1) #Line connecting center of target and center of image
-							cv2.line(Frame, CenterTarget, ((Width / 2), (Height / 2)), (255, 255, 255), 1) #Line connecting center of target and center of image
+#							cv2.line(Frame, CenterTarget, (255, 255, 255), 1) #Line connecting center of target and center of image
+#							cv2.line(Frame, CenterTarget, ((Width / 2), (Height / 2)), (255, 255, 255), 1) #Line connecting center of target and center of image
 							OffsetX = CenterTarget[0] - (Width / 2)
 							OffsetY = CenterTarget[1] - (Height / 2)
 							Offset = str(OffsetX) + "," + str(OffsetY)
@@ -170,13 +172,13 @@ class TargetingManager(threading.Thread):
 						Offset = "?,?"
 					cv2.putText(Frame, Offset, (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 					if Demo == True:
-						cv2.imshow("Processed image output:", Frame)
+						cv2.imshow("Processed image output (Boiler):", Frame)
 						cv2.waitKey(1)
-					try:
-						self.Conn.sendall(Offset)
-					except:
-						logger.error("Unable to send offset to client.")
-						traceback.print_exc()
+#					try:
+#						self.Conn.sendall(Offset)
+#					except:
+#						print("Unable to send offset to client.")
+#						traceback.print_exc()
 				elif self.TargetIndex == 1:
 					Out = cv2.inRange(ImHLS, (PegHue[0], PegLuminance[0], PegSaturation[0]), (PegHue[1], PegLuminance[1], PegSaturation[1]))
 					_, OkContours, _ = cv2.findContours(Out, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_SIMPLE)
@@ -196,7 +198,7 @@ class TargetingManager(threading.Thread):
 												if Ratio > PegMinRatio and Ratio < PegMaxRatio:
 													BetterContours.append(Contour)
 					BetterContours = sorted(BetterContours, key=cv2.contourArea, reverse=True)[:2] #Keep 2 largest
-					cv2.drawContours(Frame, BetterContours, -1, (0, 200, 0), 2)
+#					cv2.drawContours(Frame, BetterContours, -1, (0, 200, 0), 2)
 					Centers = []
 					Height, Width, Channels = Frame.shape
 					cv2.line(Frame, (Width / 2, (Height / 2) - 10), (Width / 2, (Height / 2) + 10), (255, 255, 255), 1) #Crosshair Y
@@ -215,8 +217,8 @@ class TargetingManager(threading.Thread):
 							cv2.line(Frame, (Centers[0][0], 0), (Centers[1][0], Height), (255, 255, 255), 1) #Line through center of target Y
 							cv2.line(Frame, (0, (Centers[0][1] + Centers[1][1]) / 2), (Width, (Centers[0][1] + Centers[1][1]) / 2), (255, 255, 255), 1) #Line through center of target X
 							CenterTarget = (((Centers[0][0] + Centers[1][0]) / 2), (Centers[0][1] + Centers[1][1]) / 2)
-							cv2.line(Frame, CenterTarget, (255, 255, 255), 1) #Line connecting center of target and center of image
-							cv2.line(Frame, CenterTarget, ((Width / 2), (Height / 2)), (255, 255, 255), 1) #Line connecting center of target and center of image
+#							cv2.line(Frame, CenterTarget, (255, 255, 255), 1) #Line connecting center of target and center of image
+#							cv2.line(Frame, CenterTarget, ((Width / 2), (Height / 2)), (255, 255, 255), 1) #Line connecting center of target and center of image
 							OffsetX = CenterTarget[0] - (Width / 2)
 							OffsetY = CenterTarget[1] - (Height / 2)
 							Offset = str(OffsetX) + "," + str(OffsetY)
@@ -226,13 +228,22 @@ class TargetingManager(threading.Thread):
 						Offset = "?,?"
 					cv2.putText(Frame, Offset, (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 					if Demo == True:
-						cv2.imshow("Processed image output:", Frame)
+						cv2.imshow("Processed image output (Peg):", Frame)
 						cv2.waitKey(1)
-					try:
-						self.Conn.sendall(Offset)
-					except:
-						logger.error("Unable to send offset to client.")
-						traceback.print_exc()
+#					try:
+#						self.Conn.sendall(Offset)
+#					except:
+#						print("Unable to send offset to client.")
+#						traceback.print_exc()
+				else:
+					print("ERROR! Unknown target number in command input. Valid numbers are \"0\", or \"1\"!")
+					sys.exit()
 			except Exception as e:
-				logger.error("Error autoaiming! " + str(e))
+				print("Error autoaiming! " + str(e))
 				traceback.print_exc()
+Targeter = TargetingManager()
+Targeter.daemon = True
+Targeter.start()
+
+while True:
+	time.sleep(1) #ALL PRAISE SPAGHETTI CODE
