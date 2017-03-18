@@ -172,10 +172,13 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("Shooter Enabled", Robot.shooter.getShooterToggle());
 		SmartDashboard.putNumber("Shooter Encoder", Robot.shooter.getEncoderSpeed());
 		SmartDashboard.putNumber("Shooter Output Voltage", Robot.shooter.getOutputVoltage());
+		SmartDashboard.putNumber("SetPoint Value", Robot.shooter.getSetpoint());
 		
-
-
-        
+		SmartDashboard.putBoolean("Pin 1", Robot.cameraSystem.getPin1());
+		SmartDashboard.putBoolean("Pin 2", Robot.cameraSystem.getPin2());
+		SmartDashboard.putBoolean("Pin 3", Robot.cameraSystem.getPin3());
+		SmartDashboard.putBoolean("Pin 4", Robot.cameraSystem.getPin4());
+		
     }
     
     
@@ -226,10 +229,11 @@ public class Robot extends IterativeRobot {
     	driveTrain.invertDrive = -1;
     	driveTrain.gyroEnable = 0;			// Gyro is off
     	shooter.shooterToggle = false;
-    	shooter.speed = -.75;
-    	gearHandler.toggleHandler = true;
+    	//shooter.speed = -.75;
+    	gearHandler.toggleHandler = false;
     	gearHandler.toggleGear = true;
-
+    	cameraSystem.setServo1(.314);
+    	cameraSystem.setServo2(.486);
     	fuelTank.retract();
     	
     	commonDashboardReport();
