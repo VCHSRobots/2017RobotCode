@@ -56,11 +56,13 @@ class Targeter(threading.Thread):
 				logger.warn("Unable to setup Cam %d for capture" % self.TargetIndex)
 				self.Cam = None
 			if self.TargetIndex == 0:
-#				call(["v4l2-ctl", "-c", "exposure_auto=1"])
-#				call(["v4l2-ctl", "-c", "exposure_absolute=5"])
-#				call(["v4l2-ctl", "-c", "brightness=30"])
-				pass
-			#TODO: Set up exposure for second camera!
+				call(["v4l2-ctl", "-c", "exposure_auto=1"])
+				call(["v4l2-ctl", "-c", "exposure_absolute=5"])
+				call(["v4l2-ctl", "-c", "brightness=30"])
+			elif self.TargetIndex == 1:
+				call(["v4l2-ctl", "--device=1", "-c", "exposure_auto=1"])
+				call(["v4l2-ctl", "--device=1", "-c", "exposure_absolute=5"])
+				call(["v4l2-ctl", "--device=1", "-c", "brightness=30"])
 
 	def getAnswer(self):
 		self.AnswerLock.acquire()
@@ -93,13 +95,9 @@ class Targeter(threading.Thread):
 			Frame = np.zeros((480,640,3), np.uint8)
 			# ToDo: Write something on the frame to indicate the frame was not from the camera.
 			return (Frame, Type, False, 0, 0)
-		self.FrameCount += 1
-		if self.FrameCount % 250 == 0:
-			logger.info("Targeter: %d targeting images processed!" % self.FrameCount)
 		Answer = findtarget.FindTarget(Frame, Type)
 		DiffFrame = Answer[0]
 		Height, Width, Channels = DiffFrame.shape
-		cv2.putText(DiffFrame, str(self.FrameCount), (30, Height - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 		DiffAnswer = []
 		DiffAnswer.append(DiffFrame)
 		DiffAnswer.append(Answer[1:])
