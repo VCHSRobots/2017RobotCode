@@ -160,7 +160,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Gyro On ? ", Robot.driveTrain.getGyro0());
 		SmartDashboard.putBoolean("Mecanum", Robot.driveTrain.getChangeDrive());
 		SmartDashboard.putNumber("Gyro Angle: ", Robot.navX.getAngle());
-		SmartDashboard.putNumber("Drive Encoder", Robot.driveTrain.getEncoder());
+		SmartDashboard.putNumber("Drive Encoder", Robot.driveTrain.getEncoderValue());
 
 		SmartDashboard.putNumber("IR Sensor", Robot.driveTrain.getIR());
 		
@@ -225,19 +225,12 @@ public class Robot extends IterativeRobot {
     	driveTrain.invertDrive = -1;
     	driveTrain.gyroEnable = 0;			// Gyro is off
     	shooter.shooterToggle = false;
-<<<<<<< HEAD
-    	shooter.speed = -.75;
-    	gearHandler.toggleHandler = false;
 
-    	gearHandler.toggleGear = false;
-
-=======
     	//shooter.speed = -.75;
     	gearHandler.toggleHandler = false;
     	gearHandler.toggleGear = true;
     	cameraSystem.setServo1(.314);
     	cameraSystem.setServo2(.486);
->>>>>>> 6d98068db93ff036f01ddff05f539685357c6dbf
     	fuelTank.retract();
     	
     	commonDashboardReport();

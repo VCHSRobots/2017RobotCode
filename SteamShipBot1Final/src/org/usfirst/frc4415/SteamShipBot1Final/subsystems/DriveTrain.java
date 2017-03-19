@@ -169,8 +169,12 @@ public class DriveTrain extends Subsystem {
 
 	}
 	
-	public int getEncoder(){
+	public int getEncoderValue(){
 		return quadratureEncoder1.get();
+	}
+	
+	public Encoder getEncoder(){
+		return quadratureEncoder1;
 	}
 	
 	public int getIR() {
@@ -372,6 +376,10 @@ public class DriveTrain extends Subsystem {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public RobotDrive getRobotDrive(){
+		return robotDrive4;
 	}
 	
 
