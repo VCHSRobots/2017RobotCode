@@ -1,3 +1,9 @@
+// --------------------------------------------------------------------
+// Mqtt.java -- Class to do comm with MQTT in the background.
+//
+// Created 3/18/17 DLB
+// --------------------------------------------------------------------
+
 package org.usfirst.frc4415.SteamShipBot1Final;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -23,10 +29,12 @@ public class Mqtt extends Thread implements MqttCallback {
 	private Lock m_lockOutgoing = new ReentrantLock();
 	private ArrayList<MqttMsg> m_incomingMsgLst;
 	private ArrayList<MqttMsg> m_outgoingMsgLst;
+	private ArrayList<MqttMsg> m_saveMsgLst;
 	private boolean m_restart = false;
 	private int m_nCountSent = 0;
 	private int m_nCountReceived = 0;
 	private int m_nCountErrors = 0;
+	private int m_nCountDup = 0;
 
 	public Mqtt(String hostName, int portNumber, String clientId) {
 		this.m_hostName = hostName;
@@ -35,6 +43,7 @@ public class Mqtt extends Thread implements MqttCallback {
 		this.setName("MQTT");
 		m_incomingMsgLst = new ArrayList<MqttMsg>();
 		m_outgoingMsgLst = new ArrayList<MqttMsg>();
+		m_saveMsgLst = new ArrayList<MqttMsg>();
 	}
 	
 	// This is the main background thread for mqtt.  It keeps checking to
@@ -55,6 +64,7 @@ public class Mqtt extends Thread implements MqttCallback {
 				sleep(100);
 				continue;  // Start at the top on the main loop.
 			}
+			long lastCleanupTime = StopWatch.start();
 			while (m_client != null && m_client.isConnected()) {
 				sleep(20);
 				if (m_restart) {
@@ -84,6 +94,12 @@ public class Mqtt extends Thread implements MqttCallback {
 						}
 					}
 				}
+				
+				if (StopWatch.stop(lastCleanupTime) > 1000) {
+					clearOldMessages(1000);
+					lastCleanupTime = StopWatch.start();
+				}
+				
 				// Do a heartbeat output here.  Sort of a Kludge... 
 				m_count++;
 				if (m_count % 200 == 0) {
@@ -158,10 +174,21 @@ public class Mqtt extends Thread implements MqttCallback {
 	public void messageArrived(String topic, MqttMessage mqmsg) throws Exception {
 		String msgtext = new String(mqmsg.getPayload(), "US-ASCII");
 		MqttMsg msg = new MqttMsg(topic, msgtext);
+		ArrayList<MqttMsg> templist= new ArrayList<MqttMsg>();
+		
 		m_lockIncoming.lock();
 		m_nCountReceived++;
 		m_incomingMsgLst.add(msg);
+		
+		// Before adding this one to the "save" list, remove any with the same name.
+		for(MqttMsg m: m_saveMsgLst) {
+			if (!m.getTopic().equals(topic)) templist.add(m);
+			else m_nCountDup++;
+		}
+		m_saveMsgLst = templist;
+		m_saveMsgLst.add(msg);
 		m_lockIncoming.unlock();
+		//threadMessage("\nMqtt: new msg. Topic=" + msg.getTopic() + "\n");
 	}
 
 	// Returns the newest message with the given topic.  All previous messages
@@ -172,7 +199,7 @@ public class Mqtt extends Thread implements MqttCallback {
 		
 		m_lockIncoming.lock();
 		for (MqttMsg m: m_incomingMsgLst) {
-			if (m.getTopic() == topic) {
+			if (m.getTopic().equals(topic)) {
 				if (bestMsg == null) {
 					bestMsg = m;
 				}
@@ -190,6 +217,22 @@ public class Mqtt extends Thread implements MqttCallback {
 		m_lockIncoming.unlock();
 		return bestMsg;
 	}
+	
+	// Here, the latest message under the topic is returned.  It is not
+	// deleted, so that this function can be called again with the expection
+	// that if the message on the given topic has ever been received, it will
+	// be avaliable.  If it has never been received, null is returned.
+	public MqttMsg getMessage(String topic) {
+		m_lockIncoming.lock();
+		for (MqttMsg m: m_saveMsgLst) {
+			if (m.getTopic().equals(topic)) {
+				m_lockIncoming.unlock();
+				return m;
+			}
+		}
+		m_lockIncoming.unlock();
+		return null;
+	}
 
 	// Clears out older messages to avoid too many.  All messages older than "age" in 
 	// milliseconds will be deleted.
@@ -206,21 +249,53 @@ public class Mqtt extends Thread implements MqttCallback {
 		m_lockIncoming.unlock();
 	}
 	
+	// Put a message in the queue to be sent to the broker.
+	public void sendMessage(String topic, String text) {
+		MqttMsg m = new MqttMsg(topic, text);
+		m_lockOutgoing.lock();
+		m_outgoingMsgLst.add(m);
+		m_lockOutgoing.unlock();
+	}
+	
 	@Override
 	public void deliveryComplete(IMqttDeliveryToken token) {
 		//threadMessage("Mqtt: Delivery Complete.");
 	}
 	
+	// Returns the number of messages sent since startup.
 	public int getCountSent() {
 		return m_nCountSent;
 	}
 	
+	// Returns the number of messages received since startup.
 	public int getCountReceived() {
 		return m_nCountReceived;
 	}
 	
+	// Returns the number of messages duplicated msgs..
+	public int getCountDups() {
+		return m_nCountDup;
+	}
+	
+	// Returns the number of errors incountered since startup.
 	public int getCountErrors() {
 		return m_nCountErrors;
+	}
+	
+	// Returns the number of errors incountered since startup.
+	public int getCountSavedMsgs() {
+		int n = 0;
+		m_lockIncoming.lock();
+		n = m_saveMsgLst.size();
+		m_lockIncoming.unlock();
+		return n;
+	}
+	
+	// Function to log to the laptop.  Input can be a simple string, or
+	// it can be a string formatted by String.format().
+	public void logf(String fmt, Object... args) {
+		String msg = String.format(fmt, args);
+		sendMessage("robot/roborio/log", msg);
 	}
 }
 	

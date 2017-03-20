@@ -1,3 +1,9 @@
+// --------------------------------------------------------------------
+// MqttMsg.java -- Class to contain Mqtt Messages, with age data.
+//
+// Created 3/19/17 DLB
+// --------------------------------------------------------------------
+
 package org.usfirst.frc4415.SteamShipBot1Final;
 
 //import java.io.*;
@@ -17,8 +23,7 @@ public class MqttMsg {
 	{
 		m_topic = topic;
 		m_message = msg;
-		Date d = new Date();
-		m_timestamp = d.getTime();
+		m_timestamp = StopWatch.timestamp();
 	}
 	
 	// Gets the topic of the message.
@@ -40,9 +45,7 @@ public class MqttMsg {
 	// Returns the age of the message in milliseconds.  The age is 
 	// calculate from the time it is received into the RoboRio.
 	public long getAge() {
-		Date d = new Date();
-		long t = d.getTime();
-		return t - m_timestamp;
+		return StopWatch.stop(m_timestamp);
 	}
 	
 	// Attempts to return the payload as a double.  On fail, returns 0.0.
