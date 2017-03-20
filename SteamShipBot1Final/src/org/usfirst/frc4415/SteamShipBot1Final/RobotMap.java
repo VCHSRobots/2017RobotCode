@@ -89,10 +89,10 @@ public class RobotMap {
         driveTrainRobotDrive4.setSensitivity(0.5);
         driveTrainRobotDrive4.setMaxOutput(1.0);
 
-        driveTrainchangeSolenoid = new DoubleSolenoid(0, 0, 1);
+        driveTrainchangeSolenoid = new DoubleSolenoid(0, 1, 0);
         LiveWindow.addActuator("Drive Train", "changeSolenoid", driveTrainchangeSolenoid);
         
-        driveTrainQuadratureEncoder1 = new Encoder(6, 7, false, EncodingType.k4X);
+        driveTrainQuadratureEncoder1 = new Encoder(3, 4, false, EncodingType.k4X);
         LiveWindow.addSensor("Drive Train", "Quadrature Encoder 1", driveTrainQuadratureEncoder1);
         driveTrainQuadratureEncoder1.setDistancePerPulse(1.0);
         driveTrainQuadratureEncoder1.setPIDSourceType(PIDSourceType.kDisplacement);
@@ -108,7 +108,7 @@ public class RobotMap {
         climberclimberMotor = new CANTalon(8);
         LiveWindow.addActuator("Climber", "climberMotor", climberclimberMotor);
         
-        climberQuadratureEncoder1 = new Encoder(4, 5, false, EncodingType.k4X);
+        climberQuadratureEncoder1 = new Encoder(23, 22, false, EncodingType.k4X);
         LiveWindow.addSensor("Climber", "Quadrature Encoder 1", climberQuadratureEncoder1);
         climberQuadratureEncoder1.setDistancePerPulse(1.0);
         climberQuadratureEncoder1.setPIDSourceType(PIDSourceType.kDisplacement);
@@ -139,10 +139,10 @@ public class RobotMap {
         cameraSystemLED = new DigitalOutput(8);
         LiveWindow.addActuator("Camera System", "LED", cameraSystemLED);
         
-        cameraSystemPin1 = new DigitalOutput(3);
+        cameraSystemPin1 = new DigitalOutput(25);
         LiveWindow.addActuator("Camera System", "Pin 1", cameraSystemPin1);
         
-        cameraSystemPin2 = new DigitalOutput(9);
+        cameraSystemPin2 = new DigitalOutput(24);
         LiveWindow.addActuator("Camera System", "Pin 2", cameraSystemPin2);
         
         cameraSystemPin3 = new DigitalOutput(10);

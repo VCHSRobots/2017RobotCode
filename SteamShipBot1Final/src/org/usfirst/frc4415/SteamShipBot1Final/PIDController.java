@@ -163,13 +163,13 @@ public class PIDController {
 	
 	public String toString(){
 		String s = String.format(
-				"Set: %12.3f  " +
-				"Current: &12.3f  " +
-				"Actuator: %12.3f  " +
-				"P: %12.3f  " + 
-				"I: %12.3f  " + 
-				"D: %12.3f  " + 
-				"Dead: %12.3f  ",
+				"Set: %7.3f  " +
+				"Current: %7.3f  " +
+				"Actuator: %3.3f  " +
+				"P: %3.3f  " + 
+				"I: %3.3f  " + 
+				"D: %3.3f  " + 
+				"Dead: %3.3f  ",
 				setpoint, currentPosition, actuator,
 				pTerm, iTerm, dTerm, deadbandTerm
 				);

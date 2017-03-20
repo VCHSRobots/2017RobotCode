@@ -110,13 +110,13 @@ Children:
           default: '0'
           name: Reverse Channel (Solenoid)
           validators: &id017 [Solenoid]
-          value: '1'
+          value: '0'
         Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id018 ['0', '1', '2', '3', '4', '5', '6', '7']
           default: '0'
           name: Forward Channel (Solenoid)
           validators: &id019 [Solenoid]
-          value: '0'
+          value: '1'
       Base: Double Solenoid
       Name: changeSolenoid
     - Children: []
@@ -128,7 +128,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: &id005 [DigitalChannel]
-          value: '6'
+          value: '3'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 1.0}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -152,7 +152,7 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: &id009 [DigitalChannel]
-          value: '7'
+          value: '4'
       Base: Quadrature Encoder
       Name: Quadrature Encoder 1
     - Children: []
@@ -250,7 +250,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: *id005
-          value: '4'
+          value: '23'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 1.0}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -272,7 +272,7 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: *id009
-          value: '5'
+          value: '22'
       Base: Quadrature Encoder
       Name: Quadrature Encoder 1
     Properties:
@@ -461,7 +461,7 @@ Children:
           default: '0'
           name: Output Channel (Digital)
           validators: *id023
-          value: '3'
+          value: '25'
       Base: Digital Output
       Name: Pin 1
     - Children: []
@@ -471,7 +471,7 @@ Children:
           default: '0'
           name: Output Channel (Digital)
           validators: *id023
-          value: '9'
+          value: '24'
       Base: Digital Output
       Name: Pin 2
     - Children: []
@@ -1573,8 +1573,8 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\rvree\workspace',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\rvree\workspace\RobotCode2017'}
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Kyle\workspace',
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: .\}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1592,7 +1592,7 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\rvree\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Kyle\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\rvree\workspace\RobotCode2017'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
