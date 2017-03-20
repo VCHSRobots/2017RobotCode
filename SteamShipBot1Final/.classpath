@@ -10,8 +10,12 @@
 	<classpathentry kind="var" path="opencv" sourcepath="opencv.sources"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRLib.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/navx_frc.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="var" path="mqttself"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/MQTT.fx-jfx.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/mqtt.jar"/>
+=======
+	<classpathentry kind="var" path="USERLIBS_DIR/MQTT.jar"/>
+>>>>>>> 522c18c1b9be5b14f3e06c9d626a23770e9063e4
 	<classpathentry kind="output" path="bin"/>
 </classpath>

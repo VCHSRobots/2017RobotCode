@@ -61,13 +61,26 @@ public class ShooterDefault extends Command {
     protected void execute() {
     	double joystick = Robot.oi.getShooterJoystick().getRawAxis(1) * -1;
     	
-    	if(joystick > .25) {
+    	if (joystick > .25) {
     		Robot.shooter.setpointUp();
     	} else if (joystick < -.25) {
     		Robot.shooter.setpointDown();
     	}
     	
+    	// added code that might not need to be used on the other robot
     	
+    	if (Robot.shooter.getSetpoint() >= 1200) {
+    		Robot.shooter.setSetpoint(1200);
+    	} else {
+    		Robot.shooter.setSetpoint(Robot.shooter.getSetpoint());
+    	}
+    	
+    	if (Robot.shooter.getSetpoint() <= 500) {
+    		Robot.shooter.setSetpoint(500);
+    	} else {
+    		Robot.shooter.setSetpoint(Robot.shooter.getSetpoint());
+    	}
+    		
 /*   	currentSpeed = Robot.shooter.getEncoderSpeed();
     	outputVoltage = Robot.shooter.getOutputVoltage();
     	
