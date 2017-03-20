@@ -76,16 +76,21 @@ public class PIDController {
 	private long previousTime = 0;
 	private long currentTime = 0;
 	private boolean directionIsPositive = false;
+	private double startPosition = 0;
 	private double currentPosition = 0;
 	private double previousPosition = 0;
 	private int thresholdLoopCounter = 0;
 	private boolean done = false;
 	private boolean accumulatorEnable = false;
 	private double accumulator = 0;	
+	private boolean isRelative = false;
 	
 	public PIDController(double setpoint, 
-			double threshold, long timeout){
+			boolean isRelative, 
+			double threshold, 
+			long timeout){
 		this.setpoint = setpoint;
+		this.isRelative = isRelative;
 		this.threshold = threshold;
 		this.timeout = timeout;
 	}
@@ -93,17 +98,20 @@ public class PIDController {
 	// Calculates and returns actuator value
 	public double calculateActuatorValue
 	(double newCurrentPosition){
-		currentPosition = newCurrentPosition;
 		currentTime = System.currentTimeMillis();
 		// Only runs in the first loop.
 		if(!isInitiated){
 			startTime = currentTime;
 			previousTime = currentTime;
-			previousPosition = currentPosition;
+			startPosition = newCurrentPosition;
+			previousPosition = startPosition;
 			if(setpoint > currentPosition) 
 				directionIsPositive = true;
 			isInitiated = true;
 		}
+		if(isRelative) currentPosition = 
+				newCurrentPosition - startPosition;
+		else currentPosition = newCurrentPosition;
 		
 		// Calculate the deadband term
 		double deadbandSign = -1;
@@ -234,7 +242,7 @@ public class PIDController {
 		return actuator;
 	}
 
-	public void run(){
+	public void run(double feedback){
 		System.out.println("running parent class "
 				+ "method instead of child class");
 	}

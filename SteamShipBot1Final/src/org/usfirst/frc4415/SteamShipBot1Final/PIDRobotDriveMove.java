@@ -29,30 +29,26 @@
  *///----------------------------------------------------
 package org.usfirst.frc4415.SteamShipBot1Final;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 public class PIDRobotDriveMove extends PIDController{
 	
 	private RobotDrive robotDrive;
-	private Encoder encoder;
 	
 	public PIDRobotDriveMove(
 			RobotDrive robotDrive,
-			Encoder encoder,
 			double setpoint, 
 			double threshold,
 			long timeout
 			){
-		super(setpoint, threshold, timeout);
+		super(setpoint, true, threshold, timeout);
 		this.robotDrive = robotDrive;
-		this.encoder = encoder;
 	}
 	
-	public void run(){
+	public void run(double feedback){
 		robotDrive.arcadeDrive(
 				super.calculateActuatorValue(
-						encoder.get()),
+						feedback),
 				0);
 	}
 }

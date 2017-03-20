@@ -29,31 +29,27 @@
  *///----------------------------------------------------
 package org.usfirst.frc4415.SteamShipBot1Final;
 
-import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 public class PIDRobotDriveRotate extends PIDController{
 	
 	private RobotDrive robotDrive;
-	private AHRS navX;
 	
 	public PIDRobotDriveRotate(
 			RobotDrive robotDrive,
-			AHRS navX,
 			double setpoint, 
+			boolean isRelative,
 			double threshold,
 			long timeout
 			){
-		super(setpoint, threshold, timeout);
+		super(setpoint, isRelative, threshold, timeout);
 		this.robotDrive = robotDrive;
-		this.navX = navX;
 	}
 	
-	public void run(){
+	public void run(double feedback){
 		robotDrive.arcadeDrive(
 				0,
 				super.calculateActuatorValue(
-						navX.getAngle())
-				);
+						feedback));
 	}
 }

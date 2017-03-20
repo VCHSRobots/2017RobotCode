@@ -173,6 +173,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("Pin 3", Robot.cameraSystem.getPin3());
 		SmartDashboard.putBoolean("Pin 4", Robot.cameraSystem.getPin4());
 		
+		SmartDashboard.putBoolean("Left Limit", Robot.turret.getLeftLimit());
+		SmartDashboard.putBoolean("Middle Limit", Robot.turret.getMiddleLimit());
+		SmartDashboard.putBoolean("Right Limit", Robot.turret.getRightLimit());
+	
 		
     }
     

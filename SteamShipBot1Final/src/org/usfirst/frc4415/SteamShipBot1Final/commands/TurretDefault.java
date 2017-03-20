@@ -43,38 +43,9 @@ public class TurretDefault extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	Robot.turret.turn(Robot.oi.getShooterJoystick().getRawAxis(4));
-
-		/*if ((Robot.turret.getLeftLimit() == false && Robot.oi.getShooterJoystick().getRawAxis(4) * 1 < 0) 
-			|| 
-			(Robot.turret.getRightLimit() == false && Robot.oi.getShooterJoystick().getRawAxis(4) * 1 > 0)) {
-
-			Robot.turret.turretOff();
-			
-		} else {
-			
-			Robot.turret.setTurret();
-			
-		}*/
-    	
-		/*if (Robot.oi.getShooterJoystick().getPOV(0) == 90) {
-			Robot.turret.turretRight();
-		}
-
-		if (Robot.oi.getShooterJoystick().getPOV(0) == 270) {
-			Robot.turret.turretLeft();
-		}
-
-		if (Robot.turret.getMiddleLimit() == false) {
-			Robot.turret.turretOff();
-		}*/
-
-
-		SmartDashboard.putBoolean("Left Limit", Robot.turret.getLeftLimit());
-		SmartDashboard.putBoolean("Middle Limit", Robot.turret.getMiddleLimit());
-		SmartDashboard.putBoolean("Right Limit", Robot.turret.getRightLimit());
-		
+    	double joystick = Robot.oi.getShooterJoystick().getRawAxis(4);
+    	if(joystick < 1/8 && joystick > -1/8) joystick = 0;
+    	Robot.turret.turn(joystick);			
     }
 
     // Make this return true when this Command no longer needs to run execute()

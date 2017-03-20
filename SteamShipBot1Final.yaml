@@ -909,7 +909,7 @@ Children:
           name: Command
           type: Command
           validators: *id025
-          value: Camera System Cam3
+          value: Turret Auto Aim
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id026
           default: whileHeld

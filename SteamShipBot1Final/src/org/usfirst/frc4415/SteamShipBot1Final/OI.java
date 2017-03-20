@@ -87,7 +87,7 @@ public class OI {
         cam2Button = new JoystickButton(shooterJoystick, 2);
         cam2Button.whenPressed(new CameraSystemCam2());
         cam3Button = new JoystickButton(shooterJoystick, 1);
-        cam3Button.whenPressed(new CameraSystemCam3());
+        cam3Button.whenPressed(new TurretAutoAim());
         cam1Button = new JoystickButton(shooterJoystick, 4);
         cam1Button.whenPressed(new CameraSystemCam1());
         toggleShooterButton = new JoystickButton(shooterJoystick, 5);
