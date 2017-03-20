@@ -168,7 +168,7 @@ def FindTarget(Frame, Type):
 				YDistance = abs(Centers[0][1] - Centers[1][1])
 				if XDistance < PegMaxHorizontalOffset and XDistance > PegMinHorizontalOffset and YDistance < PegMaxVerticalOffset and YDistance > PegMinVerticalOffset:
 					Vector = (Centers[0][0] - Centers[1][0], Centers[0][1] - Centers[1][1])
-					Mag = sqrt((Vector[0] * Vector[0]) + )
+					Mag = sqrt((Vector[0] * Vector[0]))  #There was a syntax error here!!! Temp Fix?!!?
 					cv2.line(Frame, (Centers[0][0] + (XDistance / 2), 0), (Centers[0][0] + (XDistance / 2), Height), (255, 255, 255), 1) #Line through center of target Y
 					cv2.line(Frame, (0, Centers[0][1]), (Width, Centers[1][1]), (255, 255, 255), 1) #Line through center of target X
 					CenterTarget = (((Centers[0][0] + Centers[1][0]) / 2), (Centers[0][1] + Centers[1][1]) / 2)
