@@ -64,6 +64,7 @@ public class Robot extends IterativeRobot {
     public static TableReader tableReader;
     public static MouseReader mouseReader;
     public static TargetReader targetReader;
+    public static Mqtt mqtt;
     
     public static ShooterThread shooterThread;
     
@@ -124,10 +125,12 @@ public class Robot extends IterativeRobot {
         tableReader = new TableReader(hostName, port);
         mouseReader = new MouseReader(hostName, port, navX);
         targetReader = new TargetReader(hostName, port, navX);
+		mqtt = new Mqtt("10.44.15.19", 5802, "RoboRio");
+		mqtt.start();
         
         //targetReader.SetTargetRequest("T1");
         
-        tableReader.start();
+        //tableReader.start();
         //mouseReader.start(); 
         //targetReader.start();
         
@@ -173,9 +176,11 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Shooter Encoder", Robot.shooter.getEncoderSpeed());
 		SmartDashboard.putNumber("Shooter Output Voltage", Robot.shooter.getOutputVoltage());
 		
-
-
-        
+		if (mqtt != null) {
+			SmartDashboard.putNumber("MqTT Received", mqtt.getCountReceived());
+			SmartDashboard.putNumber("MqTT Sent",     mqtt.getCountSent());
+			SmartDashboard.putNumber("Mqtt Errors",   mqtt.getCountErrors());
+		}
     }
     
     
@@ -233,6 +238,11 @@ public class Robot extends IterativeRobot {
     	fuelTank.retract();
     	
     	commonDashboardReport();
+    	
+    	MqttMsg m = mqtt.getMessageByTopic("robot/jetson/ts/x");
+    	if (m != null) {
+    		
+    	}
     }
 
     /**
