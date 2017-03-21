@@ -38,7 +38,8 @@ public class CameraSystemCam1 extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	Robot.cameraSystem.toggleCameraAngle();
+    	Robot.cameraSystem.setServo1(.38199);				//.45399999
+    	Robot.cameraSystem.setServo2(.27399);				//.32999999
     	
     }
 

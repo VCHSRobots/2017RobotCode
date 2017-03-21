@@ -266,10 +266,11 @@ public class Robot extends IterativeRobot {
     	shooter.shooterToggle = false;
 
     	//shooter.speed = -.75;
-    	gearHandler.toggleHandler = false;
-    	gearHandler.toggleGear = true;
-    	cameraSystem.setServo1(.314);
-    	cameraSystem.setServo2(.486);
+    	gearHandler.handlerIn();
+    	gearHandler.gearRelease();
+    	cameraSystem.setServo1(.62999);
+    	cameraSystem.setServo2(.05799);
+    	shooter.disarm();
     	fuelTank.retract();
     	
     	Robot.autoParams.loadData();  // Do this a lots during non-auto modes.
