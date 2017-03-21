@@ -65,7 +65,6 @@ public class TurretAutoAim extends Command {
     	autoProgram.add(new PIDTurret(
     			turret, 0, .02, 10000));
     	autoProgram.get(1).setPGain(3);
-    	autoProgram.get(1).setDeadband(1/8);
     	autoProgram.get(1).setClipping(1);
     	
     }

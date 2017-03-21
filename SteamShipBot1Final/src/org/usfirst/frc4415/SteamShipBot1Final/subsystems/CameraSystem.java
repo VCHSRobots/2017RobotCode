@@ -172,6 +172,14 @@ public class CameraSystem extends Subsystem {
     	return pin4.get();
     }
     
+    // Fire
+    public void programDefault() {
+    	pin1.set(false);
+    	pin2.set(false);
+    	pin3.set(false);
+    	pin4.set(false);
+    }
+    
     // Solid Green
     public void program1() {
     	pin1.set(false);
@@ -180,7 +188,7 @@ public class CameraSystem extends Subsystem {
     	pin4.set(true);
     }
     
-    // Solid Red
+    // Moving Green
     public void program2() {
     	pin1.set(false);
     	pin2.set(false);
@@ -188,7 +196,7 @@ public class CameraSystem extends Subsystem {
     	pin4.set(false);
     }
     
-    // Moving Green
+    // Solid Red
     public void program3() {
     	pin1.set(false);
     	pin2.set(false);
