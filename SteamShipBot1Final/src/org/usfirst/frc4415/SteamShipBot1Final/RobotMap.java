@@ -89,7 +89,7 @@ public class RobotMap {
         driveTrainRobotDrive4.setSensitivity(0.5);
         driveTrainRobotDrive4.setMaxOutput(1.0);
 
-        driveTrainchangeSolenoid = new DoubleSolenoid(0, 0, 1);
+        driveTrainchangeSolenoid = new DoubleSolenoid(0, 1, 0);
         LiveWindow.addActuator("Drive Train", "changeSolenoid", driveTrainchangeSolenoid);
         
         driveTrainQuadratureEncoder1 = new Encoder(6, 7, false, EncodingType.k4X);
@@ -127,7 +127,7 @@ public class RobotMap {
         gearHandlergearHandlerSolenoid = new DoubleSolenoid(0, 4, 5);
         LiveWindow.addActuator("Gear Handler", "gearHandlerSolenoid", gearHandlergearHandlerSolenoid);
         
-        gearHandlergearGrabSolenoid = new DoubleSolenoid(0, 2, 3);
+        gearHandlergearGrabSolenoid = new DoubleSolenoid(0, 3, 2);
         LiveWindow.addActuator("Gear Handler", "gearGrabSolenoid", gearHandlergearGrabSolenoid);
         
         cameraSystemServo1 = new Servo(0);

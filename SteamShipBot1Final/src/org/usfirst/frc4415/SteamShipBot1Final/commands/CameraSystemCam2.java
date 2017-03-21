@@ -37,7 +37,11 @@ public class CameraSystemCam2 extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.cameraSystem.ledToggle();
+    	
+    	//Robot.cameraSystem.ledToggle();
+    	Robot.cameraSystem.setServo1(.685999);
+    	Robot.cameraSystem.setServo2(.489999);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
