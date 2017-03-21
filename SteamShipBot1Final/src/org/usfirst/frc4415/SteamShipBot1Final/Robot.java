@@ -230,10 +230,11 @@ public class Robot extends IterativeRobot {
     	driveTrain.gyroEnable = 0;			// Gyro is off
     	shooter.shooterToggle = false;
     	//shooter.speed = -.75;
-    	gearHandler.toggleHandler = false;
-    	gearHandler.toggleGear = true;
-    	cameraSystem.setServo1(.314);
-    	cameraSystem.setServo2(.486);
+    	gearHandler.handlerIn();
+    	gearHandler.gearRelease();
+    	cameraSystem.setServo1(.62999);
+    	cameraSystem.setServo2(.05799);
+    	shooter.disarm();
     	fuelTank.retract();
     	
     	commonDashboardReport();
