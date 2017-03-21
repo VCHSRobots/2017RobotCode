@@ -1,2 +1,2 @@
 #!/bin/bash
-gnome-terminal -x /usr/bin/python2.7 /home/ubuntu/epic/VisionSystem2017/Server/Server.py
+gnome-terminal -x /usr/bin/python2.7 /home/ubuntu/RobotCode2017/Jetson/Server/Server.py

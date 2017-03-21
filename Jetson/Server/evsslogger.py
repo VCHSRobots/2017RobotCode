@@ -10,18 +10,23 @@ import cv2
 import sys
 import os, time
 
-LogLocation = "/home/ubuntu/epic/server.log"
+LogFolder = "/home/ubuntu/RobotCode2017/"
+LogFile = "server.log"
 
 def getLogger():
   return logging.getLogger("EVSS")
 
 # initLogging() -- initialize logger once by main line code.
-def initLogging():
+def initLogging(filename = None):
+	global LogFolder
+	global LogFile
+	if filename is not None:
+		LogFile = filename
 	os.environ['TZ'] = 'PDT'
 	time.tzset()
 	logger = logging.getLogger("EVSS")
 	logger.setLevel(logging.DEBUG)
-	hndler1 = logging.FileHandler(LogLocation)
+	hndler1 = logging.FileHandler(LogFolder+LogFile)
 	hndler2 = logging.FileHandler("/dev/stdout")
 	hndler1.setLevel(logging.DEBUG)
 	hndler2.setLevel(logging.DEBUG)
