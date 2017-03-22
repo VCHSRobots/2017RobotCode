@@ -6,6 +6,8 @@
 
 # This module provides a public API to send and receive MQTT messages.
 # It runs on it's own thread.
+#
+# For each incoming message, a 3-tuple is saved: (text, seq#, timestamp)
 
 import sys
 import paho.mqtt.client as mqtt
@@ -53,7 +55,7 @@ def getMessage(topic):
 	if topic in incomingMsgs:
 		v = incomingMsgs[topic]
 	else:
-		v = None
+		v = (None, 0, 0.0)
 	incomingMsgLock.release()
 	return v
 
@@ -71,7 +73,12 @@ def on_message(client, userdata, msg):
 	global nCountMsgIn
 	nCountMsgIn += 1
 	incomingMsgLock.acquire()
-	incomingMsgs[msg.topic] = str(msg.payload).strip()
+	seq = 0
+	if msg.topic in incomingMsgs:
+		txt,seq,ts = incomingMsgs[msg.topic]
+	seq += 1
+	ts = time.time() 
+	incomingMsgs[msg.topic] = (str(msg.payload).strip(), seq, ts)
 	incomingMsgLock.release()
 
 # The callback for when our messages are actually published at the broker.
@@ -138,7 +145,8 @@ if __name__ == "__main__":
 		elif cmd == "x":
 			msgs = getAllMessages()
 			for x in msgs:
-				print("  %40s : %s\n" % (x, msgs[x]))
+				txt, seq, ts = msgs[x]
+				print("  %40s [%d, %15.7f] : %s\n" % (x, seq, ts, txt))
 		elif cmd == "s":
 			print("Number of Msg Sent: %d" % getCountMsgOut())
 			print("Number of Msg Received: %d" % getCountMsgIn())
