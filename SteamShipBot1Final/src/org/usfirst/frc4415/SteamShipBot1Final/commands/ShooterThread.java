@@ -8,25 +8,16 @@ public class ShooterThread extends Thread {
 	// positve set value the shooter correctly and causes encoder value to decrease
 	public void run(){
 		while(true){
-			double defaultRPM = 1000;
 			double setpoint = Robot.shooter.getSetpoint();
-			//double setpoint = Robot.tableReader.get("shooter", defaultRPM);
-
-	
-	/*public void run(){
-		while(true){
-			double defaultRPM = 1000;
-			double setpoint = Robot.tableReader.get("shooter", defaultRPM);*/
-
 			double minThreshold = 0.95*setpoint;
 			double maxThreshold = 0.98*setpoint;
 			boolean isArmed = Robot.shooter.getIsArmed();
-			
 			int sleepLength = 5; // in milliseconds
-			
 			if(Robot.shooter.getShooterToggle()){
 				Robot.shooter.setSpeedMode();
 				double currentSpeed = Robot.shooter.getEncoderSpeed();
+				System.out.println("Time: " + System.currentTimeMillis() + 
+						"Speed: " + currentSpeed);
 				if(!isArmed){
 					Robot.shooter.set(setpoint);
 					if(Math.abs(currentSpeed) > Math.abs(minThreshold)){
