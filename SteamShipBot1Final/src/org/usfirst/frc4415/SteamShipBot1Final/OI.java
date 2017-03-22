@@ -64,8 +64,8 @@ public class OI {
     public Joystick driverJoystick;
     public JoystickButton toggleShooterButton;
     public JoystickButton cam1Button;
-    public JoystickButton cam3Button;
     public JoystickButton cam2Button;
+    public JoystickButton cam3Button;
     public JoystickButton cam4Button;
     public JoystickButton autoAimButton;
     public JoystickButton turretResetButton;
@@ -84,10 +84,10 @@ public class OI {
         autoAimButton.whenPressed(new TurretAutoAim());
         cam4Button = new JoystickButton(shooterJoystick, 3);
         cam4Button.whenPressed(new FuelTankToggleWing());
-        cam2Button = new JoystickButton(shooterJoystick, 2);
-        cam2Button.whenPressed(new CameraSystemCam2());
         cam3Button = new JoystickButton(shooterJoystick, 1);
         cam3Button.whenPressed(new CameraSystemCam3());
+        cam2Button = new JoystickButton(shooterJoystick, 2);
+        cam2Button.whenPressed(new CameraSystemCam2());
         cam1Button = new JoystickButton(shooterJoystick, 4);
         cam1Button.whenPressed(new CameraSystemCam1());
         toggleShooterButton = new JoystickButton(shooterJoystick, 5);
