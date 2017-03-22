@@ -79,10 +79,8 @@ public class Turret extends Subsystem {
 		if ((power > 0 && rightLimit.get() == true) || 
 				(power < 0 && leftLimit.get() == true)) {
 			turretMotor.set(power);
-
 		} else {
 			turretMotor.set(OFF);
-			
 		}
 	}
 	
