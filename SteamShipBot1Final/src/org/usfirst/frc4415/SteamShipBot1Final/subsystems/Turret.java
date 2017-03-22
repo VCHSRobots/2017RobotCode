@@ -76,13 +76,11 @@ public class Turret extends Subsystem {
 	}
 
 	public void turn(double power) {
-		if ((power > (RIGHT / 8) && rightLimit.get() == true) || 
-				(power < (LEFT / 8) && leftLimit.get() == true)) {
+		if ((power > 0 && rightLimit.get() == true) || 
+				(power < 0 && leftLimit.get() == true)) {
 			turretMotor.set(power);
-
 		} else {
 			turretMotor.set(OFF);
-			
 		}
 	}
 	

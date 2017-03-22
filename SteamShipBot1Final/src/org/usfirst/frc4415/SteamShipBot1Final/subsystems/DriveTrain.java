@@ -169,8 +169,16 @@ public class DriveTrain extends Subsystem {
 
 	}
 	
-	public int getEncoder(){
+	public int getEncoderValue(){
 		return quadratureEncoder1.get();
+	}
+	
+	public Encoder getEncoder(){
+		return quadratureEncoder1;
+	}
+	
+	public RobotDrive getRobotDrive(){
+		return robotDrive4;
 	}
 	
 	public int getIR() {
