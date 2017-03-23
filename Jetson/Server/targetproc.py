@@ -35,15 +35,16 @@ class TargetReport:
 		self.Valid = Valid
 		self.X1000 = 0
 		self.Y1000 = 0
-		self.Rect1 = (0, 0)
-		self.Rect2 = (0, 0)
+		self.Rect1 = (0, 0, 0, 0)
+		self.Rect2 = (0, 0, 0, 0)
+
 	def SetCrossHairs(self, x, y):
 		self.X1000 = x
 		self.Y1000 = y
-	def SetRect1(self, x, y):
-		self.Rect1 = (x, y)
-	def SetRect2(self, x, y):
-		self.Rect2 = (x, y)
+	def SetRect1(self, x0, y0, w, h):
+		self.Rect1 = (x0, y0, w, h)
+	def SetRect2(self, x0, y0, w, h):
+		self.Rect2 = (x0, y0, w, h)
 	def ToString(self):
 		st = "F"
 		if self.Valid:
@@ -51,7 +52,7 @@ class TargetReport:
 		tp = (self.TargetMode, st, self.X1000, self.Y1000)
 		tp += self.Rect1
 		tp += self.Rect2
-		return "Mode=%1d, Valid=%s, X,Y=[%4d,%4d] Rects=[%3d,%3d,%3d,%3d]" % tp
+		return "Mode=%1d, Valid=%s, X,Y=[%4d,%4d] R1=[%3d,%3d,%3d,%3d] R2=[%3d,%3d,%3d,%3d]" % tp
 	def ToReport(self):
 		#sent at key1=val1;key2=val2;key3=val3...
 		i = 0
@@ -60,14 +61,18 @@ class TargetReport:
 		tp = (self.TargetMode, i, self.X1000, self.Y1000)
 		tp += self.Rect1
 		tp += self.Rect2
-		return "Mode=%1d;Valid=%1d;X=%d;Y=%d;w1=%d;h1=%d;w2=%d;h2=%d" % tp 
+		return "Mode=%1d;Valid=%1d;X=%d;Y=%d;r0x=%d;r0y=%d;r0w=%d;r0h=%d;r1x=%d;r1y=%d;r1w=%d;r1h=%d" % tp 
 
 class TargetProc:
 	def __init__(self):
 		self.Cam = None
 		self.TargetMode = -1
 		self.FrameCount = 0
+		self.SwitchCameras = True
 		self.Params = Params = findtarget.GetDefaultParams()
+
+	def SwitchCamerasToggle(self):
+		self.SwitchCameras = not self.SwitchCameras
 
 	def killTarget(self):
 		if self.Cam is not None:
@@ -92,15 +97,20 @@ class TargetProc:
 		if self.TargetMode > 0:
 			try:
 				CameraIndex = self.TargetMode - 1
+				if self.SwitchCameras:
+					if CameraIndex == 0:
+						CameraIndex = 1
+					else:
+						CameraIndex = 0
 				self.Cam = cv2.VideoCapture(CameraIndex) 
 			except:
 				logger.warn("Unable to setup Cam %d for capture" % CameraIndex)
 				self.Cam = None
-			if self.TargetMode == 1:
+			if CameraIndex == 0:
 				call(["v4l2-ctl", "-c", "exposure_auto=1"])
 				call(["v4l2-ctl", "-c", "exposure_absolute=5"])
 				call(["v4l2-ctl", "-c", "brightness=30"])
-			elif self.TargetMode == 2:
+			elif CameraIndex == 1:
 				call(["v4l2-ctl", "--device=1", "-c", "exposure_auto=1"])
 				call(["v4l2-ctl", "--device=1", "-c", "exposure_absolute=5"])
 				call(["v4l2-ctl", "--device=1", "-c", "brightness=30"])
@@ -127,9 +137,22 @@ class TargetProc:
 #			cv2.waitKey(1)
 		except:
 			return self.MakeErrorFrame("Exception From FindTarget")
+
+		if len(Answer)  < 6:
+			return self.MakeErrorFrame("Bad N-Tuple from FindTarget")
+
 		Rpt = TargetReport(Answer[0], self.TargetMode, Answer[2])
 		Rpt.SetCrossHairs(Answer[3], Answer[4])
-		Rpt.SetRect1(Answer[5], Answer[6])
-		Rpt.SetRect2(Answer[7], Answer[8])
+		extrastuff = Answer[5]
+		if len(extrastuff) != 2:
+			logger.warn("Bad N-Tuple from findtarget.")
+			return Rpt
+		r1 = extrastuff[0]
+		r2 = extrastuff[1]
+		if len(r1) != 4 or len(r2) != 4:
+			logger.warn("Bad N-Tuple from findtarget.")
+			return Rpt
+		Rpt.SetRect1(r1[0], r1[1], r1[2], r1[3])
+		Rpt.SetRect2(r2[0], r2[1], r2[2], r2[3])
 		return Rpt
 

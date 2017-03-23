@@ -1,0 +1,14 @@
+clippingrotate=1.0
+deadbandturret=0.05
+pgainmove=0.01
+timestamp=1490242368.85
+pgainrotate=0.1
+deadbandrotate=0.75
+pgainrotatetarget=0.0015
+pgainturret=0.005
+clippingmove=0.75
+clippingturret=1.0
+deadbandmove=0.18
+blender=1.0
+deadbandrotatetarget=0.1
+pgaindeadband=0.6

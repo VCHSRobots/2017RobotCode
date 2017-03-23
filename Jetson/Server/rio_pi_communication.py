@@ -13,7 +13,7 @@ import evsslogger
 # Logging
 logger = evsslogger.getLogger()
 # '/home/ubuntu/epic/VisionSystem2017/Server/table_parameters.txt')
-tablefile = "/home/ubuntu/RobotCode2017/Jetson/Server/table_parameters.txt"
+parameterfile = "/home/ubuntu/RobotCode2017/rio_table_parameters.txt"
 
 def run(conn, addr):
 	try:
@@ -38,15 +38,15 @@ def run(conn, addr):
 			conn.close()
 			return
 		if data == (b'Requesting table\n' or b'Requesting table\r\n'):
-			table = table_manners.readTable(tablefile) 
+			table = table_manners.readTable(parameterfile) 
 			table['timestamp'] = time.time()
-			table_manners.writeTableToFile(table, tablefile) 
+			table_manners.writeTableToFile(table, parameterfile) 
 			table_manners.sendTable(conn, table)
 			ittabreports += 1
 			if ittabreports % 10:
 				logger.info("Full tables sent: %d", ittabreports)
 		if data == (b'Requesting timestamp\n' or b'Requesting timestamp\r\n'):
-			table = table_manners.readTable(tablefile)
+			table = table_manners.readTable(parameterfile)
 			timestamp = table['timestamp']
 			stringtimestamp = str(timestamp) + '\n'
 			bytetimestamp = bytearray(stringtimestamp, 'utf-8')

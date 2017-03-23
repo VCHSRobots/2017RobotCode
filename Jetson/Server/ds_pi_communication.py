@@ -11,10 +11,11 @@ import evsslogger
 
 # Logging
 logger = evsslogger.getLogger()
+parameterfile =  '/home/ubuntu/RobotCode2017/rio_table_parameters.txt'
 
 def run(Conn, Addr):
 	#Conn.settimeout(1)
-	table = table_manners.readTable('/home/ubuntu/epic/VisionSystem2017/Server/table_parameters.txt')
+	table = table_manners.readTable(parameterfile)
 	table_manners.sendTable(Conn, table)
 	while True:
 		data = Conn.recv(1024)
@@ -31,7 +32,7 @@ def run(Conn, Addr):
 
 		table[key] = value
 		table['timestamp'] = time.time()
-		table_manners.writeTableToFile(table, '/home/ubuntu/epic/VisionSystem2017/Server/table_parameters.txt')
+		table_manners.writeTableToFile(table, parameterfile)
 		logger.info("Table Data changed (Key/Val: %s = %20.7f). " % (key, value))		
 		print(table)
 		table_manners.sendTable(Conn, table)
