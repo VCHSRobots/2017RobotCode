@@ -28,6 +28,7 @@ import com.kauailabs.navx.frc.AHRS;
  */
 public class AutonomousCommand extends Command {
 	
+	RobotDrive robotDrive = Robot.driveTrain.getRobotDrive();
 	ArrayList<PIDController> autoProgram;
 	Encoder encoder = Robot.driveTrain.getEncoder();
 	AHRS navX = Robot.navX;
@@ -52,14 +53,11 @@ public class AutonomousCommand extends Command {
 
     protected void initialize() {
     	autoStage = 0;
-    	RobotDrive robotDrive = Robot.driveTrain.getRobotDrive();
     	navX.reset();
     	double pGain = Robot.tableReader.get("pgain", .01);
     	double deadband = Robot.tableReader.get("deadband", 0.18);
     	double clipping = Robot.tableReader.get("clipping", 0.75);
-    	Robot.driveTrain.setArcade();
-    	Robot.gearHandler.gearGrab();
-    	Robot.gearHandler.handlerOut();
+
     	
  		autoProgram = new ArrayList<>();
     	autoProgram.add(new PIDRobotDriveMove(
@@ -88,20 +86,20 @@ public class AutonomousCommand extends Command {
     }
     
     protected void execute() {
-    	double feedback;
-    	if(autoStage == 0 || autoStage == 2) feedback = encoder.get();
-    	else feedback = navX.getAngle();
-    	autoProgram.get(autoStage).run(feedback);
-    	System.out.println(autoProgram.get(autoStage));
-    	if(autoProgram.get(autoStage).isDone()){
-    		autoStage++;
+    	if(autoStage < autoProgram.size()){
+    		double feedback;
+	    	if(autoStage == 0 || autoStage == 2) feedback = encoder.get();
+	    	else feedback = navX.getAngle();
+	    	autoProgram.get(autoStage).run(feedback);
+	    	System.out.println(autoProgram.get(autoStage));
+	    	if(autoProgram.get(autoStage).isDone()){
+	    		autoStage++;
+	    	}
     	}
     }
 
     protected boolean isFinished() {
-    	if(autoStage == autoProgram.size()){
-    		return true;
-    	} else return false;
+    	return false;
     }
 
     protected void end() {
