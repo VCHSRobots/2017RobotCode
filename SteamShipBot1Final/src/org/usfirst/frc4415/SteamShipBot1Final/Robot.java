@@ -72,7 +72,10 @@ public class Robot extends IterativeRobot {
     public static TargetReader targetReader;
     public static Mqtt mqtt;
     public static AutoParams autoParams;
+    public static TargetReportMonitor targetReportMonitor;
     public static ShooterThread shooterThread;
+    
+    
     
     /**
      * This function is run when the robot is first started up and should be
@@ -135,6 +138,7 @@ public class Robot extends IterativeRobot {
 		mqtt = new Mqtt("10.44.15.19", 5802, "RoboRio");
 		mqtt.start();
 		autoParams = new AutoParams(mqtt);
+		targetReportMonitor = new TargetReportMonitor(mqtt);
         
         //targetReader.SetTargetRequest("T1");
         
@@ -197,7 +201,17 @@ public class Robot extends IterativeRobot {
 			SmartDashboard.putNumber("Mqtt Errors",   Robot.mqtt.getCountErrors());
 		}
 		
-
+		if (Robot.targetReportMonitor != null) {
+			SmartDashboard.putNumber("TR nMsg", targetReportMonitor.countMsg());
+			SmartDashboard.putNumber("TR nErrs", targetReportMonitor.countErrors());
+			SmartDashboard.putNumber("TR nInValid", targetReportMonitor.countInvalid());
+			SmartDashboard.putNumber("TR nUpdates", targetReportMonitor.countUpdates());
+			
+			SmartDashboard.putNumber("TR X",    targetReportMonitor.report().x1000());
+			SmartDashboard.putNumber("TR Y",    targetReportMonitor.report().y1000());
+			SmartDashboard.putNumber("TR Mode", targetReportMonitor.report().mode());
+		}
+		
 		SmartDashboard.putString("AutoSide",     Robot.autoParams.getSide());
 		SmartDashboard.putString("AutoPrm",      Robot.autoParams.getProgram());
 		SmartDashboard.putBoolean("AutoDefault", Robot.autoParams.isDefaults());

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +19,16 @@ namespace MqttShow
         #region Class Variables...
         private AppSettings m_Settings = new AppSettings();
         private delegate void StringFunc(string msg);
+        private delegate void String2Func(string s1, string s2);
         private delegate void LogFunc(TextBox b, string msg);
         private delegate void VoidFunc();
         Timer m_timer = null;
         Timer m_timer_ping = null;
         Mqtt m_mqtt = null;
         private bool m_dead = false;
+        private DataTable m_MessageTable;
+        private int m_UIDisable = 0;
+
         #endregion
 
         #region Construction...
@@ -34,10 +40,13 @@ namespace MqttShow
             InitializeComponent();
             this.Size = m_Settings.FormSize;
             this.Location = m_Settings.FormLocation;
+            LoadParameters();
             m_mqtt = new Mqtt("10.44.15.19", 5802, "CSharp");
             m_mqtt.NewMessageReady += NewMessageReady;
             m_mqtt.ConnectionStatusChanged += ConnectionStatusChanged;
             m_mqtt.Start();
+
+            SendFrameDecimation();
 
             m_timer = new Timer();
             m_timer.Interval = 50;
@@ -48,6 +57,35 @@ namespace MqttShow
             m_timer_ping.Interval = 10000;
             m_timer_ping.Tick += timer_ping_tick;
             m_timer_ping.Start();
+
+            m_MessageTable = new DataTable("Messages");
+            m_MessageTable.Columns.Add("Topic", typeof(string));
+            m_MessageTable.Columns.Add("Seq", typeof(string));
+            m_MessageTable.Columns.Add("TS", typeof(string));
+            m_MessageTable.Columns.Add("Payload", typeof(string));
+            this.dataGridViewMsgs.DataSource = m_MessageTable;
+        }
+        #endregion
+
+        #region LoadParameters()
+        /// <summary>
+        /// Loads UI parameters from disk
+        /// </summary>
+        private void LoadParameters()
+        {
+            m_UIDisable++;
+            this.numericUpDownFrameDecimation.Value = m_Settings.FrameDecimation;
+            m_UIDisable--;
+        }
+        #endregion
+
+        #region SaveParameters()
+        /// <summary>
+        /// Saves UI parameters to disk.
+        /// </summary>
+        private void SaveParameters()
+        {
+            m_Settings.FrameDecimation = (int) this.numericUpDownFrameDecimation.Value;
         }
         #endregion
 
@@ -83,6 +121,7 @@ namespace MqttShow
             m_mqtt.Kill();
             m_Settings.FormLocation = this.Location;
             m_Settings.FormSize = this.Size;
+            SaveParameters();
             m_Settings.Save();
             base.OnClosing(e);
         }
@@ -199,14 +238,70 @@ namespace MqttShow
         }
         #endregion
 
+        #region ShowSavedMessages()
+        /// <summary>
+        /// Builds a List of messages, and keeps last one.
+        /// </summary>
+        private void ShowSavedMessages()
+        {
+            if (this.InvokeRequired)
+            {
+                VoidFunc f = new VoidFunc(ShowSavedMessages);
+                this.BeginInvoke(f);
+            }
+
+            MqttMessage[] AllMsgs = m_mqtt.GetAllSavedMessages();
+            //TopicComparer sorter = new TopicComparer();
+            //Array.Sort(AllMsgs, sorter);
+            //DataTable dt = new DataTable("Messages");
+            //dt.Columns.Add("Topic", typeof(string));
+            //dt.Columns.Add("Seq", typeof(string));
+            //dt.Columns.Add("TS", typeof(string));
+            //dt.Columns.Add("Payload", typeof(string));
+            m_MessageTable.Rows.Clear();
+            foreach (MqttMessage m in AllMsgs)
+            {
+                string sseq = string.Format("{0,0}", m.Sequence);
+                string sts = string.Format("{0,0}", m.Timestamp);
+                m_MessageTable.Rows.Add(m.Topic, sseq, sts, m.Message);
+            }
+            //dataGridView1.DataSource = m_MessageTable;
+            //textBoxMqttList.Lines = x.ToArray();
+        }
+        #endregion
+
+        private void DisplayPic(string data)
+        {
+            try
+            {
+                byte[] bdata = Convert.FromBase64String(data);
+                MemoryStream ms = new MemoryStream(bdata);
+                Image img = Image.FromStream(ms);
+                pictureBoxTarget.Image = img;
+            }
+            catch
+            {
+                return;
+            }
+        }
+
         #region ProcessIncomingMsg()
         private void ProcessIncomingMsg(string topic, string message)
         {
+            if (topic == "pic/ts")
+            {
+                object[] args = new object[1];
+                args[0] = message;
+                StringFunc f = new StringFunc(DisplayPic);
+                this.BeginInvoke(f, args);
+                return;
+            }
+
             string[] names = topic.Split('/');
             if (names.Length <= 2) return;
             if (names[0] != "robot") return;
 
-
+            ShowSavedMessages();
 
             if (topic == "robot/roborio/log")
             {
@@ -215,7 +310,7 @@ namespace MqttShow
             }
             else
             {
-                AddLogLine(textBoxMqttLog, topic + ": " + message);
+                AddLogLine(textBoxMqttList, topic + ": " + message);
             }
 
             if (names[1] == "jetson")
@@ -388,7 +483,7 @@ namespace MqttShow
 
         private void linkLabelClearMqtt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            textBoxMqttLog.Text = "";
+            textBoxMqttList.Text = "";
         }
         #endregion
 
@@ -469,7 +564,43 @@ namespace MqttShow
             m_mqtt.SendMessage("robot/ds/sendparams", "0");
         }
         #endregion
+
+        #region SendFrameDecimation()
+        /// <summary>
+        /// Sends the Frame Decimation...
+        /// </summary>
+        /// <param name="iDecimate"></param>
+        private void SendFrameDecimation()
+        {
+            if (m_UIDisable > 0) return;
+            int icount = (int)this.numericUpDownFrameDecimation.Value;
+            m_mqtt.SendMessage("robot/ds/framedecimation", icount.ToString());
+        }
+        #endregion
+
+        #region UI Events...
+        private void numericUpDownFrameDecimation_ValueChanged(object sender, EventArgs e)
+        {
+            SendFrameDecimation();
+        }
+        #endregion
     }
+
+    #region TopicComparer class
+    public class TopicComparer : IComparer
+    {
+        // Call CaseInsensitiveComparer.Compare with the parameters reversed.
+        public int Compare(Object x, Object y)
+        {
+            if ((x is MqttMessage) && (y is MqttMessage)) {
+                MqttMessage xx = (MqttMessage) x;
+                MqttMessage yy = (MqttMessage) y;
+                return string.Compare(xx.Topic, yy.Topic);
+            }
+            return 0;
+        }
+    }
+    #endregion
 
     #region AppSettings class
     public class AppSettings : ApplicationSettingsBase
@@ -493,6 +624,17 @@ namespace MqttShow
             set { this["FormLocation"] = (Point)value; }
         }
         #endregion
+
+        #region FrameDecimation
+        [UserScopedSetting()]
+        [DefaultSettingValue("100")]
+        public int FrameDecimation
+        {
+            get { return (int)this["FrameDecimation"]; }
+            set { this["FrameDecimation"] = (int)value; }
+        }
+        #endregion
+
     }
     #endregion
 }
