@@ -34,13 +34,10 @@
             this.label_ConnectionStatus = new System.Windows.Forms.Label();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
-            this.tabPageRobot = new System.Windows.Forms.TabPage();
-            this.textBoxRobotLog = new System.Windows.Forms.TextBox();
-            this.tabPageJetson = new System.Windows.Forms.TabPage();
-            this.textBoxJetsonLog = new System.Windows.Forms.TextBox();
-            this.tabPageMqttLog = new System.Windows.Forms.TabPage();
-            this.textBoxMqttLog = new System.Windows.Forms.TextBox();
             this.tabPageTarSys = new System.Windows.Forms.TabPage();
+            this.labelParamErrors = new System.Windows.Forms.Label();
+            this.buttonForceDefaults = new System.Windows.Forms.Button();
+            this.buttonGetParams = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButtonTargetPeg = new System.Windows.Forms.RadioButton();
             this.radioButtonTargetBoiler = new System.Windows.Forms.RadioButton();
@@ -49,6 +46,14 @@
             this.linkLabelSendTargetMode = new System.Windows.Forms.LinkLabel();
             this.textBoxParamEdit = new System.Windows.Forms.TextBox();
             this.buttonSendParams = new System.Windows.Forms.Button();
+            this.tabPageMsgs = new System.Windows.Forms.TabPage();
+            this.dataGridViewMsgs = new System.Windows.Forms.DataGridView();
+            this.tabPageRobot = new System.Windows.Forms.TabPage();
+            this.textBoxRobotLog = new System.Windows.Forms.TextBox();
+            this.tabPageJetson = new System.Windows.Forms.TabPage();
+            this.textBoxJetsonLog = new System.Windows.Forms.TextBox();
+            this.tabPageMqttList = new System.Windows.Forms.TabPage();
+            this.textBoxMqttList = new System.Windows.Forms.TextBox();
             this.tabPagePID = new System.Windows.Forms.TabPage();
             this.linkLabelSendPIDs = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,22 +85,24 @@
             this.panelClearBox = new System.Windows.Forms.Panel();
             this.linkLabelSendAuto = new System.Windows.Forms.LinkLabel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.buttonGetParams = new System.Windows.Forms.Button();
-            this.buttonForceDefaults = new System.Windows.Forms.Button();
-            this.labelParamErrors = new System.Windows.Forms.Label();
+            this.numericUpDownFrameDecimation = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
-            this.tabPageRobot.SuspendLayout();
-            this.tabPageJetson.SuspendLayout();
-            this.tabPageMqttLog.SuspendLayout();
             this.tabPageTarSys.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabPageMsgs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMsgs)).BeginInit();
+            this.tabPageRobot.SuspendLayout();
+            this.tabPageJetson.SuspendLayout();
+            this.tabPageMqttList.SuspendLayout();
             this.tabPagePID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelClearBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrameDecimation)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_MainLog
@@ -106,7 +113,7 @@
             this.textBox_MainLog.Multiline = true;
             this.textBox_MainLog.Name = "textBox_MainLog";
             this.textBox_MainLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_MainLog.Size = new System.Drawing.Size(492, 426);
+            this.textBox_MainLog.Size = new System.Drawing.Size(615, 426);
             this.textBox_MainLog.TabIndex = 0;
             this.textBox_MainLog.WordWrap = false;
             // 
@@ -129,16 +136,17 @@
             // tabControlMain
             // 
             this.tabControlMain.Controls.Add(this.tabPageGeneral);
+            this.tabControlMain.Controls.Add(this.tabPageTarSys);
+            this.tabControlMain.Controls.Add(this.tabPageMsgs);
             this.tabControlMain.Controls.Add(this.tabPageRobot);
             this.tabControlMain.Controls.Add(this.tabPageJetson);
-            this.tabControlMain.Controls.Add(this.tabPageMqttLog);
-            this.tabControlMain.Controls.Add(this.tabPageTarSys);
+            this.tabControlMain.Controls.Add(this.tabPageMqttList);
             this.tabControlMain.Controls.Add(this.tabPagePID);
             this.tabControlMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlMain.Location = new System.Drawing.Point(494, 67);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(506, 461);
+            this.tabControlMain.Size = new System.Drawing.Size(629, 461);
             this.tabControlMain.TabIndex = 4;
             // 
             // tabPageGeneral
@@ -147,75 +155,10 @@
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 25);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(498, 432);
+            this.tabPageGeneral.Size = new System.Drawing.Size(621, 432);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General Log";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
-            // 
-            // tabPageRobot
-            // 
-            this.tabPageRobot.Controls.Add(this.textBoxRobotLog);
-            this.tabPageRobot.Location = new System.Drawing.Point(4, 25);
-            this.tabPageRobot.Name = "tabPageRobot";
-            this.tabPageRobot.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRobot.Size = new System.Drawing.Size(498, 432);
-            this.tabPageRobot.TabIndex = 1;
-            this.tabPageRobot.Text = "Robot Log";
-            this.tabPageRobot.UseVisualStyleBackColor = true;
-            // 
-            // textBoxRobotLog
-            // 
-            this.textBoxRobotLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxRobotLog.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRobotLog.Location = new System.Drawing.Point(3, 3);
-            this.textBoxRobotLog.Multiline = true;
-            this.textBoxRobotLog.Name = "textBoxRobotLog";
-            this.textBoxRobotLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRobotLog.Size = new System.Drawing.Size(492, 426);
-            this.textBoxRobotLog.TabIndex = 1;
-            this.textBoxRobotLog.WordWrap = false;
-            // 
-            // tabPageJetson
-            // 
-            this.tabPageJetson.Controls.Add(this.textBoxJetsonLog);
-            this.tabPageJetson.Location = new System.Drawing.Point(4, 25);
-            this.tabPageJetson.Name = "tabPageJetson";
-            this.tabPageJetson.Size = new System.Drawing.Size(498, 432);
-            this.tabPageJetson.TabIndex = 2;
-            this.tabPageJetson.Text = "Jetson Log";
-            this.tabPageJetson.UseVisualStyleBackColor = true;
-            // 
-            // textBoxJetsonLog
-            // 
-            this.textBoxJetsonLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxJetsonLog.Location = new System.Drawing.Point(0, 0);
-            this.textBoxJetsonLog.Multiline = true;
-            this.textBoxJetsonLog.Name = "textBoxJetsonLog";
-            this.textBoxJetsonLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxJetsonLog.Size = new System.Drawing.Size(498, 432);
-            this.textBoxJetsonLog.TabIndex = 2;
-            this.textBoxJetsonLog.WordWrap = false;
-            // 
-            // tabPageMqttLog
-            // 
-            this.tabPageMqttLog.Controls.Add(this.textBoxMqttLog);
-            this.tabPageMqttLog.Location = new System.Drawing.Point(4, 25);
-            this.tabPageMqttLog.Name = "tabPageMqttLog";
-            this.tabPageMqttLog.Size = new System.Drawing.Size(498, 432);
-            this.tabPageMqttLog.TabIndex = 3;
-            this.tabPageMqttLog.Text = "Mqtt Log";
-            this.tabPageMqttLog.UseVisualStyleBackColor = true;
-            // 
-            // textBoxMqttLog
-            // 
-            this.textBoxMqttLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxMqttLog.Location = new System.Drawing.Point(0, 0);
-            this.textBoxMqttLog.Multiline = true;
-            this.textBoxMqttLog.Name = "textBoxMqttLog";
-            this.textBoxMqttLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxMqttLog.Size = new System.Drawing.Size(498, 432);
-            this.textBoxMqttLog.TabIndex = 1;
-            this.textBoxMqttLog.WordWrap = false;
             // 
             // tabPageTarSys
             // 
@@ -227,10 +170,40 @@
             this.tabPageTarSys.Controls.Add(this.buttonSendParams);
             this.tabPageTarSys.Location = new System.Drawing.Point(4, 25);
             this.tabPageTarSys.Name = "tabPageTarSys";
-            this.tabPageTarSys.Size = new System.Drawing.Size(498, 432);
+            this.tabPageTarSys.Size = new System.Drawing.Size(621, 432);
             this.tabPageTarSys.TabIndex = 5;
             this.tabPageTarSys.Text = "TargSys";
             this.tabPageTarSys.UseVisualStyleBackColor = true;
+            // 
+            // labelParamErrors
+            // 
+            this.labelParamErrors.AutoSize = true;
+            this.labelParamErrors.Location = new System.Drawing.Point(164, 67);
+            this.labelParamErrors.Name = "labelParamErrors";
+            this.labelParamErrors.Size = new System.Drawing.Size(0, 16);
+            this.labelParamErrors.TabIndex = 17;
+            // 
+            // buttonForceDefaults
+            // 
+            this.buttonForceDefaults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonForceDefaults.Location = new System.Drawing.Point(161, 17);
+            this.buttonForceDefaults.Name = "buttonForceDefaults";
+            this.buttonForceDefaults.Size = new System.Drawing.Size(129, 30);
+            this.buttonForceDefaults.TabIndex = 16;
+            this.buttonForceDefaults.Text = "Force Defaults";
+            this.buttonForceDefaults.UseVisualStyleBackColor = true;
+            this.buttonForceDefaults.Click += new System.EventHandler(this.buttonForceDefaults_Click);
+            // 
+            // buttonGetParams
+            // 
+            this.buttonGetParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGetParams.Location = new System.Drawing.Point(20, 53);
+            this.buttonGetParams.Name = "buttonGetParams";
+            this.buttonGetParams.Size = new System.Drawing.Size(129, 30);
+            this.buttonGetParams.TabIndex = 15;
+            this.buttonGetParams.Text = "Get Params";
+            this.buttonGetParams.UseVisualStyleBackColor = true;
+            this.buttonGetParams.Click += new System.EventHandler(this.buttonGetParams_Click);
             // 
             // panel2
             // 
@@ -319,6 +292,93 @@
             this.buttonSendParams.UseVisualStyleBackColor = true;
             this.buttonSendParams.Click += new System.EventHandler(this.buttonSendParams_Click);
             // 
+            // tabPageMsgs
+            // 
+            this.tabPageMsgs.Controls.Add(this.dataGridViewMsgs);
+            this.tabPageMsgs.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMsgs.Name = "tabPageMsgs";
+            this.tabPageMsgs.Size = new System.Drawing.Size(621, 432);
+            this.tabPageMsgs.TabIndex = 6;
+            this.tabPageMsgs.Text = "Msgs";
+            this.tabPageMsgs.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewMsgs
+            // 
+            this.dataGridViewMsgs.AllowUserToAddRows = false;
+            this.dataGridViewMsgs.AllowUserToDeleteRows = false;
+            this.dataGridViewMsgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMsgs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewMsgs.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewMsgs.Name = "dataGridViewMsgs";
+            this.dataGridViewMsgs.ReadOnly = true;
+            this.dataGridViewMsgs.Size = new System.Drawing.Size(621, 432);
+            this.dataGridViewMsgs.TabIndex = 0;
+            // 
+            // tabPageRobot
+            // 
+            this.tabPageRobot.Controls.Add(this.textBoxRobotLog);
+            this.tabPageRobot.Location = new System.Drawing.Point(4, 25);
+            this.tabPageRobot.Name = "tabPageRobot";
+            this.tabPageRobot.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageRobot.Size = new System.Drawing.Size(621, 432);
+            this.tabPageRobot.TabIndex = 1;
+            this.tabPageRobot.Text = "RoboRio Log";
+            this.tabPageRobot.UseVisualStyleBackColor = true;
+            // 
+            // textBoxRobotLog
+            // 
+            this.textBoxRobotLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxRobotLog.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRobotLog.Location = new System.Drawing.Point(3, 3);
+            this.textBoxRobotLog.Multiline = true;
+            this.textBoxRobotLog.Name = "textBoxRobotLog";
+            this.textBoxRobotLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxRobotLog.Size = new System.Drawing.Size(615, 426);
+            this.textBoxRobotLog.TabIndex = 1;
+            this.textBoxRobotLog.WordWrap = false;
+            // 
+            // tabPageJetson
+            // 
+            this.tabPageJetson.Controls.Add(this.textBoxJetsonLog);
+            this.tabPageJetson.Location = new System.Drawing.Point(4, 25);
+            this.tabPageJetson.Name = "tabPageJetson";
+            this.tabPageJetson.Size = new System.Drawing.Size(621, 432);
+            this.tabPageJetson.TabIndex = 2;
+            this.tabPageJetson.Text = "Jetson Msgs";
+            this.tabPageJetson.UseVisualStyleBackColor = true;
+            // 
+            // textBoxJetsonLog
+            // 
+            this.textBoxJetsonLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxJetsonLog.Location = new System.Drawing.Point(0, 0);
+            this.textBoxJetsonLog.Multiline = true;
+            this.textBoxJetsonLog.Name = "textBoxJetsonLog";
+            this.textBoxJetsonLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxJetsonLog.Size = new System.Drawing.Size(621, 432);
+            this.textBoxJetsonLog.TabIndex = 2;
+            this.textBoxJetsonLog.WordWrap = false;
+            // 
+            // tabPageMqttList
+            // 
+            this.tabPageMqttList.Controls.Add(this.textBoxMqttList);
+            this.tabPageMqttList.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMqttList.Name = "tabPageMqttList";
+            this.tabPageMqttList.Size = new System.Drawing.Size(621, 432);
+            this.tabPageMqttList.TabIndex = 3;
+            this.tabPageMqttList.Text = "Mqtt List";
+            this.tabPageMqttList.UseVisualStyleBackColor = true;
+            // 
+            // textBoxMqttList
+            // 
+            this.textBoxMqttList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxMqttList.Location = new System.Drawing.Point(0, 0);
+            this.textBoxMqttList.Multiline = true;
+            this.textBoxMqttList.Name = "textBoxMqttList";
+            this.textBoxMqttList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxMqttList.Size = new System.Drawing.Size(621, 432);
+            this.textBoxMqttList.TabIndex = 1;
+            this.textBoxMqttList.WordWrap = false;
+            // 
             // tabPagePID
             // 
             this.tabPagePID.Controls.Add(this.linkLabelSendPIDs);
@@ -326,7 +386,7 @@
             this.tabPagePID.Controls.Add(this.dataGridView1);
             this.tabPagePID.Location = new System.Drawing.Point(4, 25);
             this.tabPagePID.Name = "tabPagePID";
-            this.tabPagePID.Size = new System.Drawing.Size(498, 432);
+            this.tabPagePID.Size = new System.Drawing.Size(621, 432);
             this.tabPagePID.TabIndex = 4;
             this.tabPagePID.Text = "PID Params";
             this.tabPagePID.UseVisualStyleBackColor = true;
@@ -619,42 +679,30 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // buttonGetParams
+            // numericUpDownFrameDecimation
             // 
-            this.buttonGetParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGetParams.Location = new System.Drawing.Point(20, 53);
-            this.buttonGetParams.Name = "buttonGetParams";
-            this.buttonGetParams.Size = new System.Drawing.Size(129, 30);
-            this.buttonGetParams.TabIndex = 15;
-            this.buttonGetParams.Text = "Get Params";
-            this.buttonGetParams.UseVisualStyleBackColor = true;
-            this.buttonGetParams.Click += new System.EventHandler(this.buttonGetParams_Click);
+            this.numericUpDownFrameDecimation.Location = new System.Drawing.Point(334, 108);
+            this.numericUpDownFrameDecimation.Name = "numericUpDownFrameDecimation";
+            this.numericUpDownFrameDecimation.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownFrameDecimation.TabIndex = 24;
+            this.numericUpDownFrameDecimation.ValueChanged += new System.EventHandler(this.numericUpDownFrameDecimation_ValueChanged);
             // 
-            // buttonForceDefaults
+            // label2
             // 
-            this.buttonForceDefaults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonForceDefaults.Location = new System.Drawing.Point(161, 17);
-            this.buttonForceDefaults.Name = "buttonForceDefaults";
-            this.buttonForceDefaults.Size = new System.Drawing.Size(129, 30);
-            this.buttonForceDefaults.TabIndex = 16;
-            this.buttonForceDefaults.Text = "Force Defaults";
-            this.buttonForceDefaults.UseVisualStyleBackColor = true;
-            this.buttonForceDefaults.Click += new System.EventHandler(this.buttonForceDefaults_Click);
-            // 
-            // labelParamErrors
-            // 
-            this.labelParamErrors.AutoSize = true;
-            this.labelParamErrors.Location = new System.Drawing.Point(164, 67);
-            this.labelParamErrors.Name = "labelParamErrors";
-            this.labelParamErrors.Size = new System.Drawing.Size(87, 16);
-            this.labelParamErrors.TabIndex = 17;
-            this.labelParamErrors.Text = "Syntax Errors";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(331, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Pic Speed (0=off)";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 662);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numericUpDownFrameDecimation);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.linkLabelSendAuto);
             this.Controls.Add(this.panelClearBox);
@@ -669,16 +717,18 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
-            this.tabPageRobot.ResumeLayout(false);
-            this.tabPageRobot.PerformLayout();
-            this.tabPageJetson.ResumeLayout(false);
-            this.tabPageJetson.PerformLayout();
-            this.tabPageMqttLog.ResumeLayout(false);
-            this.tabPageMqttLog.PerformLayout();
             this.tabPageTarSys.ResumeLayout(false);
             this.tabPageTarSys.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabPageMsgs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMsgs)).EndInit();
+            this.tabPageRobot.ResumeLayout(false);
+            this.tabPageRobot.PerformLayout();
+            this.tabPageJetson.ResumeLayout(false);
+            this.tabPageJetson.PerformLayout();
+            this.tabPageMqttList.ResumeLayout(false);
+            this.tabPageMqttList.PerformLayout();
             this.tabPagePID.ResumeLayout(false);
             this.tabPagePID.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -689,6 +739,7 @@
             this.panel3.PerformLayout();
             this.panelClearBox.ResumeLayout(false);
             this.panelClearBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrameDecimation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,8 +770,8 @@
         private System.Windows.Forms.RadioButton radioButtonCenterGearAndShoot;
         private System.Windows.Forms.RadioButton radioButtonCenterGear;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabPage tabPageMqttLog;
-        private System.Windows.Forms.TextBox textBoxMqttLog;
+        private System.Windows.Forms.TabPage tabPageMqttList;
+        private System.Windows.Forms.TextBox textBoxMqttList;
         private System.Windows.Forms.LinkLabel linkLabelClearGeneral;
         private System.Windows.Forms.LinkLabel linkLabelClearRobot;
         private System.Windows.Forms.LinkLabel linkLabelClearJetson;
@@ -750,6 +801,10 @@
         private System.Windows.Forms.Button buttonForceDefaults;
         private System.Windows.Forms.Button buttonGetParams;
         private System.Windows.Forms.Label labelParamErrors;
+        private System.Windows.Forms.TabPage tabPageMsgs;
+        private System.Windows.Forms.DataGridView dataGridViewMsgs;
+        private System.Windows.Forms.NumericUpDown numericUpDownFrameDecimation;
+        private System.Windows.Forms.Label label2;
     }
 }
 
