@@ -28,7 +28,7 @@ Cam = None
 
 if Input == "0":
 	logger.info("Starting demo for target \"0\" (HIGH BOILER)...")
-	time.sleep(3)
+	time.sleep(1)
 	try:
 		call(["v4l2-ctl", "-c", "exposure_auto=1"])
 		call(["v4l2-ctl", "-c", "exposure_absolute=5"])
@@ -45,7 +45,7 @@ if Input == "0":
 			cv2.waitKey(1)
 elif Input == "1":
 	logger.info("TARGETING DEMO: Starting demo for target \"1\" (GEAR DELIVERY)...")
-	time.sleep(3)
+	time.sleep(1)
 	try:
 		call(["v4l2-ctl", "-c", "exposure_auto=1"])
 		call(["v4l2-ctl", "-c", "exposure_absolute=5"])
