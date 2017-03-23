@@ -59,7 +59,7 @@ namespace MqttShow
             int nx = this.ClientSize.Width;
             int ny = this.ClientSize.Height;
             int nx2 = nx / 2 - gap - gap / 2;
-            tabControlMain.Location = new Point(nx/2 + gap/2, tabControlMain.Location.Y);
+            tabControlMain.Location = new Point(nx / 2 + gap / 2, tabControlMain.Location.Y);
             panelClearBox.Location = new Point(nx / 2 + gap / 2, panelClearBox.Location.Y);
             int w = nx - tabControlMain.Location.X - gap;
             int h = ny - tabControlMain.Location.Y - gap;
@@ -67,6 +67,12 @@ namespace MqttShow
             w = nx / 2 - gap - gap / 2;
             h = ny - pictureBoxTarget.Location.Y - gap;
             pictureBoxTarget.Size = new Size(w, h);
+
+            nx = tabPageTarSys.ClientSize.Width;
+            ny = tabPageTarSys.ClientSize.Height;
+            w = nx - textBoxParamEdit.Location.X - gap;
+            h = ny - textBoxParamEdit.Location.Y - gap;
+            textBoxParamEdit.Size = new Size(w, h);
         }
         #endregion
 
@@ -200,10 +206,16 @@ namespace MqttShow
             if (names.Length <= 2) return;
             if (names[0] != "robot") return;
 
+
+
             if (topic == "robot/roborio/log")
             {
                 AddLogLine(textBoxRobotLog, message);
                 return;
+            }
+            else
+            {
+                AddLogLine(textBoxMqttLog, topic + ": " + message);
             }
 
             if (names[1] == "jetson")
@@ -233,6 +245,24 @@ namespace MqttShow
                 string msg = topic + ": " + message;
                 AddLogLine(textBox_MainLog, msg);
             }
+
+            if (topic == "robot/jetson/targetparams")
+            {
+                object[] args = new object[1];
+                args[0] = message;
+                this.BeginInvoke(new StringFunc(LoadParams), args); 
+            }
+        }
+        #endregion
+
+        #region LoadParams()
+        /// <summary>
+        /// Loads the params into the text box for editing.
+        /// </summary>
+        /// <param name="data"></param>
+        private void LoadParams(string data)
+        {
+            textBoxParamEdit.Lines = data.Split(';');
         }
         #endregion
 
@@ -367,6 +397,76 @@ namespace MqttShow
         {
             SendSide();
             SendAutoProgram();
+        }
+
+        private void linkLabelSendTargetMode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string star = "0";
+            if (this.radioButtonTargetNone.Checked) star = "0";
+            if (this.radioButtonTargetBoiler.Checked) star = "1";
+            if (this.radioButtonTargetPeg.Checked) star = "2";
+            m_mqtt.SendMessage("robot/ds/targetmode", star);
+        }
+        #endregion
+
+        #region Sending Commands to RoboRio
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                m_mqtt.SendMessage("robot/ds/tstcamlight", "1");
+            }
+            else
+            {
+                m_mqtt.SendMessage("robot/ds/tstcamlight", "0");
+            }
+        }
+        #endregion
+
+        #region Send Commands to Target System...
+
+        private void buttonSendParams_Click(object sender, EventArgs e)
+        {
+            // Encode the parameters, skip lines that don't work.
+            string m = "";
+            string[] lines = textBoxParamEdit.Lines;
+            int nerrors = 0;
+            foreach( string x in lines)
+            {
+                bool okay = false;
+                string xx = x.Trim();
+                if (xx.Length <= 0) continue;
+                string[] parts = xx.Split('=');
+                if (parts.Length == 2) {
+                    string key = parts[0];
+                    double val;
+                    okay = double.TryParse(parts[1], out val);
+                    if (okay)
+                    {
+                        string p = key + "=" + string.Format("{0}", val) + ";";
+                        m += p;
+                    }
+                }
+                if (!okay) nerrors++;
+            }
+            m_mqtt.SendMessage("robot/ds/targetparams", m);
+            if (nerrors > 0) {
+                this.labelParamErrors.Text = string.Format("Syntax Errors {0:0}", nerrors);
+            }
+            else
+            {
+                this.labelParamErrors.Text = "";
+            }
+        }
+
+        private void buttonForceDefaults_Click(object sender, EventArgs e)
+        {
+            m_mqtt.SendMessage("robot/ds/usedefaultparams", "0");
+        }
+
+        private void buttonGetParams_Click(object sender, EventArgs e)
+        {
+            m_mqtt.SendMessage("robot/ds/sendparams", "0");
         }
         #endregion
     }

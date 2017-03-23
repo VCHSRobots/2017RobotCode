@@ -40,15 +40,27 @@
             this.textBoxJetsonLog = new System.Windows.Forms.TextBox();
             this.tabPageMqttLog = new System.Windows.Forms.TabPage();
             this.textBoxMqttLog = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tabPageTarSys = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButtonTargetPeg = new System.Windows.Forms.RadioButton();
+            this.radioButtonTargetBoiler = new System.Windows.Forms.RadioButton();
+            this.radioButtonTargetNone = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.linkLabelSendTargetMode = new System.Windows.Forms.LinkLabel();
+            this.textBoxParamEdit = new System.Windows.Forms.TextBox();
             this.buttonSendParams = new System.Windows.Forms.Button();
+            this.tabPagePID = new System.Windows.Forms.TabPage();
+            this.linkLabelSendPIDs = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PidName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PidSP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PidSP2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PidTLow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PidTHigh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PidGain = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PidD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PidI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBoxTarget = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonBlueSide = new System.Windows.Forms.RadioButton();
@@ -66,32 +78,24 @@
             this.linkLabelClearJetson = new System.Windows.Forms.LinkLabel();
             this.linkLabelClearMqtt = new System.Windows.Forms.LinkLabel();
             this.panelClearBox = new System.Windows.Forms.Panel();
-            this.tabPagePID = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.linkLabelSendPIDs = new System.Windows.Forms.LinkLabel();
-            this.tabPageTarSys = new System.Windows.Forms.TabPage();
-            this.PidName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidSP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidSP2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidTLow = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidTHigh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidGain = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linkLabelSendAuto = new System.Windows.Forms.LinkLabel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.buttonGetParams = new System.Windows.Forms.Button();
+            this.buttonForceDefaults = new System.Windows.Forms.Button();
+            this.labelParamErrors = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageRobot.SuspendLayout();
             this.tabPageJetson.SuspendLayout();
             this.tabPageMqttLog.SuspendLayout();
+            this.tabPageTarSys.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tabPagePID.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelClearBox.SuspendLayout();
-            this.tabPagePID.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPageTarSys.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_MainLog
@@ -131,7 +135,7 @@
             this.tabControlMain.Controls.Add(this.tabPageTarSys);
             this.tabControlMain.Controls.Add(this.tabPagePID);
             this.tabControlMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControlMain.Location = new System.Drawing.Point(398, 34);
+            this.tabControlMain.Location = new System.Drawing.Point(494, 67);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(506, 461);
@@ -213,79 +217,196 @@
             this.textBoxMqttLog.TabIndex = 1;
             this.textBoxMqttLog.WordWrap = false;
             // 
-            // textBox1
+            // tabPageTarSys
             // 
-            this.textBox1.Location = new System.Drawing.Point(83, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 5;
+            this.tabPageTarSys.Controls.Add(this.labelParamErrors);
+            this.tabPageTarSys.Controls.Add(this.buttonForceDefaults);
+            this.tabPageTarSys.Controls.Add(this.buttonGetParams);
+            this.tabPageTarSys.Controls.Add(this.panel2);
+            this.tabPageTarSys.Controls.Add(this.textBoxParamEdit);
+            this.tabPageTarSys.Controls.Add(this.buttonSendParams);
+            this.tabPageTarSys.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTarSys.Name = "tabPageTarSys";
+            this.tabPageTarSys.Size = new System.Drawing.Size(498, 432);
+            this.tabPageTarSys.TabIndex = 5;
+            this.tabPageTarSys.Text = "TargSys";
+            this.tabPageTarSys.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // panel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Param2";
+            this.panel2.Controls.Add(this.radioButtonTargetPeg);
+            this.panel2.Controls.Add(this.radioButtonTargetBoiler);
+            this.panel2.Controls.Add(this.radioButtonTargetNone);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.linkLabelSendTargetMode);
+            this.panel2.Location = new System.Drawing.Point(311, 17);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(155, 83);
+            this.panel2.TabIndex = 14;
             // 
-            // textBox2
+            // radioButtonTargetPeg
             // 
-            this.textBox2.Location = new System.Drawing.Point(83, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 7;
+            this.radioButtonTargetPeg.AutoSize = true;
+            this.radioButtonTargetPeg.Location = new System.Drawing.Point(12, 31);
+            this.radioButtonTargetPeg.Name = "radioButtonTargetPeg";
+            this.radioButtonTargetPeg.Size = new System.Drawing.Size(51, 20);
+            this.radioButtonTargetPeg.TabIndex = 4;
+            this.radioButtonTargetPeg.Text = "Peg";
+            this.radioButtonTargetPeg.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // radioButtonTargetBoiler
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Param1";
+            this.radioButtonTargetBoiler.AutoSize = true;
+            this.radioButtonTargetBoiler.Location = new System.Drawing.Point(12, 57);
+            this.radioButtonTargetBoiler.Name = "radioButtonTargetBoiler";
+            this.radioButtonTargetBoiler.Size = new System.Drawing.Size(61, 20);
+            this.radioButtonTargetBoiler.TabIndex = 3;
+            this.radioButtonTargetBoiler.Text = "Boiler";
+            this.radioButtonTargetBoiler.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // radioButtonTargetNone
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 16);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Param4";
+            this.radioButtonTargetNone.AutoSize = true;
+            this.radioButtonTargetNone.Checked = true;
+            this.radioButtonTargetNone.Location = new System.Drawing.Point(74, 31);
+            this.radioButtonTargetNone.Name = "radioButtonTargetNone";
+            this.radioButtonTargetNone.Size = new System.Drawing.Size(59, 20);
+            this.radioButtonTargetNone.TabIndex = 2;
+            this.radioButtonTargetNone.TabStop = true;
+            this.radioButtonTargetNone.Text = "None";
+            this.radioButtonTargetNone.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // label8
             // 
-            this.textBox3.Location = new System.Drawing.Point(83, 95);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 11;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(23, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 16);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Target Mode";
             // 
-            // label5
+            // linkLabelSendTargetMode
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 98);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 16);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Param3";
+            this.linkLabelSendTargetMode.AutoSize = true;
+            this.linkLabelSendTargetMode.BackColor = System.Drawing.SystemColors.Control;
+            this.linkLabelSendTargetMode.Location = new System.Drawing.Point(93, 57);
+            this.linkLabelSendTargetMode.Name = "linkLabelSendTargetMode";
+            this.linkLabelSendTargetMode.Size = new System.Drawing.Size(40, 16);
+            this.linkLabelSendTargetMode.TabIndex = 0;
+            this.linkLabelSendTargetMode.TabStop = true;
+            this.linkLabelSendTargetMode.Text = "Send";
+            this.linkLabelSendTargetMode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSendTargetMode_LinkClicked);
             // 
-            // textBox4
+            // textBoxParamEdit
             // 
-            this.textBox4.Location = new System.Drawing.Point(83, 126);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 9;
+            this.textBoxParamEdit.Location = new System.Drawing.Point(20, 106);
+            this.textBoxParamEdit.Multiline = true;
+            this.textBoxParamEdit.Name = "textBoxParamEdit";
+            this.textBoxParamEdit.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxParamEdit.Size = new System.Drawing.Size(464, 311);
+            this.textBoxParamEdit.TabIndex = 5;
+            this.textBoxParamEdit.WordWrap = false;
             // 
             // buttonSendParams
             // 
             this.buttonSendParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSendParams.Location = new System.Drawing.Point(46, 162);
+            this.buttonSendParams.Location = new System.Drawing.Point(20, 17);
             this.buttonSendParams.Name = "buttonSendParams";
-            this.buttonSendParams.Size = new System.Drawing.Size(100, 30);
+            this.buttonSendParams.Size = new System.Drawing.Size(129, 30);
             this.buttonSendParams.TabIndex = 13;
-            this.buttonSendParams.Text = "Send";
+            this.buttonSendParams.Text = "Send Params";
             this.buttonSendParams.UseVisualStyleBackColor = true;
+            this.buttonSendParams.Click += new System.EventHandler(this.buttonSendParams_Click);
+            // 
+            // tabPagePID
+            // 
+            this.tabPagePID.Controls.Add(this.linkLabelSendPIDs);
+            this.tabPagePID.Controls.Add(this.label1);
+            this.tabPagePID.Controls.Add(this.dataGridView1);
+            this.tabPagePID.Location = new System.Drawing.Point(4, 25);
+            this.tabPagePID.Name = "tabPagePID";
+            this.tabPagePID.Size = new System.Drawing.Size(498, 432);
+            this.tabPagePID.TabIndex = 4;
+            this.tabPagePID.Text = "PID Params";
+            this.tabPagePID.UseVisualStyleBackColor = true;
+            // 
+            // linkLabelSendPIDs
+            // 
+            this.linkLabelSendPIDs.AutoSize = true;
+            this.linkLabelSendPIDs.Location = new System.Drawing.Point(18, 22);
+            this.linkLabelSendPIDs.Name = "linkLabelSendPIDs";
+            this.linkLabelSendPIDs.Size = new System.Drawing.Size(40, 16);
+            this.linkLabelSendPIDs.TabIndex = 2;
+            this.linkLabelSendPIDs.TabStop = true;
+            this.linkLabelSendPIDs.Text = "Send";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(93, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(253, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "NOT IMPLIMENTED YET";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PidName,
+            this.PidSP1,
+            this.PidSP2,
+            this.PidTLow,
+            this.PidTHigh,
+            this.PidGain,
+            this.PidD,
+            this.PidI});
+            this.dataGridView1.Location = new System.Drawing.Point(7, 62);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(483, 367);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // PidName
+            // 
+            this.PidName.HeaderText = "Name";
+            this.PidName.Name = "PidName";
+            // 
+            // PidSP1
+            // 
+            this.PidSP1.HeaderText = "SP1";
+            this.PidSP1.Name = "PidSP1";
+            // 
+            // PidSP2
+            // 
+            this.PidSP2.HeaderText = "SP2";
+            this.PidSP2.Name = "PidSP2";
+            // 
+            // PidTLow
+            // 
+            this.PidTLow.HeaderText = "TLow";
+            this.PidTLow.Name = "PidTLow";
+            // 
+            // PidTHigh
+            // 
+            this.PidTHigh.HeaderText = "THigh";
+            this.PidTHigh.Name = "PidTHigh";
+            // 
+            // PidGain
+            // 
+            this.PidGain.HeaderText = "Gain";
+            this.PidGain.Name = "PidGain";
+            // 
+            // PidD
+            // 
+            this.PidD.HeaderText = "D";
+            this.PidD.Name = "PidD";
+            // 
+            // PidI
+            // 
+            this.PidI.HeaderText = "I";
+            this.PidI.Name = "PidI";
             // 
             // pictureBoxTarget
             // 
@@ -471,117 +592,10 @@
             this.panelClearBox.Controls.Add(this.linkLabelClearJetson);
             this.panelClearBox.Controls.Add(this.linkLabelClearRobot);
             this.panelClearBox.Controls.Add(this.linkLabelClearGeneral);
-            this.panelClearBox.Location = new System.Drawing.Point(401, 3);
+            this.panelClearBox.Location = new System.Drawing.Point(494, 28);
             this.panelClearBox.Name = "panelClearBox";
             this.panelClearBox.Size = new System.Drawing.Size(325, 25);
             this.panelClearBox.TabIndex = 21;
-            // 
-            // tabPagePID
-            // 
-            this.tabPagePID.Controls.Add(this.linkLabelSendPIDs);
-            this.tabPagePID.Controls.Add(this.label1);
-            this.tabPagePID.Controls.Add(this.dataGridView1);
-            this.tabPagePID.Location = new System.Drawing.Point(4, 25);
-            this.tabPagePID.Name = "tabPagePID";
-            this.tabPagePID.Size = new System.Drawing.Size(498, 432);
-            this.tabPagePID.TabIndex = 4;
-            this.tabPagePID.Text = "PID Params";
-            this.tabPagePID.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PidName,
-            this.PidSP1,
-            this.PidSP2,
-            this.PidTLow,
-            this.PidTHigh,
-            this.PidGain,
-            this.PidD,
-            this.PidI});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 367);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "NOT IMPLIMENTED YET";
-            // 
-            // linkLabelSendPIDs
-            // 
-            this.linkLabelSendPIDs.AutoSize = true;
-            this.linkLabelSendPIDs.Location = new System.Drawing.Point(18, 22);
-            this.linkLabelSendPIDs.Name = "linkLabelSendPIDs";
-            this.linkLabelSendPIDs.Size = new System.Drawing.Size(40, 16);
-            this.linkLabelSendPIDs.TabIndex = 2;
-            this.linkLabelSendPIDs.TabStop = true;
-            this.linkLabelSendPIDs.Text = "Send";
-            // 
-            // tabPageTarSys
-            // 
-            this.tabPageTarSys.Controls.Add(this.textBox3);
-            this.tabPageTarSys.Controls.Add(this.textBox1);
-            this.tabPageTarSys.Controls.Add(this.label3);
-            this.tabPageTarSys.Controls.Add(this.textBox2);
-            this.tabPageTarSys.Controls.Add(this.buttonSendParams);
-            this.tabPageTarSys.Controls.Add(this.label2);
-            this.tabPageTarSys.Controls.Add(this.label4);
-            this.tabPageTarSys.Controls.Add(this.textBox4);
-            this.tabPageTarSys.Controls.Add(this.label5);
-            this.tabPageTarSys.Location = new System.Drawing.Point(4, 25);
-            this.tabPageTarSys.Name = "tabPageTarSys";
-            this.tabPageTarSys.Size = new System.Drawing.Size(498, 432);
-            this.tabPageTarSys.TabIndex = 5;
-            this.tabPageTarSys.Text = "TargSys";
-            this.tabPageTarSys.UseVisualStyleBackColor = true;
-            // 
-            // PidName
-            // 
-            this.PidName.HeaderText = "Name";
-            this.PidName.Name = "PidName";
-            // 
-            // PidSP1
-            // 
-            this.PidSP1.HeaderText = "SP1";
-            this.PidSP1.Name = "PidSP1";
-            // 
-            // PidSP2
-            // 
-            this.PidSP2.HeaderText = "SP2";
-            this.PidSP2.Name = "PidSP2";
-            // 
-            // PidTLow
-            // 
-            this.PidTLow.HeaderText = "TLow";
-            this.PidTLow.Name = "PidTLow";
-            // 
-            // PidTHigh
-            // 
-            this.PidTHigh.HeaderText = "THigh";
-            this.PidTHigh.Name = "PidTHigh";
-            // 
-            // PidGain
-            // 
-            this.PidGain.HeaderText = "Gain";
-            this.PidGain.Name = "PidGain";
-            // 
-            // PidD
-            // 
-            this.PidD.HeaderText = "D";
-            this.PidD.Name = "PidD";
-            // 
-            // PidI
-            // 
-            this.PidI.HeaderText = "I";
-            this.PidI.Name = "PidI";
             // 
             // linkLabelSendAuto
             // 
@@ -594,11 +608,54 @@
             this.linkLabelSendAuto.Text = "Send";
             this.linkLabelSendAuto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSendAuto_LinkClicked);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(334, 53);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(47, 17);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "Cam";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // buttonGetParams
+            // 
+            this.buttonGetParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGetParams.Location = new System.Drawing.Point(20, 53);
+            this.buttonGetParams.Name = "buttonGetParams";
+            this.buttonGetParams.Size = new System.Drawing.Size(129, 30);
+            this.buttonGetParams.TabIndex = 15;
+            this.buttonGetParams.Text = "Get Params";
+            this.buttonGetParams.UseVisualStyleBackColor = true;
+            this.buttonGetParams.Click += new System.EventHandler(this.buttonGetParams_Click);
+            // 
+            // buttonForceDefaults
+            // 
+            this.buttonForceDefaults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonForceDefaults.Location = new System.Drawing.Point(161, 17);
+            this.buttonForceDefaults.Name = "buttonForceDefaults";
+            this.buttonForceDefaults.Size = new System.Drawing.Size(129, 30);
+            this.buttonForceDefaults.TabIndex = 16;
+            this.buttonForceDefaults.Text = "Force Defaults";
+            this.buttonForceDefaults.UseVisualStyleBackColor = true;
+            this.buttonForceDefaults.Click += new System.EventHandler(this.buttonForceDefaults_Click);
+            // 
+            // labelParamErrors
+            // 
+            this.labelParamErrors.AutoSize = true;
+            this.labelParamErrors.Location = new System.Drawing.Point(164, 67);
+            this.labelParamErrors.Name = "labelParamErrors";
+            this.labelParamErrors.Size = new System.Drawing.Size(87, 16);
+            this.labelParamErrors.TabIndex = 17;
+            this.labelParamErrors.Text = "Syntax Errors";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 501);
+            this.ClientSize = new System.Drawing.Size(1232, 662);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.linkLabelSendAuto);
             this.Controls.Add(this.panelClearBox);
             this.Controls.Add(this.panel1);
@@ -618,6 +675,13 @@
             this.tabPageJetson.PerformLayout();
             this.tabPageMqttLog.ResumeLayout(false);
             this.tabPageMqttLog.PerformLayout();
+            this.tabPageTarSys.ResumeLayout(false);
+            this.tabPageTarSys.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.tabPagePID.ResumeLayout(false);
+            this.tabPagePID.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -625,11 +689,6 @@
             this.panel3.PerformLayout();
             this.panelClearBox.ResumeLayout(false);
             this.panelClearBox.PerformLayout();
-            this.tabPagePID.ResumeLayout(false);
-            this.tabPagePID.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPageTarSys.ResumeLayout(false);
-            this.tabPageTarSys.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -643,14 +702,7 @@
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageGeneral;
         private System.Windows.Forms.TabPage tabPageRobot;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxParamEdit;
         private System.Windows.Forms.Button buttonSendParams;
         private System.Windows.Forms.PictureBox pictureBoxTarget;
         private System.Windows.Forms.TextBox textBoxRobotLog;
@@ -688,6 +740,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PidD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PidI;
         private System.Windows.Forms.LinkLabel linkLabelSendAuto;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton radioButtonTargetPeg;
+        private System.Windows.Forms.RadioButton radioButtonTargetBoiler;
+        private System.Windows.Forms.RadioButton radioButtonTargetNone;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel linkLabelSendTargetMode;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button buttonForceDefaults;
+        private System.Windows.Forms.Button buttonGetParams;
+        private System.Windows.Forms.Label labelParamErrors;
     }
 }
 

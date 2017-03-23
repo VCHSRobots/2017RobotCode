@@ -91,9 +91,10 @@ class Targeter(threading.Thread):
 			logger.error("Unable to take image from cam %d (%s): " % (self.TargetIndex, str(e)))
 		if not ret or (Frame is None):
 			Frame = np.zeros((480,640,3), np.uint8)
-			# ToDo: Write something on the frame to indicate the frame was not from the camera.
+			cv2.putText(Frame, "ERROR: NO CAMERA FEED!!!", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
 			return (Frame, Type, False, 0, 0)
-		Answer = findtarget.FindTarget(Frame, Type)
+		Params = findtarget.GetDefaultParams()
+		Answer = findtarget.FindTarget(Frame, Type, Params)
 		DiffFrame = Answer[0]
 		Height, Width, Channels = DiffFrame.shape
 		DiffAnswer = []
