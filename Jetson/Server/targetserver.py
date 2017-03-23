@@ -22,6 +22,8 @@ import evsslogger
 import findtarget
 import mqttcomm
 import targetproc
+import cv2
+import base64
 
 logger = evsslogger.getLogger()
 lasttargetmode = -1
@@ -176,16 +178,19 @@ def checkTargetMode():
 
 framecount = 0
 def SendFrame(Frame):
-	framecount++
+	global framecount
+	framecount += 1
 	if framedecimation == 0:
 		return
 	if framecount % framedecimation != 0:
 		return	
-#	mqttcomm.send(Frame)
+
+	FrameAsPng = cv2.imencode(".png", Frame)[1]
+	bytes_as_string = base64.b64encode(FrameAsPng)
+	mqttcomm.send("pic/ts", bytes_as_string)
 
 def SendTargetInfo(report):
-#	mqttcomm.send(report)
-
+	mqttcomm.send("robot/jetson/targetreport", report.ToReport())
 
 def mainapp():
 	evsslogger.initLogging("TargetSystem.log")
@@ -195,18 +200,22 @@ def mainapp():
 	load_params()
 
 	loopcount = 0
+	NumberOfReports = 0
+
 	while True:
 		checkNewParams()
 		checkReqToSendParams()
 		checkReqToUseDefaults()
+		checkReqForFrameDecimation()
 		targetmode = checkTargetMode()
 		targproc.SetParams(targetparams)
 		targproc.SetTargetMode(targetmode)
 		report = targproc.Process()
 		SendFrame(report.Frame)
-		
-
-		logger.info("Report=" + report.ToString())
+		SendTargetInfo(report)
+		NumberOfReports += 1
+		if NumberOfReports % 40 == 0:
+			logger.info("Report=" + report.ToString())
 		time.sleep(0.020)  # run Loop every 20 milliseconds
 		loopcount += 1
 		if loopcount % 200 == 0:

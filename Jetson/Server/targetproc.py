@@ -52,6 +52,15 @@ class TargetReport:
 		tp += self.Rect1
 		tp += self.Rect2
 		return "Mode=%1d, Valid=%s, X,Y=[%4d,%4d] Rects=[%3d,%3d,%3d,%3d]" % tp
+	def ToReport(self):
+		#sent at key1=val1;key2=val2;key3=val3...
+		i = 0
+		if self.Valid:
+			i = 1
+		tp = (self.TargetMode, i, self.X1000, self.Y1000)
+		tp += self.Rect1
+		tp += self.Rect2
+		return "Mode=%1d;Valid=%1d;X=%d;Y=%d;w1=%d;h1=%d;w2=%d;h2=%d" % tp 
 
 class TargetProc:
 	def __init__(self):
@@ -75,6 +84,8 @@ class TargetProc:
 	def SetTargetMode(self, targetmode):
 		if (targetmode == self.TargetMode) and (self.Cam is not None):
 			return
+#		if (self.TargetMode == 0):
+#			return
 		logger.info("Target %d Selected" % targetmode)
 		self.killTarget()
 		self.TargetMode = targetmode
