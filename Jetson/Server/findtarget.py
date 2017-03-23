@@ -58,7 +58,7 @@ def GetDefaultParams():
 	p["PegMaxVerticalOffset"] = 2000.0
 	p["PegMinVerticalOffset"] = 0.0
 	p["PegMaxHorizontalOffset"] = 10000.0
-	p["PegMinHorizontalOffset"] = 0.0
+	p["PegMinHorizontalOffset"] = 5.0
 	return p
 
 CurrentParams = GetDefaultParams()
@@ -181,7 +181,6 @@ def FindTarget(Frame, Type, params):
 					cX = int(M["m10"] / M["m00"])
 					cY = int(M["m01"] / M["m00"])
 					Centers.append((cX, cY))
-					cv2.putText(Frame, str(cX) + ", " + str(cY), (cX, cY - 45), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA) #Centers text
 				#################### kyles UGGGLLYYYY code
 				#Calculate the magnitude between the centers of each pair of contours
 				Magnitude_array = []
@@ -246,7 +245,6 @@ def FindTarget(Frame, Type, params):
 					PerpLineEnd = (int(MidpointX + VectorX * -Distance), int(MidpointY + VectorY * -Distance))
 					cv2.line(Frame, RegLineStart, RegLineEnd, (255, 255, 255), 1) #Line through center of target Y
 					cv2.line(Frame, PerpLineStart, PerpLineEnd, (255, 255, 255), 1) #Line through center of target X
-					print("Crosshair drawn! (BOILER)") #TEMPORARY LINE
 					CenterTarget = (MidpointX, MidpointY)
 					OffsetX = CenterTarget[0] - (Width / 2)
 					OffsetY = CenterTarget[1] - (Height / 2)
@@ -308,7 +306,6 @@ def FindTarget(Frame, Type, params):
 					cX = int(M["m10"] / M["m00"])
 					cY = int(M["m01"] / M["m00"])
 					Centers.append((cX, cY))
-					cv2.putText(Frame, str(cX) + ", " + str(cY), (cX, cY - 45), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA) #Centers text
 				#################### kyles UGGGLLYYYY code strikes back!
 				#Calculate the magnitude between the centers of each pair of contours
 				Magnitude_array = []
@@ -330,7 +327,8 @@ def FindTarget(Frame, Type, params):
 					Magnitude_array.append(9999999)
 				Magnitude_min_index = Magnitude_array.index(min(Magnitude_array))
 				Contour1 = 0
-				Contour2 = 0				
+				Contour2 = 0
+				# print("Magnitude = " + str(Magnitude_array[Magnitude_min_index])) #TEMPORARY
 				if Magnitude_min_index == 0:
 					Contour1 = 0
 					Contour2 = 1
@@ -349,12 +347,16 @@ def FindTarget(Frame, Type, params):
 				elif Magnitude_min_index == 5:
 					Contour1 = 2
 					Contour2 = 3
+				if Magnitude_array[Magnitude_min_index] < 3 and len(Magnitude_array) > 2:
+					del Magnitude_array[Contour1]
+					Contour1 = 0
+					Contour2 = 1
 				#################### End militarised zone
 				XDistance = abs(Centers[Contour1][0] - Centers[Contour2][0])
 				YDistance = abs(Centers[Contour1][1] - Centers[Contour2][1])
-				if XDistance < pp("PegMaxHorizontalOffset", 10000) and XDistance >= pp("PegMinHorizontalOffset", 0) and YDistance < pp("PegMaxVerticalOffset", 2000) and YDistance >= pp("PegMinVerticalOffset", 0):
-					VectorX = Centers[Contour1][0] - Centers[Contour1][0]
-					VectorY = Centers[Contour1][1] - Centers[Contour1][1]
+				if XDistance < pp("PegMaxHorizontalOffset", 10000) and XDistance >= pp("PegMinHorizontalOffset", 5.0) and YDistance < pp("PegMaxVerticalOffset", 2000) and YDistance >= pp("PegMinVerticalOffset", 0):
+					VectorX = Centers[Contour1][0] - Centers[Contour2][0] #Centers[0][0] - Centers[1][0]
+					VectorY = Centers[Contour1][1] - Centers[Contour2][1] #Centers[0][1] - Centers[1][1]
 					Mag = math.sqrt(VectorX * VectorX + VectorY * VectorY)
 					if int(Mag) != 0:
 						VectorX = VectorX / Mag
@@ -373,19 +375,18 @@ def FindTarget(Frame, Type, params):
 					PerpLineEnd = (int(MidpointX + VectorX * -Distance), int(MidpointY + VectorY * -Distance))
 					cv2.line(Frame, RegLineStart, RegLineEnd, (255, 255, 255), 1) #Line through center of target Y
 					cv2.line(Frame, PerpLineStart, PerpLineEnd, (255, 255, 255), 1) #Line through center of target X
-					print("Crosshair drawn! (GEAR)") #TEMPORARY LINE
 					CenterTarget = (MidpointX, MidpointY)
 					OffsetX = CenterTarget[0] - (Width / 2)
 					OffsetY = CenterTarget[1] - (Height / 2)
 					Offset1000X = 1000 * (float(OffsetX)/float(Width))
 					Offset1000Y = 1000 * (float(OffsetY)/float(Width))
 				else:
-	       				#Calculate average FPS.
+       				#Calculate average FPS.
 					FPS = str(int(round(1 / (time.time() - StartTime))))
 					Frame = DrawData(Frame, Height, Width, "GEAR", "?, ?", "?", FPS, FrameCount)
 					return Frame, Type, False, 0, 0, ((0, 0, 0, 0), (0, 0, 0, 0))
 			else:
-	       			#Calculate average FPS.
+       			#Calculate average FPS.
 				FPS = str(int(round(1 / (time.time() - StartTime))))
 				Frame = DrawData(Frame, Height, Width, "GEAR", "?, ?", "?", FPS, FrameCount)
 				return Frame, Type, False, 0, 0, ((0, 0, 0, 0), (0, 0, 0, 0))

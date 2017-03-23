@@ -89,9 +89,8 @@ class TargetProc:
 	def SetTargetMode(self, targetmode):
 		if (targetmode == self.TargetMode) and (self.Cam is not None):
 			return
-#		if (self.TargetMode == 0):
-#			return
-		logger.info("Target %d Selected" % targetmode)
+		if self.TargetMode != 0:
+			logger.info("Target %d Selected" % targetmode)
 		self.killTarget()
 		self.TargetMode = targetmode
 		if self.TargetMode > 0:
@@ -133,7 +132,7 @@ class TargetProc:
 			return self.MakeErrorFrame("Bad Cam Read")
 		try:
 			Answer = findtarget.FindTarget(Frame, targettype, self.Params)
-#			cv2.imshow("TEMP FRAME DISPLAY", Answer[0])
+			#cv2.imshow("TEMP FRAME DISPLAY", Answer[0])
 #			cv2.waitKey(1)
 		except:
 			return self.MakeErrorFrame("Exception From FindTarget")
