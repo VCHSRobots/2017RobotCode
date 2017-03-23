@@ -12,6 +12,7 @@
 # 4. Produce pointing info and publish that via MQTT.
 # 5. Decide on target to process based on messages from MQTT.
 
+import sys
 import paho.mqtt.client as mqtt 
 import os.path
 import threading
@@ -20,12 +21,16 @@ import pickle
 import evsslogger
 import findtarget
 import mqttcomm
+import targetproc
+import cv2
+import base64
 
 logger = evsslogger.getLogger()
 lasttargetmode = -1
 paramfile = "/home/ubuntu/RobotCode2017/targetparams.pkl"
-targtype = 0    # 0=none, 1=boiler, 2=peg.
+framedecimation = 0  # 0=don't send, >0 send every N
 targetparams = {}
+
 
 # Saves the target parameters to the disk.
 def save_params():
@@ -46,12 +51,17 @@ def load_params():
 		try:
 			with open(paramfile, 'rb') as f:
 				diskparams = pickle.load(f)
-			if type(rawparams) is not dict:
+			if type(diskparams) is not dict:
 				diskparams = {} 
+				logger.info("Param file contained invalid data. Using built-in defaults.")
 			else:
-				logger.info("Param file loaded from disk.  Number of params found=%d" % len(rawparams))
+				logger.info("Param file loaded from disk.  Number of params found=%d" % len(diskparams))
 		except:
+			emsg = sys.exc_info()[0]
+			logger.warn("Failed to load parameters from disk (%s). Using built-in defaults.", emsg)
 			diskparams = {}
+	else:
+		logger.warn("No param file found at " + paramfile + ". Using built-in defaults.")
 	defaultparams = findtarget.GetDefaultParams()
 	for p in defaultparams:
 		if p in diskparams:
@@ -117,7 +127,22 @@ def checkReqToUseDefaults():
 	lastdefaultseq = seq
 	targetparams = findtarget.GetDefaultParams()
 	logger.info("Default target parameters loaded.")
-			
+	
+# Check for a request for frame decimation
+lastframedecimationtseq = -1
+def checkReqForFrameDecimation():
+	global lastframedecimationtseq
+	global framedecimation
+	txt, seq, ts = mqttcomm.getMessage("robot/ds/framedecimation")
+	if txt is None or seq <= lastframedecimationtseq:
+		return
+	lastframedecimationtseq = seq
+	try:
+		framedecimation = int(txt)
+	except ValueError:
+		framedecimation = 0
+	logger.info("New Frame Decimation Value Received: %d." % framedecimation)
+		
 # Check for a switch in target mode.
 lasttargetmode = -1
 def checkTargetMode():
@@ -151,18 +176,46 @@ def checkTargetMode():
 		logger.info("Mode switched to %d due to message from %s." % (mode, chooser))
 	return mode
 
+framecount = 0
+def SendFrame(Frame):
+	global framecount
+	framecount += 1
+	if framedecimation == 0:
+		return
+	if framecount % framedecimation != 0:
+		return	
+
+	FrameAsPng = cv2.imencode(".png", Frame)[1]
+	bytes_as_string = base64.b64encode(FrameAsPng)
+	mqttcomm.send("pic/ts", bytes_as_string)
+
+def SendTargetInfo(report):
+	mqttcomm.send("robot/jetson/targetreport", report.ToReport())
+
 def mainapp():
 	evsslogger.initLogging("TargetSystem.log")
 	logger.info("Starting Target System Server")
 	mqttcomm.start("JetsonTS")
+	targproc = targetproc.TargetProc()
 	load_params()
 
 	loopcount = 0
+	NumberOfReports = 0
+
 	while True:
 		checkNewParams()
 		checkReqToSendParams()
 		checkReqToUseDefaults()
-		checkTargetMode()
+		checkReqForFrameDecimation()
+		targetmode = checkTargetMode()
+		targproc.SetParams(targetparams)
+		targproc.SetTargetMode(targetmode)
+		report = targproc.Process()
+		SendFrame(report.Frame)
+		SendTargetInfo(report)
+		NumberOfReports += 1
+		if NumberOfReports % 40 == 0:
+			logger.info("Report=" + report.ToString())
 		time.sleep(0.020)  # run Loop every 20 milliseconds
 		loopcount += 1
 		if loopcount % 200 == 0:

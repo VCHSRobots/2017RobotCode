@@ -17,18 +17,36 @@ namespace MqttShow
         #region Classs Variables
         private string m_topic;
         private string m_message;
+        private int m_iSequence;
+        private long m_timestamp;
         #endregion
 
         #region Constructor
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="t"></param>
-        /// <param name="m"></param>
+        /// <param name="t">Topic</param>
+        /// <param name="m">Message</param>
         public MqttMessage(string t, string m)
         {
             m_topic = t;
             m_message = m;
+            m_iSequence = 0;
+            m_timestamp = StopWatch.Start();
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="t">Topic</param>
+        /// <param name="m">Message</param>
+        /// <param name="seq">Sequence number.</param>
+        public MqttMessage(string t, string m, int seq)
+        {
+            m_topic = t;
+            m_message = m;
+            m_iSequence = seq;
+            m_timestamp = StopWatch.Start();
         }
         #endregion
 
@@ -70,6 +88,54 @@ namespace MqttShow
             }
         }
         #endregion
+
+        #region Timestamp Properity
+        /// <summary>
+        /// Returns the timestamp of the message.
+        /// </summary>
+        public long Timestamp
+        {
+            get
+            {
+                return m_timestamp;
+            }
+        }
+        #endregion
+
+        #region Age Properity
+        /// <summary>
+        /// Returns the Age of the message, in seconds.
+        /// </summary>
+        public double Age
+        {
+            get
+            {
+                return StopWatch.Stop(m_timestamp);
+            }
+        }
+        #endregion
+
+        #region Sequence Properity
+        /// <summary>
+        /// Returns the sequence number of the message.
+        /// </summary>
+        public int Sequence
+        {
+            get { return m_iSequence; }
+        }
+        #endregion
+
+        #region ToString()
+        /// <summary>
+        /// Override ToString()
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        { 
+            return string.Format("{0} [{1:0}, {2:0}] {3}", m_topic, m_iSequence, m_timestamp, m_message);
+        }
+        #endregion
+
     }
     #endregion
 
@@ -78,6 +144,7 @@ namespace MqttShow
         #region Class Variables...
         private List<MqttMessage> m_InputMessages;
         private List<MqttMessage> m_OutputMessages;
+        private Dictionary<string, MqttMessage> m_SavedMessages;
         private Thread m_MqttThread;
         private string m_Host;
         private int m_Port;
@@ -90,6 +157,7 @@ namespace MqttShow
         private object m_LockInputList = new object();
         private object m_LockOutputList = new object();
         private object m_ClientLock = new object();
+        private object m_DictLock = new object();
         private AutoResetEvent m_eventNewMsgPending = new AutoResetEvent(false);
         private AutoResetEvent m_eventConnectionClosed = new AutoResetEvent(false);
         private long m_PingStartTime = 0;
@@ -138,6 +206,7 @@ namespace MqttShow
             m_ClientName = ClientName;
             m_InputMessages = new List<MqttMessage>();
             m_OutputMessages = new List<MqttMessage>();
+            m_SavedMessages = new Dictionary<string, MqttMessage>();
             m_MqttThread = new Thread(new ThreadStart(RunInBackground));
             m_MqttThread.Name = "MqttMonitor";
             //m_MqttThread.Start();
@@ -220,6 +289,46 @@ namespace MqttShow
         }
         #endregion
 
+        #region GetAllSavedMessages()
+        /// <summary>
+        /// Gets all the saved messages.
+        /// </summary>
+        /// <returns></returns>
+        public MqttMessage[] GetAllSavedMessages()
+        {
+            List<MqttMessage> allmsgs = new List<MqttMessage>();
+            lock(m_DictLock)
+            {
+                foreach(KeyValuePair<string, MqttMessage> pair in m_SavedMessages)
+                {
+                    allmsgs.Add(pair.Value);
+                }
+            }
+            return allmsgs.ToArray();
+        }
+        #endregion
+
+        #region GetSavedMessage()
+        /// <summary>
+        /// Returns a saved message on a given topic. If hasn't been
+        /// received, returns null.
+        /// </summary>
+        /// <param name="topic"></param>
+        /// <returns></returns>
+        public MqttMessage GetSavedMessage(string topic)
+        {
+            MqttMessage m = null;
+            lock (m_DictLock)
+            {
+                if (m_SavedMessages.ContainsKey(topic))
+                {
+                    m = m_SavedMessages[topic];
+                }
+            }
+            return m;
+        }
+        #endregion
+
         #region TryToConnect()
         /// <summary>
         /// Try to stay connected to the broker at all times.
@@ -235,10 +344,12 @@ namespace MqttShow
                 }
                 if (tempclient != null && tempclient.IsConnected) return true;
                 tempclient = new MqttClient(m_Host, m_Port, false, MqttSslProtocols.None, null, null);
-                String[] topics = new string[1];
-                byte[] qoslevels = new byte[1];
+                String[] topics = new string[2];
+                byte[] qoslevels = new byte[2];
                 topics[0] = "robot/#";
+                topics[1] = "pic/ts";
                 qoslevels[0] = 0;
+                qoslevels[1] = 0;
                 tempclient.MqttMsgPublishReceived += RawMsgReceived;
                 tempclient.ConnectionClosed += ConnectionClosed;
                 tempclient.Subscribe(topics, qoslevels);
@@ -290,7 +401,24 @@ namespace MqttShow
         {
             // A new message has come it.  Put it in our list.
             string payload = System.Text.Encoding.ASCII.GetString(e.Message);
-            MqttMessage m = new MqttMessage(e.Topic, payload);
+
+            // Find the saved message, if any.
+            MqttMessage OldMsg = null;
+            int iseq = 0;
+            lock(m_DictLock)
+            {
+                if (m_SavedMessages.ContainsKey(e.Topic))
+                {
+                    OldMsg = m_SavedMessages[e.Topic];
+                    iseq = OldMsg.Sequence;
+                }
+            }
+            iseq++;
+            MqttMessage m = new MqttMessage(e.Topic, payload, iseq);
+            lock(m_DictLock)
+            {
+                m_SavedMessages[e.Topic] = m;
+            }
             if(e.Topic == "robot/jetson/ping")
             {
                 double ElapsedSecs = StopWatch.Stop(m_PingStartTime);

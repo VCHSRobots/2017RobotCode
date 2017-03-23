@@ -35,6 +35,7 @@ public class Mqtt extends Thread implements MqttCallback {
 	private int m_nCountReceived = 0;
 	private int m_nCountErrors = 0;
 	private int m_nCountDup = 0;
+	private ArrayList<MqttMessageArrived> m_Callbacks = new ArrayList<MqttMessageArrived>();
 
 	public Mqtt(String hostName, int portNumber, String clientId) {
 		this.m_hostName = hostName;
@@ -44,6 +45,18 @@ public class Mqtt extends Thread implements MqttCallback {
 		m_incomingMsgLst = new ArrayList<MqttMsg>();
 		m_outgoingMsgLst = new ArrayList<MqttMsg>();
 		m_saveMsgLst = new ArrayList<MqttMsg>();
+	}
+	
+	// Call this if you want to be notified on every new message.
+	public void NotifyOnNewMessage(MqttMessageArrived who) {
+		m_Callbacks.add(who);
+	}
+	
+	// Do all the callbacks...
+	private void TriggerNotify(MqttMsg m) {
+		for (MqttMessageArrived f: m_Callbacks ) {
+			f.OnNewMessage(m);
+		}
 	}
 	
 	// This is the main background thread for mqtt.  It keeps checking to
@@ -174,6 +187,9 @@ public class Mqtt extends Thread implements MqttCallback {
 	public void messageArrived(String topic, MqttMessage mqmsg) throws Exception {
 		String msgtext = new String(mqmsg.getPayload(), "US-ASCII");
 		MqttMsg msg = new MqttMsg(topic, msgtext);
+		
+		TriggerNotify(msg);  // Notify external inties about this message.
+		
 		ArrayList<MqttMsg> templist= new ArrayList<MqttMsg>();
 		
 		m_lockIncoming.lock();
@@ -219,9 +235,9 @@ public class Mqtt extends Thread implements MqttCallback {
 	}
 	
 	// Here, the latest message under the topic is returned.  It is not
-	// deleted, so that this function can be called again with the expection
+	// deleted, so that this function can be called again with the expectation
 	// that if the message on the given topic has ever been received, it will
-	// be avaliable.  If it has never been received, null is returned.
+	// be available.  If it has never been received, null is returned.
 	public MqttMsg getMessage(String topic) {
 		m_lockIncoming.lock();
 		for (MqttMsg m: m_saveMsgLst) {
@@ -298,6 +314,8 @@ public class Mqtt extends Thread implements MqttCallback {
 		sendMessage("robot/roborio/log", msg);
 	}
 }
+
+
 	
 
 

@@ -240,24 +240,32 @@ public class Robot extends IterativeRobot {
     
     // ################################################################
     // Autonomous MODE
+
     public void autonomousInit() {
         doCoreFunctions();
-    	driveTrain.setArcade();
-    	gearHandler.gearGrab();
-    	gearHandler.handlerOut();
-    	fuelTank.retract();
         autoParams.loadData();  // Do this only ONCE during auto.  This is to avoid changing params during actual auto.
         String autoProgram = autoParams.getProgram();
-    	if(autoProgram.equals("MoveForward")) autonomousCommand = new AutoMoveForward();
-    	else if(autoProgram.equals("CenterGear")) autonomousCommand = new AutoDeliverCenterGear();
-    	else if(autoProgram.equals("GearAndShoot")) autonomousCommand = new AutoCenterGearAndShoot();
-    	else if(autoProgram.equals("SideGearAndShoot")) autonomousCommand = new AutoSideGearAndShoot();
-    	else if(autoProgram.equals("BinAndShoot")) autonomousCommand = new AutoHopperAndShoot();
-    	else autonomousCommand = new AutoMoveForward();
+        if(autoParams.getSide().equals("blue")){
+        	if(autoProgram.equals("MoveForward")) autonomousCommand = new AutoMoveForward();
+        	else if(autoProgram.equals("CenterGear")) autonomousCommand = new AutoDeliverCenterGear();
+        	else if(autoProgram.equals("GearAndShoot")) autonomousCommand = new AutoBlueCenterGearAndShoot();
+        	else if(autoProgram.equals("SideGearAndShoot")) autonomousCommand = new AutoBlueSideGearAndShoot();
+        	else if(autoProgram.equals("BinAndShoot")) autonomousCommand = new AutoBlueHopperAndShoot();
+        	else autonomousCommand = new AutoMoveForward();
+        } else {
+        	if(autoProgram.equals("MoveForward")) autonomousCommand = new AutoMoveForward();
+        	else if(autoProgram.equals("CenterGear")) autonomousCommand = new AutoDeliverCenterGear();
+        	else if(autoProgram.equals("GearAndShoot")) autonomousCommand = new AutoRedCenterGearAndShoot();
+        	else if(autoProgram.equals("SideGearAndShoot")) autonomousCommand = new AutoRedSideGearAndShoot();
+        	else if(autoProgram.equals("BinAndShoot")) autonomousCommand = new AutoRedHopperAndShoot();
+        	else autonomousCommand = new AutoMoveForward();
+		}
         if (autonomousCommand != null) autonomousCommand.start();
+        
         commonDashboardReport();
         m_nCountAutoLoop = 0;
     	mqtt.logf("Mode: Auto Mode Selected");
+        fuelTank.retract();
         navX.reset();
     }
 

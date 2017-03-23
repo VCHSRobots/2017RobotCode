@@ -47,10 +47,10 @@ elif Input == "1":
 	logger.info("TARGETING DEMO: Starting demo for target \"1\" (GEAR DELIVERY)...")
 	time.sleep(1)
 	try:
-		call(["v4l2-ctl", "-c", "exposure_auto=1"])
-		call(["v4l2-ctl", "-c", "exposure_absolute=5"])
-		call(["v4l2-ctl", "-c", "brightness=30"])
-		Cam = cv2.VideoCapture(0)
+		call(["v4l2-ctl", "--device=2", "-c", "exposure_auto=1"])
+		call(["v4l2-ctl", "--device=1", "-c", "exposure_absolute=5"])
+		call(["v4l2-ctl", "--device=1", "-c", "brightness=30"])
+		Cam = cv2.VideoCapture(1)
 	except:
 		logger.error("Unable to setup Cam 0 for capture.")
 		traceback.print_exc()
