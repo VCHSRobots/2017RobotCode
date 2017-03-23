@@ -18,7 +18,6 @@ import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc4415.SteamShipBot1Final.commands.*;
@@ -27,8 +26,6 @@ import org.usfirst.frc4415.SteamShipBot1Final.subsystems.*;
 import com.kauailabs.navx.frc.AHRS;
 
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
-
-import edu.wpi.first.wpilibj.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -71,7 +68,10 @@ public class Robot extends IterativeRobot {
     public static TargetReader targetReader;
     public static Mqtt mqtt;
     public static AutoParams autoParams;
+    public static TargetReportMonitor targetReportMonitor;
     public static ShooterThread shooterThread;
+    
+    
     
     /**
      * This function is run when the robot is first started up and should be
@@ -132,8 +132,11 @@ public class Robot extends IterativeRobot {
         targetReader = new TargetReader(hostName, port, navX);
 		mqtt = new Mqtt("10.44.15.19", 5802, "RoboRio");
 		mqtt.start();
-		autoParams = new AutoParams(mqtt);        
+		autoParams = new AutoParams(mqtt);
+		targetReportMonitor = new TargetReportMonitor(mqtt);
         tableReader.start();
+
+        //targetReader.SetTargetRequest("T1");
         //mouseReader.start(); 
         //targetReader.start();
         
@@ -185,10 +188,20 @@ public class Robot extends IterativeRobot {
 			SmartDashboard.putNumber("Mqtt Errors",   mqtt.getCountErrors());
 		}
 		
-
-		SmartDashboard.putString("AutoSide",     autoParams.getSide());
-		SmartDashboard.putString("AutoPrm",      autoParams.getProgram());
-		SmartDashboard.putBoolean("AutoDefault", autoParams.isDefaults());
+		if (Robot.targetReportMonitor != null) {
+			SmartDashboard.putNumber("TR nMsg", targetReportMonitor.countMsg());
+			SmartDashboard.putNumber("TR nErrs", targetReportMonitor.countErrors());
+			SmartDashboard.putNumber("TR nInValid", targetReportMonitor.countInvalid());
+			SmartDashboard.putNumber("TR nUpdates", targetReportMonitor.countUpdates());
+			
+			SmartDashboard.putNumber("TR X",    targetReportMonitor.report().x1000());
+			SmartDashboard.putNumber("TR Y",    targetReportMonitor.report().y1000());
+			SmartDashboard.putNumber("TR Mode", targetReportMonitor.report().mode());
+		}
+		
+		SmartDashboard.putString("AutoSide",     Robot.autoParams.getSide());
+		SmartDashboard.putString("AutoPrm",      Robot.autoParams.getProgram());
+		SmartDashboard.putBoolean("AutoDefault", Robot.autoParams.isDefaults());
 		
 		MqttMsg m = mqtt.getMessage("robot/ds/tstcamlight");
 		if (m != null) {
@@ -245,21 +258,12 @@ public class Robot extends IterativeRobot {
         doCoreFunctions();
         autoParams.loadData();  // Do this only ONCE during auto.  This is to avoid changing params during actual auto.
         String autoProgram = autoParams.getProgram();
-        if(autoParams.getSide().equals("blue")){
-        	if(autoProgram.equals("MoveForward")) autonomousCommand = new AutoMoveForward();
-        	else if(autoProgram.equals("CenterGear")) autonomousCommand = new AutoDeliverCenterGear();
-        	else if(autoProgram.equals("GearAndShoot")) autonomousCommand = new AutoBlueCenterGearAndShoot();
-        	else if(autoProgram.equals("SideGearAndShoot")) autonomousCommand = new AutoBlueSideGearAndShoot();
-        	else if(autoProgram.equals("BinAndShoot")) autonomousCommand = new AutoBlueHopperAndShoot();
-        	else autonomousCommand = new AutoMoveForward();
-        } else {
-        	if(autoProgram.equals("MoveForward")) autonomousCommand = new AutoMoveForward();
-        	else if(autoProgram.equals("CenterGear")) autonomousCommand = new AutoDeliverCenterGear();
-        	else if(autoProgram.equals("GearAndShoot")) autonomousCommand = new AutoRedCenterGearAndShoot();
-        	else if(autoProgram.equals("SideGearAndShoot")) autonomousCommand = new AutoRedSideGearAndShoot();
-        	else if(autoProgram.equals("BinAndShoot")) autonomousCommand = new AutoRedHopperAndShoot();
-        	else autonomousCommand = new AutoMoveForward();
-		}
+    	if(autoProgram.equals("MoveForward")) autonomousCommand = new AutoMoveForward();
+    	else if(autoProgram.equals("CenterGear")) autonomousCommand = new AutoDeliverCenterGear();
+    	else if(autoProgram.equals("GearAndShoot")) autonomousCommand = new AutoCenterGearAndShoot();
+    	else if(autoProgram.equals("SideGearAndShoot")) autonomousCommand = new AutoSideGearAndShoot();
+    	else if(autoProgram.equals("BinAndShoot")) autonomousCommand = new AutoHopperAndShoot();
+    	else autonomousCommand = new AutoMoveForward();
         if (autonomousCommand != null) autonomousCommand.start();
         
         commonDashboardReport();

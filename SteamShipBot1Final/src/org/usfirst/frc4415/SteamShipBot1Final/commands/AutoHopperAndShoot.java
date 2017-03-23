@@ -146,6 +146,7 @@ public class AutoHopperAndShoot extends Command {
 	    	else feedback = 0;
 	    	autoProgram.get(autoStage).run(feedback);
 	    	if(autoStage==2 && autoProgram.get(autoStage).isDone()){
+	    		Robot.fuelTank.deploy();
 	    		//WILL THIS DELAY WORK?
 	    		Timer.delay(5);
 	    	}
