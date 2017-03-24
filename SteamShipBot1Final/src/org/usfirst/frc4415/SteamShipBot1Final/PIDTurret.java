@@ -26,4 +26,8 @@ public class PIDTurret extends PIDController{
 	public void run(double feedback){
 		turret.turn(super.calculateActuatorValue(feedback));
 	}
+	
+	public String toString(){
+		return "Turret  || " + super.toString();
+	}
 }

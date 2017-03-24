@@ -1,3 +1,9 @@
+// --------------------------------------------------------------------
+// TargetReport.java -- Contains a single report from the targeting system.
+//
+// Created 03/22/17 DLB
+// --------------------------------------------------------------------
+
 package org.usfirst.frc4415.SteamShipBot1Final;
 
 import java.util.concurrent.locks.Lock;
@@ -10,9 +16,13 @@ public class TargetReport  {
 	private boolean m_Valid = false;
 	private double m_dX = 0.0;
 	private double m_dY = 0.0;
+	private double m_dX1 = 0.0;
+	private double m_dY1 = 0.0;
 	private double m_dH1 = 0.0;
-	private double m_dH2 = 0.0;
 	private double m_dW1 = 0.0;
+	private double m_dX2 = 0.0;
+	private double m_dY2 = 0.0;
+	private double m_dH2 = 0.0;
 	private double m_dW2 = 0.0;
 	private boolean m_error = false;
 	
@@ -57,12 +67,28 @@ public class TargetReport  {
 		return m_dY;
 	}
 	
+	public double x1() {
+		return m_dX1;
+	}
+	
+	public double y1() {
+		return m_dY1;
+	}
+	
 	public double h1() {
 		return m_dH1;
 	}
 	
 	public double w1() {
 		return m_dW1;
+	}
+	
+	public double x2() {
+		return m_dX1;
+	}
+	
+	public double y2() {
+		return m_dY2;
 	}
 	
 	public double h2() {
@@ -117,12 +143,24 @@ public class TargetReport  {
 			if (key.equals("Y")) {
 				m_dY = dval;
 			}
+			if (key.equals("x1")) {
+				m_dX1 = dval;
+			}
+			if (key.equals("y1")) {
+				m_dY1 = dval;
+			}			
 			if (key.equals("w1")) {
 				m_dW1 = dval;
 			}
 			if (key.equals("h1")) {
 				m_dH1 = dval;
 			}
+			if (key.equals("x2")) {
+				m_dX2 = dval;
+			}
+			if (key.equals("y2")) {
+				m_dY2 = dval;
+			}			
 			if (key.equals("w2")) {
 				m_dW2 = dval;
 			}

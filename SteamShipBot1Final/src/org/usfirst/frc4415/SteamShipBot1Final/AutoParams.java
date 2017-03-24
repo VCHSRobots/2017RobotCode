@@ -1,12 +1,12 @@
 // --------------------------------------------------------------------
-// AudoParams.java -- Class to get parametes for automonous mode
+// AudoParams.java -- Class to get parameters for autonomous mode
 //
 // Created 3/20/17 DLB
 // --------------------------------------------------------------------
 
 package org.usfirst.frc4415.SteamShipBot1Final;
 
-// Class to deal with getting the parameters for automonous mode
+// Class to deal with getting the parameters for autonomous mode
 // Please see C# program for possibilities.  Currently for 
 // program, these are:
 // MoveForward, CenterGear, GearAndShoot, SideGearAndShoot, BinAndShoot

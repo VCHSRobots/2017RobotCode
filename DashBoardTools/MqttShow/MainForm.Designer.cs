@@ -54,18 +54,15 @@
             this.textBoxJetsonLog = new System.Windows.Forms.TextBox();
             this.tabPageMqttList = new System.Windows.Forms.TabPage();
             this.textBoxMqttList = new System.Windows.Forms.TextBox();
-            this.tabPagePID = new System.Windows.Forms.TabPage();
-            this.linkLabelSendPIDs = new System.Windows.Forms.LinkLabel();
+            this.tabPageRio = new System.Windows.Forms.TabPage();
+            this.labelRioParamErrors = new System.Windows.Forms.Label();
+            this.linkLabelSaveRoboRIOParams = new System.Windows.Forms.LinkLabel();
+            this.linkLabelLoadRoboRioParams = new System.Windows.Forms.LinkLabel();
+            this.linkLabelSetRoboRioDefaults = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.PidName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidSP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidSP2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidTLow = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidTHigh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidGain = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PidI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linkLabelGetRoboRioParams = new System.Windows.Forms.LinkLabel();
+            this.textBoxRoboRioParams = new System.Windows.Forms.TextBox();
+            this.linkLabelSendRoboRioParams = new System.Windows.Forms.LinkLabel();
             this.pictureBoxTarget = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonBlueSide = new System.Windows.Forms.RadioButton();
@@ -87,6 +84,10 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numericUpDownFrameDecimation = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelUserID = new System.Windows.Forms.Label();
+            this.checkBoxPauseRobotLog = new System.Windows.Forms.CheckBox();
+            this.numericUpDownLedProgram = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageTarSys.SuspendLayout();
@@ -96,13 +97,13 @@
             this.tabPageRobot.SuspendLayout();
             this.tabPageJetson.SuspendLayout();
             this.tabPageMqttList.SuspendLayout();
-            this.tabPagePID.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPageRio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelClearBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrameDecimation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLedProgram)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_MainLog
@@ -141,7 +142,7 @@
             this.tabControlMain.Controls.Add(this.tabPageRobot);
             this.tabControlMain.Controls.Add(this.tabPageJetson);
             this.tabControlMain.Controls.Add(this.tabPageMqttList);
-            this.tabControlMain.Controls.Add(this.tabPagePID);
+            this.tabControlMain.Controls.Add(this.tabPageRio);
             this.tabControlMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlMain.Location = new System.Drawing.Point(494, 67);
             this.tabControlMain.Name = "tabControlMain";
@@ -226,6 +227,7 @@
             this.radioButtonTargetPeg.TabIndex = 4;
             this.radioButtonTargetPeg.Text = "Peg";
             this.radioButtonTargetPeg.UseVisualStyleBackColor = true;
+            this.radioButtonTargetPeg.CheckedChanged += new System.EventHandler(this.radioButtonTargetPeg_CheckedChanged);
             // 
             // radioButtonTargetBoiler
             // 
@@ -236,6 +238,7 @@
             this.radioButtonTargetBoiler.TabIndex = 3;
             this.radioButtonTargetBoiler.Text = "Boiler";
             this.radioButtonTargetBoiler.UseVisualStyleBackColor = true;
+            this.radioButtonTargetBoiler.CheckedChanged += new System.EventHandler(this.radioButtonTargetBoiler_CheckedChanged);
             // 
             // radioButtonTargetNone
             // 
@@ -248,6 +251,7 @@
             this.radioButtonTargetNone.TabStop = true;
             this.radioButtonTargetNone.Text = "None";
             this.radioButtonTargetNone.UseVisualStyleBackColor = true;
+            this.radioButtonTargetNone.CheckedChanged += new System.EventHandler(this.radioButtonTargetNone_CheckedChanged);
             // 
             // label8
             // 
@@ -379,98 +383,114 @@
             this.textBoxMqttList.TabIndex = 1;
             this.textBoxMqttList.WordWrap = false;
             // 
-            // tabPagePID
+            // tabPageRio
             // 
-            this.tabPagePID.Controls.Add(this.linkLabelSendPIDs);
-            this.tabPagePID.Controls.Add(this.label1);
-            this.tabPagePID.Controls.Add(this.dataGridView1);
-            this.tabPagePID.Location = new System.Drawing.Point(4, 25);
-            this.tabPagePID.Name = "tabPagePID";
-            this.tabPagePID.Size = new System.Drawing.Size(621, 432);
-            this.tabPagePID.TabIndex = 4;
-            this.tabPagePID.Text = "PID Params";
-            this.tabPagePID.UseVisualStyleBackColor = true;
+            this.tabPageRio.Controls.Add(this.labelRioParamErrors);
+            this.tabPageRio.Controls.Add(this.linkLabelSaveRoboRIOParams);
+            this.tabPageRio.Controls.Add(this.linkLabelLoadRoboRioParams);
+            this.tabPageRio.Controls.Add(this.linkLabelSetRoboRioDefaults);
+            this.tabPageRio.Controls.Add(this.label1);
+            this.tabPageRio.Controls.Add(this.linkLabelGetRoboRioParams);
+            this.tabPageRio.Controls.Add(this.textBoxRoboRioParams);
+            this.tabPageRio.Controls.Add(this.linkLabelSendRoboRioParams);
+            this.tabPageRio.Location = new System.Drawing.Point(4, 25);
+            this.tabPageRio.Name = "tabPageRio";
+            this.tabPageRio.Size = new System.Drawing.Size(621, 432);
+            this.tabPageRio.TabIndex = 4;
+            this.tabPageRio.Text = "Rio Params";
+            this.tabPageRio.UseVisualStyleBackColor = true;
             // 
-            // linkLabelSendPIDs
+            // labelRioParamErrors
             // 
-            this.linkLabelSendPIDs.AutoSize = true;
-            this.linkLabelSendPIDs.Location = new System.Drawing.Point(18, 22);
-            this.linkLabelSendPIDs.Name = "linkLabelSendPIDs";
-            this.linkLabelSendPIDs.Size = new System.Drawing.Size(40, 16);
-            this.linkLabelSendPIDs.TabIndex = 2;
-            this.linkLabelSendPIDs.TabStop = true;
-            this.linkLabelSendPIDs.Text = "Send";
+            this.labelRioParamErrors.AutoSize = true;
+            this.labelRioParamErrors.Location = new System.Drawing.Point(302, 17);
+            this.labelRioParamErrors.Name = "labelRioParamErrors";
+            this.labelRioParamErrors.Size = new System.Drawing.Size(0, 16);
+            this.labelRioParamErrors.TabIndex = 26;
+            // 
+            // linkLabelSaveRoboRIOParams
+            // 
+            this.linkLabelSaveRoboRIOParams.AutoSize = true;
+            this.linkLabelSaveRoboRIOParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelSaveRoboRIOParams.Location = new System.Drawing.Point(443, 39);
+            this.linkLabelSaveRoboRIOParams.Name = "linkLabelSaveRoboRIOParams";
+            this.linkLabelSaveRoboRIOParams.Size = new System.Drawing.Size(135, 20);
+            this.linkLabelSaveRoboRIOParams.TabIndex = 25;
+            this.linkLabelSaveRoboRIOParams.TabStop = true;
+            this.linkLabelSaveRoboRIOParams.Text = "Save To Laptop";
+            this.linkLabelSaveRoboRIOParams.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSaveRoboRIOParams_LinkClicked);
+            // 
+            // linkLabelLoadRoboRioParams
+            // 
+            this.linkLabelLoadRoboRioParams.AutoSize = true;
+            this.linkLabelLoadRoboRioParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelLoadRoboRioParams.Location = new System.Drawing.Point(443, 13);
+            this.linkLabelLoadRoboRioParams.Name = "linkLabelLoadRoboRioParams";
+            this.linkLabelLoadRoboRioParams.Size = new System.Drawing.Size(156, 20);
+            this.linkLabelLoadRoboRioParams.TabIndex = 24;
+            this.linkLabelLoadRoboRioParams.TabStop = true;
+            this.linkLabelLoadRoboRioParams.Text = "Load From Laptop";
+            this.linkLabelLoadRoboRioParams.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLoadRoboRioParams_LinkClicked);
+            // 
+            // linkLabelSetRoboRioDefaults
+            // 
+            this.linkLabelSetRoboRioDefaults.AutoSize = true;
+            this.linkLabelSetRoboRioDefaults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelSetRoboRioDefaults.Location = new System.Drawing.Point(303, 39);
+            this.linkLabelSetRoboRioDefaults.Name = "linkLabelSetRoboRioDefaults";
+            this.linkLabelSetRoboRioDefaults.Size = new System.Drawing.Size(110, 20);
+            this.linkLabelSetRoboRioDefaults.TabIndex = 23;
+            this.linkLabelSetRoboRioDefaults.TabStop = true;
+            this.linkLabelSetRoboRioDefaults.Text = "Set Defaults";
+            this.linkLabelSetRoboRioDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSetRoboRioDefaults_LinkClicked);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 25);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "NOT IMPLIMENTED YET";
+            this.label1.Size = new System.Drawing.Size(222, 24);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Parameters For RoboRIO";
             // 
-            // dataGridView1
+            // linkLabelGetRoboRioParams
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PidName,
-            this.PidSP1,
-            this.PidSP2,
-            this.PidTLow,
-            this.PidTHigh,
-            this.PidGain,
-            this.PidD,
-            this.PidI});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 367);
-            this.dataGridView1.TabIndex = 0;
+            this.linkLabelGetRoboRioParams.AutoSize = true;
+            this.linkLabelGetRoboRioParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelGetRoboRioParams.Location = new System.Drawing.Point(172, 39);
+            this.linkLabelGetRoboRioParams.Name = "linkLabelGetRoboRioParams";
+            this.linkLabelGetRoboRioParams.Size = new System.Drawing.Size(104, 20);
+            this.linkLabelGetRoboRioParams.TabIndex = 21;
+            this.linkLabelGetRoboRioParams.TabStop = true;
+            this.linkLabelGetRoboRioParams.Text = "Get Params";
+            this.linkLabelGetRoboRioParams.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGetRoboRioParams_LinkClicked);
             // 
-            // PidName
+            // textBoxRoboRioParams
             // 
-            this.PidName.HeaderText = "Name";
-            this.PidName.Name = "PidName";
+            this.textBoxRoboRioParams.Location = new System.Drawing.Point(29, 73);
+            this.textBoxRoboRioParams.Multiline = true;
+            this.textBoxRoboRioParams.Name = "textBoxRoboRioParams";
+            this.textBoxRoboRioParams.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxRoboRioParams.Size = new System.Drawing.Size(464, 341);
+            this.textBoxRoboRioParams.TabIndex = 17;
+            this.textBoxRoboRioParams.WordWrap = false;
             // 
-            // PidSP1
+            // linkLabelSendRoboRioParams
             // 
-            this.PidSP1.HeaderText = "SP1";
-            this.PidSP1.Name = "PidSP1";
-            // 
-            // PidSP2
-            // 
-            this.PidSP2.HeaderText = "SP2";
-            this.PidSP2.Name = "PidSP2";
-            // 
-            // PidTLow
-            // 
-            this.PidTLow.HeaderText = "TLow";
-            this.PidTLow.Name = "PidTLow";
-            // 
-            // PidTHigh
-            // 
-            this.PidTHigh.HeaderText = "THigh";
-            this.PidTHigh.Name = "PidTHigh";
-            // 
-            // PidGain
-            // 
-            this.PidGain.HeaderText = "Gain";
-            this.PidGain.Name = "PidGain";
-            // 
-            // PidD
-            // 
-            this.PidD.HeaderText = "D";
-            this.PidD.Name = "PidD";
-            // 
-            // PidI
-            // 
-            this.PidI.HeaderText = "I";
-            this.PidI.Name = "PidI";
+            this.linkLabelSendRoboRioParams.AutoSize = true;
+            this.linkLabelSendRoboRioParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelSendRoboRioParams.Location = new System.Drawing.Point(25, 39);
+            this.linkLabelSendRoboRioParams.Name = "linkLabelSendRoboRioParams";
+            this.linkLabelSendRoboRioParams.Size = new System.Drawing.Size(116, 20);
+            this.linkLabelSendRoboRioParams.TabIndex = 2;
+            this.linkLabelSendRoboRioParams.TabStop = true;
+            this.linkLabelSendRoboRioParams.Text = "Send Params";
+            this.linkLabelSendRoboRioParams.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSendRoboRioParams_LinkClicked);
             // 
             // pictureBoxTarget
             // 
-            this.pictureBoxTarget.Location = new System.Drawing.Point(17, 154);
+            this.pictureBoxTarget.Location = new System.Drawing.Point(17, 197);
             this.pictureBoxTarget.Name = "pictureBoxTarget";
             this.pictureBoxTarget.Size = new System.Drawing.Size(364, 331);
             this.pictureBoxTarget.TabIndex = 14;
@@ -482,7 +502,7 @@
             this.panel1.Controls.Add(this.radioButtonBlueSide);
             this.panel1.Controls.Add(this.radioButtonRedSide);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(29, 67);
+            this.panel1.Location = new System.Drawing.Point(29, 73);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(124, 70);
             this.panel1.TabIndex = 16;
@@ -503,7 +523,7 @@
             // radioButtonRedSide
             // 
             this.radioButtonRedSide.AutoSize = true;
-            this.radioButtonRedSide.Location = new System.Drawing.Point(17, 23);
+            this.radioButtonRedSide.Location = new System.Drawing.Point(17, 24);
             this.radioButtonRedSide.Name = "radioButtonRedSide";
             this.radioButtonRedSide.Size = new System.Drawing.Size(69, 17);
             this.radioButtonRedSide.TabIndex = 1;
@@ -530,7 +550,7 @@
             this.panel3.Controls.Add(this.radioButtonCenterGearAndShoot);
             this.panel3.Controls.Add(this.radioButtonCenterGear);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Location = new System.Drawing.Point(159, 13);
+            this.panel3.Location = new System.Drawing.Point(171, 19);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(154, 124);
             this.panel3.TabIndex = 16;
@@ -660,7 +680,7 @@
             // linkLabelSendAuto
             // 
             this.linkLabelSendAuto.AutoSize = true;
-            this.linkLabelSendAuto.Location = new System.Drawing.Point(28, 45);
+            this.linkLabelSendAuto.Location = new System.Drawing.Point(331, 18);
             this.linkLabelSendAuto.Name = "linkLabelSendAuto";
             this.linkLabelSendAuto.Size = new System.Drawing.Size(32, 13);
             this.linkLabelSendAuto.TabIndex = 22;
@@ -671,7 +691,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(334, 53);
+            this.checkBox1.Location = new System.Drawing.Point(334, 67);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(47, 17);
             this.checkBox1.TabIndex = 23;
@@ -696,11 +716,56 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Pic Speed (0=off)";
             // 
+            // labelUserID
+            // 
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.Location = new System.Drawing.Point(40, 43);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(40, 13);
+            this.labelUserID.TabIndex = 26;
+            this.labelUserID.Text = "UserID";
+            // 
+            // checkBoxPauseRobotLog
+            // 
+            this.checkBoxPauseRobotLog.AutoSize = true;
+            this.checkBoxPauseRobotLog.Location = new System.Drawing.Point(334, 42);
+            this.checkBoxPauseRobotLog.Name = "checkBoxPauseRobotLog";
+            this.checkBoxPauseRobotLog.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxPauseRobotLog.TabIndex = 27;
+            this.checkBoxPauseRobotLog.Text = "Pause Robot Log";
+            this.checkBoxPauseRobotLog.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownLedProgram
+            // 
+            this.numericUpDownLedProgram.Location = new System.Drawing.Point(334, 151);
+            this.numericUpDownLedProgram.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDownLedProgram.Name = "numericUpDownLedProgram";
+            this.numericUpDownLedProgram.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownLedProgram.TabIndex = 28;
+            this.numericUpDownLedProgram.ValueChanged += new System.EventHandler(this.numericUpDownLedProgram_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(331, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Led Prgm";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 662);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDownLedProgram);
+            this.Controls.Add(this.checkBoxPauseRobotLog);
+            this.Controls.Add(this.labelUserID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDownFrameDecimation);
             this.Controls.Add(this.checkBox1);
@@ -729,9 +794,8 @@
             this.tabPageJetson.PerformLayout();
             this.tabPageMqttList.ResumeLayout(false);
             this.tabPageMqttList.PerformLayout();
-            this.tabPagePID.ResumeLayout(false);
-            this.tabPagePID.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPageRio.ResumeLayout(false);
+            this.tabPageRio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -740,6 +804,7 @@
             this.panelClearBox.ResumeLayout(false);
             this.panelClearBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrameDecimation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLedProgram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -778,18 +843,8 @@
         private System.Windows.Forms.LinkLabel linkLabelClearMqtt;
         private System.Windows.Forms.Panel panelClearBox;
         private System.Windows.Forms.TabPage tabPageTarSys;
-        private System.Windows.Forms.TabPage tabPagePID;
-        private System.Windows.Forms.LinkLabel linkLabelSendPIDs;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidSP1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidSP2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidTLow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidTHigh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidGain;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PidI;
+        private System.Windows.Forms.TabPage tabPageRio;
+        private System.Windows.Forms.LinkLabel linkLabelSendRoboRioParams;
         private System.Windows.Forms.LinkLabel linkLabelSendAuto;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton radioButtonTargetPeg;
@@ -805,6 +860,17 @@
         private System.Windows.Forms.DataGridView dataGridViewMsgs;
         private System.Windows.Forms.NumericUpDown numericUpDownFrameDecimation;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabelGetRoboRioParams;
+        private System.Windows.Forms.TextBox textBoxRoboRioParams;
+        private System.Windows.Forms.LinkLabel linkLabelSetRoboRioDefaults;
+        private System.Windows.Forms.LinkLabel linkLabelSaveRoboRIOParams;
+        private System.Windows.Forms.LinkLabel linkLabelLoadRoboRioParams;
+        private System.Windows.Forms.Label labelRioParamErrors;
+        private System.Windows.Forms.Label labelUserID;
+        private System.Windows.Forms.CheckBox checkBoxPauseRobotLog;
+        private System.Windows.Forms.NumericUpDown numericUpDownLedProgram;
+        private System.Windows.Forms.Label label3;
     }
 }
 
