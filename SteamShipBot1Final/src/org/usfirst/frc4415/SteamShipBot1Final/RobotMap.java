@@ -141,16 +141,16 @@ public class RobotMap {
         cameraSystemLED = new DigitalOutput(8);
         LiveWindow.addActuator("Camera System", "LED", cameraSystemLED);
         
-        cameraSystemPin1 = new DigitalOutput(13);
+        cameraSystemPin1 = new DigitalOutput(10);
         LiveWindow.addActuator("Camera System", "Pin 1", cameraSystemPin1);
         
-        cameraSystemPin2 = new DigitalOutput(9);
+        cameraSystemPin2 = new DigitalOutput(11);
         LiveWindow.addActuator("Camera System", "Pin 2", cameraSystemPin2);
         
-        cameraSystemPin3 = new DigitalOutput(10);
+        cameraSystemPin3 = new DigitalOutput(12);
         LiveWindow.addActuator("Camera System", "Pin 3", cameraSystemPin3);
         
-        cameraSystemPin4 = new DigitalOutput(11);
+        cameraSystemPin4 = new DigitalOutput(13);
         LiveWindow.addActuator("Camera System", "Pin 4", cameraSystemPin4);
         
         fuelTankDoubleSolenoid = new DoubleSolenoid(0, 6, 7);

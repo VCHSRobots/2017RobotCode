@@ -345,4 +345,8 @@ public class Robot extends IterativeRobot {
         LiveWindow.run();
     	commonDashboardReport();
     }
+    
+	public static void logf(String fmt, Object... args) {
+		if(mqtt != null) mqtt.logf(fmt, args); 
+	}
 }

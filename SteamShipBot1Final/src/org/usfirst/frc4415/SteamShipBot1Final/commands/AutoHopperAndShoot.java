@@ -97,15 +97,22 @@ public class AutoHopperAndShoot extends Command {
     	autoProgram.get(2).setDeadband(deadband);
     	autoProgram.get(2).setClipping(clipping); 
     	
+    	// slow move to hopper based on timeout
+    	autoProgram.add(new PIDRobotDriveMove(
+    			robotDrive, 99999, 0, 1000));
+    	autoProgram.get(3).setPGain(pGain);
+    	autoProgram.get(3).setDeadband(deadband);
+    	autoProgram.get(3).setClipping(clipping);
+    	
     	// pause
     	autoProgram.add(new TimeDelay(3000));
     	
     	// back up from hopper
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, -200, 10, 5000));
-    	autoProgram.get(4).setPGain(pGain);
-    	autoProgram.get(4).setDeadband(deadband);
-    	autoProgram.get(4).setClipping(clipping); 
+    	autoProgram.get(5).setPGain(pGain);
+    	autoProgram.get(5).setDeadband(deadband);
+    	autoProgram.get(5).setClipping(clipping); 
     	
     	// rotate to boiler
     	if(Robot.autoParams.getSide().equals("blue")){
@@ -115,53 +122,54 @@ public class AutoHopperAndShoot extends Command {
         		autoProgram.add(new PIDRobotDriveRotate(
             			robotDrive, -27, true, 10, 5000));
         	}
-    	autoProgram.get(5).setPGain(pGainRotate);
-    	autoProgram.get(5).setDeadband(deadbandRotate);
-    	autoProgram.get(5).setClipping(clippingRotate); 
+    	autoProgram.get(6).setPGain(pGainRotate);
+    	autoProgram.get(6).setDeadband(deadbandRotate);
+    	autoProgram.get(6).setClipping(clippingRotate); 
     	
     	// move to boiler
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, -1000, 10, 5000));
-    	autoProgram.get(6).setPGain(pGain);
-    	autoProgram.get(6).setDeadband(deadband);
-    	autoProgram.get(6).setClipping(clipping); 
+    	autoProgram.get(7).setPGain(pGain);
+    	autoProgram.get(7).setDeadband(deadband);
+    	autoProgram.get(7).setClipping(clipping); 
     	
     	// switch to mecanum, aim drivetrain at boiler
     	autoProgram.add(new PIDRobotDriveRotate(
     			robotDrive, 0, false, 200, 3000));
-    	autoProgram.get(7).setPGain(Robot.tableReader.get("pgainrotatetarget",  0.0015));
-    	autoProgram.get(7).setDeadband(Robot.tableReader.get("deadbandrotatetarget",  0.1));
-    	autoProgram.get(7).setClipping(1);
+    	autoProgram.get(8).setPGain(Robot.tableReader.get("pgainrotatetarget",  0.0015));
+    	autoProgram.get(8).setDeadband(Robot.tableReader.get("deadbandrotatetarget",  0.1));
+    	autoProgram.get(8).setClipping(1);
     	
     	// aim turret at target
     	autoProgram.add(new PIDTurret(
     			turret, 0, 4, 3000));
-    	autoProgram.get(8).setPGain(Robot.tableReader.get("pgainturret", 0.01));
-    	autoProgram.get(8).setDeadband(Robot.tableReader.get("deadbandturret", 0.05));
-    	autoProgram.get(8).setClipping(1);
+    	autoProgram.get(9).setPGain(Robot.tableReader.get("pgainturret", 0.01));
+    	autoProgram.get(9).setDeadband(Robot.tableReader.get("deadbandturret", 0.05));
+    	autoProgram.get(9).setClipping(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 	    if(autoStage < autoProgram.size()){
 	    	double feedback = 0;
-	    	if(autoStage==0 || autoStage==2 || autoStage==4 || autoStage==6) feedback = encoder.get();
-	    	else if (autoStage==1 || autoStage==5) feedback = navX.getAngle();
-	    	else if (autoStage==7 || autoStage==8) feedback = Robot.targetReportMonitor.report().x1000() * -1.0;
+	    	if(autoStage==0 || autoStage==2 || autoStage == 3 || autoStage==5 || autoStage==7) feedback = encoder.get();
+	    	else if (autoStage==1 || autoStage==6) feedback = navX.getAngle();
+	    	else if (autoStage==8 || autoStage==9) feedback = Robot.targetReportMonitor.report().x1000() * -1.0;
 	    	else feedback = 0;
 	    	autoProgram.get(autoStage).run(feedback);
 	    	if(autoStage==2 && autoProgram.get(autoStage).isDone()){
 	    		Robot.fuelTank.deploy();
 	    	}
-	    	if(autoStage==4 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==5 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.handlerIn();
 	    		Robot.shooter.toggleShooter();
 	    	}
-	    	if(autoStage==6 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==7 && autoProgram.get(autoStage).isDone()){
 	    		Robot.driveTrain.setMecanum();
 	    		Robot.driveTrain.invertMotorsArcade();
 	    	}
-	    	
+	    	Robot.logf(autoProgram.get(autoStage).toString());
+	    	System.out.println(autoProgram.get(autoStage));
 	    	if(autoProgram.get(autoStage).isDone()){
 	    		autoStage++;
 	    	}

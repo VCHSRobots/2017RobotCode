@@ -73,22 +73,31 @@ public class AutoCenterGearAndShoot extends Command {
     	
     	autoProgram = new ArrayList<>();
     	
-    	// move toward gear
+    	// quick move toward gear
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, 1000, 10, 5000));
     	autoProgram.get(0).setPGain(pGain);
     	autoProgram.get(0).setDeadband(deadband);
     	autoProgram.get(0).setClipping(clipping);
     	
-    	// pause and open gear handler
+    	// slow move toward gear based on timeout
+    	autoProgram.add(new PIDRobotDriveMove(
+    			robotDrive, 99999, 0, 1000));
+    	autoProgram.get(1).setPGain(pGain);
+    	autoProgram.get(1).setDeadband(deadband);
+    	autoProgram.get(1).setClipping(clipping);
+    	
+    	// release gear
+    	
+    	// pause
     	autoProgram.add(new TimeDelay(250));
     	
     	// move away from gear
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, -200, 10, 5000));
-    	autoProgram.get(2).setPGain(pGain);
-    	autoProgram.get(2).setDeadband(deadband);
-    	autoProgram.get(2).setClipping(clipping);  
+    	autoProgram.get(3).setPGain(pGain);
+    	autoProgram.get(3).setDeadband(deadband);
+    	autoProgram.get(3).setClipping(clipping);  
     	
     	// rotate towards boiler
     	if(Robot.autoParams.getSide().equals("blue")){
@@ -98,53 +107,54 @@ public class AutoCenterGearAndShoot extends Command {
     		autoProgram.add(new PIDRobotDriveRotate(
         			robotDrive, -27, true, 10, 5000));
     	}
-    	autoProgram.get(3).setPGain(pGainRotate);
-    	autoProgram.get(3).setDeadband(deadbandRotate);
-    	autoProgram.get(3).setClipping(clippingRotate); 
+    	autoProgram.get(4).setPGain(pGainRotate);
+    	autoProgram.get(4).setDeadband(deadbandRotate);
+    	autoProgram.get(4).setClipping(clippingRotate); 
     	
     	// move towards boiler
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, -1000, 10, 5000));
-    	autoProgram.get(4).setPGain(pGain);
-    	autoProgram.get(4).setDeadband(deadband);
-    	autoProgram.get(4).setClipping(clipping);
+    	autoProgram.get(5).setPGain(pGain);
+    	autoProgram.get(5).setDeadband(deadband);
+    	autoProgram.get(5).setClipping(clipping);
     	
     	// switch to mecanum, aim drivetrain at boiler
     	autoProgram.add(new PIDRobotDriveRotate(
     			robotDrive, 0, false, 200, 3000));
-    	autoProgram.get(5).setPGain(Robot.tableReader.get("pgainrotatetarget",  0.0015));
-    	autoProgram.get(5).setDeadband(Robot.tableReader.get("deadbandrotatetarget",  0.1));
-    	autoProgram.get(5).setClipping(1);
+    	autoProgram.get(6).setPGain(Robot.tableReader.get("pgainrotatetarget",  0.0015));
+    	autoProgram.get(6).setDeadband(Robot.tableReader.get("deadbandrotatetarget",  0.1));
+    	autoProgram.get(6).setClipping(1);
     	
     	// aim turret at boiler
     	autoProgram.add(new PIDTurret(
     			turret, 0, 4, 3000));
-    	autoProgram.get(6).setPGain(Robot.tableReader.get("pgainturret", 0.01));
-    	autoProgram.get(6).setDeadband(Robot.tableReader.get("deadbandturret", 0.05));
-    	autoProgram.get(6).setClipping(1);
+    	autoProgram.get(7).setPGain(Robot.tableReader.get("pgainturret", 0.01));
+    	autoProgram.get(7).setDeadband(Robot.tableReader.get("deadbandturret", 0.05));
+    	autoProgram.get(7).setClipping(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 	    if(autoStage < autoProgram.size()){
 	    	double feedback = 0;
-	    	if(autoStage==0 ||autoStage==2 ||autoStage==4) feedback = encoder.get();
-	    	else if (autoStage==3) feedback = navX.getAngle();
-	    	else if (autoStage==5 || autoStage==6) feedback = Robot.targetReportMonitor.report().x1000() * -1.0;
+	    	if(autoStage==0 || autoStage==1 ||autoStage==3 ||autoStage==5) feedback = encoder.get();
+	    	else if (autoStage==4) feedback = navX.getAngle();
+	    	else if (autoStage==6 || autoStage==7) feedback = Robot.targetReportMonitor.report().x1000() * -1.0;
 	    	else feedback = 0;
 	    	autoProgram.get(autoStage).run(feedback);
-	    	if(autoStage==0 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==1 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.gearRelease();
 	    	}
-	    	if(autoStage==2 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==3 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.handlerIn();
 	    		Robot.shooter.toggleShooter();
 	    	}
-	    	if(autoStage==4 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==5 && autoProgram.get(autoStage).isDone()){
 	    		Robot.driveTrain.setMecanum();
 	    		Robot.driveTrain.invertMotorsArcade();
 	    	}
-	    	
+	    	Robot.logf(autoProgram.get(autoStage).toString());
+	    	System.out.println(autoProgram.get(autoStage));
 	    	if(autoProgram.get(autoStage).isDone()){
 	    		autoStage++;
 	    	}

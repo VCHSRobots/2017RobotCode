@@ -52,6 +52,8 @@ public class AutonomousCommand extends Command {
     }
 
     protected void initialize() {
+    	System.out.println("Running \"AutonomousCommand\"");
+    	Robot.logf("Running \"AutonomousCommand\"");
     	autoStage = 0;
     	navX.reset();
     	double pGain = Robot.tableReader.get("pgain", .01);

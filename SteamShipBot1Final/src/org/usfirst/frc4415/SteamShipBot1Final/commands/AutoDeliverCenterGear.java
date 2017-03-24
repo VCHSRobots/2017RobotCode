@@ -67,6 +67,13 @@ public class AutoDeliverCenterGear extends Command {
     	autoProgram.get(0).setDeadband(deadband);
     	autoProgram.get(0).setClipping(clipping);
     	
+    	// slow move toward gear based on timeout
+    	autoProgram.add(new PIDRobotDriveMove(
+    			robotDrive, 99999, 0, 1000));
+    	autoProgram.get(1).setPGain(pGain);
+    	autoProgram.get(1).setDeadband(deadband);
+    	autoProgram.get(1).setClipping(clipping);
+    	
     	// pause 
     	autoProgram.add(new TimeDelay(250));
     	
@@ -85,6 +92,8 @@ public class AutoDeliverCenterGear extends Command {
 	    	if(autoStage==0 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.gearRelease();
 	    	}
+	    	Robot.logf(autoProgram.get(autoStage).toString());
+	    	System.out.println(autoProgram.get(autoStage));
 	    	if(autoProgram.get(autoStage).isDone()){
 	    		autoStage++;
 	    	}

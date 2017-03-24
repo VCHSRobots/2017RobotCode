@@ -38,11 +38,13 @@ public class AutoMoveStraight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.arcadePIDMove(100,10000);
+    	//Robot.driveTrain.arcadePIDMove(100,10000);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Running \"AutoMoveStraight\"");
+    	Robot.logf("Running \"AutoMoveStraight\"");
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -79,6 +79,7 @@ public class TurretAutoAim extends Command {
     	double feedback = Robot.targetReportMonitor.report().x1000() * -1.0;
     	SmartDashboard.putNumber("Feedback", feedback);
     	autoProgram.get(autoStage).run(feedback);
+    	Robot.logf(autoProgram.get(autoStage).toString());
     	System.out.println(autoProgram.get(autoStage));
     	if(autoProgram.get(autoStage).isDone()){
     		autoStage++;
