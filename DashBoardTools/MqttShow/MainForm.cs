@@ -85,6 +85,7 @@ namespace MqttShow
         {
             m_UIDisable++;
             this.numericUpDownFrameDecimation.Value = m_Settings.FrameDecimation;
+            this.checkBoxPauseRobotLog.Checked = m_Settings.PauseRobotLog;
             m_UIDisable--;
         }
         #endregion
@@ -96,6 +97,7 @@ namespace MqttShow
         private void SaveParameters()
         {
             m_Settings.FrameDecimation = (int) this.numericUpDownFrameDecimation.Value;
+            m_Settings.PauseRobotLog = this.checkBoxPauseRobotLog.Checked;
         }
         #endregion
 
@@ -337,7 +339,10 @@ namespace MqttShow
 
             if (topic == "robot/roborio/log")
             {
-                AddLogLine(textBoxRobotLog, message);
+                if (!checkBoxPauseRobotLog.Checked)
+                {
+                    AddLogLine(textBoxRobotLog, message);
+                }
                 return;
             }
             else
@@ -544,14 +549,7 @@ namespace MqttShow
             SendAutoProgram();
         }
 
-        private void linkLabelSendTargetMode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            string star = "0";
-            if (this.radioButtonTargetNone.Checked) star = "0";
-            if (this.radioButtonTargetBoiler.Checked) star = "1";
-            if (this.radioButtonTargetPeg.Checked) star = "2";
-            m_mqtt.SendMessage("robot/ds/targetmode", star);
-        }
+
         #endregion
 
         #region Sending Commands to RoboRio
@@ -706,6 +704,42 @@ namespace MqttShow
             SendFrameDecimation();
         }
         #endregion
+
+        #region Events to Setup Target Mode
+
+        private void SetupTargetingMode()
+        {
+            string star = "0";
+            if (this.radioButtonTargetNone.Checked) star = "0";
+            if (this.radioButtonTargetBoiler.Checked) star = "1";
+            if (this.radioButtonTargetPeg.Checked) star = "2";
+            m_mqtt.SendMessage("robot/ds/targetmode", star);
+            //m_mqtt.SendMessage("robot/ds/tstcamlight", "1");
+            checkBox1.Checked = true;  // This caused the mqtt msg to be sent because the UI event is triggered.
+            m_Settings.FrameDecimation = 10; // This should cause a mqtt msg to be sent.
+        }
+
+        private void radioButtonTargetPeg_CheckedChanged(object sender, EventArgs e)
+        {
+            SetupTargetingMode();
+        }
+
+        private void radioButtonTargetBoiler_CheckedChanged(object sender, EventArgs e)
+        {
+            SetupTargetingMode();
+        }
+
+        private void radioButtonTargetNone_CheckedChanged(object sender, EventArgs e)
+        {
+            SetupTargetingMode();
+        }
+
+        private void linkLabelSendTargetMode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SetupTargetingMode();
+
+        }
+        #endregion
     }
 
     #region TopicComparer class
@@ -754,6 +788,16 @@ namespace MqttShow
         {
             get { return (int)this["FrameDecimation"]; }
             set { this["FrameDecimation"] = (int)value; }
+        }
+        #endregion
+
+        #region PauseRobotLog
+        [UserScopedSetting()]
+        [DefaultSettingValue("false")]
+        public bool PauseRobotLog
+        {
+            get { return (bool)this["PauseRobotLog"]; }
+            set { this["PauseRobotLog"] = (bool)value; }
         }
         #endregion
 

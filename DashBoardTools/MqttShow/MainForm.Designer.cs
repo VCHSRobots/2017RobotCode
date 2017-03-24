@@ -55,6 +55,7 @@
             this.tabPageMqttList = new System.Windows.Forms.TabPage();
             this.textBoxMqttList = new System.Windows.Forms.TextBox();
             this.tabPageRio = new System.Windows.Forms.TabPage();
+            this.labelRioParamErrors = new System.Windows.Forms.Label();
             this.linkLabelSaveRoboRIOParams = new System.Windows.Forms.LinkLabel();
             this.linkLabelLoadRoboRioParams = new System.Windows.Forms.LinkLabel();
             this.linkLabelSetRoboRioDefaults = new System.Windows.Forms.LinkLabel();
@@ -83,8 +84,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numericUpDownFrameDecimation = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelRioParamErrors = new System.Windows.Forms.Label();
             this.labelUserID = new System.Windows.Forms.Label();
+            this.checkBoxPauseRobotLog = new System.Windows.Forms.CheckBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageTarSys.SuspendLayout();
@@ -223,6 +224,7 @@
             this.radioButtonTargetPeg.TabIndex = 4;
             this.radioButtonTargetPeg.Text = "Peg";
             this.radioButtonTargetPeg.UseVisualStyleBackColor = true;
+            this.radioButtonTargetPeg.CheckedChanged += new System.EventHandler(this.radioButtonTargetPeg_CheckedChanged);
             // 
             // radioButtonTargetBoiler
             // 
@@ -233,6 +235,7 @@
             this.radioButtonTargetBoiler.TabIndex = 3;
             this.radioButtonTargetBoiler.Text = "Boiler";
             this.radioButtonTargetBoiler.UseVisualStyleBackColor = true;
+            this.radioButtonTargetBoiler.CheckedChanged += new System.EventHandler(this.radioButtonTargetBoiler_CheckedChanged);
             // 
             // radioButtonTargetNone
             // 
@@ -245,6 +248,7 @@
             this.radioButtonTargetNone.TabStop = true;
             this.radioButtonTargetNone.Text = "None";
             this.radioButtonTargetNone.UseVisualStyleBackColor = true;
+            this.radioButtonTargetNone.CheckedChanged += new System.EventHandler(this.radioButtonTargetNone_CheckedChanged);
             // 
             // label8
             // 
@@ -392,6 +396,14 @@
             this.tabPageRio.TabIndex = 4;
             this.tabPageRio.Text = "Rio Params";
             this.tabPageRio.UseVisualStyleBackColor = true;
+            // 
+            // labelRioParamErrors
+            // 
+            this.labelRioParamErrors.AutoSize = true;
+            this.labelRioParamErrors.Location = new System.Drawing.Point(302, 17);
+            this.labelRioParamErrors.Name = "labelRioParamErrors";
+            this.labelRioParamErrors.Size = new System.Drawing.Size(0, 16);
+            this.labelRioParamErrors.TabIndex = 26;
             // 
             // linkLabelSaveRoboRIOParams
             // 
@@ -701,14 +713,6 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Pic Speed (0=off)";
             // 
-            // labelRioParamErrors
-            // 
-            this.labelRioParamErrors.AutoSize = true;
-            this.labelRioParamErrors.Location = new System.Drawing.Point(302, 17);
-            this.labelRioParamErrors.Name = "labelRioParamErrors";
-            this.labelRioParamErrors.Size = new System.Drawing.Size(0, 16);
-            this.labelRioParamErrors.TabIndex = 26;
-            // 
             // labelUserID
             // 
             this.labelUserID.AutoSize = true;
@@ -718,11 +722,22 @@
             this.labelUserID.TabIndex = 26;
             this.labelUserID.Text = "UserID";
             // 
+            // checkBoxPauseRobotLog
+            // 
+            this.checkBoxPauseRobotLog.AutoSize = true;
+            this.checkBoxPauseRobotLog.Location = new System.Drawing.Point(334, 42);
+            this.checkBoxPauseRobotLog.Name = "checkBoxPauseRobotLog";
+            this.checkBoxPauseRobotLog.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxPauseRobotLog.TabIndex = 27;
+            this.checkBoxPauseRobotLog.Text = "Pause Robot Log";
+            this.checkBoxPauseRobotLog.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 662);
+            this.Controls.Add(this.checkBoxPauseRobotLog);
             this.Controls.Add(this.labelUserID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDownFrameDecimation);
@@ -825,6 +840,7 @@
         private System.Windows.Forms.LinkLabel linkLabelLoadRoboRioParams;
         private System.Windows.Forms.Label labelRioParamErrors;
         private System.Windows.Forms.Label labelUserID;
+        private System.Windows.Forms.CheckBox checkBoxPauseRobotLog;
     }
 }
 
