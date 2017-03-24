@@ -1,3 +1,9 @@
+// --------------------------------------------------------------------
+// MqttMessageArrived.java -- Manages parameter tables with MQTT
+//
+// Created 03/23/17 DLB
+// -------------------------------------------------------------------
+
 package org.usfirst.frc4415.SteamShipBot1Final;
 
 import java.util.HashMap;
