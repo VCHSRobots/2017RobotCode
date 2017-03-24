@@ -41,7 +41,17 @@ namespace MqttShow
             this.Size = m_Settings.FormSize;
             this.Location = m_Settings.FormLocation;
             LoadParameters();
-            m_mqtt = new Mqtt("10.44.15.19", 5802, "CSharp");
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Trim();
+            if (userName.Length <= 0)
+            {
+                userName = "UnknownID";
+            }
+            else if (userName.Length > 15)
+            {
+                userName = userName.Substring(0, 15);
+            }
+            m_mqtt = new Mqtt("10.44.15.19", 5802, userName);
+            labelUserID.Text = userName;
             m_mqtt.NewMessageReady += NewMessageReady;
             m_mqtt.ConnectionStatusChanged += ConnectionStatusChanged;
             m_mqtt.Start();
@@ -111,6 +121,17 @@ namespace MqttShow
             w = nx - textBoxParamEdit.Location.X - gap;
             h = ny - textBoxParamEdit.Location.Y - gap;
             textBoxParamEdit.Size = new Size(w, h);
+
+            nx = tabPageRio.ClientSize.Width;
+            ny = tabPageRio.ClientSize.Height;
+            w = nx - textBoxRoboRioParams.Location.X - gap;
+            h = ny - textBoxRoboRioParams.Location.Y - gap;
+            textBoxRoboRioParams.Size = new Size(w, h);
+
+            nx = tabPageMsgs.ClientSize.Width;
+            ny = tabPageMsgs.ClientSize.Height;
+            dataGridViewMsgs.Location = new Point(0, 0);
+            dataGridViewMsgs.Size = new Size(nx, ny);
         }
         #endregion
 
@@ -263,13 +284,23 @@ namespace MqttShow
             {
                 string sseq = string.Format("{0,0}", m.Sequence);
                 string sts = string.Format("{0,0}", m.Timestamp);
-                m_MessageTable.Rows.Add(m.Topic, sseq, sts, m.Message);
+                string data = m.Message;
+                if (data.Length > 1000)
+                {
+                    data = data.Substring(0, 1000);
+                }
+                m_MessageTable.Rows.Add(m.Topic, sseq, sts, data);
             }
             //dataGridView1.DataSource = m_MessageTable;
             //textBoxMqttList.Lines = x.ToArray();
         }
         #endregion
 
+        #region DisplayPic
+        /// <summary>
+        /// Display the Picture sent from the Jetson
+        /// </summary>
+        /// <param name="data"></param>
         private void DisplayPic(string data)
         {
             try
@@ -284,6 +315,7 @@ namespace MqttShow
                 return;
             }
         }
+        #endregion
 
         #region ProcessIncomingMsg()
         private void ProcessIncomingMsg(string topic, string message)
@@ -347,6 +379,13 @@ namespace MqttShow
                 args[0] = message;
                 this.BeginInvoke(new StringFunc(LoadParams), args); 
             }
+
+            if (topic == "robot/rio/params")
+            {
+                object[] args = new object[1];
+                args[0] = message;
+                this.BeginInvoke(new StringFunc(LoadRioParams), args);
+            }
         }
         #endregion
 
@@ -358,6 +397,17 @@ namespace MqttShow
         private void LoadParams(string data)
         {
             textBoxParamEdit.Lines = data.Split(';');
+        }
+        #endregion
+
+        #region LoadRioParams()
+        /// <summary>
+        /// Loads the roborio params into the text box for editing.
+        /// </summary>
+        /// <param name="data"></param>
+        private void LoadRioParams(string data)
+        {
+            textBoxRoboRioParams.Lines = data.Split(';');
         }
         #endregion
 
@@ -378,9 +428,9 @@ namespace MqttShow
                 return;
             }
             List<String> lines = new List<string>(box.Lines);
-            if (lines.Count > 400)
+            if (lines.Count > 2000)
             {
-                int nremove = lines.Count - 400;
+                int nremove = lines.Count - 2000;
                 lines.RemoveRange(0, nremove);
             }
             lines.Add(msg);
@@ -565,11 +615,83 @@ namespace MqttShow
         }
         #endregion
 
+        #region Commands for RoboRio Parameters
+        private void linkLabelSendRoboRioParams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Encode the parameters, skip lines that don't work.
+            string m = "";
+            string[] lines = textBoxRoboRioParams.Lines;
+            int nerrors = 0;
+            foreach (string x in lines)
+            {
+                bool okay = false;
+                string xx = x.Trim();
+                if (xx.Length <= 0) continue;
+                string[] parts = xx.Split('=');
+                if (parts.Length == 2)
+                {
+                    string key = parts[0];
+                    double val;
+                    okay = double.TryParse(parts[1], out val);
+                    if (okay)
+                    {
+                        string p = key + "=" + string.Format("{0}", val) + ";";
+                        m += p;
+                    }
+                }
+                if (!okay) nerrors++;
+            }
+            m_mqtt.SendMessage("robot/ds/rio/tableparams", m);
+            if (nerrors > 0)
+            {
+                this.labelRioParamErrors.Text = string.Format("Syntax Errors {0:0}", nerrors);
+            }
+            else
+            {
+                this.labelRioParamErrors.Text = "";
+            }
+        }
+
+        private void linkLabelGetRoboRioParams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            m_mqtt.SendMessage("robot/ds/rio/sendtableparams", "0");
+        }
+
+        private void linkLabelSetRoboRioDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            m_mqtt.SendMessage("robot/ds/rio/usetabledefalts", "0");
+        }
+
+        private void linkLabelSaveRoboRIOParams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string folderLocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string finalPath = Path.Combine(folderLocation, "RioParams.txt");
+            string data = textBoxRoboRioParams.Text;
+            File.WriteAllText(finalPath, data);
+        }
+
+        private void linkLabelLoadRoboRioParams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string folderLocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string finalPath = Path.Combine(folderLocation, "RioParams.txt");
+            string data = "";
+            try
+            {
+                data = File.ReadAllText(finalPath);
+            }
+            catch
+            {
+                data = "";
+            }
+            textBoxRoboRioParams.Text = data;
+        }
+        #endregion
+
         #region SendFrameDecimation()
-        /// <summary>
-        /// Sends the Frame Decimation...
-        /// </summary>
-        /// <param name="iDecimate"></param>
+            /// <summary>
+            /// Sends the Frame Decimation...
+            /// </summary>
+            /// <param name="iDecimate"></param>
         private void SendFrameDecimation()
         {
             if (m_UIDisable > 0) return;
