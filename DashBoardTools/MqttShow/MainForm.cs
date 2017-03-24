@@ -657,7 +657,7 @@ namespace MqttShow
 
         private void linkLabelSetRoboRioDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_mqtt.SendMessage("robot/ds/rio/usetabledefalts", "0");
+            m_mqtt.SendMessage("robot/ds/rio/usetabledefaults", "0");
         }
 
         private void linkLabelSaveRoboRIOParams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

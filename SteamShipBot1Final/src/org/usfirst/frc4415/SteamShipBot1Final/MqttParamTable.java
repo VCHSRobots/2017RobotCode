@@ -14,13 +14,19 @@ public class MqttParamTable implements MqttMessageArrived {
 	private Mqtt m_mqtt;
 	private Map<String, Double> m_data = new HashMap<String, Double>();;
 	private String paramDefaults = 
-			"dal=60;" +
-		    "keith=72;" +
-		    "gail=10;";
+			"ssy0=-300; ssr0=1000" +
+			"ssy1=-281; ssr1=1010" +
+			"ssy2=-200; ssr2=1050" +
+			"ssy3=-133; ssr3=1070" +
+			"ssy4=-72;  ssr4=1125" +
+			"ssy5=-30;  ssr5=1200" +	
+			"ssy6=121;  ssr6=1200" ;
+			
 	
 	public MqttParamTable(Mqtt mqtt) {
 		m_mqtt = mqtt;
 		m_mqtt.NotifyOnNewMessage(this);
+		LoadDefaults();
 	}
 	
 	private void LoadParams(String data) {
@@ -82,7 +88,8 @@ public class MqttParamTable implements MqttMessageArrived {
 			return;
 		}	
 		
-		if (m.getTopic().equals("robot/ds/rio/usetabledefalts")) {
+		if (m.getTopic().equals("robot/ds/rio/usetabledefaults")) {
+			Robot.logf("Got Default Msg");
 			LoadDefaults();
 			return;
 		}		
