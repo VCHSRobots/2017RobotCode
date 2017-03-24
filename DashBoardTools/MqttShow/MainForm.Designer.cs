@@ -86,6 +86,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelUserID = new System.Windows.Forms.Label();
             this.checkBoxPauseRobotLog = new System.Windows.Forms.CheckBox();
+            this.numericUpDownLedProgram = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageTarSys.SuspendLayout();
@@ -101,6 +103,7 @@
             this.panel3.SuspendLayout();
             this.panelClearBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrameDecimation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLedProgram)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_MainLog
@@ -487,7 +490,7 @@
             // 
             // pictureBoxTarget
             // 
-            this.pictureBoxTarget.Location = new System.Drawing.Point(17, 170);
+            this.pictureBoxTarget.Location = new System.Drawing.Point(17, 197);
             this.pictureBoxTarget.Name = "pictureBoxTarget";
             this.pictureBoxTarget.Size = new System.Drawing.Size(364, 331);
             this.pictureBoxTarget.TabIndex = 14;
@@ -732,11 +735,35 @@
             this.checkBoxPauseRobotLog.Text = "Pause Robot Log";
             this.checkBoxPauseRobotLog.UseVisualStyleBackColor = true;
             // 
+            // numericUpDownLedProgram
+            // 
+            this.numericUpDownLedProgram.Location = new System.Drawing.Point(334, 151);
+            this.numericUpDownLedProgram.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDownLedProgram.Name = "numericUpDownLedProgram";
+            this.numericUpDownLedProgram.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownLedProgram.TabIndex = 28;
+            this.numericUpDownLedProgram.ValueChanged += new System.EventHandler(this.numericUpDownLedProgram_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(331, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Led Prgm";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 662);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDownLedProgram);
             this.Controls.Add(this.checkBoxPauseRobotLog);
             this.Controls.Add(this.labelUserID);
             this.Controls.Add(this.label2);
@@ -777,6 +804,7 @@
             this.panelClearBox.ResumeLayout(false);
             this.panelClearBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrameDecimation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLedProgram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -841,6 +869,8 @@
         private System.Windows.Forms.Label labelRioParamErrors;
         private System.Windows.Forms.Label labelUserID;
         private System.Windows.Forms.CheckBox checkBoxPauseRobotLog;
+        private System.Windows.Forms.NumericUpDown numericUpDownLedProgram;
+        private System.Windows.Forms.Label label3;
     }
 }
 

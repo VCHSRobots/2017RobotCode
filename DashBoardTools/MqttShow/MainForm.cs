@@ -740,6 +740,15 @@ namespace MqttShow
 
         }
         #endregion
+
+        #region UI Events to Control LED programs
+        private void numericUpDownLedProgram_ValueChanged(object sender, EventArgs e)
+        {
+            int indx = (int) numericUpDownLedProgram.Value;
+            String s = String.Format("{0,0}", indx);
+            m_mqtt.SendMessage("robot/ds/setleds", s);
+        }
+        #endregion
     }
 
     #region TopicComparer class

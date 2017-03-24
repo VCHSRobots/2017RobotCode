@@ -62,7 +62,7 @@ public class AutoDeliverCenterGear extends Command {
     	
     	// move towards gear
     	autoProgram.add(new PIDRobotDriveMove(
-    			robotDrive, 1000, 10, 5000));
+    			robotDrive, 400, 10, 5000));
     	autoProgram.get(0).setPGain(pGain);
     	autoProgram.get(0).setDeadband(deadband);
     	autoProgram.get(0).setClipping(clipping);
@@ -72,28 +72,28 @@ public class AutoDeliverCenterGear extends Command {
     			robotDrive, 99999, 0, 1000));
     	autoProgram.get(1).setPGain(pGain);
     	autoProgram.get(1).setDeadband(deadband);
-    	autoProgram.get(1).setClipping(clipping);
+    	autoProgram.get(1).setClipping(Robot.tableReader.get("clippingmoveslow", 0.4));
     	
     	// pause 
-    	autoProgram.add(new TimeDelay(250));
+    	autoProgram.add(new TimeDelay(500));
     	
     	// back up from gear
     	autoProgram.add(new PIDRobotDriveMove(
-    			robotDrive, -200, 10, 5000));
-    	autoProgram.get(2).setPGain(pGain);
-    	autoProgram.get(2).setDeadband(deadband);
-    	autoProgram.get(2).setClipping(clipping);    	
+    			robotDrive, -100, 10, 5000));
+    	autoProgram.get(3).setPGain(pGain);
+    	autoProgram.get(3).setDeadband(deadband);
+    	autoProgram.get(3).setClipping(clipping);    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 	    if(autoStage < autoProgram.size()){
 	    	autoProgram.get(autoStage).run(encoder.get());
-	    	if(autoStage==0 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==1 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.gearRelease();
 	    	}
-	    	Robot.logf(autoProgram.get(autoStage).toString());
 	    	System.out.println(autoProgram.get(autoStage));
+	    	Robot.logf(autoProgram.get(autoStage).toString());
 	    	if(autoProgram.get(autoStage).isDone()){
 	    		autoStage++;
 	    	}

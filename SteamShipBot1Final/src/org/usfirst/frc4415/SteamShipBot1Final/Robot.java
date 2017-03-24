@@ -12,6 +12,7 @@
 package org.usfirst.frc4415.SteamShipBot1Final;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SPI;
@@ -231,6 +232,13 @@ public class Robot extends IterativeRobot {
         	if(System.currentTimeMillis() - Robot.target.getPreviousStartTime() > 
     		Robot.target.getLightTimer()) Robot.target.off();
     	}
+    	m = mqtt.getMessage("robot/ds/setleds");
+    	if (m != null) {
+    		if (m.getAge() < 1000) {
+    			long indx = m.getLong();
+    			Robot.cameraSystem.setLedProgram((int) indx); 
+    		}
+    	}
     	
     }
     
@@ -274,6 +282,11 @@ public class Robot extends IterativeRobot {
         commonDashboardReport();
         m_nCountAutoLoop = 0;
     	mqtt.logf("Mode: Auto Mode Selected");
+    	
+    	driveTrain.setArcade();
+    	driveTrain.invertMotorsArcade();
+    	gearHandler.gearGrab();
+    	gearHandler.handlerOut();
         fuelTank.retract();
         navX.reset();
     }

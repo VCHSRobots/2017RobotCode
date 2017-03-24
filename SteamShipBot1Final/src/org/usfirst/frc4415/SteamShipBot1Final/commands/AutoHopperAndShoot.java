@@ -104,6 +104,7 @@ public class AutoHopperAndShoot extends Command {
     	autoProgram.get(3).setDeadband(deadband);
     	autoProgram.get(3).setClipping(clipping);
     	
+    	// center turret
     	// pause
     	autoProgram.add(new TimeDelay(3000));
     	

@@ -45,19 +45,17 @@ public class AutoMoveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.logf("Running \"AutoMoveForward\"");
-    	System.out.println("Running AutoMoveForward");
     	pidMove.setPGain(Robot.tableReader.get("pgainmove", 0.01));
     	pidMove.setDeadband(Robot.tableReader.get("deadbandmove", 0.18));
-    	pidMove.setClipping(Robot.tableReader.get("clippingmove", 0.5));
+    	pidMove.setClipping(Robot.tableReader.get("clippingmove", 0.75));
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(!pidMove.isDone()){
     		pidMove.run(encoder.get());
-        	Robot.logf(pidMove.toString());
-        	System.out.println(pidMove);
+	    	System.out.println(pidMove);
+	    	Robot.logf(pidMove.toString());
     	}
     }
 

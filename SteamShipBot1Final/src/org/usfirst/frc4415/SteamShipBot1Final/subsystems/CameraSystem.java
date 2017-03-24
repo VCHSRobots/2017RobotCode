@@ -228,5 +228,19 @@ public class CameraSystem extends Subsystem {
     	pin4.set(true);
     }
     
+    public void setLedProgram(int mode) {
+//    	if (mode == 1) program1();
+//    	if (mode == 2) program2();
+//    	if (mode == 3) program3();
+//    	if (mode == 4) program4();
+//    	if (mode == 5) program5();
+//    	if (mode == 6) program6();
+//    	if (mode == 7) program7();
+    	
+    	pin1.set((mode & 1) != 0);
+    	pin2.set((mode & 2) != 0);
+    	pin3.set((mode & 4) != 0);
+    	pin4.set((mode & 8) != 0);
+    }
 }
 
