@@ -17,11 +17,13 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc4415.SteamShipBot1Final.GeneralController;
 import org.usfirst.frc4415.SteamShipBot1Final.PIDController;
 import org.usfirst.frc4415.SteamShipBot1Final.PIDRobotDriveMove;
 import org.usfirst.frc4415.SteamShipBot1Final.PIDRobotDriveRotate;
 import org.usfirst.frc4415.SteamShipBot1Final.PIDTurret;
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
+import org.usfirst.frc4415.SteamShipBot1Final.TimeDelay;
 import org.usfirst.frc4415.SteamShipBot1Final.subsystems.Turret;
 
 import com.kauailabs.navx.frc.AHRS;
@@ -31,7 +33,7 @@ import com.kauailabs.navx.frc.AHRS;
  */
 public class AutoSideGearAndShoot extends Command {
 	
-	ArrayList<PIDController> autoProgram;
+	ArrayList<GeneralController> autoProgram;
 	RobotDrive robotDrive = Robot.driveTrain.getRobotDrive();
 	Turret turret = Robot.turret;
 	Encoder encoder = Robot.driveTrain.getEncoder();
@@ -59,9 +61,9 @@ public class AutoSideGearAndShoot extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	autoStage = 0;
-    	double pGain = Robot.tableReader.get("pgain", .01);
-    	double deadband = Robot.tableReader.get("deadband", 0.18);
-    	double clipping = Robot.tableReader.get("clipping", 0.75);
+    	double pGain = Robot.tableReader.get("pgainmove", .01);
+    	double deadband = Robot.tableReader.get("deadbandmove", 0.18);
+    	double clipping = Robot.tableReader.get("clippingmove", 0.75);
     	double pGainRotate = Robot.tableReader.get("pgainrotate",  0.3);
     	double deadbandRotate = Robot.tableReader.get("deadbandrotate", 0.3);
     	double clippingRotate = Robot.tableReader.get("clippingrotate", 1);
@@ -94,12 +96,15 @@ public class AutoSideGearAndShoot extends Command {
     	autoProgram.get(2).setDeadband(deadband);
     	autoProgram.get(2).setClipping(clipping); 
     	
+    	// pause
+    	autoProgram.add(new TimeDelay(250));
+    	
     	// back up from gear
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, -200, 10, 5000));
-    	autoProgram.get(3).setPGain(pGain);
-    	autoProgram.get(3).setDeadband(deadband);
-    	autoProgram.get(3).setClipping(clipping); 
+    	autoProgram.get(4).setPGain(pGain);
+    	autoProgram.get(4).setDeadband(deadband);
+    	autoProgram.get(4).setClipping(clipping); 
     	
     	// rotate to boiler
     	if(Robot.autoParams.getSide().equals("blue")){
@@ -109,52 +114,51 @@ public class AutoSideGearAndShoot extends Command {
         		autoProgram.add(new PIDRobotDriveRotate(
             			robotDrive, -27, true, 10, 5000));
         	}
-    	autoProgram.get(4).setPGain(pGainRotate);
-    	autoProgram.get(4).setDeadband(deadbandRotate);
-    	autoProgram.get(4).setClipping(clippingRotate); 
+    	autoProgram.get(5).setPGain(pGainRotate);
+    	autoProgram.get(5).setDeadband(deadbandRotate);
+    	autoProgram.get(5).setClipping(clippingRotate); 
     	
     	// move to boiler
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, -1000, 10, 5000));
-    	autoProgram.get(5).setPGain(pGain);
-    	autoProgram.get(5).setDeadband(deadband);
-    	autoProgram.get(5).setClipping(clipping); 
+    	autoProgram.get(6).setPGain(pGain);
+    	autoProgram.get(6).setDeadband(deadband);
+    	autoProgram.get(6).setClipping(clipping); 
     	
     	// switch to mecanum, aim drive train at target
     	autoProgram.add(new PIDRobotDriveRotate(
     			robotDrive, 0, false, .2, 3000));
-    	autoProgram.get(6).setPGain(pGainRotate);
-    	autoProgram.get(6).setDeadband(deadbandRotate);
-    	autoProgram.get(6).setClipping(clippingRotate);
+    	autoProgram.get(7).setPGain(pGainRotate);
+    	autoProgram.get(7).setDeadband(deadbandRotate);
+    	autoProgram.get(7).setClipping(clippingRotate);
     	
     	// aim turret at target
     	autoProgram.add(new PIDTurret(
     			turret, 0, .02, 3000));
-    	autoProgram.get(7).setPGain(3);
-    	autoProgram.get(7).setDeadband(1/8);
-    	autoProgram.get(7).setClipping(1);
+    	autoProgram.get(8).setPGain(3);
+    	autoProgram.get(8).setDeadband(1/8);
+    	autoProgram.get(8).setClipping(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 	    if(autoStage < autoProgram.size()){
 	    	double feedback = 0;
-	    	if(autoStage==0 || autoStage==2 || autoStage==3 || autoStage==5) feedback = encoder.get();
-	    	else if (autoStage==1 || autoStage==4) feedback = navX.getAngle();
-	    	else if (autoStage==6 || autoStage==7) feedback = 0; // GET TARGET DATA HERE
+	    	if(autoStage==0 || autoStage==2 || autoStage==4 || autoStage==6) feedback = encoder.get();
+	    	else if (autoStage==1 || autoStage==5) feedback = navX.getAngle();
+	    	else if (autoStage==7 || autoStage==8) feedback = Robot.targetReportMonitor.report().x1000() * -1.0;
 	    	else feedback = 0;
 	    	autoProgram.get(autoStage).run(feedback);
 	    	if(autoStage==2 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.gearRelease();
-	    		//WILL THIS DELAY WORK?
-	    		Timer.delay(.5);
 	    	}
-	    	if(autoStage==3 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==4 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.handlerIn();
 	    		Robot.shooter.toggleShooter();
 	    	}	    	
-	    	if(autoStage==5 && autoProgram.get(autoStage).isDone()){
+	    	if(autoStage==6 && autoProgram.get(autoStage).isDone()){
 	    		Robot.driveTrain.setMecanum();
+	    		Robot.driveTrain.invertMotorsArcade();
 	    	}
 	    	
 	    	if(autoProgram.get(autoStage).isDone()){

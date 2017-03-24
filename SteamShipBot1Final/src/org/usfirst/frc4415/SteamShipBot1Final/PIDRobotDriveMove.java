@@ -51,4 +51,8 @@ public class PIDRobotDriveMove extends PIDController{
 						feedback),
 				0);
 	}
+	
+	public String toString(){
+		return "Move    || " + super.toString();
+	}
 }

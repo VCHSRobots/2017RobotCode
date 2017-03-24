@@ -10,6 +10,7 @@
 
 
 package org.usfirst.frc4415.SteamShipBot1Final.commands;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
 
@@ -37,6 +38,28 @@ public class CameraSystemCam4 extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.target.on();
+    	try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	Robot.target.off();
+    	try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	Robot.target.on();
+    	try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	Robot.target.off();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,7 +68,7 @@ public class CameraSystemCam4 extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

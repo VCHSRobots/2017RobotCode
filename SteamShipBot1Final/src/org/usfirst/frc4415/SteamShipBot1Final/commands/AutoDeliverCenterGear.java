@@ -17,9 +17,11 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc4415.SteamShipBot1Final.GeneralController;
 import org.usfirst.frc4415.SteamShipBot1Final.PIDController;
 import org.usfirst.frc4415.SteamShipBot1Final.PIDRobotDriveMove;
 import org.usfirst.frc4415.SteamShipBot1Final.Robot;
+import org.usfirst.frc4415.SteamShipBot1Final.TimeDelay;
 
 import com.kauailabs.navx.frc.AHRS;
 
@@ -29,7 +31,7 @@ import com.kauailabs.navx.frc.AHRS;
 public class AutoDeliverCenterGear extends Command {
 	
 	RobotDrive robotDrive = Robot.driveTrain.getRobotDrive();
-	ArrayList<PIDController> autoProgram;
+	ArrayList<GeneralController> autoProgram;
 	Encoder encoder = Robot.driveTrain.getEncoder();
 	int autoStage = 0;
 
@@ -53,20 +55,27 @@ public class AutoDeliverCenterGear extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	autoStage = 0;
-    	double pGain = Robot.tableReader.get("pgain", .01);
-    	double deadband = Robot.tableReader.get("deadband", 0.18);
-    	double clipping = Robot.tableReader.get("clipping", 0.75);
+    	double pGain = Robot.tableReader.get("pgainmove", .01);
+    	double deadband = Robot.tableReader.get("deadbandmove", 0.18);
+    	double clipping = Robot.tableReader.get("clippingmove", 0.75);
     	autoProgram = new ArrayList<>();
+    	
+    	// move towards gear
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, 1000, 10, 5000));
     	autoProgram.get(0).setPGain(pGain);
     	autoProgram.get(0).setDeadband(deadband);
     	autoProgram.get(0).setClipping(clipping);
+    	
+    	// pause 
+    	autoProgram.add(new TimeDelay(250));
+    	
+    	// back up from gear
     	autoProgram.add(new PIDRobotDriveMove(
     			robotDrive, -200, 10, 5000));
-    	autoProgram.get(1).setPGain(pGain);
-    	autoProgram.get(1).setDeadband(deadband);
-    	autoProgram.get(1).setClipping(clipping);    	
+    	autoProgram.get(2).setPGain(pGain);
+    	autoProgram.get(2).setDeadband(deadband);
+    	autoProgram.get(2).setClipping(clipping);    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -75,8 +84,6 @@ public class AutoDeliverCenterGear extends Command {
 	    	autoProgram.get(autoStage).run(encoder.get());
 	    	if(autoStage==0 && autoProgram.get(autoStage).isDone()){
 	    		Robot.gearHandler.gearRelease();
-	    		//WILL THIS DELAY WORK?
-	    		Timer.delay(.5);
 	    	}
 	    	if(autoProgram.get(autoStage).isDone()){
 	    		autoStage++;

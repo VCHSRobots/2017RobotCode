@@ -122,10 +122,10 @@ public class Robot extends IterativeRobot {
         //the camera name (ex "cam0") can be found through the roborio web interface
         server1.startAutomaticCapture("cam1", 0);
         
-        server2 = CameraServer.getInstance();
+        //server2 = CameraServer.getInstance();
         //server.setQuality(50);
         //the camera name (ex "cam0") can be found through the roborio web interface
-        server2.startAutomaticCapture("cam2", 1);
+        //server2.startAutomaticCapture("cam2", 1);
         
         tableReader = new TableReader(hostName, port);
         mouseReader = new MouseReader(hostName, port, navX);
@@ -156,9 +156,9 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("MouseComm. Reports",  mouseReader.getNumReports());
           
 		SmartDashboard.putNumber("Invert Drive?", driveTrain.getInvertDrive());
-		//SmartDashboard.putNumber("X Value", oi.getDriverJoystick().getRawAxis(0));
-		//SmartDashboard.putNumber("Y Value", oi.getDriverJoystick().getRawAxis(1));
-		//SmartDashboard.putNumber("Z Value", oi.getDriverJoystick().getRawAxis(2));
+		SmartDashboard.putNumber("X Value", oi.getDriverJoystick().getRawAxis(0));
+		SmartDashboard.putNumber("Y Value", oi.getDriverJoystick().getRawAxis(1));
+		SmartDashboard.putNumber("Z Value", oi.getDriverJoystick().getRawAxis(4));
 		//SmartDashboard.putNumber("Turret Value", oi.getShooterJoystick().getRawAxis(4));
 		SmartDashboard.putNumber("Gyro On ? ", driveTrain.getGyro0());
 		SmartDashboard.putBoolean("Mecanum", driveTrain.getChangeDrive());
@@ -220,12 +220,16 @@ public class Robot extends IterativeRobot {
     public void doCoreFunctions(){
     	MqttMsg m = mqtt.getMessage("robot/ds/tstcamlight");
     	if (m != null) {
-    		if (m.getLong() > 0) {
-    			target.on();
+    		if (m.getAge() < 1000) {
+	    		if (m.getLong() > 0) {
+	    			target.on();
+	    		}
+	    		else {
+	    			target.off();
+	    		}
     		}
-    		else {
-    			target.off();
-    		}
+        	if(System.currentTimeMillis() - Robot.target.getPreviousStartTime() > 
+    		Robot.target.getLightTimer()) Robot.target.off();
     	}
     	
     }
@@ -257,6 +261,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         doCoreFunctions();
         autoParams.loadData();  // Do this only ONCE during auto.  This is to avoid changing params during actual auto.
+        
         String autoProgram = autoParams.getProgram();
     	if(autoProgram.equals("MoveForward")) autonomousCommand = new AutoMoveForward();
     	else if(autoProgram.equals("CenterGear")) autonomousCommand = new AutoDeliverCenterGear();
@@ -294,7 +299,7 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         
-        //driveTrain.setArcade();
+        driveTrain.setArcade();
     	driveTrain.invertDrive = -1;
     	driveTrain.gyroEnable = 0;			// Gyro is off
     	gearHandler.handlerIn();
@@ -304,9 +309,7 @@ public class Robot extends IterativeRobot {
     	// These next two calls should be combined and cleaned up.
     	shooter.shooterToggle = false;
     	shooter.disarm();
-    	
     	fuelTank.retract();
-    	
     	autoParams.loadData();  // Do this a lots during non-auto modes.
     	commonDashboardReport();
     	m_nCountTeleOpLoop = 0;

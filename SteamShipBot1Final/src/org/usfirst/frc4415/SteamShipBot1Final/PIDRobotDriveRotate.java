@@ -52,4 +52,8 @@ public class PIDRobotDriveRotate extends PIDController{
 				super.calculateActuatorValue(
 						feedback));
 	}
+	
+	public String toString(){
+		return "Rotate  || " + super.toString();
+	}
 }

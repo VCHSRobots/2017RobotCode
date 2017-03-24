@@ -29,7 +29,7 @@
 
 package org.usfirst.frc4415.SteamShipBot1Final;
 
-public class PIDController {
+public class PIDController extends GeneralController{
 	
 	/*
 	 * Tune these values to make controller work.

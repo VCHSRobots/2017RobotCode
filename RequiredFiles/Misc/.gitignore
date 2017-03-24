@@ -1,0 +1,144 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="CamLed" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="192" y="357"/>
+	</widget>
+	<widget field="Gear Grip" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="336"/>
+	</widget>
+	<widget field="Gear Handler" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="315"/>
+	</widget>
+	<widget field="Right Limit" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="294"/>
+	</widget>
+	<widget field="Middle Limit" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="273"/>
+	</widget>
+	<widget field="Left Limit" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="252"/>
+	</widget>
+	<widget field="Climber Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="314" y="118"/>
+	</widget>
+	<widget field="TR Mode" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="715" y="94"/>
+	</widget>
+	<widget field="Mecanum" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="210"/>
+	</widget>
+	<widget field="Drive Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="189"/>
+	</widget>
+	<widget field="AutoSideGearAndShoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="314" y="84"/>
+	</widget>
+	<widget field="AutoPrm" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="168"/>
+	</widget>
+	<widget field="Mqtt Errors" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="147"/>
+	</widget>
+	<widget field="MqTT Dups" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="126"/>
+	</widget>
+	<widget field="TR nMsg" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="755" y="39"/>
+	</widget>
+	<widget field="IR Sensor" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="84"/>
+	</widget>
+	<widget field="TableComm TimeChecks" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="322" y="63"/>
+	</widget>
+	<widget field="MouseComm  Restarts" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="309" y="42"/>
+	</widget>
+	<widget field="Output Voltage" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="63"/>
+	</widget>
+	<widget field="Gyro On ? " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="42"/>
+	</widget>
+	<widget field="MouseComm. Reports" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="309" y="21"/>
+	</widget>
+	<widget field="TableComm Updates" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="309" y="0"/>
+	</widget>
+	<widget field="AutoSide" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="21"/>
+	</widget>
+	<widget field="Gyro Angle: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="0"/>
+	</widget>
+	<widget field="TargetComm Reports" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="441"/>
+	</widget>
+	<widget field="TR Y" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="734" y="140"/>
+	</widget>
+	<widget field="TR X" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="734" y="117"/>
+	</widget>
+	<widget field="MqTT Received" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="378"/>
+	</widget>
+	<widget field="TargetComm Restarts" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="357"/>
+	</widget>
+	<widget field="AutoDefault" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="336"/>
+	</widget>
+	<widget field="Pin 2" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="315"/>
+	</widget>
+	<widget field="Pin 1" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="294"/>
+	</widget>
+	<widget field="Pin 4" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="273"/>
+	</widget>
+	<widget field="Pin 3" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="252"/>
+	</widget>
+	<widget field="Shooter Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="231"/>
+	</widget>
+	<widget field="TR nErrs" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="716" y="167"/>
+	</widget>
+	<widget field="Camera X Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="189"/>
+	</widget>
+	<widget field="TargetLgjt" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="708" y="193"/>
+	</widget>
+	<widget field="Invert Drive?" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="147"/>
+	</widget>
+	<widget field="RPM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="126"/>
+	</widget>
+	<widget field="TableComm Restarts" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="105"/>
+	</widget>
+	<widget field="MqTT Sent" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="84"/>
+	</widget>
+	<widget field="TR nInValid" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="742" y="16"/>
+	</widget>
+	<widget field="TR nUpdates" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="734" y="64"/>
+	</widget>
+	<widget field="Camera Y Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="21"/>
+	</widget>
+	<widget field="MqTT Save Msg" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
